@@ -118,7 +118,7 @@ body {
     transition: all 200ms ease-in-out;
 }
 
-.login-content {
+.login-page {
     width: 652px;
     height: 440px;
     padding: 35px 0;
@@ -195,9 +195,9 @@ body {
 .login-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 27px;
+    width: 340px;
 }
 
 .btn-font {
@@ -239,14 +239,15 @@ body {
 .guest-login-btn:hover {
     color: #29ABE2;
     border-color: #29ABE2;
+    transition: all 200ms ease-in-out;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.forgot-pw {
+.forgot-pw-page {
     position: relative;
     width: 826px;
     height: 440px;
-    padding: 44px 60px;
+    padding-top: 44px;
 }
 
 .back-img {
@@ -271,11 +272,17 @@ body {
     background-color: #2A3647;
     color: white;
     margin-top: 6px;
-    margin-bottom: 22px;
     height: 51px;
     width: 264px;
     cursor: pointer;
+    border: none;
     border-radius: 8px;
+}
+
+.send-email-btn:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 200ms ease-in-out;
 }
 
 .sign-up-page {
@@ -293,6 +300,8 @@ body {
     gap: 10px;
     background-color: #2A3647;
     color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .reset-pw-page {
@@ -308,4 +317,12 @@ body {
     height: 51px;
     width: 264px;
     border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.continue-btn:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 200ms ease-in-out;
 }
