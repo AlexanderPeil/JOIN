@@ -72,6 +72,16 @@ body {
     }
 }
 
+.standard-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    gap: 35px;
+}
+
 .sign-up {
     display: flex;
     flex-direction: row;
@@ -82,13 +92,14 @@ body {
     gap: 35px;
 }
 
-.sign-up-span {
+.span-font {
     font-weight: 400;
     font-size: 21px;
     line-height: 25.2px;
+    text-align: center;
 }
 
-.sign-up-btn {
+.sign-up-btn-login {
     cursor: pointer;
     background-color: #2A3647;
     color: white;
@@ -104,29 +115,21 @@ body {
 .sign-up-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 125ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
 
-.log-in-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
+.login-content {
     width: 652px;
-    height: 440pxpx;
-    background-color: white;
+    height: 440px;
     padding: 35px 0;
-    border-radius: 30px;
-    box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
 }
 
-.log-in-span {
+.heading-span {
     font-size: 61px;
     font-weight: 700;
     line-height: 73px;
     letter-spacing: 0em;
     text-align: center;
-
 }
 
 ::placeholder {
@@ -143,7 +146,6 @@ body {
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     padding: 13px 21px;
-    margin-bottom: 49px;
     box-sizing: border-box;
     width: 422px;
     height: 51px;
@@ -167,30 +169,30 @@ body {
     background-position: calc(100% - 15px);
 }
 
-.log-in-bottom {
+.login-bottom {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.log-in-bottom-font {
+.login-bottom-font {
     font-weight: 400;
     font-size: 16px;
     line-height: 19.2px;
 }
 
-.log-in-bottom span {
+.login-bottom span {
     margin-left: 20px;
     margin-right: 35px;
 }
 
-.log-in-bottom a {
+.login-bottom a {
     text-decoration: none;
     color: #29ABE2;
     margin-left: 25px;
 }
 
-.log-in-buttons {
+.login-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -198,17 +200,20 @@ body {
     margin-top: 27px;
 }
 
-.log-in-buttons button {
+.btn-font {
     font-size: 21px;
     font-weight: 700;
     line-height: 25.2px;
+}
+
+.login-buttons button {
     border-radius: 8px;
     padding: 4px 0;
     gap: 10px;
     cursor: pointer;
 }
 
-.log-in-btn {
+.login-btn {
     background-color: #2A3647;
     border: none;
     color: white;
@@ -217,13 +222,13 @@ body {
     width: 130px;
 }
 
-.log-in-btn:hover {
+.login-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 125ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
 
-.guest-log-in-btn {
+.guest-login-btn {
     background-color: white;
     color: #2A3647;
     border: 1px solid black;
@@ -231,29 +236,24 @@ body {
     width: 150px;
 }
 
-.guest-log-in-btn:hover {
+.guest-login-btn:hover {
     color: #29ABE2;
     border-color: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.new-password {
+.forgot-pw {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px 50px;
-    width: 630px;
+    width: 826px;
+    height: 440px;
+    padding: 44px 60px;
 }
 
 .back-img {
     cursor: pointer;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 30px;
+    left: 50px;
 }
 
 .new-password form {
@@ -262,26 +262,50 @@ body {
     align-items: center;
 }
 
+.forgot-pw-span {
+    width: 656px;
+    height: 50px;
+}
+
 .send-email-btn {
     background-color: #2A3647;
     color: white;
-    margin-top: 28px;
+    margin-top: 6px;
     margin-bottom: 22px;
-    width: 220px;
+    height: 51px;
+    width: 264px;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
-.sign-up-reset-pw {
+.sign-up-page {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px 80px;
+    padding: 35px 0px;
+    height: 440px;
+    width: 652px;
 }
 
+.sign-up-btn {
+    height: 51px;
+    width: 145px;
+    border-radius: 8px;
+    padding: 4px 0;
+    gap: 10px;
+    background-color: #2A3647;
+    color: white;
+}
+
+.reset-pw-page {
+    position: relative;
+    width: 826px;
+    height: 440px;
+    padding: 44px 60px;
+}
 
 .continue-btn {
-    width: 200px;
+    background-color: #2A3647;
+    color: white;
+    height: 51px;
+    width: 264px;
+    border-radius: 8px;
 }

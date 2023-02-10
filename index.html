@@ -17,27 +17,27 @@
 
     <!-- Start-Page! -->
     <div class="start-bg">
-        <div class="content">
+        <div class="content d-none">
             <div class="sign-up">
-                <span class="sign-up-span">Not a Join user?</span>
+                <span class="span-font">Not a Join user?</span>
                 <button class="sign-up-btn">Sign up</button>
             </div>
-            <div class="log-in-content">
-                <span class="log-in-span">Log in</span>
+            <div class="login-content standard-box">
+                <span class="heading-span">Log in</span>
                 <img src="assets/img/underline.svg" alt="">
                 <form>
                     <input class="input-email-pw input-email-img" type="email" name="email" placeholder="Email" id=""
                         required>
-                        <input class="input-email-pw input-password-img" type="password" name="password" placeholder="Password" id=""
-                            required>
-                    <div class="log-in-bottom">
+                    <input class="input-email-pw input-password-img" type="password" name="password"
+                        placeholder="Password" id="" required>
+                    <div class="login-bottom">
                         <input type="checkbox">
-                        <span class="log-in-bottom-font" for="remember-me">Remember me</span>
-                        <a class="log-in-bottom-font" href="#">Forgot my password</a>
+                        <span class="login-bottom-font" for="remember-me">Remember me</span>
+                        <a class="login-bottom-font" href="#">Forgot my password</a>
                     </div>
-                    <div class="log-in-buttons">
-                        <button class="log-in-btn buttons">Log in</button>
-                        <button class="guest-log-in-btn buttons">Guest Log in</button>
+                    <div class="login-buttons">
+                        <button class="login-btn btn-font">Log in</button>
+                        <button class="guest-login-btn btn-font">Guest Log in</button>
                     </div>
                 </form>
             </div>
@@ -45,59 +45,56 @@
     </div>
 
 
-    <!-- Reset-password page! -->
-    <div class="content d-none">
-        <form class="new-password">
-            <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
-            <h1 class="h1">I forgot my password</h1>
-            <img src="assets/img/underline.svg" alt="underline">
-            <span class="span">
-                Don't worry! We will send you an email with the instructions to
-                reset your password.
-            </span>
-            <div class="input-email-pw">
-                <input class="input-email-img" type="email" name="email" placeholder="Email" id="" required>
-            </div>
-            <button class="buttons send-email-btn">Send me the email</button>
-        </form>
+    <!-- I forgot my password! -->
+    <div class="start-bg">
+        <div class="content d-none">
+            <form class="forgot-pw standard-box">
+                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
+                <span class="heading-span">I forgot my password</span>
+                <img src="assets/img/underline.svg" alt="underline">
+                <span class="forgot-pw-span span-font">
+                    Don't worry! We will send you an email with the instructions to
+                    reset your password.
+                </span>
+                <input class="input-email-img input-email-pw" type="email" name="email" placeholder="Email" id=""
+                    required>
+                <button class="send-email-btn btn-font">Send me the email</button>
+            </form>
+        </div>
     </div>
 
 
     <!-- Sign-up page! -->
-    <div class="content d-none">
-        <form class="sign-up-reset-pw">
-            <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
-            <h1 class="h1">Sign up</h1>
-            <img src="assets/img/underline.svg" alt="underline">
-            <div class="input-email-pw">
-                <input class="input-name-img" type="text" name="text" placeholder="Name" id="" required>
-            </div>
-            <div class="input-email-pw">
-                <input class="input-email-img" type="email" name="email" placeholder="Email" id="" required>
-            </div>
-            <div class="input-email-pw margin-top">
-                <input class="input-password-img" type="password" name="password" placeholder="Password" id="" required>
-            </div>
-            <button class="buttons log-in-btn sign-up-btn">Sign up</button>
-        </form>
+    <div class="start-bg">
+        <div class="content d-none">
+            <form class="sign-up-page standard-box">
+                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
+                <span class="heading-span">Sign up</span>
+                <img src="assets/img/underline.svg" alt="underline">
+                <input class="input-name-img input-email-pw" type="text" name="text" placeholder="Name" id="" required>
+                <input class="input-email-img input-email-pw" type="email" name="email" placeholder="Email" id=""
+                    required>
+                <input class="input-password-img input-email-pw" type="password" name="password" placeholder="Password"
+                    id="" required>
+                <button class="sign-up-btn btn-font">Sign up</button>
+            </form>
+        </div>
     </div>
 
 
     <!-- Reset your password page! -->
-    <div class="content d-none">
-        <form class="sign-up-reset-pw">
-            <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
-            <h1 class="h1">Reset your password</h1>
-            <img src="assets/img/underline.svg" alt="underline">
-            <span class="span">Change your account password</span>
-            <div class="input-email-pw">
-                <input type="password" name="password" placeholder="New password" id="" required>
-            </div>
-            <div class="input-email-pw">
-                <input type="password" name="password" placeholder="Confirm password" id="" required>
-            </div>
-            <button class="buttons continue-btn send-email-btn">Continue</button>
-        </form>
+    <div class="start-bg">
+        <div class="content">
+            <form class="standard-box reset-pw-page">
+                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
+                <span class="heading-span">Reset your password</span>
+                <img src="assets/img/underline.svg" alt="underline">
+                <span class="span-font">Change your account password</span>
+                    <input class="input-email-pw" type="password" name="password" placeholder="New password" id="" required>
+                    <input class="input-email-pw" type="password" name="password" placeholder="Confirm password" id="" required>
+                <button class="continue-btn btn-font">Continue</button>
+            </form>
+        </div>
     </div>
 
 </body>
