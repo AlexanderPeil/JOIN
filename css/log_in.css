@@ -53,6 +53,7 @@ body {
 @keyframes start-logo-animation {
     0% {
         width: 274px;
+        height: 334px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -60,6 +61,7 @@ body {
 
     20% {
         width: 274px;
+        height: 334px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
