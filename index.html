@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
     <link rel="stylesheet" href="css/log_in.css">
     <script src="js/script.js"></script>
     <title>JOIN</title>
@@ -12,34 +13,34 @@
 
 <body>
 
-    <img class="join-logo" src="assets/img/join_logo.svg" alt="joing-logo">
+    <img class="join-logo logo-animation" src="assets/img/join_logo.svg" alt="joing-logo">
 
     <!-- Start-Page! -->
-    <div class="content">
-        <div class="sign-up">
-            <span class="span">Not a Join user?</span>
-            <button class="buttons">Sign up</button>
-        </div>
-        <div class="log-in-content">
-            <h1 class="h1">Log in</h1>
-            <img src="assets/img/underline.svg" alt="">
-            <form>
-                <div class="input-email-pw">
-                    <input class="input-email-img" type="email" name="email" placeholder="Email" id="" required>
-                </div>
-                <div class="input-email-pw margin-top">
-                    <input class="input-password-img" type="password" name="password" placeholder="Password" id="" required>
-                </div>
-                <div class="log-in-bottom">
-                    <input type="checkbox">
-                    <span for="remember-me">Remember me</span>
-                    <a href="#">Forgot my password</a>
-                </div>
-                <div class="log-in-buttons">
-                    <button class="log-in-btn buttons">Log in</button>
-                    <button class="guest-log-in-btn buttons">Guest Log in</button>
-                </div>
-            </form>
+    <div class="start-bg">
+        <div class="content">
+            <div class="sign-up">
+                <span class="sign-up-span">Not a Join user?</span>
+                <button class="sign-up-btn">Sign up</button>
+            </div>
+            <div class="log-in-content">
+                <span class="log-in-span">Log in</span>
+                <img src="assets/img/underline.svg" alt="">
+                <form>
+                    <input class="input-email-pw input-email-img" type="email" name="email" placeholder="Email" id=""
+                        required>
+                        <input class="input-email-pw input-password-img" type="password" name="password" placeholder="Password" id=""
+                            required>
+                    <div class="log-in-bottom">
+                        <input type="checkbox">
+                        <span class="log-in-bottom-font" for="remember-me">Remember me</span>
+                        <a class="log-in-bottom-font" href="#">Forgot my password</a>
+                    </div>
+                    <div class="log-in-buttons">
+                        <button class="log-in-btn buttons">Log in</button>
+                        <button class="guest-log-in-btn buttons">Guest Log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
