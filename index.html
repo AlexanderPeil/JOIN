@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
-    <link rel="stylesheet" href="css/log_in.css">
+    <link rel="stylesheet" href="css/login.css">
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
     <title>JOIN</title>
 </head>
 
@@ -17,12 +18,13 @@
 
     <!-- Start-Page! -->
     <div class="start-bg">
-        <div class="content">
+        <div class="content" id="login-page">
             <div class="sign-up">
                 <span class="span-font">Not a Join user?</span>
-                <button class="sign-up-btn">Sign up</button>
+                <button class="sign-up-btn" onclick="showSignUp()">Sign up</button>
             </div>
-            <form class="login-page standard-box">
+
+            <form class="login-page standard-box" onclick="showLogin()">
                 <span class="heading-span">Log in</span>
                 <img src="assets/img/underline.svg" alt="">
                     <input class="input-email-pw input-email-img" type="email" name="email" placeholder="Email" id=""
@@ -32,7 +34,7 @@
                     <div class="login-bottom">
                         <input type="checkbox">
                         <span class="login-bottom-font" for="remember-me">Remember me</span>
-                        <a class="login-bottom-font" href="#">Forgot my password</a>
+                        <a class="login-bottom-font" href="#" onclick="showForgotPw()">Forgot my password</a>
                     </div>
                     <div class="login-buttons">
                         <button class="login-btn btn-font">Log in</button>
@@ -45,9 +47,9 @@
 
     <!-- I forgot my password! -->
     <div class="start-bg">
-        <div class="content d-none">
+        <div class="content d-none" id="forgot-pw-page">
             <form class="forgot-pw-page standard-box">
-                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
+                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img" onclick="backToLogin()">
                 <span class="heading-span">I forgot my password</span>
                 <img src="assets/img/underline.svg" alt="underline">
                 <span class="forgot-pw-span span-font">
@@ -64,9 +66,9 @@
 
     <!-- Sign-up page! -->
     <div class="start-bg">
-        <div class="content d-none">
+        <div class="content d-none" id="sign-up-page">
             <form class="sign-up-page standard-box">
-                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
+                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img" onclick="backToLogin()">
                 <span class="heading-span">Sign up</span>
                 <img src="assets/img/underline.svg" alt="underline">
                 <input class="input-name-img input-email-pw" type="text" name="text" placeholder="Name" id="" required>
@@ -82,9 +84,9 @@
 
     <!-- Reset your password page! -->
     <div class="start-bg">
-        <div class="content d-none">
+        <div class="content d-none" id="reset-pw-page">
             <form class="standard-box reset-pw-page">
-                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img">
+                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img" onclick="backToLogin()">
                 <span class="heading-span">Reset your password</span>
                 <img src="assets/img/underline.svg" alt="underline">
                 <span class="span-font">Change your account password</span>

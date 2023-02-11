@@ -259,12 +259,6 @@ body {
     left: 50px;
 }
 
-.new-password form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .forgot-pw-span {
     width: 656px;
     height: 50px;
