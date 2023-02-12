@@ -8,7 +8,7 @@ function addUser() {
 
 
 function pushUser(name, email, password) {
-    users.push(name, email, password);
+    users.push({name: name, email:email, password: password});
     backend.setItem('users', JSON.stringify(users));
 
     successfullyRegistration();
