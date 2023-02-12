@@ -3,8 +3,21 @@ function addUser() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
 
-    pushUser(name, email, password);
+    checkUser(name, email, password); 
+    // pushUser(name, email, password);    
 }   
+
+
+function checkUser(name, email, password) {
+    let msgBox = document.getElementById('msg-box');
+    let user = users.find(u => u.email == email || u.password == password);
+    
+    if (user) {
+        msgBox.innerHTML = 'Dieser User existiert bereits!';
+    } else {
+        pushUser(name, email, password);
+    }
+}
 
 
 function pushUser(name, email, password) {
@@ -22,4 +35,4 @@ function successfullyRegistration() {
     setTimeout(function() {
         window.location.href = 'index.html';
     }, 3000);
-}
+} 

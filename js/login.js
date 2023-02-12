@@ -1,20 +1,14 @@
-async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-}
-
-
 function login() {
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
 
-    let user = users.find(u => u.email == email.value && u.password == password.value);
+    let user = users.find(u => u.email == email && u.password == password);
+    let welcomeText = document.getElementById('welcome');
 
-    console.log(user);
     if (user) {
-        console.log('User found!');
+        welcomeText.innerHTML = `Hallo ${user['email']}`;
     } else {
-        console.log('User not found!');
+        welcomeText.innerHTML = 'Falsche E-Mail oder Passwort!';
     }
 }
 
