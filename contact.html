@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="css/header_nav.css">
+    <script src="js/include.js"></script>
+    <script src="js/mini_backend.js"></script>
+    <script src="js/contact.js"></script>
+    <title>JOIN - Contact</title>
+</head>
+
+<body onload="includeHTML(); init()">
+<!-- Header + Nav Templates> -->
+    <div w3-include-html="assets/templates/header.html"></div>
+    <div w3-include-html="assets/templates/nav.html"></div>
+<!-- Main Content -->
+    <main class="contacts-main-container">
+    <!-- Content - left side -->
+        <section class="contact-list-container">
+            <div>
+                <div id="firstLetter"></div>
+                <div id="contactList"></div>
+            </div>
+        </section>
+    <!-- Content - right side -->
+        <section class="contact-selection-container">
+            <div class="contact_header_container">
+                <h1 class="contact_header">Contacts</h1>
+                <div class="contact_header_seperator"></div>
+                <h2 class="contact_header_slogan">Better with a team</h2>
+            </div>
+            <div id="contactSelection"></div>
+            <button onclick="addNewContact()" title="Add Contact" class="contact-add-btn">
+                <p>New Contact</p>
+                <img src="./assets/img/add_contact.svg" alt="#">
+            </button>
+        </section>
+    </main>
+</body>
+</html>
