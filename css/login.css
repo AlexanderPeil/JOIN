@@ -117,7 +117,7 @@ body {
 .sign-up-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 200ms ease-in-out;
+    transition: all 125ms ease-in-out;
 }
 
 .login-page {
@@ -227,7 +227,7 @@ body {
 .login-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 200ms ease-in-out;
+    transition: all 125ms ease-in-out;
 }
 
 .guest-login-btn {
@@ -241,7 +241,7 @@ body {
 .guest-login-btn:hover {
     color: #29ABE2;
     border-color: #29ABE2;
-    transition: all 200ms ease-in-out;
+    transition: all 125ms ease-in-out;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -278,7 +278,7 @@ body {
 .send-email-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 200ms ease-in-out;
+    transition: all 125ms ease-in-out;
 }
 
 .sign-up-page {
@@ -320,5 +320,10 @@ body {
 .continue-btn:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all 200ms ease-in-out;
+    transition: all 125ms ease-in-out;
 }
+
+/* #msgBox {
+    width: 600px;
+    height: auto;
+} */
