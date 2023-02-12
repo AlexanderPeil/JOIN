@@ -11,6 +11,7 @@ body {
     margin-left: 236px;
 }
 
+/* Content - left side */
 .contact-list-container {
     display: flex;
     justify-content: center;
@@ -56,7 +57,6 @@ body {
 .contact-list-box:hover {
     background-color: rgb(250, 245, 245);
     border-radius: 20px;
-    /* Animation einfügen */
 }
 
 .contact-details {
@@ -70,6 +70,7 @@ body {
 }
 
 .contact-email {
+    font-size: 18px;
     color: #007CEE;
 }
 
@@ -95,6 +96,7 @@ body {
     font-size: 32px;
 }
 
+/* Content - right side */
 .contact-selection-container {
     height: 100vh;
     padding-left: 50px;
@@ -140,16 +142,16 @@ body {
 }
 
 /* Title and subtitle */
-.contact_header_container {
+.contact-header-container {
     display: flex;
     align-items: center;
 }
 
-.contact_header {
+.contact-header {
     font-size: 52px;
 }
 
-.contact_header_seperator {
+.contact-header-seperator {
     width: 3px;
     height: 56px;
     border-radius: 32px;
@@ -157,15 +159,13 @@ body {
     background-color: #29ABE2; /* Farbe anpassen */
 }
 
-.contact_header_slogan {
+.contact-header-slogan {
     font-size: 28px;
     font-weight: 500;
     padding-left: 32px;
 }
 
-
-/* Contact Button */ 
-
+/* Contact button */ 
 .contact-add-btn {
     position: absolute;
     right: 32px;
@@ -194,5 +194,4 @@ body {
 .contact-add-btn img {
     width: 25px;
     height: 22px;
-
 }
