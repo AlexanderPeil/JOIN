@@ -45,7 +45,7 @@ function renderContacts(contactList, filter){
 
 function generateContactDetail(firstLetter, firstLetterFirstName, lastName, firstName, email, i) {
     return `
-        <div onclick="showContactDetails(${i})" class="contact-list-box" title="Show Contact Details">
+        <div onclick="showContactDetails(${i})" class="contact-list-box" title="show contact details">
             <div class="contact-letters small-letters">
                 ${firstLetter} ${firstLetterFirstName}
             </div>
@@ -64,7 +64,7 @@ function renderLetters() {
     letterbox.innerHTML = '';
     for (let i = 0; i < letters.length; i++) {
         const letter = letters[i];
-        letterbox.innerHTML += `<div class="letter-box" title="Nach Buchstaben filtern" onclick="setFilter('${letter}')" class="letter">${letter}</div>`;
+        letterbox.innerHTML += `<div class="letter-box" title="filter letters" onclick="setFilter('${letter}')" class="letter">${letter}</div>`;
     }
 }
 
@@ -107,4 +107,16 @@ function showContactDetailsHTML(selectedContact) {
     <h4>Phone</h4>
     <div class="contact-name">${selectedContact['phone']}</div>
     `
+}
+
+
+// Contact form
+function openAddContactForm() {
+    const formContainer = document.getElementById("formContainer");
+    formContainer.style.display = "block";
+}
+
+function closeForm() {
+    const formContainer = document.getElementById("formContainer");
+    formContainer.style.display = "none";
 }

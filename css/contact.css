@@ -9,6 +9,7 @@ body {
 .contacts-main-container {
     display: flex;
     margin-left: 236px;
+    margin-top: 1px;
 }
 
 /* Content - left side */
@@ -102,6 +103,17 @@ body {
     padding-left: 50px;
 }
 
+.icon-top-right {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+/*
+.icon-top-right:hover {
+}
+*/
+
 .contact-selection-box {
     display: flex;
 }
@@ -167,23 +179,21 @@ body {
 
 /* Contact button */ 
 .contact-add-btn {
-    position: absolute;
-    right: 32px;
-    bottom: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     background-color: #2A3647;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px 5px 10px; /* top right bottom left */
     gap: 8px;
-    border-radius: 5px;
     border: none;
+    border-radius: 8px;
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 225ms ease-in-out;
+    width: 170px;
 }
 
 .contact-add-btn:hover {
@@ -191,7 +201,149 @@ body {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
 }
 
-.contact-add-btn img {
+.contact-btn-icon {
     width: 25px;
     height: 22px;
+}
+
+.contact-create-icon {
+    width: 15px;
+}
+
+.contact-btn-position {
+    position: absolute;
+    right: 32px;
+    bottom: 64px;
+}
+
+.contact-cancel-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    gap: 8px;
+    border: 1px solid black;
+    border-radius: 8px;
+    color: #2A3647;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+    width: 140px;
+}
+
+.contact-cancel-btn:hover:hover {
+    /* color: #29ABE2; */
+    border-color: #29ABE2;    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 125ms ease-in-out;
+}
+
+/* Input Form Overlay */
+.contact-form-overlay {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    z-index: 100;
+    display: flex;
+}
+
+.contact-form-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #2A3647;
+    color: white;
+    box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    padding: 40px;
+}
+
+.contact-form-right {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.contact-form-user-icon {
+    height: 90px;
+    width: 90px;
+    padding: 0px 0px 0px 30px;
+}
+
+.contact-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 40px;
+}
+
+.contact-form-logo {
+    height: 60px;
+    width: 60px;
+    padding: 0px 0px 30px 0px;
+}
+
+.contact-form-heading {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.contact-form-slogan {
+    font-size: 16px;
+}
+
+.contact-form-underline {
+    width: 70px;
+}
+
+::placeholder {
+    color: #D1D1D1;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25.2px;
+}
+
+.contact-input-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    padding: 13px 21px;
+    box-sizing: border-box;
+    width: 422px;
+    height: 51px;
+}
+
+.input-email-img {
+    background-image: url(../assets/img/contact-email-icon.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px);
+}
+
+.input-phone-img {
+    background-image: url(../assets/img/contact-phone-icon.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px);
+}
+
+.input-name-img {
+    background-image: url(../assets/img/contact-name-icon.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px);
+}
+
+.contact-form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
 }
