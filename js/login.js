@@ -1,26 +1,29 @@
+// Get value from email and password input and compare this data with the registered users 
 function login() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
 
     let user = users.find(u => u.email == email && u.password == password);
-    let welcomeText = document.getElementById('welcome');
+    let invalidLogin = document.getElementById('invalid-login');
+    let hideUnderline = document.getElementById('hide-underline');
 
-    if (user) {
-        welcomeText.innerHTML = `Hallo ${user['email']}`;
-    } else {
-        welcomeText.innerHTML = 'Falsche E-Mail oder Passwort!';
-    }
+    checkUser(user, invalidLogin, hideUnderline);
 }
 
 
-/**
- * This function is used to remove the login page and to show the sign-up page
- * 
- */
-// function showSignUp() {
-//     document.getElementById('sign-up-page').classList.remove('d-none');
-//     document.getElementById('login-page').classList.add('d-none');
-// }
+// Login with right email and password continues on the page summary. Invalid login-data triggers text
+function checkUser(user, invalidLogin, hideUnderline) {
+    if (user) {
+        window.location.href = 'summary.html';
+    } else {
+        hideUnderline.classList.add('d-none');
+        invalidLogin.classList.remove('d-none');
+        setTimeout(function() {
+            invalidLogin.classList.add('d-none');
+            hideUnderline.classList.remove('d-none');
+        }, 3000);
+    }
+}
 
 
 /**
@@ -51,4 +54,31 @@ function showForgotPw() {
 function backToForgotPw() {
     document.getElementById('forgot-pw-page').classList.remove('d-none');
     document.getElementById('reset-pw-page').classList.add('d-none');
+}
+
+
+// Send Email if you forget the password
+function emailSent() {
+    document.getElementById('forgot-pw-span').classList.add('d-none');
+    document.getElementById('email-sent').classList.remove('d-none');
+
+    setTimeout(function() {
+        window.location.href = 'index.html';
+    }, 3000);
+}
+
+
+function guestLogin() {
+    let invalidLogin = document.getElementById('invalid-login');
+    invalidLogin.innerHTML = '';
+    let hideUnderline = document.getElementById('hide-underline');
+    hideUnderline = document.getElementById('hide-underline');
+    let guestLoginText = document.getElementById('guest-login-text');
+    guestLoginText.classList.remove('d-none');
+    
+    // guest.push({'email': 'guest@join.de'});
+    // backend.setItem('guest', JSON.stringify(guest));
+    setTimeout(function() {
+        window.location.href = 'summary.html';
+    }, 2900);
 }

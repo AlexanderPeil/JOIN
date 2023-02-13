@@ -27,20 +27,21 @@
             </div>
             <form class="login-page standard-box" onsubmit="login(); return false;">
                 <span class="heading-span">Log in</span>
-                <div id="welcome"></div>
-                <img src="assets/img/underline.svg" alt="">
+                <span class="msg-box d-none" id="invalid-login">Invalid email or password!</span>
+                <span class="msg-box d-none" id="guest-login-text">Logged-In as guest!</span>
+                <img src="assets/img/underline.svg" alt="underline" id="hide-underline">
                 <input class="input-email-pw input-email-img" type="email" name="email" placeholder="Email"
                  id="email" required>
                 <input class="input-email-pw input-password-img" type="password" name="password" placeholder="Password"
                     id="password" required>
                 <div class="login-bottom">
                     <input type="checkbox">
-                    <span class="login-bottom-font" for="remember-me">Remember me</span>
+                    <span class="login-bottom-font" id="remember-me">Remember me</span>
                     <a class="login-bottom-font" href="#" onclick="showForgotPw()">Forgot my password</a>
                 </div>
                 <div class="login-buttons">
                     <button class="login-btn btn-font">Log in</button>
-                    <button class="guest-login-btn btn-font">Guest Log in</button>
+                    <button class="guest-login-btn btn-font" onclick="guestLogin()">Guest Log in</button>
                 </div>
             </form>
         </div>
@@ -50,14 +51,15 @@
     <!-- I forgot my password! -->
     <div class="start-bg">
         <div class="content d-none" id="forgot-pw-page">
-            <form class="forgot-pw-page standard-box">
+            <form class="forgot-pw-page standard-box" onsubmit="emailSent(); return false;">
                 <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img" onclick="backToLogin()">
                 <span class="heading-span">I forgot my password</span>
                 <img src="assets/img/underline.svg" alt="underline">
-                <span class="forgot-pw-span span-font">
+                <span class="span-font" id="forgot-pw-span">
                     Don't worry! We will send you an email with the instructions to
                     reset your password.
                 </span>
+                <span class="msg-box d-none" id="email-sent">Email successfully sent!</span>
                 <input class="input-email-img input-email-pw" type="email" name="email" placeholder="Email" id=""
                     required>
                 <button class="send-email-btn btn-font">Send me the email</button>

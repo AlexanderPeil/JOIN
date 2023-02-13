@@ -259,7 +259,7 @@ body {
     left: 50px;
 }
 
-.forgot-pw-span {
+#forgot-pw-span {
     width: 656px;
     height: 50px;
 }
@@ -323,7 +323,17 @@ body {
     transition: all 125ms ease-in-out;
 }
 
-/* #msgBox {
-    width: 600px;
-    height: auto;
-} */
+.msg-box {
+    /* width: 300px; */
+    /* padding: 5px; */
+    /* border-radius: 30px; */
+    /* background-color: #F5F5F5; */
+    text-align: center;
+    font-size: 700;
+    font-size: 22px;
+    color: #29ABE2;
+}
+
+.opacity {
+    opacity: 0;
+}
