@@ -9,17 +9,24 @@ body {
 .contacts-main-container {
     display: flex;
     margin-left: 236px;
+<<<<<<< HEAD
     margin-top: 1px;
+=======
+    margin-top: 89px;
+>>>>>>> refs/remotes/origin/main
 }
 
+
 /* Content - left side */
+
 .contact-list-container {
     display: flex;
     justify-content: center;
     width: 360px;
     height: 100vh;
     background-color: white;
-    overflow: auto; /* overflow-y: scroll; */
+    overflow: auto;
+    /* overflow-y: scroll; */
     scroll-behavior: smooth;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
@@ -47,7 +54,8 @@ body {
 
 .contact-list-box {
     margin: 20px;
-    padding: 10px 15px 10px 15px; /* top right bottom left */
+    padding: 10px 15px 10px 15px;
+    /* top right bottom left */
     gap: 20px;
     display: flex;
     align-items: center;
@@ -97,7 +105,9 @@ body {
     font-size: 32px;
 }
 
+
 /* Content - right side */
+
 .contact-selection-container {
     height: 100vh;
     padding-left: 50px;
@@ -153,7 +163,9 @@ body {
     height: 25px;
 }
 
+
 /* Title and subtitle */
+
 .contact-header-container {
     display: flex;
     align-items: center;
@@ -168,7 +180,8 @@ body {
     height: 56px;
     border-radius: 32px;
     margin-left: 32px;
-    background-color: #29ABE2; /* Farbe anpassen */
+    background-color: #29ABE2;
+    /* Farbe anpassen */
 }
 
 .contact-header-slogan {
@@ -177,7 +190,9 @@ body {
     padding-left: 32px;
 }
 
-/* Contact button */ 
+
+/* Contact button */
+
 .contact-add-btn {
     display: flex;
     justify-content: center;

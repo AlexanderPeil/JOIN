@@ -1,3 +1,8 @@
+:root {
+    --nav-width: 232px;
+    --header-height: 89px;
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -14,9 +19,15 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 36px 20px 348px;
+    padding: 0px 36px 0px 348px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    height: 89px;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
 }
 
 .header-nav {
@@ -51,6 +62,7 @@ nav {
     border-radius: 0px;
     font-size: 16px;
     line-height: 120%;
+    z-index: 2;
 }
 
 .nav-bar {
