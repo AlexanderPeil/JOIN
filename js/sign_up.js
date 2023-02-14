@@ -11,9 +11,16 @@ function addUser() {
 // Check if user is already signed in. If yes it triggers a message, else execute function pushUser 
 function checkUser(name, email, password) {
     let msgBox = document.getElementById('msg-box');
+    let hideUnderline = document.getElementById('hide-underline');
     let user = users.find(u => u.email == email || u.name == name);
     
     if (user) {
+        hideUnderline.classList.add('d-none');
+        msgBox.classList.remove('d-none');
+        setTimeout(function() {
+            hideUnderline.classList.remove('d-none');
+            msgBox.classList.add('d-none');
+        }, 3000);
         msgBox.innerHTML = 'Dieser User existiert bereits!';
     } else {
         pushUser(name, email, password);
@@ -22,7 +29,7 @@ function checkUser(name, email, password) {
 
 
 // Push user into JSON Array and save his datas into backend
-function pushUser(name, email, password) {
+ function pushUser(name, email, password) {
     users.push({'name': name, 'email': email, 'password' : password});
     backend.setItem('users', JSON.stringify(users));
 

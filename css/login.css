@@ -300,6 +300,8 @@ body {
     cursor: pointer;
 }
 
+.sign-up-btn:hover
+
 .reset-pw-page {
     position: relative;
     width: 826px;

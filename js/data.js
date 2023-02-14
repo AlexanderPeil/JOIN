@@ -1,4 +1,8 @@
-let users = [];
+let users = [{
+    'name': 'Paul',
+    'emaill': 'paul@test.de',
+    'password': 'test1'
+}];
 
 let guest = [];
 
