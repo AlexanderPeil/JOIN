@@ -9,7 +9,7 @@ body {
 .contacts-main-container {
     display: flex;
     margin-left: 236px;
-    margin-top: 89px;
+    /* margin-top: 89px; */
 }
 
 
@@ -165,6 +165,7 @@ body {
 .contact-header-container {
     display: flex;
     align-items: center;
+    margin-top: 89px;
 }
 
 .contact-header {
