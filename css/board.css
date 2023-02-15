@@ -130,6 +130,10 @@ body {
 
 }
 
+.card:hover {
+    rotate: 5deg;
+}
+
 .card-head {
     width: fit-content;
     padding: 5px 30px;
@@ -188,4 +192,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-right: 10px;
+}
+
+.dropArea {
+    width: 250px;
+    height: 200px;
+    border-radius: 25px;
+    
+}
+
+.borders {
+    border: dotted 6px black;
 }
