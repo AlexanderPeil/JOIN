@@ -45,6 +45,7 @@ h1 {
     font-size: 27px;
     font-weight: 400;
     color: #2A3647;
+    white-space: nowrap;
 }
 
 .sub-container {

@@ -2,7 +2,6 @@ function init() {
     includeHTML();
     showDlDate();
     showGreet();
-    hoverMe();
 }
 
 function showDlDate() {
