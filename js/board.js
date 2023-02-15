@@ -78,7 +78,7 @@ function loadNewBoard() {
         let catgoryLow = task['category'].toLowerCase();
 
         document.getElementById(task['split']).innerHTML += `
-        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})">
+        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})" ondragend="endDragging(${i})">
                         <div class="card-content">
                             <div class="card-head" style="background-color: var(--${catgoryLow});">${(task['category'])}</div>
                             <div class="card-body">
@@ -120,7 +120,7 @@ function loadNewBoard() {
 
 
 function addDropArea() {
-    let addDrop = `<div class="dropArea" id="dropArea" ondrop="moveTo('to_do')" ondragover="allowDrop(event)" ondragleave="diableDrop()"></div>`;
+    let addDrop = `<div class="dropArea" id="dropArea" ondrop="moveTo('to_do')" ondragover="allowDrop(event)" ondragleave="diableDrop(event)"></div>`;
 
     document.getElementById('to_do').innerHTML += `<div class="dropArea" id="dropArea_to_do" ondrop="moveTo('to_do')" ondragover="allowDrop(event, 'to_do')" ondragleave="diableDrop('to_do')"></div>`;
     document.getElementById('in_progress').innerHTML += `<div class="dropArea" id="dropArea_in_progress" ondrop="moveTo('in_progress')" ondragover="allowDrop(event, 'in_progress')" ondragleave="diableDrop('in_progress')"></div>`;
@@ -131,6 +131,8 @@ function addDropArea() {
 
 function startDragging(id) {
     currentDraggedElement = id;
+    document.getElementById('card'+id).classList.add('d-none');
+    document.getElementById('card'+id).style.transform = "rotate(10deg)";
 }
 
 function allowDrop(ev, test) {
@@ -146,4 +148,8 @@ function diableDrop(ev) {
 function moveTo(category) {
     tasks[currentDraggedElement]['split'] = category;
     loadBoard()
+}
+
+function endDragging(id) {
+    document.getElementById('card'+id).style.transform = "rotate(0deg)";
 }
