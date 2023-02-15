@@ -69,16 +69,16 @@ function emailSent() {
 
 
 function guestLogin() {
-    let invalidLogin = document.getElementById('invalid-login');
-    invalidLogin.innerHTML = '';
-    let hideUnderline = document.getElementById('hide-underline');
-    hideUnderline = document.getElementById('hide-underline');
-    let guestLoginText = document.getElementById('guest-login-text');
-    guestLoginText.classList.remove('d-none');
+    window.location.href = 'summaty.html';
+    // let loginForm = document.getElementById('login-form');
+    // let guestLogin = document.getElementById('guest-login-text');
+    // let hideUnderline = document.getElementById('hide-underline');
+
+    // hideUnderline.classList.add('d-none');
+    // loginForm.setAttribute('novalidate', 'true');
+    // guestLogin.classList.remove('d-none');
     
-    // guest.push({'email': 'guest@join.de'});
-    // backend.setItem('guest', JSON.stringify(guest));
-    setTimeout(function() {
-        window.location.href = 'summary.html';
-    }, 2900);
+    // setTimeout(function() {
+    //     window.location.href = 'summary.html';
+    // }, 2900);
 }
