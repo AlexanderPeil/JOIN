@@ -69,16 +69,5 @@ function emailSent() {
 
 
 function guestLogin() {
-    window.location.href = 'summaty.html';
-    // let loginForm = document.getElementById('login-form');
-    // let guestLogin = document.getElementById('guest-login-text');
-    // let hideUnderline = document.getElementById('hide-underline');
-
-    // hideUnderline.classList.add('d-none');
-    // loginForm.setAttribute('novalidate', 'true');
-    // guestLogin.classList.remove('d-none');
-    
-    // setTimeout(function() {
-    //     window.location.href = 'summary.html';
-    // }, 2900);
+    window.location.href = 'summary.html';
 }
