@@ -22,7 +22,7 @@ header {
     padding: 0px 36px 0px 348px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    position: absolute;
+    position: fixed;
     height: 89px;
     left: 0px;
     top: 0px;
