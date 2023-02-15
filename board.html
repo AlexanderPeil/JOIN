@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header_nav.css">
+    <link rel="stylesheet" href="css/board.css">
+    <script src="js/include.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/mini_backend.js"></script>
+    <script src="js/board.js"></script>
+    <script>setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');</script>
+    <title>Board-Join</title>
+</head>
+
+<body onload="init()">
+    <div w3-include-html="assets/templates/header.html"></div>
+    <div w3-include-html="assets/templates/nav.html"></div>
+    <div class="board-section">
+        <div class="board-header">
+            <h2>Board</h2>
+            <div>
+                <div class="search-box"><input type="text" placeholder="Find Task">
+                    <div class="search-icon"><img src="assets/img/Vector.png" alt=""></div>
+                </div>
+                <button>Add task +</button>
+            </div>
+
+        </div>
+
+        <div class="board">
+            <div class="splits">
+                <div class="splits-head">
+                    <h3>To Do</h3>
+                    <div class="add_plus">+</div>
+                </div>
+                <div class="drop-ground" id="to_do">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-head" style="background-color: var(--design);">Design</div>
+                            <div class="card-body">
+                                <h4>Website redesign</h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="progress_bar">
+                                <div style="width: 70%; background-color: lightgrey; border-radius: 3px;">
+                                    <div style="background: blue; height:12px;width:50%; border-radius: 3px;"></div>
+                                </div>
+                                <div>1/2 Done</div>
+                            </div>
+                            <div class="priotity_users">
+                                <div class="users">
+                                    <p style="background-color: var(--SM);">SM</p>
+                                    <p style="background-color: var(--MV);">MV</p>
+                                    <p style="background-color: var(--EF);">EF</p>
+                                </div>
+                                <div class="priotity"><img src="assets/img/low_priotity.png" alt=""></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="splits">
+                <div class="splits-head">
+                    <h3>In Progress</h3>
+                    <div class="add_plus">+</div>
+                </div>
+                <div class="drop-ground" id="in_progress"></div>
+            </div>
+            <div class="splits">
+                <div class="splits-head">
+                    <h3>Awaiting Feedback</h3>
+                    <div class="add_plus">+</div>
+                </div>
+                <div class="drop-ground" id="awaiting_feedback"></div>
+            </div>
+            <div class="splits">
+                <div class="splits-head">
+                    <h3>Done</h3>
+                    <div class="add_plus">+</div>
+                </div>
+                <div class="drop-ground" id="done"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
