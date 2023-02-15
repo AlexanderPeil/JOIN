@@ -105,7 +105,7 @@ body {
 /* Content - right side */
 
 .contact-selection-container {
-    height: 100vh;
+    /* height: 100vh; */
     padding-left: 50px;
 }
 
@@ -165,6 +165,7 @@ body {
 .contact-header-container {
     display: flex;
     align-items: center;
+    margin-top: 89px;
 }
 
 .contact-header {
