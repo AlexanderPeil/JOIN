@@ -83,6 +83,10 @@ nav {
     white-space: nowrap;
 }
 
+.nav-main:hover {
+    background-color: #091931;
+}
+
 .nav-content {
     display: flex;
     align-items: center;
@@ -100,10 +104,14 @@ nav {
     text-decoration: none;
     display: flex;
     align-items: center;
-    padding: 8px 53px;
-    height: 46px;
+    padding: 8px 51px;
+    height: 31px;
     margin-top: auto;
     white-space: nowrap;
+}
+
+.legal-notice:hover {
+    background-color: #091931;
 }
 
 
