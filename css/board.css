@@ -1,6 +1,15 @@
 body {
     background-color: #E6E6E6;
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
 }
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
 
 :root {
 
@@ -24,7 +33,6 @@ body {
 .board-header {
     margin-left: 70px;
     margin-right: 70px;
-    margin-top: 82px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -198,9 +206,13 @@ body {
     width: 250px;
     height: 200px;
     border-radius: 25px;
-    
+
 }
 
 .borders {
-    border: dotted 6px black;
+    border: dotted 6px rgba(0, 0, 0, 0.5);
+}
+
+.d-none {
+    opacity: 1;
 }
