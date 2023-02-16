@@ -39,7 +39,7 @@ function renderContacts(contactList, filter){
             contactList.innerHTML += generateContactDetail(firstLetter, firstLetterFirstName, lastName, firstName, email, i, contact);
         }
     }
-    renderLetters();
+    // renderLetters();
 }
 
 
@@ -57,8 +57,7 @@ function generateContactDetail(firstLetter, firstLetterFirstName, lastName, firs
     `;
 }
 
-
-/* Kurzverzeichnis wird vorerst nicht benötigt
+/*
 // Show (first) letters to filter content
 function renderLetters() {
     let letterbox = document.getElementById('firstLetter');
@@ -75,6 +74,7 @@ function renderLetters() {
 function setFilter(letter) {
     render(letter);
 }
+
 
 /* Reload-Funktion wird vorerst nicht benötigt
 // Onclick-Function (see header)

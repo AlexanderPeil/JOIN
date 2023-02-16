@@ -33,7 +33,7 @@
         "firstName": "Foxtrot",
         "email": "kilofox@outlook.com",
         "phone": "+17 814 55243",
-        "color": "yellow"
+        "color": "orange"
     }, {
         "id": 5,
         "lastName": "Kilo",
@@ -54,7 +54,7 @@
         "firstName": "Oscar",
         "email": "sierraoo@outlook.com",
         "phone": "+87 845 85243",
-        "color": "yellow"
+        "color": "orange"
     }, {
         "id": 8,
         "lastName": "Sierra",
