@@ -67,7 +67,7 @@ function emailSent() {
     }, 3000);
 }
 
-
+// Login for guest. So you don't need to sign in or to log in with an account
 function guestLogin() {
     window.location.href = 'summary.html';
 }

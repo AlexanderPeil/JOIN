@@ -1,5 +1,8 @@
 <header>
     <div>Kanban Project Management Tool</div>
     <div class="header-nav"><a href="help.html"><img class="header-help-icon" src="assets/img/Help-Icon.png"></a>
-        <img class="header-user-img" src="assets/img/Pic-User.png"></div>
+        <img class="header-user-img" src="assets/img/Pic-User.png" onclick="showLogout();dontClose(event)"></div>
+        <div class="logout-menu d-none" id="popup-menu" onclick="dontClose(event)">
+            <a href="index.html">Log out</a>
+        </div>
 </header>
