@@ -36,10 +36,13 @@ header {
 }
 
 .header-user-img {
-    padding-left: 20px;
+    margin-left: 20px;
     width: 49px;
 }
 
+.header-nav img {
+    cursor: pointer;
+}
 
 /* header end */
 
