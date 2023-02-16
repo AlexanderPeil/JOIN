@@ -20,12 +20,14 @@ function showLogout() {
 }
 
 
+// Close the logout popup menu by clicking outside
 function closeLogoutMenu() {
     let logOut = document.getElementById('popup-menu');
     logOut.classList.add('d-none');
 }
 
 
+// Prevent close the logout menu by clicking on it
 function dontClose(event) {
     event.stopPropagation();
 }
