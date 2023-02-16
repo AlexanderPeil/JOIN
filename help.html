@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="css/header_nav.css">
+    <link rel="stylesheet" href="css/help.css">
+    <script src="js/data.js"></script>
+    <script src="js/include.js"></script>
+    <script src="js/mini_backend.js"></script>
+    <script src="js/summary.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="init()"; onclick="closeLogoutMenu()">
+    <!-- Header + Nav Templates> -->
+    <div w3-include-html="assets/templates/header.html"></div>
+    <div w3-include-html="assets/templates/nav.html"></div>
+    <!-- Main Content -->
+    <main class="contacts-main-container">
+        <!-- Content - left side -->
+        <section class="contact-list-container">
+            <div>
+                <div id="firstLetter"></div>
+                <div id="contactList"></div>
+            </div>
+        </section>
+
+        <a class="arrow-left"  href="summary.html"><img src="assets/img/arrow_left.svg" alt="arrow-back"></a>
+        <div class="main-content">
+            <h1>Help</h1>
+            <h2 class="second-headline">What is Join?</h2>
+            <div class="help-main-span"> 
+                <span class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quos
+                    aliquid tenetur. Adipisci sapiente cupiditate earum dolorum facilis sit, debitis error autem
+                    excepturi deserunt, harum ducimus quidem? Consequuntur, sequi eaque?</span>
+            </div>
+            <h2 class="third-headline">How to use it</h2>
+            <div>
+                <div class="explain-container">
+                    <p class="number">1.</p>
+                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum repellat neque voluptate quidem
+                        consequatur porro sint, asperiores accusantium blanditiis sequi id ipsum, quo obcaecati,
+                        similique aliquid saepe est ut autem!</span>
+                </div>
+                <div class="explain-container">
+                    <p class="number">2.</p>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vero sequi dolorum, numquam
+                        minima ullam, odit dolore, blanditiis voluptatibus rerum et dignissimos quis possimus dolores
+                        maxime tempora laborum optio dicta!</span>
+                </div>
+                <div class="explain-container">
+                    <p class="number">3.</p>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero molestias incidunt dolores dolor?
+                        Dolorum dolores debitis odit similique culpa officia quas et cum, nihil adipisci sit cumque
+                        harum ad commodi.</span>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

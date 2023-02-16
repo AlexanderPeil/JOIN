@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
     <link rel="stylesheet" href="css/header_nav.css">
+    <script src="js/data.js"></script>
     <script src="js/include.js"></script>
     <script src="js/mini_backend.js"></script>
     <script src="js/contact.js"></script>
     <title>JOIN - Contact</title>
 </head>
 
-<body onload="includeHTML(); init()">
+<body onload="includeHTML();init()"; onclick="closeLogoutMenu()">
 <!-- Header + Nav Templates> -->
     <div w3-include-html="assets/templates/header.html"></div>
     <div w3-include-html="assets/templates/nav.html"></div>
@@ -22,7 +23,7 @@
     <!-- Content - left side -->
         <section class="contact-list-container">
             <div>
-                <!-- <div id="firstLetter"></div> -->
+                <div id="firstLetter"></div>
                 <div id="contactList"></div>
             </div>
         </section>

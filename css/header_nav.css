@@ -36,10 +36,13 @@ header {
 }
 
 .header-user-img {
-    padding-left: 20px;
+    margin-left: 20px;
     width: 49px;
 }
 
+.header-nav img {
+    cursor: pointer;
+}
 
 /* header end */
 
@@ -112,6 +115,33 @@ nav {
 
 .legal-notice:hover {
     background-color: #091931;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.logout-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 90px;
+    right: 32px;
+    width: 130px;
+    height: 36px;
+    padding: 10px;
+    background: #2A3647;
+    border-radius: 20px 0px 20px 20px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-menu a {
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    cursor: pointer;
 }
 
 
