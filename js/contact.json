@@ -19,14 +19,14 @@
         "firstName": "Whiskey",
         "email": "braw@gmail.com",
         "phone": "+14 525 77324",
-        "color": "blue"
+        "color": "green"
     }, {
         "id": 3,
         "lastName": "Charlie",
         "firstName": "Victor",
         "email": "chvictor@gmail.com",
         "phone": "+17 871 12358",
-        "color": "aqua"
+        "color": "purple"
     }, {
         "id": 4,
         "lastName": "Kilo",
@@ -82,6 +82,6 @@
         "firstName": "Juliett",
         "email": "jzulu@outlook.com",
         "phone": "+17 875 58744",
-        "color": "yellow"
+        "color": "purple"
     }
 ]
