@@ -1,7 +1,5 @@
-// Added users
 let users = [];
 let currentUser;
-let currentUserEmail = localStorage.getItem('userLoggedInEmail');
 
 
 // Function is added to body with onload. It fetches the user data from the backend server
@@ -15,6 +13,7 @@ async function laodUsers() {
 function showLogout() {
     let logOut = document.getElementById('popup-menu');
     logOut.classList.remove('d-none');
+    localStorage.removeItem('current-user');
 }
 
 
@@ -31,6 +30,7 @@ function dontClose(event) {
 }
 
 
-function getCurrentUser() {
-    currentUser = users.find(user => user.email == currentUserEmail);
+function setGuestUserToLocal(currentUser) {
+    let guestUser = JSON.stringify(currentUser);
+    localStorage.setItem('current-user', guestUser);
 }

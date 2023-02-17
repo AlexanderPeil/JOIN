@@ -12,9 +12,9 @@ function addUser() {
 function checkUser(name, email, password) {
     let msgBox = document.getElementById('msg-box');
     let hideUnderline = document.getElementById('hide-underline');
-    let user = users.find(u => u.email == email || u.name == name);
+    currentUser = users.find(u => u.email == email || u.name == name);
     
-    if (user) {
+    if (currentUser) {
         hideUnderline.classList.add('d-none');
         msgBox.classList.remove('d-none');
         setTimeout(function() {

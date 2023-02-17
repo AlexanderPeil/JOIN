@@ -40,8 +40,8 @@
                     <a class="login-bottom-font" href="#" onclick="showForgotPw()">Forgot my password</a>
                 </div>
                 <div class="login-buttons">
-                    <button class="login-btn btn-font">Log in</button>
-                    <button class="guest-login-btn btn-font" onclick="guestLogin()">Guest Log in</button>
+                    <button class="login-btn btn-font" onclick="event.stopPropagation()">Log in</button>
+                    <button class="guest-login-btn btn-font" onclick="event.stopPropagation();guestLogin()">Guest Log in</button>
                 </div>
             </form>
         </div>

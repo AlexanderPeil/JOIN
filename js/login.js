@@ -3,17 +3,17 @@ function login() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
 
-    let user = users.find(u => u.email == email && u.password == password);
+    currentUser = users.find(u => u.email == email && u.password == password);
     let invalidLogin = document.getElementById('invalid-login');
     let hideUnderline = document.getElementById('hide-underline');
 
-    checkUser(user, invalidLogin, hideUnderline);
+    checkUser(invalidLogin, hideUnderline);
 }
 
 
 // Login with right email and password continues on the page summary. Invalid login-data triggers text
-function checkUser(user, invalidLogin, hideUnderline) {
-    if (user) {
+function checkUser(invalidLogin, hideUnderline) {
+    if (currentUser) {
         window.location.href = 'summary.html';
     } else {
         hideUnderline.classList.add('d-none');
@@ -69,5 +69,9 @@ function emailSent() {
 
 // Login for guest. So you don't need to sign in or to log in with an account
 function guestLogin() {
+    currentUser = {
+        'name': 'Guest'
+    };
+    setGuestUserToLocal(currentUser);
     window.location.href = 'summary.html';
 }
