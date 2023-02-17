@@ -1,9 +1,7 @@
 // Added users
-let users = [{
-    'name': 'Paul',
-    'emaill': 'paul@test.de',
-    'password': 'test1'
-}];
+let users = [];
+let currentUser;
+let currentUserEmail = localStorage.getItem('userLoggedInEmail');
 
 
 // Function is added to body with onload. It fetches the user data from the backend server
@@ -30,4 +28,9 @@ function closeLogoutMenu() {
 // Prevent close the logout menu by clicking on it
 function dontClose(event) {
     event.stopPropagation();
+}
+
+
+function getCurrentUser() {
+    currentUser = users.find(user => user.email == currentUserEmail);
 }

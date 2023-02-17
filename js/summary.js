@@ -1,7 +1,9 @@
 function init() {
     includeHTML();
     showDlDate();
+    laodUsers();
     showGreet();
+    getCurrentUser();
 }
 
 function showDlDate() {
@@ -23,4 +25,12 @@ function showGreet() {
     } else {
         greetElem.innerHTML = "Good evening,";
     }
+
+    showCurrentUserName();
+}
+
+
+function showCurrentUserName() {
+    let username = document.getElementById('username');
+    username.innerHTML = currentUser.name;
 }
