@@ -11,7 +11,7 @@
     <script src="js/login.js"></script>
     <script src="js/mini_backend.js"></script>
     <script>setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');</script>
-    <title>Join-Login</title>
+    <title>Join</title>
 </head>
 
 <body onload="laodUsers()">
@@ -37,52 +37,12 @@
                 <div class="login-bottom">
                     <input type="checkbox">
                     <span class="login-bottom-font" id="remember-me">Remember me</span>
-                    <a class="login-bottom-font" href="#" onclick="showForgotPw()">Forgot my password</a>
+                    <a class="login-bottom-font" href="forgot_password.html" onclick="event.stopPropagation()">Forgot my password</a>
                 </div>
                 <div class="login-buttons">
                     <button class="login-btn btn-font" onclick="event.stopPropagation()">Log in</button>
                     <button class="guest-login-btn btn-font" onclick="event.stopPropagation();guestLogin()">Guest Log in</button>
                 </div>
-            </form>
-        </div>
-    </div>
-
-
-    <!-- I forgot my password! -->
-    <div class="start-bg">
-        <div class="content d-none" id="forgot-pw-page">
-            <form class="forgot-pw-page standard-box" onsubmit="emailSent(); return false;">
-                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img" onclick="backToLogin()">
-                <span class="heading-span">I forgot my password</span>
-                <img src="assets/img/underline.svg" alt="underline">
-                <span class="span-font" id="forgot-pw-span">
-                    Don't worry! We will send you an email with the instructions to
-                    reset your password.
-                </span>
-                <span class="msg-box d-none" id="email-sent">Email successfully sent!</span>
-                <input class="input-email-img input-email-pw" type="email" name="email" placeholder="Email" id=""
-                    required>
-                <button class="send-email-btn btn-font">Send me the email</button>
-            </form>
-        </div>
-    </div>
-
-
-
-
-
-    <!-- Reset your password page! -->
-    <div class="start-bg">
-        <div class="content d-none" id="reset-pw-page">
-            <form class="standard-box reset-pw-page">
-                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img" onclick="backToForgotPw()">
-                <span class="heading-span">Reset your password</span>
-                <img src="assets/img/underline.svg" alt="underline">
-                <span class="span-font">Change your account password</span>
-                <input class="input-email-pw" type="password" name="password" placeholder="New password" id="" required>
-                <input class="input-email-pw" type="password" name="password" placeholder="Confirm password" id=""
-                    required>
-                <button class="continue-btn btn-font">Continue</button>
             </form>
         </div>
     </div>

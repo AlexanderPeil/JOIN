@@ -27,45 +27,17 @@ function checkUser(invalidLogin, hideUnderline) {
 }
 
 
-/**
- * This function is used to go back to the login page from forgot password
- * 
- */
-function backToLogin() {
-    document.getElementById('login-page').classList.remove('d-none');
-    document.getElementById('forgot-pw-page').classList.add('d-none');
-    // document.getElementById('sign-up-page').classList.add('d-none');
-}
-
-
-/**
- * 
- * This function is used to remove the login page and to show the forgot passsword page
- */
-function showForgotPw() {
-    document.getElementById('forgot-pw-page').classList.remove('d-none');
-    document.getElementById('login-page').classList.add('d-none');
-}
-
-
-/**
- * 
- * This function is used to go back from the reset password page to the forgot password game
- */
-function backToForgotPw() {
-    document.getElementById('forgot-pw-page').classList.remove('d-none');
-    document.getElementById('reset-pw-page').classList.add('d-none');
-}
-
-
 // Send Email if you forget the password
 function emailSent() {
-    document.getElementById('forgot-pw-span').classList.add('d-none');
-    document.getElementById('email-sent').classList.remove('d-none');
+    let email = document.getElementById('email-forgot-password').value;
+    currentUser = users.find(u => u.email == email);
 
-    setTimeout(function() {
-        window.location.href = 'index.html';
-    }, 3000);
+    if (currentUser) {
+        currentUserLocalStorage(email);
+        window.location.href = 'reset_password.html';
+    } else {
+        showFailMessage();
+    }
 }
 
 // Login for guest. So you don't need to sign in or to log in with an account
@@ -73,4 +45,30 @@ function guestLogin() {
     currentUser = {'name' : 'Guest'};
     setGuestUserToLocal(currentUser);
     window.location.href = 'summary.html';
+}
+
+
+function currentUserLocalStorage(email) {
+    let currentUserEmail = JSON.stringify(email);
+    localStorage.setItem('current-user', currentUserEmail);
+}
+
+
+function showFailMessage() {
+    let failMessage = document.getElementById('fail-message');
+    let hideSpan = document.getElementById('forgot-pw-span');
+
+    hideSpan.classList.add('d-none');
+    failMessage.classList.remove('d-none'); 
+    setTimeout(function() {
+        hideSpan.classList.remove('d-none');
+        failMessage.classList.add('d-none'); 
+    }, 3000);
+} 
+
+
+function setNewPassword() {
+    let currentUserEmail =  localStorage.getItem('current-user');
+    currentUserEmail = users.find(u => u.password == password);
+    // currentUserEmail.remove['password']
 }
