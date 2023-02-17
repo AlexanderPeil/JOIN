@@ -14,6 +14,7 @@ function login() {
 // Login with right email and password continues on the page summary. Invalid login-data triggers text
 function checkUser(invalidLogin, hideUnderline) {
     if (currentUser) {
+        currentUserLocal(currentUser);
         window.location.href = 'summary.html';
     } else {
         hideUnderline.classList.add('d-none');
@@ -69,9 +70,7 @@ function emailSent() {
 
 // Login for guest. So you don't need to sign in or to log in with an account
 function guestLogin() {
-    currentUser = {
-        'name': 'Guest'
-    };
+    currentUser = {'name' : 'Guest'};
     setGuestUserToLocal(currentUser);
     window.location.href = 'summary.html';
 }

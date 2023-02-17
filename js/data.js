@@ -30,7 +30,18 @@ function dontClose(event) {
 }
 
 
+function currentUserLocal(currentUser) {
+    let currentUserAsText = JSON.stringify(currentUser);
+    localStorage.setItem('current-user', currentUserAsText); 
+}
+
+
 function setGuestUserToLocal(currentUser) {
     let guestUser = JSON.stringify(currentUser);
     localStorage.setItem('current-user', guestUser);
+}
+
+
+function logOut() {
+    localStorage.removeItem('current-user');
 }
