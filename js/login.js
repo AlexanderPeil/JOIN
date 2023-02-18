@@ -15,6 +15,7 @@ function login() {
 function checkUser(invalidLogin, hideUnderline) {
     if (currentUser) {
         currentUserLocal(currentUser);
+        checkRememberMe(currentUser);
         window.location.href = 'summary.html';
     } else {
         hideUnderline.classList.add('d-none');
@@ -70,5 +71,5 @@ function showFailMessage() {
 function setNewPassword() {
     let currentUserEmail =  localStorage.getItem('current-user');
     currentUserEmail = users.find(u => u.password == password);
-    // currentUserEmail.remove['password']
+    // currentUserEmail.remove['password'];
 }

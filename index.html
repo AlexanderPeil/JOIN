@@ -14,7 +14,7 @@
     <title>Join</title>
 </head>
 
-<body onload="laodUsers()">
+<body onload="laodUsers(), checkRememberMeData()">
 
     <img class="join-logo logo-animation" src="assets/img/join_logo.svg" alt="joing-logo">
 
@@ -36,7 +36,7 @@
                     id="password" required>
                 <div class="login-bottom">
                     <input type="checkbox">
-                    <span class="login-bottom-font" id="remember-me">Remember me</span>
+                    <span class="login-bottom-font" id="remember-me"  onclick="event.stopPropagation()">Remember me</span>
                     <a class="login-bottom-font" href="forgot_password.html" onclick="event.stopPropagation()">Forgot my password</a>
                 </div>
                 <div class="login-buttons">

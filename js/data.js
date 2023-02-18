@@ -6,6 +6,8 @@ let currentUser;
 async function laodUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+
+    checkRememberMeData();
 }
 
 
@@ -44,4 +46,40 @@ function setGuestUserToLocal(currentUser) {
 
 function logOut() {
     localStorage.removeItem('current-user');
+}
+
+
+function checkRememberMe(currentUser) {
+    let rememberMe = document.getElementById('remember-me');
+    
+    if (rememberMe.checked == true) {
+        setRememberMeLocal(currentUser);
+    }
+}
+
+
+function setRememberMeLocal(currentUser) {
+    localStorage.setItem('current-email', currentUser.email);
+    localStorage.setItem('current-password', currentUser.password);
+}
+
+
+function getRememberMeEmail() {
+    return localStorage.getItem('current-email');
+}
+
+
+function getRememberMePassword() {
+    return localStorage.getItem('current-current-password');
+}
+
+
+function checkRememberMeData() {
+    let emailValue = getRememberMeEmail();
+    let passswordValue = getRememberMePassword();
+
+    if (getRememberMeEmail()) {
+        document.getElementById('email').value = emailValue;
+        document.getElementById('password').value = passswordValue;
+    }
 }
