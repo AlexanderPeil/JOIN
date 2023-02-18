@@ -70,7 +70,7 @@ function getRememberMeEmail() {
 
 
 function getRememberMePassword() {
-    return localStorage.getItem('current-current-password');
+    return localStorage.getItem('current-password');
 }
 
 
