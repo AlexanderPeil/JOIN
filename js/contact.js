@@ -1,6 +1,7 @@
 let contacts = [];
 let letters = [];
 
+
 // Fetching data from JSON-File
 async function init() {
     let response = await fetch('./js/contact.json');
@@ -57,18 +58,6 @@ function generateContactDetail(firstLetter, firstLetterFirstName, lastName, firs
     `;
 }
 
-/*
-// Show (first) letters to filter content
-function renderLetters() {
-    let letterbox = document.getElementById('firstLetter');
-    letterbox.innerHTML = '';
-    for (let i = 0; i < letters.length; i++) {
-        const letter = letters[i];
-        letterbox.innerHTML += `<div class="letter-box" title="filter letters" onclick="setFilter('${letter}')" class="letter">${letter}</div>`;
-    }
-}
-*/
-
 
 // Onclick-Function (see renderLetters())
 function setFilter(letter) {
@@ -76,23 +65,15 @@ function setFilter(letter) {
 }
 
 
-/* Reload-Funktion wird vorerst nicht benötigt
-// Onclick-Function (see header)
-function reload() {
-    location.reload();
-}
-*/
-
-
 function showContactDetails(i) {
     let contactSelection = document.getElementById('contactSelection');
     contactSelection.innerHTML = '';
     let selectedContact = contacts[i];
-    contactSelection.innerHTML += showContactDetailsHTML(selectedContact);
+    contactSelection.innerHTML += showContactDetailsHTML(selectedContact, i);
 }
 
 
-function showContactDetailsHTML(selectedContact) {
+function showContactDetailsHTML(selectedContact, i) {
     return `
         <div class="contact-selection">
             <div id="selectedContactColor" class="contact-letters big-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
@@ -103,7 +84,7 @@ function showContactDetailsHTML(selectedContact) {
         </div>
         <div class="contact-information-title">
             <p>Contact Information</p>
-            <div class="contact-edit"><img class="contact-edit-icon" src="./assets/img/edit_icon.svg">Edit Contact</div>
+            <div title="edit contact info" onclick="editContact(${i})" class="contact-edit"><img class="contact-edit-icon" src="./assets/img/edit_icon.svg">Edit Contact</div>
         </div>
         <h4>Email</h4>
         <div class="contact-email">${selectedContact.email}</div>
@@ -113,13 +94,135 @@ function showContactDetailsHTML(selectedContact) {
 }
 
 
-// Contact form
-function openAddContactForm() {
-    const formContainer = document.getElementById("formContainer");
-    formContainer.style.display = "block";
+// Contact from to edit an existing contact
+function editContact(i) {
+    selectedContact = contacts[i]; // assign the selected contact to the global variable
+    const formEditContainer = document.getElementById("formContainer");
+    formEditContainer.innerHTML += openEditContactFormHTML(selectedContact);
 }
 
-function closeForm() {
+
+function openEditContactFormHTML(selectedContact) {
+    return `
+    <form id="contactForm" class="contact-form-overlay" onsubmit="login(); return false;">
+        <div class="contact-form-left">
+            <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
+            <span class="contact-form-heading">Edit Contact</span>
+            <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
+        </div>
+        <div class="contact-form-right">
+            <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
+            <div class="contact-input-container">
+                <div onclick="closeForm()" class="icon-top-right" title="close form">
+                    <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                </div>
+                <input class="contact-input-field input-name-img" type="text" name="name" placeholder="First Name" id="firstName" value="${selectedContact.firstName}" required>
+                <input class="contact-input-field input-name-img" type="text" name="name" placeholder="Last Name" id="lastName" value="${selectedContact.lastName}" required>
+                <input class="contact-input-field input-email-img" type="email" name="email" placeholder="Email" id="email" value="${selectedContact.email}" required>
+                <input class="contact-input-field input-phone-img" type="tel" name="phone" placeholder="Phone" id="phone" value="${selectedContact.phone}" required>
+                <div class="contact-form-buttons">
+                    <button type="button" onclick="closeForm()" class="contact-cancel-btn" title="close form">
+                        <p>Cancel</p>
+                        <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    </button>
+                    <button onclick="saveEditedContact()" type="submit" class="contact-add-btn" title="save contact">
+                        <p>Save</p>
+                        <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    `;
+}
+
+
+// Contact form to add a new contact
+function openAddContactForm() {
     const formContainer = document.getElementById("formContainer");
-    formContainer.style.display = "none";
+    formContainer.innerHTML += openAddContactFormHTML();
+}
+
+
+function openAddContactFormHTML() {
+    return `
+    <form id="contactForm" class="contact-form-overlay" onsubmit="login(); return false;">
+        <div class="contact-form-left">
+            <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
+            <span class="contact-form-heading">Add Contact</span>
+            <p class="contact-form-slogan">Tasks are better with a team!</p>
+            <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
+        </div>
+        <div class="contact-form-right">
+            <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
+            <div class="contact-input-container">
+                <div onclick="closeForm()" class="icon-top-right" title="close form">
+                    <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                </div>
+                <input class="contact-input-field input-name-img" type="text" name="name" placeholder="First Name" id="firstName" required>
+                <input class="contact-input-field input-name-img" type="text" name="name" placeholder="Last Name" id="lastName" required>
+                <input class="contact-input-field input-email-img" type="email" name="email" placeholder="Email" id="email" required>
+                <input class="contact-input-field input-phone-img" type="tel" name="phone" placeholder="Phone" id="phone" required>
+                <div class="contact-form-buttons">
+                    <button type="button" onclick="closeForm()" class="contact-cancel-btn" title="close form">
+                        <p>Cancel</p>
+                        <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    </button>
+                    <button onclick="createNewContact()" type="submit" class="contact-add-btn" title="create new contact">
+                        <p>Create Contact</p>
+                        <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    `;
+}
+
+
+function closeForm() {
+    const contactForm = document.getElementById("contactForm");
+    contactForm.remove(); // remove the form element from the DOM
+}
+
+
+function createNewContact() {
+    let id; //
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+    let color = 'grey'; // default color
+
+    let newContact = {
+        id: id, //
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        color: color //
+    };
+
+    // Load existing contacts from the contact.js file
+    try {
+        const contactJson = localStorage.getItem('contacts');
+        if (contactJson !== null) {
+            contacts = JSON.parse(contactJson);
+    }
+    } catch (e) {
+        console.error('Error loading contacts:', e);
+    }
+
+    // Add the new contact to the list and assign an ID
+    newContact.id = contacts.length;
+    contacts.push(newContact);
+
+    // Save the updated contacts back to the contact.js file
+    try {
+        const contactJson = JSON.stringify(contacts);
+        localStorage.setItem('contacts', contactJson);
+    } catch (e) {
+        console.error('Error saving contacts:', e);
+    }
+    renderContacts(); // reload contact list
 }
