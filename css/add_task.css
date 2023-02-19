@@ -14,6 +14,186 @@ h1 {
     font-size: 61px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .d-none {
+    display: none !important;
+}
+
+.content-container {
+    display: flex;
+    gap: 50px;
+}
+
+label {
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    width: 452px;
+    height: 506px;
+    gap: 10px;
+}
+
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+select {
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 400;
+    padding: 13px 21px;
+    background-color: white;
+}
+
+select {
+    appearance: none;
+    background: url(/assets/img/arrow.png) 96% / 3% no-repeat white;
+    cursor: pointer;
+}
+
+textarea {
+    min-height: 119px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 18px 21px;
+    outline: none;
+    resize: vertical;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+select::-ms-expand {
     display: none;
+    /* Standardpfeil im IE 10 und 11 entfernen */
+}
+
+.middle-gap {
+    border-left: 1px solid #D1D1D1;
+    height: 506px;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    width: 452px;
+    height: 506px;
+    gap: 10px;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px
+}
+
+.date {
+    cursor: pointer;
+}
+
+.prio-btn-container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.prio-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 400;
+    background-color: white;
+    width: 136px;
+    height: 51px;
+    gap: 10px;
+}
+
+.prio-btn-red {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 400;
+    background-color: #FF3D00;
+    color: white;
+    width: 136px;
+    height: 51px;
+    gap: 10px;
+}
+
+.prio-btn-orange {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 400;
+    background-color: #FFA800;
+    color: white;
+    width: 136px;
+    height: 51px;
+    gap: 10px;
+}
+
+.prio-btn-green {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 400;
+    background-color: #7AE229;
+    color: white;
+    width: 136px;
+    height: 51px;
+    gap: 10px;
+}
+
+.subtask-container {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    isolation: isolate;
+}
+
+.subtask-input {
+    border: 0px !important;
+    width: 80%;
 }
