@@ -5,7 +5,7 @@ body {
 }
 
 .d-none {
-    display: none !important;
+    display: none;
 }
 
 .content {
@@ -18,7 +18,7 @@ body {
 
 .join-logo {
     width: 100px;
-    height: 120px;
+    /* height: 120px; */
     position: absolute;
     top: 67px;
     left: 77px;
@@ -324,10 +324,6 @@ body {
 }
 
 .msg-box {
-    /* width: 300px; */
-    /* padding: 5px; */
-    /* border-radius: 30px; */
-    /* background-color: #F5F5F5; */
     text-align: center;
     font-size: 700;
     font-size: 22px;
@@ -339,7 +335,80 @@ body {
 }
 
 @media(max-width:700px) {
+    .join-logo {
+        top: 37px;
+        width: 70px;
+    }
+
+    .sign-up {
+        top: unset;
+        bottom: 55px;
+        right: unset;
+    }
+
+    .login-bottom {
+        flex-direction: column-reverse;
+        margin-right: 110px;
+    }
+
+    .login-bottom span {
+        margin-left: 0;
+    }
+
+    .login-bottom a {
+        margin-left: -9px;    
+        margin-bottom: 30px;
+    }
+
+    .login-buttons {
+        flex-direction: column;
+    }
+
+    .login-btn-mob {
+        width: 180px !important;
+    }
+
+    .login-btn {
+        margin-bottom: 15px;
+    }
+
     .login-page {
-        width: 500px;
+        width: 320px;
+        height: 520px;
+    }
+
+    .input-email-pw {
+        width: 285px;
+    }
+
+    .heading-span {
+        font-size: 47px;
+    }
+
+    .login-underline {
+        display: none;
+    }
+
+    .login-underline-mob {
+        display: block;
+        margin-top: -20px;
+    }
+
+    .back-img-web {
+        display: none;
+    }
+
+    .back-img-mob {
+        display: block;
+        left: 30px;
+    }
+
+    .sign-up-page {
+        width: 320px;
+        height: 500px;
+    }
+
+    .sign-up-btn {
+        margin-bottom: ;
     }
 }

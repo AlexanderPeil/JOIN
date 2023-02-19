@@ -34,8 +34,8 @@ function emailSent() {
     currentUser = users.find(u => u.email == email);
 
     if (currentUser) {
-        currentUserLocalStorage(email);
-        window.location.href = 'reset_password.html';
+        showSentEmailMessage();
+        setNewPassword(currentUser);
     } else {
         showFailMessage();
     }
@@ -49,27 +49,39 @@ function guestLogin() {
 }
 
 
-function currentUserLocalStorage(email) {
-    let currentUserEmail = JSON.stringify(email);
-    localStorage.setItem('current-user', currentUserEmail);
+function showSentEmailMessage() {
+    let showMessage = document.getElementById('email-sent');
+    let hideSpan = document.getElementById('forgot-pw-span');
+
+    showMessage.classList.remove('d-none');
+    hideSpan.classList.add('d-none');
+
+    setTimeout(function() {
+        window.location.href = 'reset_password.html';
+    }, 3000);
 }
 
 
 function showFailMessage() {
-    let failMessage = document.getElementById('fail-message');
+    let showMessage = document.getElementById('fail-message');
     let hideSpan = document.getElementById('forgot-pw-span');
 
     hideSpan.classList.add('d-none');
-    failMessage.classList.remove('d-none'); 
+    showMessage.classList.remove('d-none'); 
     setTimeout(function() {
         hideSpan.classList.remove('d-none');
-        failMessage.classList.add('d-none'); 
+        showMessage.classList.add('d-none'); 
     }, 3000);
 } 
 
 
-function setNewPassword() {
-    let currentUserEmail =  localStorage.getItem('current-user');
-    currentUserEmail = users.find(u => u.password == password);
-    // currentUserEmail.remove['password'];
+function setNewPassword(password) {
+    let newPassword = document.getElementById('new-password').value;
+    let confirmPassword = document.getElementById('repeat-new-password').value;
+
+    if (newPassword == confirmPassword && currentUser == users['email']) {
+        users['password'].push(newPassword);
+    } else {
+        
+    }
 }

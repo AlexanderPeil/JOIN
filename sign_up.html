@@ -20,10 +20,13 @@
     <div class="start-bg">
         <div class="content" id="sign-up-page">
             <form class="sign-up-page standard-box" onsubmit="addUser(); return false;">
-                <img class="back-img" src="assets/img/arrow_left.svg" alt="back-img"
+                <img class="back-img back-img-web" src="assets/img/arrow_left.svg" alt="back-img"
+                    onclick="location.href='index.html'">
+                <img class="back-img d-none back-img-mob" src="assets/img/arrow_left_mob.svg" alt="back-img_mob"
                     onclick="location.href='index.html'">
                 <span class="heading-span">Sign up</span>
-                <img src="assets/img/underline.svg" alt="underline" id="hide-underline">
+                <img src="assets/img/underline.svg" alt="underline" class="login-underline"  id="hide-underline">
+                <img src="assets/img/log_in_underline_mob.svg" alt="log_in_underline_mob" class="login-underline-mob d-none">
                 <span class="d-none msg-box" id="msg-box"></span>
                 <input class="input-name-img input-email-pw" placeholder="Name" id="name" required>
                 <input class="input-email-img input-email-pw" type="email" name="email" placeholder="Email" id="email"
