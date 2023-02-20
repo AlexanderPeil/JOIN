@@ -12,6 +12,7 @@ h1 {
     width: 315px;
     font-weight: 700;
     font-size: 61px;
+    margin-top: 0px;
 }
 
 button {
@@ -196,4 +197,5 @@ select::-ms-expand {
 .subtask-input {
     border: 0px !important;
     width: 80%;
+    outline: none;
 }

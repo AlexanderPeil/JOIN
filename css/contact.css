@@ -117,6 +117,7 @@ body {
     cursor: pointer;
 }
 
+
 /*
 .icon-top-right:hover {
 }
@@ -169,12 +170,16 @@ body {
     background-color: white;
 }
 
+
 /* Title and subtitle */
 
 .contact-header-container {
     display: flex;
     align-items: center;
     margin-top: 89px;
+    height: 73px;
+    margin-top: 82px;
+    padding-top: 82px;
 }
 
 .contact-header {
@@ -205,7 +210,8 @@ body {
     align-items: center;
     color: white;
     background-color: #2A3647;
-    padding: 5px 10px 5px 10px; /* top right bottom left */
+    padding: 5px 10px 5px 10px;
+    /* top right bottom left */
     gap: 8px;
     border: none;
     border-radius: 8px;
@@ -257,12 +263,14 @@ body {
 
 .contact-cancel-btn:hover:hover {
     /* color: #29ABE2; */
-    border-color: #29ABE2;    
+    border-color: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: all 125ms ease-in-out;
 }
 
+
 /* Input Form Overlay */
+
 .contact-form-overlay {
     position: absolute;
     top: 30%;
