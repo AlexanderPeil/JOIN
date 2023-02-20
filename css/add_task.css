@@ -55,6 +55,7 @@ select {
     font-weight: 400;
     padding: 13px 21px;
     background-color: white;
+    outline: none;
 }
 
 select {
@@ -124,6 +125,13 @@ select::-ms-expand {
     width: 100%;
     height: 51px;
     gap: 10px;
+    transition: all 100ms ease-in-out;
+}
+
+.prio-btn:hover {
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
+    height: 52px;
+    width: 110%;
 }
 
 .prio-btn-red {
@@ -142,6 +150,7 @@ select::-ms-expand {
     width: 100%;
     height: 51px;
     gap: 10px;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
 }
 
 .prio-btn-orange {
@@ -160,6 +169,7 @@ select::-ms-expand {
     width: 100%;
     height: 51px;
     gap: 10px;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
 }
 
 .prio-btn-green {
@@ -178,6 +188,7 @@ select::-ms-expand {
     width: 100%;
     height: 51px;
     gap: 10px;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
 }
 
 .subtask-container {
@@ -198,4 +209,9 @@ select::-ms-expand {
     border: 0px !important;
     width: 80%;
     outline: none;
+    cursor: pointer;
+}
+
+.plus-icon {
+    cursor: pointer;
 }
