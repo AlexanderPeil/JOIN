@@ -79,7 +79,7 @@ function showContactDetailsHTML(selectedContact, i) {
             <div id="selectedContactColor" class="contact-letters big-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
             <div>
                 <div class="contact-information-name">${selectedContact.lastName} ${selectedContact.firstName}</div>
-                <div class="contact-add-task">+ Add Task</div>
+                <div title="add new task" onclick="addTaskContact(${i})" class="contact-add-task">+ Add Task</div>
             </div>
         </div>
         <div class="contact-information-title">
@@ -111,10 +111,10 @@ function openEditContactFormHTML(selectedContact) {
             <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
         </div>
         <div class="contact-form-right">
-            <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
-            <div class="contact-input-container">
+        <div id="selectedContactColor" class="contact-letters big-letters margin-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
+        <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
-                    <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
                 </div>
                 <input class="contact-input-field input-name-img" type="text" name="name" placeholder="First Name" id="firstName" value="${selectedContact.firstName}" required>
                 <input class="contact-input-field input-name-img" type="text" name="name" placeholder="Last Name" id="lastName" value="${selectedContact.lastName}" required>
@@ -157,7 +157,7 @@ function openAddContactFormHTML() {
             <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
             <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
-                    <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
                 </div>
                 <input class="contact-input-field input-name-img" type="text" name="name" placeholder="First Name" id="firstName" required>
                 <input class="contact-input-field input-name-img" type="text" name="name" placeholder="Last Name" id="lastName" required>
@@ -225,4 +225,93 @@ function createNewContact() {
         console.error('Error saving contacts:', e);
     }
     renderContacts(); // reload contact list
+}
+
+
+// Add Task
+function addTaskContact(i) {
+    selectedContact = contacts[i]; // assign the selected contact to the global variable
+    const formTaskContainer = document.getElementById("formContainer");
+    formTaskContainer.innerHTML += openAddTaskContactFormHTML(selectedContact);
+}
+
+
+function openAddTaskContactFormHTML(selectedContact) {
+    return `
+    <form id="contactForm" class="contact-form-overlay" onsubmit="login(); return false;">
+        <div class="contact-form-left-neutral">
+            <span class="contact-form-heading">Add Task</span>
+            <div>
+                <div class="selection-container">
+                    <label>Title</label>
+                    <input placeholder="Enter a title">
+                </div>
+                <div class="selection-container">
+                    <label>Description</label>
+                    <textarea placeholder="Enter a description"></textarea>
+                </div>
+                <div class="selection-container">
+                    <label>Category</label>
+                    <select class="select-wrapper">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div class="selection-container">
+                    <label>Assigned to</label>
+                    <select>  
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="seperator-line-container">
+            <div class="separator-line"></div>
+        </div>
+        <div class="contact-form-right">
+            <div class="contact-input-container">
+                <div onclick="closeForm()" class="icon-top-right" title="close form">
+                    <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                </div>
+                <div>
+                    <div class="features-container">
+                        <label for="date">Due Date</label>
+                        <input class="date" type="date" id="date" name="date">
+                    </div>
+                    <div class="features-container">
+                        <label>Prio</label>
+                        <div class="prio-btn-container">
+                            <button onclick="showUrgentRedBtn()" id="urgentBtnWhite" class="prio-btn prio-urgent">Urgent<img id="prioUrgentWhite" src="assets/img/Prio-urgent.png"></button>
+                            <button onclick="showUrgentWhiteBtn()" id="urgentBtnRed" class="d-none prio-btn-red prio-urgent">Urgent<img id="prioUrgentRed" src="assets/img/Prio-urgent-white.png"></button>
+
+                            <button onclick="showMediumOrangeBtn()" id="mediumBtnWhite" class="prio-btn prio-medium">Medium<img src="assets/img/Prio-medium.png"></button>
+                            <button onclick="showMediumWhiteBtn()" id="mediumBtnOrange" class="d-none prio-btn-orange prio-medium">Medium<img src="assets/img/prio-medium-white.png"></button>
+
+                            <button onclick="showLowGreenBtn()" id="lowBtnWhite" class="prio-btn prio-low">Low<img src="assets/img/Prio-low.png"></button>
+                            <button onclick="showLowWhiteBtn()" id="lowBtnGreen" class="d-none prio-btn-green prio-low">Low<img src="assets/img/Prio-low-white.png"></button>
+                        </div>
+                        <div class="features-container">
+                            <label>Subtasks</label>
+                            <div class="subtask-container">
+                                <input class="subtask-input" placeholder="Add new subtask">
+                                <img class="plus-icon" src="assets/img/plus-icon.png" onclick>
+                                <img src="#" class="d-none">
+                                <img src="#" class="d-none">
+                            </div>
+                        </div>
+                </div>
+                <div class="contact-form-buttons">
+                    <button type="button" onclick="closeForm()" class="contact-cancel-btn" title="close form">
+                        <p>Cancel</p>
+                        <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    </button>
+                    <button type="submit" class="contact-add-btn" title="add new task">
+                        <p>Create Task</p>
+                        <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    `;
 }
