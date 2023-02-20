@@ -34,8 +34,8 @@ function emailSent() {
     currentUser = users.find(u => u.email == email);
 
     if (currentUser) {
+        setCurrentUserLocal(email);
         showSentEmailMessage();
-        setNewPassword(currentUser);
     } else {
         showFailMessage();
     }
@@ -57,8 +57,9 @@ function showSentEmailMessage() {
     hideSpan.classList.add('d-none');
 
     setTimeout(function() {
-        window.location.href = 'reset_password.html';
     }, 3000);
+
+    window.location.href = 'reset_password.html';
 }
 
 
@@ -75,13 +76,26 @@ function showFailMessage() {
 } 
 
 
-function setNewPassword(password) {
+function setCurrentUserLocal(email) {
+    localStorage.setItem('user-email', email); 
+}
+
+
+function setNewPassword() {
     let newPassword = document.getElementById('new-password').value;
     let confirmPassword = document.getElementById('repeat-new-password').value;
+    let hideSpan = document.getElementById('reset-pw-span');
+    let showMessage = document.getElementById('reset-pw-message');
+    let userEmail = localStorage.getItem('user-email', email);
 
-    if (newPassword == confirmPassword && currentUser == users['email']) {
+    if (newPassword == confirmPassword && userEmail == users['email']) {
         users['password'].push(newPassword);
     } else {
-        
+        hideSpan.classList.add('d-none');
+        showMessage.classList.remove('d-none');
+        setTimeout(function() {
+        hideSpan.classList.remove('d-none');
+        showMessage.classList.add('d-none');
+        }, 3000);
     }
 }
