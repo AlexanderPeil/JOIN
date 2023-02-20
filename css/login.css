@@ -122,8 +122,8 @@ body {
 
 .login-page {
     width: 652px;
-    height: 440px;
-    padding: 35px 0;
+    padding-top: 20px;
+    padding-bottom: 35px;
 }
 
 .heading-span {
@@ -284,7 +284,6 @@ body {
 .sign-up-page {
     position: relative;
     padding: 35px 0px;
-    height: 440px;
     width: 652px;
 }
 
@@ -369,12 +368,11 @@ body {
     }
 
     .login-btn {
-        margin-bottom: 15px;
+        margin-bottom: 22px;
     }
 
     .login-page {
         width: 320px;
-        height: 520px;
     }
 
     .input-email-pw {
@@ -405,6 +403,5 @@ body {
 
     .sign-up-page {
         width: 320px;
-        height: 500px;
     }
 }
