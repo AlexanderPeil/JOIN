@@ -25,13 +25,4 @@ function showGreet() {
         greetElem.innerHTML = "Good evening,";
     }
 
-    showCurrentUser();
-}
-
-
-function showCurrentUser() {
-    let userWelcome = document.getElementById('username');
-    let currentUserAsText = localStorage.getItem('current-user');
-    currentUser = JSON.parse(currentUserAsText);
-    userWelcome.innerHTML = currentUser['name'];
 }
