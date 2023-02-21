@@ -580,4 +580,5 @@ select::-ms-expand {
 
 .plus-icon {
     cursor: pointer;
+    padding: 10px;
 }
