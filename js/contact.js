@@ -239,7 +239,7 @@ function addTaskContact(i) {
 function openAddTaskContactFormHTML(selectedContact) {
     return `
     <form id="contactForm" class="contact-form-overlay" onsubmit="login(); return false;">
-        <div class="contact-form-left-neutral">
+        <div class="add-form-left">
             <span class="contact-form-heading">Add Task</span>
             <div>
                 <div class="selection-container">
@@ -268,7 +268,7 @@ function openAddTaskContactFormHTML(selectedContact) {
         <div class="seperator-line-container">
             <div class="separator-line"></div>
         </div>
-        <div class="contact-form-right">
+        <div class="add-form-right">
             <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
                     <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
