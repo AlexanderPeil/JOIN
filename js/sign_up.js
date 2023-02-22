@@ -21,7 +21,7 @@ function checkUser(name, email, password) {
             hideUnderline.classList.remove('d-none');
             msgBox.classList.add('d-none');
         }, 3000);
-        msgBox.innerHTML = 'Dieser User existiert bereits!';
+        msgBox.innerHTML = 'This user does already exists!';
     } else {
         pushUser(name, email, password);
     }
@@ -29,9 +29,9 @@ function checkUser(name, email, password) {
 
 
 // Push user into JSON Array and save his datas into backend
- function pushUser(name, email, password) {
+async function pushUser(name, email, password) {
     users.push({'name': name, 'email': email, 'password' : password});
-    backend.setItem('users', JSON.stringify(users));
+    await backend.setItem('users', JSON.stringify(users));
 
     successfullyRegistration();
 }

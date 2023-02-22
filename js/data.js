@@ -3,11 +3,12 @@ let currentUser;
 
 
 // Function is added to body with onload. It fetches the user data from the backend server
-async function laodUsers() {
+async function loadUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+    currentUser = JSON.parse(backend.getItem('current-user')) || [];
 
-    checkRememberMeData();
+    // checkRememberMeData();
 }
 
 
@@ -32,20 +33,9 @@ function dontClose(event) {
 }
 
 
-function currentUserLocal(currentUser) {
-    let currentUserAsText = JSON.stringify(currentUser);
-    localStorage.setItem('current-user', currentUserAsText); 
-}
-
-
-function setGuestUserToLocal(currentUser) {
-    let guestUser = JSON.stringify(currentUser);
-    localStorage.setItem('current-user', guestUser);
-}
-
-
-function logOut() {
-    localStorage.removeItem('current-user');
+ async function logOut() {
+    await backend.deleteItem('current-user');
+    window.location.href = 'index.html';
 }
 
 

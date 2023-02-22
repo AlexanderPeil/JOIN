@@ -1,8 +1,8 @@
-function init() {
-    includeHTML();
+async function init() {
+    await includeHTML();
+    await loadUsers();
     showDlDate();
     showGreet();
-    laodUsers();
 }
 
 function showDlDate() {
@@ -28,9 +28,6 @@ function showGreet() {
     showCurrentUser();
 }
 
-function showCurrentUser() {
-    let userWelcome = document.getElementById('username');
-    let currentUserAsText = localStorage.getItem('current-user');
-    currentUser = JSON.parse(currentUserAsText);
-    userWelcome.innerHTML = currentUser['name'];
+async function showCurrentUser() {
+    document.getElementById('username').innerHTML = currentUser['name'];
 }

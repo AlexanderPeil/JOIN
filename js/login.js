@@ -12,9 +12,9 @@ function login() {
 
 
 // Login with right email and password continues on the page summary. Invalid login-data triggers text
-function checkUser(invalidLogin, hideUnderline) {
+ async function checkUser(invalidLogin, hideUnderline) {
     if (currentUser) {
-        currentUserLocal(currentUser);
+        await backend.setItem('current-user', JSON.stringify(currentUser));
         checkRememberMe(currentUser);
         window.location.href = 'summary.html';
     } else {
@@ -42,9 +42,9 @@ function emailSent() {
 }
 
 // Login for guest. So you don't need to sign in or to log in with an account
-function guestLogin() {
-    currentUser = {'name' : 'Guest'};
-    setGuestUserToLocal(currentUser);
+  async function guestLogin() {
+    currentUser = {'name': 'Guest'};
+    await backend.setItem('current-user', JSON.stringify(currentUser));
     window.location.href = 'summary.html';
 }
 
@@ -74,11 +74,6 @@ function showFailMessage() {
         showMessage.classList.add('d-none'); 
     }, 3000);
 } 
-
-
-function setCurrentUserLocal(email) {
-    localStorage.setItem('user-email', email); 
-}
 
 
 function setNewPassword() {

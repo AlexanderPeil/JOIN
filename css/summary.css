@@ -245,3 +245,30 @@ h1 {
     font-size: 64px;
     color: #29ABE2;
 }
+
+@media(max-width: 1200px) {
+    .main-container {
+    margin-right: 150px;
+    margin-top: -60px;
+    }
+
+    .sub-container {
+    margin-top: -60px;
+    flex-direction: column;
+    margin-right: 40px;
+    }
+
+    .greet-container {
+        padding-top: 23px;
+    }
+
+    .title-container {
+        margin-left: -70px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .greet-container {
+        display: none;
+    }
+}
