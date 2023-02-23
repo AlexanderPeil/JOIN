@@ -1,4 +1,4 @@
-async function init() {
+async function initSummary() {
     await includeHTML();
     await loadUsers();
     showDlDate();
