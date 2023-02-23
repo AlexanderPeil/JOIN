@@ -49,8 +49,12 @@ header {
     height: 50px;
 }
 
+.help-icon {
+    display: flex;
+}
+
 @media(max-width:1200px) {
-    :root {
+     :root {
         --nav-width: 0;
     }
 }
@@ -59,19 +63,17 @@ header {
     .headline {
         display: none;
     }
-
     .header-logo {
         display: block;
     }
-
     header {
         padding: 0 25px;
     }
-
-    :root {
+     :root {
         --header-height: 0;
     }
 }
+
 
 /* header end */
 
@@ -174,7 +176,6 @@ nav {
 }
 
 @media(max-width: 1000px) {
-
     nav {
         top: unset;
         right: 0;
@@ -182,32 +183,26 @@ nav {
         width: unset;
         padding: 0;
     }
-
     .nav-bar {
         flex-direction: row;
         justify-content: space-between;
         gap: 0;
         height: 100px;
     }
-
     .nav-content {
         flex-direction: column;
         gap: 13px;
     }
-
     .nav-main {
         height: 100%;
         padding: 0 53px;
     }
-
-    .nav-icon-container{
+    .nav-icon-container {
         padding: 0;
     }
-
     .legal-notice {
         display: none;
     }
-    
     .summary-logo {
         display: none;
     }
