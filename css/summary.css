@@ -248,14 +248,13 @@ h1 {
 
 @media(max-width: 1200px) {
     .main-container {
-    margin-right: 150px;
-    margin-top: -60px;
+    margin-left: 315px;
+    margin-top: -55px;
     }
 
     .sub-container {
     margin-top: -60px;
     flex-direction: column;
-    margin-right: 40px;
     }
 
     .greet-container {
@@ -263,12 +262,123 @@ h1 {
     }
 
     .title-container {
-        margin-left: -70px;
+        width: unset;
     }
 }
 
 @media(max-width: 1000px) {
     .greet-container {
         display: none;
+    }
+
+    .title-container {
+        flex-direction: column;
+    }
+
+    .main-container {
+        margin: unset;
+        margin-top: 110px;
+    }
+
+    h1 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 47px;
+        line-height: 120%;
+    }
+
+    .headline-sub {
+        font-size: 21px;
+        line-height: 25.2;
+    }
+
+    .headline-mobile {
+        text-align: center;
+        display: block !important;
+    }
+
+    .nav-to-container {
+        gap: 24px;
+    }
+
+    .nav-to-content {
+        width: 110px;
+        height: 110px;
+    }
+
+    .counter {
+        font-size: 47px;
+        line-height: 120%;
+    }
+
+    .counter-title {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .urgent {
+        height: 110px;
+        padding: 28px 0px;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .urgency-img {
+        height: 40px;
+    }
+    
+    .counter-title-urg {
+        font-size: 14px;
+    }
+
+    .dl-date {
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    .dl-text {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .nav-to-content:hover {
+        width: 120px;
+        height: 120px;
+    }
+
+    .urgent:hover {
+        height: 120px;
+    }
+
+    .summary-contant-container {
+        width: 360px;
+        gap: 24px;
+    }
+
+    .todo-done-container {
+        width: 177.5px;
+    }
+
+    .pencil-check-img {
+        height: 50px;
+    }
+
+    .counter-mob {
+        font-size: 47px;
+        line-height: 120%;
+    }
+
+    .counter-title-done {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .to-do-done {
+        padding: 0 !important;
+    }
+
+    .todo-done:hover {
+        height: 155px;
+        width: 80px;
     }
 }

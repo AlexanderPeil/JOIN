@@ -49,6 +49,12 @@ header {
     height: 50px;
 }
 
+@media(max-width:1200px) {
+    :root {
+        --nav-width: 0;
+    }
+}
+
 @media(max-width: 1000px) {
     .headline {
         display: none;
@@ -62,18 +68,8 @@ header {
         padding: 0 25px;
     }
 
-    h1 {
-        font-weight: 700;
-        font-size: 47px;
-        line-height: 120%;
-    }
-
-    .title-container {
-        margin-left: -300px !important;
-    }
-
-    .main-container {
-        margin-right: 420px !important;
+    :root {
+        --header-height: 0;
     }
 }
 
