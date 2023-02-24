@@ -2,6 +2,11 @@ let users = [];
 let currentUser;
 
 
+function init() {
+    includeHTML();
+}
+
+
 // Function is added to body with onload. It fetches the user data from the backend server
 async function loadUsers() {
     await downloadFromServer();
@@ -16,7 +21,6 @@ async function loadUsers() {
 function showLogout() {
     let logOut = document.getElementById('popup-menu');
     logOut.classList.remove('d-none');
-    localStorage.removeItem('current-user');
 }
 
 

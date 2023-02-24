@@ -61,6 +61,9 @@ header {
 }
 
 @media(max-width: 1000px) {
+    .header-help-icon {
+        display: none;
+    }
 
     .header-logo img {
         display: block;
@@ -191,7 +194,7 @@ nav {
     }
     .nav-bar {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         gap: 0;
         height: 100px;
     }
@@ -212,7 +215,28 @@ nav {
     .summary-logo {
         display: none;
     }
+
+    .logout-menu {
+        height: 108px;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: unset;
+    }
+
+    .logout-menu span {
+        display: block !important;
+        padding-top: 5px;
+        padding-left: 8px;
+    }
 }
 
+@media(max-width: 700px) {
+    .nav-main {
+        height: unset;
+        padding: 0;
+        width: 90px;
+        justify-content: center;
+    }
+}
 
 /* nav end */
