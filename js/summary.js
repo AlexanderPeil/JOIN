@@ -10,9 +10,15 @@ async function initSummary() {
 async function loadNotes() {
     await downloadFromServer();
     tasksTest = JSON.parse(backend.getItem('allTasks')) || [];
+    showAllCounts();
+}
+
+function showAllCounts() {
     showCountInBoard();
     showCountInProgress();
     showCountAwaitFeedback();
+    showCountToDo();
+    showCountDone();
 }
 
 function showCountInBoard() {
@@ -40,6 +46,28 @@ function showCountAwaitFeedback() {
         }
     }
     return countAwaitFeedback.innerHTML = count;
+}
+
+function showCountToDo() {
+    let countToDo = document.getElementById('countToDo');
+    let count = 0;
+    for (let i = 0; i < tasksTest.length; i++) {
+        if (tasksTest[i].split === "to_do") {
+            count++;
+        }
+    }
+    return countToDo.innerHTML = count;
+}
+
+function showCountDone() {
+    let countDone = document.getElementById('countDone');
+    let count = 0;
+    for (let i = 0; i < tasksTest.length; i++) {
+        if (tasksTest[i].split === "done") {
+            count++;
+        }
+    }
+    return countDone.innerHTML = count;
 }
 
 function showDlDate() {
