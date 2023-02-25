@@ -12,6 +12,7 @@ async function loadNotes() {
     tasksTest = JSON.parse(backend.getItem('allTasks')) || [];
     showCountInBoard();
     showCountInProgress();
+    showCountAwaitFeedback();
 }
 
 function showCountInBoard() {
@@ -30,6 +31,16 @@ function showCountInProgress() {
     return countInProgress.innerHTML = count;
 }
 
+function showCountAwaitFeedback() {
+    let countAwaitFeedback = document.getElementById('countAwaitFeedback');
+    let count = 0;
+    for (let i = 0; i < tasksTest.length; i++) {
+        if (tasksTest[i].split === "awaiting_feedback") {
+            count++;
+        }
+    }
+    return countAwaitFeedback.innerHTML = count;
+}
 
 function showDlDate() {
     const date = new Date();
