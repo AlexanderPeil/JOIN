@@ -1,9 +1,35 @@
 async function initSummary() {
     await includeHTML();
     await loadUsers();
+    await loadNotes();
     showDlDate();
     showGreet();
+    loadNotes();
 }
+
+async function loadNotes() {
+    await downloadFromServer();
+    tasksTest = JSON.parse(backend.getItem('allTasks')) || [];
+    showCountInBoard();
+    showCountInProgress();
+}
+
+function showCountInBoard() {
+    let countInBoard = document.getElementById('countInBoard');
+    countInBoard.innerHTML = tasksTest.length;
+}
+
+function showCountInProgress() {
+    let countInProgress = document.getElementById('countInProgress');
+    let count = 0;
+    for (let i = 0; i < tasksTest.length; i++) {
+        if (tasksTest[i].split === "in_progress") {
+            count++;
+        }
+    }
+    return countInProgress.innerHTML = count;
+}
+
 
 function showDlDate() {
     const date = new Date();

@@ -13,6 +13,7 @@
     <script src="js/summary.js"></script>
     <script src="js/data.js"></script>
     <script src="js/mini_backend.js"></script>
+    <script src="js/board.js"></script>
     <script>
         setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');
     </script>
@@ -20,7 +21,7 @@
     <title>Summary | Join</title>
 </head>
 
-<body onload="initSummary()"; onclick="closeLogoutMenu()">
+<body onload="initSummary()" ; onclick="closeLogoutMenu()">
 
     <!--Header + Nav Templates-->
     <div w3-include-html="assets/templates/header.html"></div>
@@ -43,15 +44,15 @@
             <div class="summary-contant-container">
                 <div class="nav-to-container">
                     <a class=" nav-to-content" href="#">
-                        <span class="counter">0</span>
+                        <span id="countInBoard" class="counter">0</span>
                         <span class="counter-title">Tasks in Board</span>
                     </a>
                     <a class="nav-to-content" href="#">
-                        <span class="counter">0</span>
+                        <span id="countInProgress" class="counter">0</span>
                         <span class="counter-title">Tasks in Pregress</span>
                     </a>
                     <a class="nav-to-content" href="#">
-                        <span class="counter">0</span>
+                        <span id="countAwaitFeedback" class="counter">0</span>
                         <span class="counter-title">Awaiting Feedback</span>
                     </a>
                 </div>
