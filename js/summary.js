@@ -13,6 +13,7 @@ async function loadNotes() {
     showAllCounts();
 }
 
+/*Show counts of board on summary*/
 function showAllCounts() {
     showCountInBoard();
     showCountInProgress();
@@ -69,6 +70,7 @@ function showCountDone() {
     }
     return countDone.innerHTML = count;
 }
+/* End of: Show counts of board on summary*/
 
 function showDlDate() {
     const date = new Date();
@@ -89,7 +91,6 @@ function showGreet() {
     } else {
         greetElem.innerHTML = "Good evening,";
     }
-
     showCurrentUser();
 }
 
