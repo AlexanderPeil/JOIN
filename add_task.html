@@ -24,6 +24,7 @@
 
     <!--Main Content-->
     <div class="main-container">
+        <div class="headline-mobile d-none">Kanban Project Management Tool</div>
         <div class="title-container">
             <h1>Add Task</h1>
         </div>
@@ -48,7 +49,7 @@
                 <div class="selection-container">
                     <label>Assigned to</label>
                     <select>
-                        
+
                     </select>
                 </div>
             </div>
@@ -61,14 +62,22 @@
                 <div class="features-container">
                     <label>Prio</label>
                     <div class="prio-btn-container">
-                        <button onclick="showUrgentRedBtn()" id="urgentBtnWhite" class="prio-btn prio-urgent">Urgent<img id="prioUrgentWhite" src="assets/img/Prio-urgent.png"></button>
-                        <button onclick="showUrgentWhiteBtn()" id="urgentBtnRed" class="d-none prio-btn-red prio-urgent">Urgent<img id="prioUrgentRed" src="assets/img/Prio-urgent-white.png"></button>
+                        <button onclick="showUrgentRedBtn()" id="urgentBtnWhite" class="prio-btn prio-urgent">Urgent<img
+                                id="prioUrgentWhite" src="assets/img/Prio-urgent.png"></button>
+                        <button onclick="showUrgentWhiteBtn()" id="urgentBtnRed"
+                            class="d-none prio-btn-red prio-urgent">Urgent<img id="prioUrgentRed"
+                                src="assets/img/Prio-urgent-white.png"></button>
 
-                        <button onclick="showMediumOrangeBtn()" id="mediumBtnWhite" class="prio-btn prio-medium">Medium<img src="assets/img/Prio-medium.png"></button>
-                        <button onclick="showMediumWhiteBtn()" id="mediumBtnOrange" class="d-none prio-btn-orange prio-medium">Medium<img src="assets/img/prio-medium-white.png"></button>
+                        <button onclick="showMediumOrangeBtn()" id="mediumBtnWhite"
+                            class="prio-btn prio-medium">Medium<img src="assets/img/Prio-medium.png"></button>
+                        <button onclick="showMediumWhiteBtn()" id="mediumBtnOrange"
+                            class="d-none prio-btn-orange prio-medium">Medium<img
+                                src="assets/img/prio-medium-white.png"></button>
 
-                        <button onclick="showLowGreenBtn()" id="lowBtnWhite" class="prio-btn prio-low">Low<img src="assets/img/Prio-low.png"></button>
-                        <button onclick="showLowWhiteBtn()" id="lowBtnGreen" class="d-none prio-btn-green prio-low">Low<img src="assets/img/Prio-low-white.png"></button>
+                        <button onclick="showLowGreenBtn()" id="lowBtnWhite" class="prio-btn prio-low">Low<img
+                                src="assets/img/Prio-low.png"></button>
+                        <button onclick="showLowWhiteBtn()" id="lowBtnGreen"
+                            class="d-none prio-btn-green prio-low">Low<img src="assets/img/Prio-low-white.png"></button>
                     </div>
                     <div class="features-container">
                         <label>Subtasks</label>
@@ -80,9 +89,74 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>
+
+    <!-- Main Container mobile -->
+    <div class="main-container-mobile d-none">
+        <div class="headline-mobile d-none">Kanban Project Management Tool</div>
+        <div class="title-container">
+            <h1>Add Task</h1>
+        </div>
+        <div class="content-container">
+            <!-- <div class="left-container"> -->
+            <div class="selection-container">
+                <label>Title</label>
+                <input placeholder="Enter a title">
+            </div>
+            <div class="selection-container">
+                <label>Description</label>
+                <textarea placeholder="Enter a description"></textarea>
+            </div>
+            <label>Prio</label>
+            <div class="prio-btn-container">
+                <button onclick="showUrgentRedBtn()" id="urgentBtnWhite" class="prio-btn prio-urgent">Urgent<img
+                        id="prioUrgentWhite" src="assets/img/Prio-urgent.png"></button>
+                <button onclick="showUrgentWhiteBtn()" id="urgentBtnRed"
+                    class="d-none prio-btn-red prio-urgent">Urgent<img id="prioUrgentRed"
+                        src="assets/img/Prio-urgent-white.png"></button>
+
+                <button onclick="showMediumOrangeBtn()" id="mediumBtnWhite" class="prio-btn prio-medium">Medium<img
+                        src="assets/img/Prio-medium.png"></button>
+                <button onclick="showMediumWhiteBtn()" id="mediumBtnOrange"
+                    class="d-none prio-btn-orange prio-medium">Medium<img
+                        src="assets/img/prio-medium-white.png"></button>
+
+                <button onclick="showLowGreenBtn()" id="lowBtnWhite" class="prio-btn prio-low">Low<img
+                        src="assets/img/Prio-low.png"></button>
+                <button onclick="showLowWhiteBtn()" id="lowBtnGreen" class="d-none prio-btn-green prio-low">Low<img
+                        src="assets/img/Prio-low-white.png"></button>
+            </div>
+            <div class="features-container">
+                <label for="date">Due Date</label>
+                <input class="date" type="date" id="date" name="date">
+            </div>
+            <div class="selection-container">
+                <label>Category</label>
+                <select class="select-wrapper">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+            <div class="selection-container">
+                <label>Assigned to</label>
+                <select>
+
+                </select>
+            </div>
+        </div>
+        <div class="features-container">
+            <label>Subtasks</label>
+            <div class="subtask-container">
+                <input class="subtask-input" placeholder="Add new subtask">
+                <img class="plus-icon" src="assets/img/plus-icon.png" onclick>
+                <img src="#" class="d-none">
+                <img src="#" class="d-none">
+            </div>
+        </div>
+    <!-- </div> -->
 
 </body>
 

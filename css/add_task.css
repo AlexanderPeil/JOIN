@@ -187,3 +187,59 @@ select::-ms-expand {
 .plus-icon {
     cursor: pointer;
 }
+
+@media(max-width:1400px) {
+    .main-container {
+        margin-left: -80px;
+        margin-right: 20px;
+    }
+}
+
+@media(max-width:1200px) {
+    .main-container {
+        margin-left: 250px;
+        margin-right: 20px;
+    }
+}
+
+@media(max-width:1000px) {
+    .main-container {
+        display: none;
+    }
+
+    .main-container-mobile {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        /* display: block !important; */
+        margin: 128px 10px 0 10px;
+        height: 1000px;
+    }
+
+    .headline-mobile {
+        display: block !important;
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    h1 {
+        font-size: 47px;
+        line-height: 120%;
+        margin-top: 20px;
+    }
+
+    .add-btn-mobile {
+        display: block !important;
+        z-index: 11;
+        position: absolute;
+        right: 27px;
+    }
+
+    .content-container {
+        display: unset;
+    }
+
+    .features-container {
+        width: unset;
+    } 
+}
