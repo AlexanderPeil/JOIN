@@ -44,3 +44,30 @@ p {
     font-size: 16px;
     line-height: 19.2px;
 }
+
+@media(max-width: 1200px) {
+    .contacts-main-container {
+        padding-left: 275px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .headline-mobile {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .contacts-main-container {
+        margin: 125px 20px 0 20px;
+        padding: 0;
+    }
+
+    h1 {
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+}
