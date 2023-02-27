@@ -121,10 +121,6 @@ function openEditContactFormHTML(selectedContact) {
                 <input class="contact-input-field input-email-img" type="email" name="email" placeholder="Email" id="email" value="${selectedContact.email}" required>
                 <input class="contact-input-field input-phone-img" type="tel" name="phone" placeholder="Phone" id="phone" value="${selectedContact.phone}" required>
                 <div class="contact-form-buttons">
-                    <button type="button" onclick="closeForm()" class="contact-cancel-btn" title="close form">
-                        <p>Cancel</p>
-                        <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
-                    </button>
                     <button onclick="saveEditedContact()" type="submit" class="contact-add-btn" title="save contact">
                         <p>Save</p>
                         <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
