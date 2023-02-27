@@ -5,9 +5,10 @@ let currentDraggedElement;
 
 async function init() {
     includeHTML();
-    await loadNotes()
+    await loadNotes();
     loadBoard();
 }
+
 function loadBoard() {
 
     cleanOldBoard();
@@ -49,12 +50,13 @@ function loadNewBoard() {
                                     <div style="background: #0D99FF; height:12px;width:${task['progress'][0] / task['progress'][1] * 100}%; border-radius: 3px;"></div>
                                 </div>
                                 <div>${task['progress'][0]}/${task['progress'][1]} Done</div>
-                            </div>`}
+                            </div>`
+        }
         document.getElementById('card' + i).innerHTML += `
                             <div class="priotity_users">
                                 <div class="users" id="users${i}">
                                 </div>
-                                <div class="priotity"><img src="${task['priotity']}" alt=""></div>
+                                <div class="priotity"><img src="${task['priotity'][0]['img']}" alt=""></div>
                             </div>
 
                         </div>
@@ -66,7 +68,7 @@ function loadNewBoard() {
         for (let j = 0; j < task['users'].length; j++) {
             const user = task['users'][j];
 
-            document.getElementById('users' + i).innerHTML += `<p style="background-color: blue;">${user}</p>`
+            document.getElementById('users' + i).innerHTML += `<p class="circle" style="background-color: blue;">${user}</p>`
         }
 
     }
@@ -93,12 +95,12 @@ function startDragging(id) {
 
 function allowDrop(ev, test) {
     ev.preventDefault();
-    document.getElementById('dropArea_'+test).classList.add('borders');
+    document.getElementById('dropArea_' + test).classList.add('borders');
 }
 
 function diableDrop(ev) {
 
-    document.getElementById('dropArea_'+ev).classList.remove('borders');
+    document.getElementById('dropArea_' + ev).classList.remove('borders');
 }
 
 async function moveTo(category) {
@@ -108,7 +110,7 @@ async function moveTo(category) {
 }
 
 function endDragging(id) {
-    document.getElementById('card'+id).style.transform = "rotate(0deg)";
+    document.getElementById('card' + id).style.transform = "rotate(0deg)";
 }
 
 async function loadNotes() {
@@ -121,7 +123,7 @@ async function saveNotes() {
     await backend.setItem('allTasks', tasksAsJson);
 }
 
-async function loadContacts(){
+async function loadContacts() {
     let response = await fetch('./js/contact.json');
     users_color = await response.json();
 }

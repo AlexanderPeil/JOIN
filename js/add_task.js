@@ -1,5 +1,6 @@
 // Test-JSON for Add-Task
-let addTask_Tasks = [];
+let addTask_Tasks = [
+];
 
 currentCategory = '';
 let contacts = loadContacts();
@@ -201,18 +202,22 @@ function changeColor() {
 
 function checkPrioity() {
     let prio;
+    let priotity;
 
     if (priotity_low) {
         prio = "assets/img/low_priotity.png";
+        priotity = 'low';
     }
     else if (priotity_medium) {
         prio = "assets/img/medium_priotity.png";
+        priotity = 'medium';
     }
     else if (priotity_urgent) {
         prio = "assets/img/high_priotity.png";
+        priotity = 'urgent';
     }
 
-    return prio;
+    return [{'img':prio,'priotity':priotity}];
 }
 
 async function saveNotes() {
