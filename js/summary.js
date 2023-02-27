@@ -93,10 +93,10 @@ function showDlDate() {
 }*/
 
 function showDlDate() {
-    let dlDate = tasksTest[0].date;
+    let dlDate = tasksTest[0].date; /*Die Variable dlDate wird initialisiert und mit dem Datumswert des ersten Elements im tasksTest-Array initialisiert:*/
     for (let i = 1; i < tasksTest.length; i++) {
-        if (new Date(tasksTest[i].date) < new Date(dlDate)) {
-            dlDate = tasksTest[i].date;
+        if (new Date(tasksTest[i].date) < new Date(dlDate)) { /*Innerhalb der Schleife wird geprüft, ob das Datum des aktuellen Elements kleiner ist als das gespeicherte Datum "dlDate".*/
+            dlDate = tasksTest[i].date; /*Wenn das Datum des aktuellen Elements kleiner ist als das gespeicherte Datum, wird das Datum des aktuellen Elements als neues "dlDate" gespeichert*/
         }
     }
     const date = new Date(dlDate);
