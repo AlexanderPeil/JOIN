@@ -1,0 +1,57 @@
+[
+    {
+        "split": "to_do",
+        "category": "Design",
+        "body_header": "Website redesign",
+        "body_content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eveniet reiciendis ea eaque veritatis ipsam repellat explicabo ab, ex aliquam accusamus consequatur, neque sit. Impedit delectus sequi rem quisquam eaque!",
+        "progress": [1, 2],
+        "users": ["SM", "PD", "EF"],
+        "priotity": "assets/img/low_priotity.png",
+        "date":"2023-02-28",
+        "subtasks":""
+    },
+    {
+        "split": "in_progress",
+        "category": "Sales",
+        "body_header": "Website redesign",
+        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "progress": [],
+        "users": ["SM", "MV", "EF"],
+        "priotity": "assets/img/medium_priotity.png",
+        "date":"2023-02-26",
+        "subtasks":""
+    },
+    {
+        "split": "awaiting_feedback",
+        "category": "Backoffice",
+        "body_header": "Website redesign",
+        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "progress": [],
+        "users": ["SM", "EF"],
+        "priotity": "assets/img/low_priotity.png",
+        "date":"2023-03-28",
+        "subtasks":""
+    },
+    {
+        "split": "awaiting_feedback",
+        "category": "Media",
+        "body_header": "Website redesign",
+        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "progress": [],
+        "users": ["SM", "PD", "EF"],
+        "priotity": "assets/img/medium_priotity.png",
+        "date":"2023-02-28",
+        "subtasks":""
+    },
+    {
+        "split": "done",
+        "category": "Marketing",
+        "body_header": "Website redesign",
+        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "progress": [3, 3],
+        "users": ["SM", "MV", "EF"],
+        "priotity": "assets/img/high_priotity.png",
+        "date":"2023-02-23",
+        "subtasks":""
+    }
+]

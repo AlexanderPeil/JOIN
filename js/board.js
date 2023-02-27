@@ -1,55 +1,11 @@
-let tasks = [
-    {
-        "split": "to_do",
-        "category": "Design",
-        "body_header": "Website redesign",
-        "body_content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eveniet reiciendis ea eaque veritatis ipsam repellat explicabo ab, ex aliquam accusamus consequatur, neque sit. Impedit delectus sequi rem quisquam eaque!",
-        "progress": [1, 2],
-        "users": ["SM", "PD", "EF"],
-        "priotity": "assets/img/low_priotity.png"
-    },
-    {
-        "split": "in_progress",
-        "category": "Sales",
-        "body_header": "Website redesign",
-        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        "progress": [],
-        "users": ["SM", "MV", "EF"],
-        "priotity": "assets/img/medium_priotity.png"
-    },
-    {
-        "split": "awaiting_feedback",
-        "category": "Backoffice",
-        "body_header": "Website redesign",
-        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        "progress": [],
-        "users": ["SM", "EF"],
-        "priotity": "assets/img/low_priotity.png"
-    },
-    {
-        "split": "awaiting_feedback",
-        "category": "Media",
-        "body_header": "Website redesign",
-        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        "progress": [],
-        "users": ["SM", "MV", "LG"],
-        "priotity": "assets/img/medium_priotity.png"
-    },
-    {
-        "split": "done",
-        "category": "Marketing",
-        "body_header": "Website redesign",
-        "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        "progress": [3, 3],
-        "users": ["SM", "MV", "EF"],
-        "priotity": "assets/img/high_priotity.png"
-    }
-]
+let tasks = [];
+let users_color = loadContacts();
 
 let currentDraggedElement;
 
-function init() {
+async function init() {
     includeHTML();
+    await loadNotes()
     loadBoard();
 }
 function loadBoard() {
@@ -58,6 +14,8 @@ function loadBoard() {
     loadNewBoard();
     addDropArea();
 }
+
+
 
 
 function cleanOldBoard() {
@@ -73,8 +31,6 @@ function loadNewBoard() {
 
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        console.log(task);
-        console.log(task['users'][2]);
         let catgoryLow = task['category'].toLowerCase();
 
         document.getElementById(task['split']).innerHTML += `
@@ -110,7 +66,7 @@ function loadNewBoard() {
         for (let j = 0; j < task['users'].length; j++) {
             const user = task['users'][j];
 
-            document.getElementById('users' + i).innerHTML += `<p style="background-color: var(--${user});">${user}</p>`
+            document.getElementById('users' + i).innerHTML += `<p style="background-color: blue;">${user}</p>`
         }
 
     }
@@ -131,8 +87,8 @@ function addDropArea() {
 
 function startDragging(id) {
     currentDraggedElement = id;
-    document.getElementById('card'+id).classList.add('d-none');
-    document.getElementById('card'+id).style.transform = "rotate(10deg)";
+    //document.getElementById('card'+id).classList.add('d-none');
+    //document.getElementById('card'+id).style.transform = "rotate(10deg)";
 }
 
 function allowDrop(ev, test) {
@@ -145,11 +101,27 @@ function diableDrop(ev) {
     document.getElementById('dropArea_'+ev).classList.remove('borders');
 }
 
-function moveTo(category) {
+async function moveTo(category) {
     tasks[currentDraggedElement]['split'] = category;
-    loadBoard()
+    loadBoard();
+    await saveNotes();
 }
 
 function endDragging(id) {
     document.getElementById('card'+id).style.transform = "rotate(0deg)";
+}
+
+async function loadNotes() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('allTasks')) || [];
+}
+
+async function saveNotes() {
+    let tasksAsJson = JSON.stringify(tasks);
+    await backend.setItem('allTasks', tasksAsJson);
+}
+
+async function loadContacts(){
+    let response = await fetch('./js/contact.json');
+    users_color = await response.json();
 }
