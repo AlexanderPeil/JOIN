@@ -22,12 +22,16 @@
     <div w3-include-html="assets/templates/nav.html"></div>
     <div class="board-section">
         <div class="board-header">
-            <h2>Board</h2>
+            <div class="headline-mobile d-none">Kanban Project Management Tool</div>
+            <div class="board-add-task">
+                <h2>Board</h2>
+                <img class="add-task-mob d-none" src="assets/img/add_task_mob.svg" alt="">
+            </div>
             <div>
                 <div class="search-box"><input type="text" placeholder="Find Task">
                     <div class="search-icon"><img src="assets/img/magnifier.png" alt=""></div>
                 </div>
-                <button>Add task +</button>
+                <button class="add-task">Add task +</button>
             </div>
 
         </div>
@@ -44,7 +48,9 @@
                             <div class="card-head" style="background-color: var(--design);">Design</div>
                             <div class="card-body">
                                 <h4>Website redesign</h4>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eveniet reiciendis ea eaque veritatis ipsam repellat explicabo ab, ex aliquam accusamus consequatur, neque sit. Impedit delectus sequi rem quisquam eaque!</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eveniet reiciendis
+                                    ea eaque veritatis ipsam repellat explicabo ab, ex aliquam accusamus consequatur,
+                                    neque sit. Impedit delectus sequi rem quisquam eaque!</p>
                             </div>
                             <div class="progress_bar">
                                 <div style="width: 70%; background-color: lightgrey; border-radius: 3px;">
@@ -89,6 +95,7 @@
             </div>
         </div>
     </div>
+    <div class="board-bottom"></div>
 </body>
 
 </html>
