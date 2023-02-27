@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="js/mini_backend.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/img/join_logo.svg">
@@ -12,7 +13,7 @@
     <script src="js/data.js"></script>
     <script src="js/include.js"></script>
     <script src="js/add_task.js"></script>
-    <script src="js/mini_backend.js"></script>
+    <script>setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');</script>
     <script>
     </script>
 
@@ -54,17 +55,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="selection-container">
-                        <label>Category</label>
-                        <select class="select-wrapper" id="category_choice" required>
-                            <option value="" disabled selected>Select your Category</option>
-                            <option value="Media">Media</option>
-                            <option value="Backoffice">Backoffice</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Sales">Sales</option>
-                            <option value="Design">Design</option>
-                        </select>
-                    </div>-->
                     <div class="selection-container prevent-select">
                         <label>Assigned To</label>
                         <div class="select-wrapper assigned-to-wrapper">
@@ -78,13 +68,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="selection-container">
-                        <label>Assigned to</label>
-                        <select id="assigned_to_choice" required>
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="PD"><label for="assigned_to_choice_0">Pascal Dietz <input type="checkbox" id="assigned_to_choice_0" value="PD"></label></option>
-                        </select>
-                    </div>-->
                 </div>
                 <div class="middle-gap"></div>
                 <div class="right-container">
@@ -94,28 +77,6 @@
                     </div>
                     <div class="features-container">
                         <label>Prio</label>
-                        <!--
-                        <div class="prio-btn-container">
-                            <button onclick="showUrgentRedBtn()" id="urgentBtnWhite"
-                                class="prio-btn prio-urgent">Urgent<img id="prioUrgentWhite"
-                                    src="assets/img/Prio-urgent.png"></button>
-                            <button onclick="showUrgentWhiteBtn()" id="urgentBtnRed"
-                                class="d-none prio-btn-red prio-urgent">Urgent<img id="prioUrgentRed"
-                                    src="assets/img/Prio-urgent-white.png"></button>
-
-                            <button onclick="showMediumOrangeBtn()" id="mediumBtnWhite"
-                                class="prio-btn prio-medium">Medium<img src="assets/img/Prio-medium.png"></button>
-                            <button onclick="showMediumWhiteBtn()" id="mediumBtnOrange"
-                                class="d-none prio-btn-orange prio-medium">Medium<img
-                                    src="assets/img/prio-medium-white.png"></button>
-
-                            <button onclick="showLowGreenBtn()" id="lowBtnWhite" class="prio-btn prio-low">Low<img
-                                    src="assets/img/Prio-low.png"></button>
-                            <button onclick="showLowWhiteBtn()" id="lowBtnGreen"
-                                class="d-none prio-btn-green prio-low">Low<img
-                                    src="assets/img/Prio-low-white.png"></button>
-                        </div>
-                        -->
                         <div onchange="changeColor(); return false" class="prio-btn-container">
 
                             <input type="radio" class="checkbox_urgen" id="urgentBtn" name="radio">
@@ -140,10 +101,14 @@
                         <div class="features-container">
                             <label>Subtasks</label>
                             <div class="subtask-container">
-                                <input class="subtask-input" placeholder="Add new subtask">
-                                <img class="plus-icon" src="assets/img/plus-icon.png" onclick>
+                                <input class="subtask-input" placeholder="Add new subtask" id="subtask">
+                                <img class="plus-icon" src="assets/img/plus-icon.png" onclick="addSubtask()">
                                 <img src="#" class="d-none">
                                 <img src="#" class="d-none">
+                            </div>
+                            <div>
+                                <ul id="subtask-list">
+                                </ul>
                             </div>
                         </div>
                     </div>
