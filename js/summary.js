@@ -1,13 +1,13 @@
 async function initSummary() {
     await includeHTML();
     await loadUsers();
-    await loadNotes();
+    await loadAllTasks();
     showDlDate();
     showGreet();
     loadNotes();
 }
 
-async function loadNotes() {
+async function loadAllTasks() {
     await downloadFromServer();
     tasksTest = JSON.parse(backend.getItem('allTasks')) || [];
     showAllCounts();
