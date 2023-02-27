@@ -132,6 +132,7 @@ body {
     line-height: 73px;
     letter-spacing: 0em;
     text-align: center;
+    /* margin-top: -70px; */
 }
 
 ::placeholder {
@@ -248,7 +249,7 @@ body {
 .forgot-pw-page {
     position: relative;
     width: 826px;
-    height: 440px;
+    height: 420px;
     padding-top: 44px;
 }
 
@@ -331,6 +332,55 @@ body {
 
 .opacity {
     opacity: 0;
+}
+
+@media(max-width: 900px) {
+    .forgot-pw-page {
+        width: 360px;
+        height: 480px;
+    }
+
+    #forgot-pw-span{
+        width: 330px;
+    }
+
+    .input-email-forgot-pw {
+        width: 330px !important;
+        margin: 25px !important;
+    }
+
+    .heading-span-forgot-pw {
+        font-size: 40px !important;
+        line-height: 120% !important;
+    }
+
+    .underline-forgot-pw {
+        display: none;
+    }
+
+    .login-underline-forgot-pw {
+        display: block;
+        margin-top: -20px;
+    }
+
+    .back-img-forgot-pw {
+        display: none;
+    }
+
+    .back-img-forgot-pw-mobile {
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 25px;
+    }
+
+    .send-email-btn {
+        width: 180px;
+    }
+
+    .send-email-btn-font {
+        font-size: 16px !important;
+    }
 }
 
 @media(max-width:700px) {

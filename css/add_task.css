@@ -356,3 +356,7 @@ fieldset {
 .assigned-to-wrapper{
     margin-bottom: 30px;
 }
+
+@media(max-width: 1400px) {
+    
+}
