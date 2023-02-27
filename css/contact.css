@@ -582,3 +582,86 @@ select::-ms-expand {
     cursor: pointer;
     padding: 10px;
 }
+
+.mobile-contact-back-icon  {
+    display: none;
+}
+
+
+@media(max-width:1000px) {
+
+    .contacts-main-container {
+        margin-left: 0px;
+    }
+
+    .contact-list-container {
+        width: 100%;
+    }
+
+    .contact-selection-container {
+        z-index: 100;
+        position: absolute;
+        left: 0;
+        top: 0;
+        /* background-color: #F5F5F5; */
+        height: 90%;
+        width: 100%;
+    }
+
+    .contact-header-container {
+        display: flex;
+        align-items: center;
+        margin-top: 89px;
+        gap: 20px;
+    }
+    
+    .contact-header {
+        display: none;
+    }
+    
+    .contact-header-seperator {
+        display: none;
+    }
+    
+    .contact-header-slogan {
+        display: none;
+    }
+
+    .contact-btn-position {
+        margin-top: 90px;
+        margin-right: 40px;
+        top: 0;
+        bottom: unset;
+    }
+
+    .mobile-contact-back-icon {
+        display: unset;
+    }
+
+    .mobile-contact-back-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 5px;
+        gap: 8px;
+        border: none;
+        border-radius: 50%;
+        color: #2A3647;
+        cursor: pointer;
+        transition: all 225ms ease-in-out;
+    }
+    
+    .mobile-contact-back-btn:hover {
+        border-color: #29ABE2;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        transition: all 125ms ease-in-out;
+    }
+
+    .mobile-contact-back-btn-position {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        margin-right: 40px;
+    }
+}

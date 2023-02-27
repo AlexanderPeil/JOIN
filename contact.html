@@ -28,22 +28,25 @@
             </div>
         </section>
     <!-- Content - right side -->
-        <section class="contact-selection-container">
-            <div class="contact-header-container">
-                <h1 class="contact-header">Contacts</h1>
-                <div class="contact-header-seperator"></div>
-                <h2 class="contact-header-slogan">Better with a team</h2>
-            </div>
-            <div id="contactSelection"></div>
-            <button onclick="openAddContactForm()" title="add contact" class="contact-add-btn contact-btn-position">
-                <p>New Contact</p>
-                <img class="contact-btn-icon" src="./assets/img/add_contact.svg" alt="#">
-            </button>
-            <!-- "Add Contact"-Form -->
-            <div id="formContainer"></div>
-            <div id="formEditContainer"></div>
-            <div id="formTaskContainer"></div>
-        </section>
+    <section class="contact-selection-container contact-selection-mobile-container">
+        <div class="contact-header-container">
+            <h1 class="contact-header">Contacts</h1>
+            <div class="contact-header-seperator"></div>
+            <h2 class="contact-header-slogan">Better with a team</h2>
+        </div>
+        <div id="contactSelection"></div>
+        <button onclick="openAddContactForm()" title="add contact" class="contact-add-btn contact-btn-position">
+            <p>New Contact</p>
+            <img class="contact-btn-icon" src="./assets/img/add_contact.svg" alt="#">
+        </button>
+        <button onclick="closeContactSelection()" title="back to overview" class="mobile-contact-back-btn mobile-contact-back-icon mobile-contact-back-btn-position">
+            <img class="contact-btn-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+        </button>
+        <!-- "Add Contact"-Form -->
+        <div id="formContainer"></div>
+        <div id="formEditContainer"></div>
+        <div id="formTaskContainer"></div>
+    </section>
     </main>
 </body>
 </html>
