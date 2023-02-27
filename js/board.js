@@ -125,3 +125,9 @@ async function loadContacts(){
     let response = await fetch('./js/contact.json');
     users_color = await response.json();
 }
+
+function openTaskFull(){
+    document.getElementById('popUp').innerHTML = `
+    
+    `
+}
