@@ -75,6 +75,8 @@ p {
 
     .main-content {
         padding: 0;
+        margin-bottom: 120px;
+        height: unset;
     }
 
     li {

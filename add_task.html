@@ -27,8 +27,11 @@
     <div w3-include-html="assets/templates/nav.html"></div>
 
     <!--Main Content-->
+    <img class="add-task-mobile d-none" src="assets/img/add_task_btn_mob.svg" alt="Create task button">
+
     <div class="main-container">
         <div class="title-container">
+            <div class="headline-mobile d-none">Kanban Project Management Tool</div>
             <h1>Add Task</h1>
         </div>
         <form onsubmit="addTask();return false">
@@ -45,26 +48,61 @@
                     <div class="selection-container prevent-select">
                         <label>Category</label>
                         <div class="select-wrapper" onclick="openDropdown('category-choices')">
-                            <div class="sector_top"><p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png"></div>
+                            <div class="sector_top">
+                                <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
+                            </div>
                             <div class="category-choices d-none" id="category-choices">
-                                <div class="category" onclick="changeCategoryHeader('Marketing')"><div id="marketing">Marketing </div><div class="circle" style="background: #0038ff;"></div></div>
-                                <div class="category" onclick="changeCategoryHeader('Media')"><div>Media </div><div class="circle" style="background: #ffc702;"></div></div>
-                                <div class="category" onclick="changeCategoryHeader('Backoffice')"><div>Backoffice </div><div class="circle" style="background: #1FD7C1;"></div></div>
-                                <div class="category" onclick="changeCategoryHeader('Design')"><div>Design </div><div class="circle" style="background:  #ff7a00;"></div></div>
-                                <div class="category" onclick="changeCategoryHeader('Sales')"><div>Sales </div><div class="circle" style="background: #fc71ff;"></div></div>
+                                <div class="category" onclick="changeCategoryHeader('Marketing')">
+                                    <div id="marketing">Marketing </div>
+                                    <div class="circle" style="background: #0038ff;"></div>
+                                </div>
+                                <div class="category" onclick="changeCategoryHeader('Media')">
+                                    <div>Media </div>
+                                    <div class="circle" style="background: #ffc702;"></div>
+                                </div>
+                                <div class="category" onclick="changeCategoryHeader('Backoffice')">
+                                    <div>Backoffice </div>
+                                    <div class="circle" style="background: #1FD7C1;"></div>
+                                </div>
+                                <div class="category" onclick="changeCategoryHeader('Design')">
+                                    <div>Design </div>
+                                    <div class="circle" style="background:  #ff7a00;"></div>
+                                </div>
+                                <div class="category" onclick="changeCategoryHeader('Sales')">
+                                    <div>Sales </div>
+                                    <div class="circle" style="background: #fc71ff;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="selection-container prevent-select">
                         <label>Assigned To</label>
                         <div class="select-wrapper assigned-to-wrapper">
-                            <div class="sector_top" onclick="openDropdown('assigned-to-choices')"><p id="assigned-to-header">Select your Members</p><img src="./assets/img/arrow_down.png"></div>
+                            <div class="sector_top" onclick="openDropdown('assigned-to-choices')">
+                                <p id="assigned-to-header">Select your Members</p><img
+                                    src="./assets/img/arrow_down.png">
+                            </div>
                             <div class="assigned-to-choices d-none" id="assigned-to-choices">
-                                <div class="assigned-to" onclick="changeCategoryHeader('Marketing')"><div id="marketing">Marketing </div><div class="circle" style="background: #0038ff;"></div></div>
-                                <div class="assigned-to" onclick="changeCategoryHeader('Media')"><div>Media </div><div class="circle" style="background: #ffc702;"></div></div>
-                                <div class="assigned-to" onclick="changeCategoryHeader('Backoffice')"><div>Backoffice </div><div class="circle" style="background: #1FD7C1;"></div></div>
-                                <div class="assigned-to" onclick="changeCategoryHeader('Design')"><div>Design </div><div class="circle" style="background:  #ff7a00;"></div></div>
-                                <div class="assigned-to" onclick="changeCategoryHeader('Sales')"><div>Sales </div><div class="circle" style="background: #fc71ff;"></div></div>
+                                <div class="assigned-to" onclick="changeCategoryHeader('Marketing')">
+                                    <div id="marketing">Marketing </div>
+                                    <div class="circle" style="background: #0038ff;"></div>
+                                </div>
+                                <div class="assigned-to" onclick="changeCategoryHeader('Media')">
+                                    <div>Media </div>
+                                    <div class="circle" style="background: #ffc702;"></div>
+                                </div>
+                                <div class="assigned-to" onclick="changeCategoryHeader('Backoffice')">
+                                    <div>Backoffice </div>
+                                    <div class="circle" style="background: #1FD7C1;"></div>
+                                </div>
+                                <div class="assigned-to" onclick="changeCategoryHeader('Design')">
+                                    <div>Design </div>
+                                    <div class="circle" style="background:  #ff7a00;"></div>
+                                </div>
+                                <div class="assigned-to" onclick="changeCategoryHeader('Sales')">
+                                    <div>Sales </div>
+                                    <div class="circle" style="background: #fc71ff;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -117,11 +155,12 @@
                         </div>
                         <div><Button class="btn-createTask">Create Task &#10003;</Button></div>
                     </div>
-
                 </div>
-
             </div>
         </form>
+    </div>
+
+    
 </body>
 
 </html>

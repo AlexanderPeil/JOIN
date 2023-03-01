@@ -357,6 +357,130 @@ fieldset {
     margin-bottom: 30px;
 }
 
-@media(max-width: 1400px) {
-    
+@media(max-width:1400px) {
+    .main-container {
+        margin-right: 10px;
+    }
 }
+
+@media(max-width:1200px) {
+    .title-container {
+        width: 450px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .main-container {
+        margin-left: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .middle-gap {
+        display: none;
+    }
+
+    .content-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .right-container {
+        align-items: center;
+        height: unset;
+        margin-bottom: 75px;
+    }
+
+    .submit-and-clear {
+        position: unset;
+    }
+}
+
+
+@media(max-width: 1000px) {
+    .add-task-mobile {
+        z-index: 11;
+        display: block !important;
+        position: absolute;
+        top: 18px;
+        right: 27px;
+        cursor: pointer;
+    }
+
+    h1 {
+         margin-top: 25px;
+    }
+
+    .title-container {
+        flex-direction: column;
+    }
+
+    .main-container {
+        margin-top: 130px;
+        margin-left: 0;
+    }
+
+    .headline-mobile {
+        display: block !important;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 47px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    ::placeholder {
+        font-size: 16px;
+    }
+
+    textarea {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .prio-btn {
+        font-size: 16px;
+    }
+
+    .submit-and-clear {
+        display: none;
+    }
+
+    .left-container {
+        margin-bottom: -50px;
+    }
+
+    .right-container {
+        margin-bottom: 150px;
+    }
+}
+
+@media(max-width: 500px) {
+    .main-container {
+        margin-right: 0;
+    }
+
+    .title-container {
+        width: unset;
+    }
+
+    .left-container {
+        width: unset;
+    }
+
+    .right-container {
+        width: unset;
+    }
+} 
