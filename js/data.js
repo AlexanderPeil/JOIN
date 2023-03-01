@@ -12,8 +12,6 @@ async function loadUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
     currentUser = JSON.parse(backend.getItem('current-user')) || [];
-
-    // checkRememberMeData();
 }
 
 
@@ -48,6 +46,16 @@ function checkRememberMe(currentUser) {
     
     if (rememberMe.checked == true) {
         setRememberMeLocal(currentUser);
+    }
+}
+
+
+function deleteRememberMe() {
+    let rememberMe = document.getElementById('remember-me');
+
+    if (rememberMe.checked == false) {
+        localStorage.removeItem('current-email');
+        localStorage.removeItem('current-password');
     }
 }
 
