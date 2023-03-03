@@ -70,15 +70,20 @@
     </div>
     <div class="board-bottom"></div>
     <div id="popUp">
-        <div class="popUp-background d-none">
+        <div class="popUp-background">
             <div class="popUp-content">
-                <div class="popUp-close">x</div>
+                <div class="popUp-close" onclick="closePopUp()">x</div>
                 <div class="card-head" style="background-color: var(--sales);">Sales</div>
                 <h2>Call potential clients with a Phone XD</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div class="makeRow"><h4 class="margin10">Due date: </h4><p>05-08-2022</p></div>
-                <div class="makeRow"><h4 class="margin10">Priority:</h4><p class="prio-low-popUp">Low <img src="assets/img/prio-low-white.png"></p></div>
-                <h4>Assigned To:</h4>
+                <label><b>Subtasks</b></label>
+                div<section class="subtaskSection">
+                    <label for="subtask_0">Task erstellen<input type="checkbox" id="subtask_0"></label>
+                    <label for="subtask_1">Hoffen das es Klappt<input type="checkbox" checked id="subtask_1"></label>
+                </section>
+                <div class="makeRow"><b class="margin10">Due Date: </b><p>05-08-2022</p></div>
+                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-low-popUp">Low <img src="assets/img/prio-low-white.png"></p></div>
+                <div class="makeRow"><b class="margin10">Assigned To: </b></div>
                 <div class="makeRow users"><p class="circle" style="background-color: blue; margin-right: 20px;">PD</p><p>Pascal Dietz</p></div>
                 <div></div>
             </div>
