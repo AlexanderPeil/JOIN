@@ -84,14 +84,6 @@ function showCountDone() {
 }
 /* End of: Show counts of board on summary*/
 
-/*
-function showDlDate() {
-    const date = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const dateString = date.toLocaleDateString('en-US', options);
-    document.getElementById('dlDate').innerHTML = dateString;
-}*/
-
 function showDlDate() {
     let dlDate = tasksTest[0].date; /*Die Variable dlDate wird initialisiert und mit dem Datumswert des ersten Elements im tasksTest-Array initialisiert:*/
     for (let i = 1; i < tasksTest.length; i++) {
