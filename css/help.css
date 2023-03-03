@@ -8,6 +8,10 @@ body {
     padding-top: calc(171px - var(--header-height));
 }
 
+a {
+    text-decoration: none;
+}
+
 .arrow-left {
     cursor: pointer;
     position: absolute;
