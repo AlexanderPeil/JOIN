@@ -68,7 +68,7 @@ function loadNewBoard() {
         for (let j = 0; j < task['users'].length; j++) {
             const user = task['users'][j];
 
-            document.getElementById('users' + i).innerHTML += `<p class="circle" style="background-color: blue;">${user}</p>`
+            document.getElementById('users' + i).innerHTML += `<p class="circle" style="background-color: blue;">${user['userShort']}</p>`
         }
 
     }
@@ -142,9 +142,9 @@ function openTaskFull(choiceTask){
                 <section class="subtaskSection" id="subtaskSection">
                 </section></div>
                 <div class="makeRow"><b class="margin10">Due Date: </b><p>${tasks[choiceTask]['date']}</p></div>
-                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-low-popUp">${tasks[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img']}"></p></div>
+                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-${tasks[choiceTask]['priotity'][0]['priotity']}-popUp">${tasks[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img']}"></p></div>
                 <div class="makeRow"><b class="margin10">Assigned To: </b></div>
-                <div class="makeRow users"><p class="circle" style="background-color: blue; margin-right: 20px;">PD</p><p>Pascal Dietz</p></div>
+                <div class="users makeColumn" id="userSection"></div>
                 <div></div>
             </div>
         </div>    
@@ -165,6 +165,14 @@ function openTaskFull(choiceTask){
     }
     else{
         document.getElementById('subtaskSectionCheck').innerHTML = '';
+    }
+    if(tasks[choiceTask]['users'].length > 0){
+        let users = tasks[choiceTask]['users']
+        for (let u = 0; u < users.length; u++) {
+            document.getElementById('userSection').innerHTML += `<div class="makeRow">
+            <p class="circle" style="background-color: blue; margin-right: 20px;">${users[u]['userShort']}</p><p>${users[u]['userFullName']}</p>
+            </div>`
+        }
     }
 }
 

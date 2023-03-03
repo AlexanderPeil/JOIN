@@ -122,8 +122,10 @@ async function addTask() {
     for (let i = 0; i < contacts.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
             user = document.getElementById('assigned-to-' + i).value;
+            let fullName = document.getElementById('assigned_name' + i).innerHTML;
             console.log(user);
-            assigned_to.push(user);
+            console.log(fullName);
+            assigned_to.push({'userShort':user,'userFullName':fullName});
         }
 
     }
@@ -247,7 +249,7 @@ function addAssignedToList() {
 
         console.log('Vorname: ' + firstName + ' | Nachname: ' + lastName + ' | Abkürzung: ' + acronym);
 
-        document.getElementById('assigned-to-choices').innerHTML += `<div class="assigned-to-line"><label for="assigned-to-${i}">${firstName + ' ' + lastName}</label><input type="checkbox" id="assigned-to-${i}" value="${acronym}"></div>`
+        document.getElementById('assigned-to-choices').innerHTML += `<div class="assigned-to-line"><label for="assigned-to-${i}" id="assigned_name${i}">${firstName + ' ' + lastName}</label><input type="checkbox" id="assigned-to-${i}" value="${acronym}"></div>`
     }
 }
 

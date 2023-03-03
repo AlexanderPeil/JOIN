@@ -176,6 +176,11 @@ body::-webkit-scrollbar {
     display: flex;
 }
 
+.makeColumn{
+    display: flex;
+    flex-direction: column;
+}
+
 .users .circle {
     display: flex;
     border-radius: 100%;
