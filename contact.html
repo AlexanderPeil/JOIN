@@ -56,16 +56,16 @@
                     <div class="contact-form-right">
                         <div class="contact-user-icon-container">
                             <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
-                            <input type="color" name="color" id="color" required>
                         </div>
                         <div class="contact-input-container">
                             <div onclick="closeAddContactForm()" class="icon-top-right" title="close form">
                                 <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
                             </div>
-                            <input type="text" name="name" placeholder="First Name" id="firstName" required>
-                            <input type="text" name="name" placeholder="Last Name" id="lastName" required>
-                            <input type="email" name="email" placeholder="Email" id="email" required>
-                            <input type="tel" name="phone" placeholder="Phone" id="phone" required>
+                            <input class="contact-input-field input-name-img" type="text" name="name" placeholder="First Name" id="firstName" required>
+                            <input class="contact-input-field input-name-img" type="text" name="name" placeholder="Last Name" id="lastName" required>
+                            <input class="contact-input-field input-email-img" type="email" name="email" placeholder="Email" id="email" required>
+                            <input class="contact-input-field input-phone-img" type="tel" name="phone" placeholder="Phone" id="phone" required>
+                            <input type="color" name="color" id="color" required>
                             <div class="contact-form-buttons">
                                 <button type="button" onclick="closeAddContactForm()" class="contact-cancel-btn" title="close form">
                                     <p>Cancel</p>
