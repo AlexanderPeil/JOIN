@@ -309,7 +309,7 @@ body {
     background-color: white;
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
-    padding: 40px;
+    padding: 30px;
 }
 
 .contact-form-left {
@@ -320,7 +320,7 @@ body {
     color: white;
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
-    padding: 40px;
+    padding: 30px;
 }
 
 .contact-form-right {
@@ -340,8 +340,8 @@ body {
 .contact-input-container {
     display: flex;
     flex-direction: column;
-    gap: 35px;
-    padding: 40px;
+    gap: 25px;
+    padding: 30px;
 }
 
 .contact-form-logo {
@@ -408,11 +408,8 @@ body {
     width: 340px;
 }
 
-.contact-user-icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.form-group {
+    padding-bottom: 25px;
 }
 
 /* Add task overlay */
@@ -721,16 +718,6 @@ select::-ms-expand {
     .contact-form-buttons {
         justify-content: space-around;
         width: unset;
-    }
-
-    .contact-cancel-btn {
-        width: 130px;
-        padding: 0;
-    }
-
-    .contact-add-btn {
-        width: 130px;
-        padding: 0;
     }
 
     .icon-top-right {
