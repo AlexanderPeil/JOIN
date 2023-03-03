@@ -8,7 +8,7 @@ async function initSummary() {
 
 async function loadAllTasks() {
     await downloadFromServer();
-    tasksTest = JSON.parse(backend.getItem('allTasks')) || [];
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     showAllCounts();
 }
 
@@ -25,14 +25,14 @@ function showAllCounts() {
 
 function showCountInBoard() {
     let countInBoard = document.getElementById('countInBoard');
-    countInBoard.innerHTML = tasksTest.length;
+    countInBoard.innerHTML = allTasks.length;
 }
 
 function showCountInProgress() {
     let countInProgress = document.getElementById('countInProgress');
     let count = 0;
-    for (let i = 0; i < tasksTest.length; i++) {
-        if (tasksTest[i].split === "in_progress") {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].split === "in_progress") {
             count++;
         }
     }
@@ -42,8 +42,8 @@ function showCountInProgress() {
 function showCountAwaitFeedback() {
     let countAwaitFeedback = document.getElementById('countAwaitFeedback');
     let count = 0;
-    for (let i = 0; i < tasksTest.length; i++) {
-        if (tasksTest[i].split === "awaiting_feedback") {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].split === "awaiting_feedback") {
             count++;
         }
     }
@@ -53,8 +53,8 @@ function showCountAwaitFeedback() {
 function showCountUrgent() {
     let countUrgent = document.getElementById('countUrgent');
     let count = 0;
-    for (let i = 0; i < tasksTest.length; i++) {
-        if (tasksTest[i].priotity[0].priotity === "urgent") {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].priotity[0].priotity === "urgent") {
             count++;
         }
     }
@@ -64,8 +64,8 @@ function showCountUrgent() {
 function showCountToDo() {
     let countToDo = document.getElementById('countToDo');
     let count = 0;
-    for (let i = 0; i < tasksTest.length; i++) {
-        if (tasksTest[i].split === "to_do") {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].split === "to_do") {
             count++;
         }
     }
@@ -75,8 +75,8 @@ function showCountToDo() {
 function showCountDone() {
     let countDone = document.getElementById('countDone');
     let count = 0;
-    for (let i = 0; i < tasksTest.length; i++) {
-        if (tasksTest[i].split === "done") {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].split === "done") {
             count++;
         }
     }
@@ -84,19 +84,11 @@ function showCountDone() {
 }
 /* End of: Show counts of board on summary*/
 
-/*
 function showDlDate() {
-    const date = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const dateString = date.toLocaleDateString('en-US', options);
-    document.getElementById('dlDate').innerHTML = dateString;
-}*/
-
-function showDlDate() {
-    let dlDate = tasksTest[0].date; /*Die Variable dlDate wird initialisiert und mit dem Datumswert des ersten Elements im tasksTest-Array initialisiert:*/
-    for (let i = 1; i < tasksTest.length; i++) {
-        if (new Date(tasksTest[i].date) < new Date(dlDate)) { /*Innerhalb der Schleife wird geprüft, ob das Datum des aktuellen Elements kleiner ist als das gespeicherte Datum "dlDate".*/
-            dlDate = tasksTest[i].date; /*Wenn das Datum des aktuellen Elements kleiner ist als das gespeicherte Datum, wird das Datum des aktuellen Elements als neues "dlDate" gespeichert*/
+    let dlDate = allTasks[0].date; /*Die Variable dlDate wird initialisiert und mit dem Datumswert des ersten Elements im tasksTest-Array initialisiert:*/
+    for (let i = 1; i < allTasks.length; i++) {
+        if (new Date(allTasks[i].date) < new Date(dlDate)) { /*Innerhalb der Schleife wird geprüft, ob das Datum des aktuellen Elements kleiner ist als das gespeicherte Datum "dlDate".*/
+            dlDate = allTasks[i].date; /*Wenn das Datum des aktuellen Elements kleiner ist als das gespeicherte Datum, wird das Datum des aktuellen Elements als neues "dlDate" gespeichert*/
         }
     }
     const date = new Date(dlDate);
