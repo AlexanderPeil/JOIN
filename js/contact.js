@@ -100,6 +100,18 @@ function updateContactList() {
 }
 
 
+function updateContact() {
+    selectedContact.firstName = document.getElementById('firstName').value;
+    selectedContact.lastName = document.getElementById('lastName').value;
+    selectedContact.email = document.getElementById('email').value;
+    selectedContact.phone = document.getElementById('phone').value;
+    selectedContact.color = document.getElementById('color').value;
+    backend.setItem('contacts', JSON.stringify(contacts));
+    updateContactList();
+    closeForm();
+}
+
+
 function showContactForm() {
     var contactForm = document.getElementById("contactForm");
     contactForm.classList.remove("d-none");
@@ -177,31 +189,44 @@ function showContactDetailsHTML(selectedContact, i) {
 
 function openEditContactFormHTML(selectedContact) {
     return `
-    <form id="contactForm" class="contact-form-overlay" onsubmit="login(); return false;">
-        <div class="contact-form-left">
-            <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
-            <span class="contact-form-heading">Edit Contact</span>
-            <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
-        </div>
-        <div class="contact-form-right">
-        <div id="selectedContactColor" class="contact-letters big-letters margin-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
-        <div class="contact-input-container">
+        <div id="contactForm" class="contact-form-overlay">
+            <div class="contact-form-left">
+                <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
+                <span class="contact-form-heading">Edit Contact</span>
+                <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
+            </div>
+            <div class="contact-form-right">
+            <div id="selectedContactColor" class="contact-letters big-letters margin-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
+            <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
                     <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
                 </div>
-                <input class="contact-input-field input-name-img" type="text" name="name" placeholder="First Name" id="firstName" value="${selectedContact.firstName}" required>
-                <input class="contact-input-field input-name-img" type="text" name="name" placeholder="Last Name" id="lastName" value="${selectedContact.lastName}" required>
-                <input class="contact-input-field input-email-img" type="email" name="email" placeholder="Email" id="email" value="${selectedContact.email}" required>
-                <input class="contact-input-field input-phone-img" type="tel" name="phone" placeholder="Phone" id="phone" value="${selectedContact.phone}" required>
-                <div class="contact-form-buttons">
-                    <button onclick="saveEditedContact()" type="submit" class="contact-add-btn" title="save contact">
-                        <p>Save</p>
-                        <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
-                    </button>
-                </div>
+                <form onsubmit="updateContact(); return false;">
+                    <div class="form-group">
+                        <input class="contact-input-field input-name-img" type="text" placeholder="First Name" id="firstName" name="firstName" value="${selectedContact.firstName}" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="contact-input-field input-name-img" type="text" placeholder="Last Name" id="lastName" name="lastName" value="${selectedContact.lastName}" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="contact-input-field input-email-img" type="email" placeholder="Email" id="email" name="email" value="${selectedContact.email}" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone" id="phone" name="phone" value="${selectedContact.phone}" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="color" id="color" name="color" value="${selectedContact.color}" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="contact-add-btn">
+                            <p>Save</p>
+                            <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
+                        </button>
+                    </div>
+                </form>
+            </div>
             </div>
         </div>
-    </form>
     `;
 }
 
