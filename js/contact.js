@@ -1,5 +1,5 @@
 let contacts = [];
-setURL('https://patrick-kieber.developerakademie.net/smallest_backend_ever');
+setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');
 
 
 async function initContact() {
