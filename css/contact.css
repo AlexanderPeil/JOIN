@@ -591,6 +591,9 @@ select::-ms-expand {
     display: none;
 }
 
+.p-none {
+    padding: 0px!important;
+}
 
 @media(max-width:1000px) {
 
