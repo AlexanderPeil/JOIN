@@ -12,7 +12,7 @@ function addUser() {
 function checkUser(name, email, password) {
     let msgBox = document.getElementById('msg-box');
     let hideUnderline = document.getElementById('hide-underline');
-    currentUser = users.find(u => u.email == email || u.name == name);
+    currentUser = users.find(u => u.email == email.toLowerCase() || u.name == name);
     
     if (currentUser) {
         hideUnderline.classList.add('d-none');
@@ -30,7 +30,7 @@ function checkUser(name, email, password) {
 
 // Push user into JSON Array and save his datas into backend
 async function pushUser(name, email, password) {
-    users.push({'name': name, 'email': email, 'password' : password});
+    users.push({'name': name, 'email': email.toLowerCase(), 'password' : password});
     await backend.setItem('users', JSON.stringify(users));
 
     successfullyRegistration();

@@ -3,7 +3,7 @@ function login() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
 
-    currentUser = users.find(u => u.email == email && u.password == password);
+    currentUser = users.find(u => u.email == email.toLowerCase() && u.password == password);
     let invalidLogin = document.getElementById('invalid-login');
     let hideUnderline = document.getElementById('hide-underline');
 
