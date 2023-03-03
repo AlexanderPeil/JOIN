@@ -35,7 +35,7 @@ function loadNewBoard() {
         let catgoryLow = task['category'].toLowerCase();
 
         document.getElementById(task['split']).innerHTML += `
-        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})" ondragend="endDragging(${i})">
+        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})" ondragend="endDragging(${i})" onclick="openTaskFull(${i})">
                         <div class="card-content">
                             <div class="card-head" style="background-color: var(--${catgoryLow});">${(task['category'])}</div>
                             <div class="card-body">
@@ -128,8 +128,46 @@ async function loadContacts() {
     users_color = await response.json();
 }
 
-function openTaskFull(){
+function openTaskFull(choiceTask){
     document.getElementById('popUp').innerHTML = `
-    
+    <div class="popUp-background">
+            <div class="popUp-content">
+                <div class="popUp-close" onclick="closePopUp()">x</div>
+                <div class="card-head" style="background-color: var(--sales);">Sales</div>
+                <h2>${tasks[choiceTask]['body_header']}</h2>
+                <p>${tasks[choiceTask]['body_content']}</p>
+                
+                <div id=subtaskSectionCheck>
+                <label><b>Subtasks</b></label>
+                <section class="subtaskSection" id="subtaskSection">
+                </section></div>
+                <div class="makeRow"><b class="margin10">Due Date: </b><p>${tasks[choiceTask]['date']}</p></div>
+                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-low-popUp">${tasks[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img']}"></p></div>
+                <div class="makeRow"><b class="margin10">Assigned To: </b></div>
+                <div class="makeRow users"><p class="circle" style="background-color: blue; margin-right: 20px;">PD</p><p>Pascal Dietz</p></div>
+                <div></div>
+            </div>
+        </div>    
     `
+    if(tasks[choiceTask]['subtasks'].length > 0){
+        let subtasks = tasks[choiceTask]['subtasks']
+        
+        for (let i = 0; i < subtasks.length; i++) {
+            taskDone = 'checked'
+            if (tasks[choiceTask]['subtasks'][i]['status'] == 'undone'){
+                taskDone = '';
+            }
+            document.getElementById('subtaskSection').innerHTML += `
+            <label for="subtask_${i}">${tasks[choiceTask]['subtasks'][i]['subtaskName']}<input type="checkbox" ${taskDone} id="subtask_${i}"></label>
+            `
+        }
+        
+    }
+    else{
+        document.getElementById('subtaskSectionCheck').innerHTML = '';
+    }
+}
+
+function closePopUp(){
+    document.getElementById('popUp').innerHTML = '';
 }
