@@ -218,6 +218,98 @@ body::-webkit-scrollbar {
     opacity: 1;
 }
 
+.popUp-background {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.087);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp-content {
+    height: 624px;
+    width: 423px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    gap: 25px;
+}
+
+
+.makeRow {
+    display: flex;
+    align-items: center;
+}
+
+.margin10 {
+    margin-right: 10px;
+}
+
+.prio-low-popUp {
+    background-color: #7AE229;
+    width: 131px;
+    height: 33px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 18px;
+    gap: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.prio-medium-popUp {
+    background-color: rgb(255, 168, 0);
+    width: 131px;
+    height: 33px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 18px;
+    gap: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.prio-urgent-popUp {
+    background-color: #FF3D00;
+    width: 131px;
+    height: 33px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 18px;
+    gap: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.popUp-close {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    cursor: pointer;
+}
+
+.subtaskSection{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: dotted 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.subtaskSection label{
+    padding: 5px 0;
+}
+
 @media(max-width: 1500px) {
     .board {
         flex-wrap: wrap;
@@ -302,82 +394,4 @@ body::-webkit-scrollbar {
     .drop-ground {
         width: 360px;
     }
-}
-.popUp-background {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.087);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.popUp-content {
-    height: 624px;
-    width: 423px;
-    background: white;
-    border-radius: 30px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    padding: 50px;
-    gap: 25px;
-}
-
-.makeRow {
-    display: flex;
-    align-items: center;
-}
-
-.margin10 {
-    margin-right: 10px;
-}
-
-.prio-low-popUp {
-    background-color: #7AE229;
-    width: 131px;
-    height: 33px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 18px;
-    gap: 10px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.prio-medium-popUp {
-    background-color: rgb(255, 168, 0);
-    width: 131px;
-    height: 33px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 18px;
-    gap: 10px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.prio-urgent-popUp {
-    background-color: #FF3D00;
-    width: 131px;
-    height: 33px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 18px;
-    gap: 10px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.popUp-close {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    cursor: pointer;
 }
