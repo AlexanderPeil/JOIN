@@ -57,6 +57,10 @@ body::-webkit-scrollbar {
     display: flex;
 }
 
+.search-container {
+    padding-bottom: 50px;
+}
+
 .search-box {
     border: solid 0.2px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -340,6 +344,10 @@ body::-webkit-scrollbar {
         padding-top: 35px;
     }
 
+    .search-container {
+        padding: unset;
+    }
+
     .splits {
         width: 360px;
     }
@@ -376,7 +384,7 @@ body::-webkit-scrollbar {
     }
 
     .dropArea {
-        height: 0;
+        width: unset;
     }
 
     .card {
