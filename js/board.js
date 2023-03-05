@@ -43,13 +43,23 @@ function loadNewBoard() {
                                 <p>${task['body_content']}</p>
                             </div>`
 
-        if (task['progress'].length > 0) {
+        if (task['subtasks'].length > 0) {
+            let doneTasks = 0;
+            let sumTasks = task['subtasks'].length;
+            for (let t = 0; t < task['subtasks'].length; t++) {
+                const subtask = task['subtasks'][t];
+                if(subtask['status'] == 'done'){
+                    doneTasks++;
+                };
+                
+            }
+
             document.getElementById('card' + i).innerHTML += `
                             <div class="progress_bar">
                                 <div style="width: 70%; background-color: lightgrey; border-radius: 3px;">
-                                    <div style="background: #0D99FF; height:12px;width:${task['progress'][0] / task['progress'][1] * 100}%; border-radius: 3px;"></div>
+                                    <div style="background: #0D99FF; height:12px;width:${doneTasks / sumTasks * 100}%; border-radius: 3px;"></div>
                                 </div>
-                                <div>${task['progress'][0]}/${task['progress'][1]} Done</div>
+                                <div>${doneTasks}/${sumTasks} Done</div>
                             </div>`
         }
         document.getElementById('card' + i).innerHTML += `
@@ -132,8 +142,8 @@ function openTaskFull(choiceTask){
     document.getElementById('popUp').innerHTML = `
     <div class="popUp-background">
             <div class="popUp-content">
-                <div class="popUp-close" onclick="closePopUp()">x</div>
-                <div class="card-head" style="background-color: var(--sales);">Sales</div>
+                <div class="popUp-close" onclick="closePopUp(${choiceTask})">x</div>
+                <div class="card-head" style="background-color: var(--${tasks[choiceTask]['category'].toLowerCase()});">${tasks[choiceTask]['category']}</div>
                 <h2>${tasks[choiceTask]['body_header']}</h2>
                 <p>${tasks[choiceTask]['body_content']}</p>
                 
@@ -142,10 +152,10 @@ function openTaskFull(choiceTask){
                 <section class="subtaskSection" id="subtaskSection">
                 </section></div>
                 <div class="makeRow"><b class="margin10">Due Date: </b><p>${tasks[choiceTask]['date']}</p></div>
-                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-${tasks[choiceTask]['priotity'][0]['priotity']}-popUp">${tasks[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img']}"></p></div>
+                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-${tasks[choiceTask]['priotity'][0]['priotity']}-popUp">${tasks[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img_white']}"></p></div>
                 <div class="makeRow"><b class="margin10">Assigned To: </b></div>
                 <div class="users makeColumn" id="userSection"></div>
-                <div></div>
+                <div class="put_it_right"><img src="./assets/img/empty-trash-32.png" onclick=delCard(${choiceTask})></div>
             </div>
         </div>    
     `
@@ -176,6 +186,30 @@ function openTaskFull(choiceTask){
     }
 }
 
-function closePopUp(){
+async function closePopUp(currentCard){
+    for (let i = 0; i < tasks[currentCard]['subtasks'].length; i++) {
+        let subTask = tasks[currentCard]['subtasks'][i];
+        let isDone = false;
+        isDone = document.getElementById('subtask_'+i).checked;
+        console.log('Task ist: ',isDone);
+        if(isDone){
+            tasks[currentCard]['subtasks'][i]['status'] = 'done';
+        }
+        else{
+            tasks[currentCard]['subtasks'][i]['status'] = 'undone';
+            
+        }
+               
+    }
+    await saveNotes();
     document.getElementById('popUp').innerHTML = '';
+    loadBoard();
+}
+
+async function delCard(choicCard){
+    console.log(choicCard);
+    tasks.splice(choicCard,1);
+    await saveNotes();
+    loadBoard();
+    closePopUp();
 }

@@ -14,7 +14,8 @@
         "priotity": [
             {
                 "img": "assets/img/low_priotity.png",
-                "priotity": "low"
+                "priotity": "low",
+                "img_white":"assets/img/prio-low-white.png"
             }
         ],
         "date": "2023-02-28",
@@ -34,7 +35,8 @@
         "priotity": [
             {
                 "img": "assets/img/medium_priotity.png",
-                "priotity": "medium"
+                "priotity": "medium",
+                "img_white":"assets/img/Prio-medium-white.png"
             }
         ],
         "date": "2023-02-26",
@@ -53,7 +55,8 @@
         "priotity": [
             {
                 "img": "assets/img/low_priotity.png",
-                "priotity": "low"
+                "priotity": "low",
+                "img_white":"assets/img/Prio-low-white.png"
             }
         ],
         "date": "2023-03-28",
@@ -73,7 +76,8 @@
         "priotity": [
             {
                 "img": "assets/img/medium_priotity.png",
-                "priotity": "medium"
+                "priotity": "medium",
+                "img_white":"assets/img/Prio-medium-white.png"
             }
         ],
         "date": "2023-02-28",
@@ -96,7 +100,8 @@
         "priotity": [
             {
                 "img": "assets/img/high_priotity.png",
-                "priotity": "urgent"
+                "priotity": "urgent",
+                "img_white":"assets/img/Prio-urgent-white.png"
             }
         ],
         "date": "2023-02-23",
@@ -115,7 +120,8 @@
         "priotity": [
             {
                 "img": "assets/img/medium_priotity.png",
-                "priotity": "medium"
+                "priotity": "medium",
+                "img_white":"assets/img/Prio-medium-white.png"
             }
         ],
         "date": "2023-04-09",
@@ -148,7 +154,8 @@
         "priotity": [
             {
                 "img": "assets/img/low_priotity.png",
-                "priotity": "low"
+                "priotity": "low",
+                "img_white":"assets/img/Prio-low-white.png"
             }
         ]
     }

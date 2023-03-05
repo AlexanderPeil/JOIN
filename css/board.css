@@ -239,7 +239,7 @@ a {
 }
 
 .popUp-content {
-    height: 624px;
+    /*height: 624px;*/
     width: 423px;
     background: white;
     border-radius: 30px;
@@ -317,6 +317,12 @@ a {
 
 .subtaskSection label{
     padding: 5px 0;
+}
+
+.put_it_right{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 @media(max-width: 1500px) {
