@@ -11,7 +11,7 @@ function login() {
 }
 
 
-// Login with right email and password continues on the page summary. Invalid login-data triggers text
+// Login with right email and password continues on the page summary. Invalid login-data triggers text "Invalid email or password!"
  async function checkUser(invalidLogin, hideUnderline) {
     if (currentUser) {
         await backend.setItem('current-user', JSON.stringify(currentUser));
@@ -41,6 +41,7 @@ function emailSent() {
     }
 }
 
+
 // Login for guest. So you don't need to sign in or to log in with an account
   async function guestLogin() {
     currentUser = {'name': 'Guest'};
@@ -49,6 +50,7 @@ function emailSent() {
 }
 
 
+// Show message if email has been sent
 function showSentEmailMessage() {
     let showMessage = document.getElementById('email-sent');
     let hideSpan = document.getElementById('forgot-pw-span');
@@ -63,6 +65,7 @@ function showSentEmailMessage() {
 }
 
 
+// Show message if the email was wrong
 function showFailMessage() {
     let showMessage = document.getElementById('fail-message');
     let hideSpan = document.getElementById('forgot-pw-span');
@@ -75,7 +78,7 @@ function showFailMessage() {
     }, 3000);
 } 
 
-
+// Reset old password and set a new one
 function setNewPassword() {
     let newPassword = document.getElementById('new-password').value;
     let confirmPassword = document.getElementById('repeat-new-password').value;

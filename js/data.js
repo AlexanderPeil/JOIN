@@ -2,6 +2,7 @@ let users = [];
 let currentUser;
 
 
+// Body onload function
 function init() {
     includeHTML();
 }
@@ -35,12 +36,14 @@ function dontClose(event) {
 }
 
 
+// Logout and delete the current user 
  async function logOut() {
     await backend.deleteItem('current-user');
     window.location.href = 'index.html';
 }
 
 
+// Check if the remember me checkbox is checked
 function checkRememberMe(currentUser) {
     let rememberMe = document.getElementById('remember-me');
     
@@ -50,6 +53,7 @@ function checkRememberMe(currentUser) {
 }
 
 
+// If you uncheck remember me so the current user will be removed from local storage and the login data won't be saved for the next time
 function deleteRememberMe() {
     let rememberMe = document.getElementById('remember-me');
 
@@ -60,22 +64,26 @@ function deleteRememberMe() {
 }
 
 
+//  If the checkbox is checked the login data will be saved for the next time (saave the current user in the local storage)
 function setRememberMeLocal(currentUser) {
     localStorage.setItem('current-email', currentUser.email);
     localStorage.setItem('current-password', currentUser.password);
 }
 
 
+// Get email from current user by checking remember me checkbox
 function getRememberMeEmail() {
     return localStorage.getItem('current-email');
 }
 
 
+// Get password from current user by checking remember me checkbox
 function getRememberMePassword() {
     return localStorage.getItem('current-password');
 }
 
 
+// Body onload function. Every time if the join main page is loaded this function checks the remember me email and password data
 function checkRememberMeData() {
     let emailValue = getRememberMeEmail();
     let passswordValue = getRememberMePassword();
