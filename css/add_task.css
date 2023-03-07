@@ -252,10 +252,13 @@ select::-ms-expand {
     align-items: center;
     gap: 10px;
     font-weight: 700;
+    transition: all 100ms ease-in-out;
 }
 
 .btn-createTask:hover {
     background-color: #29ABE2;
+    border: 2px solid #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn-clear {
@@ -266,11 +269,13 @@ select::-ms-expand {
     align-items: center;
     width: 136px;
     gap: 10px;
+    transition: all 100ms ease-in-out;
 }
 
 .btn-clear:hover {
-    border: solid 1px #29ABE2;
     color: #29ABE2;
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .btn-clear:hover .clear-img {
