@@ -6,6 +6,7 @@ body {
     margin-top: var(--header-height);
     padding-left: calc(355px - var(--nav-width));
     padding-top: calc(171px - var(--header-height));
+    margin-bottom: 20px;
 }
 
 :root{
@@ -226,6 +227,22 @@ select::-ms-expand {
 
 .plus-icon {
     cursor: pointer;
+}
+
+.subtask-img-container {
+    display: flex;
+    gap: 9px;
+    padding-right: 15px;
+    
+}
+
+.subtask-icons {
+    cursor: pointer;
+}
+
+.gap-img-subtask {
+    width: 1px;
+    background-color: #D1D1D1;
 }
 
 .submit-and-clear {

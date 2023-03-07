@@ -430,6 +430,12 @@ function changeCategoryHeader(name) {
     currentCategory = name;
 }
 
+function inputChangeSubIcons() {
+    document.getElementById('plusSubtaskImg').classList.add('d-none');
+    document.getElementById('clearSubtaskImg').classList.remove('d-none');
+    document.getElementById('addSubtaskImg').classList.remove('d-none');
+}
+
 function addSubtask() {
     let subtask = document.getElementById('subtask').value;
     if (!subtask == '') {
@@ -440,5 +446,22 @@ function addSubtask() {
             'status': 'undone'
         });
     }
+    document.getElementById('plusSubtaskImg').classList.remove('d-none');
+    document.getElementById('clearSubtaskImg').classList.add('d-none');
+    document.getElementById('addSubtaskImg').classList.add('d-none');
 
+}
+
+function clearSubtask() {
+    document.getElementById('subtask').value ="";
+    document.getElementById('plusSubtaskImg').classList.remove('d-none');
+    document.getElementById('clearSubtaskImg').classList.add('d-none');
+    document.getElementById('addSubtaskImg').classList.add('d-none');
+
+}
+
+function changeSubIcon() {
+    document.getElementById('plusSubtaskImg').classList.add('d-none');
+    document.getElementById('clearSubtaskImg').classList.remove('d-none');
+    document.getElementById('addSubtaskImg').classList.remove('d-none');
 }

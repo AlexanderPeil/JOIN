@@ -141,10 +141,13 @@
                         <div class="features-container">
                             <label>Subtasks</label>
                             <div class="subtask-container">
-                                <input class="subtask-input" placeholder="Add new subtask" id="subtask">
-                                <img class="plus-icon" src="assets/img/plus-icon.png" onclick="addSubtask()">
-                                <img src="#" class="d-none">
-                                <img src="#" class="d-none">
+                                <input class="subtask-input" onclick="inputChangeSubIcons()"placeholder="Add new subtask" id="subtask">
+                                <img id="plusSubtaskImg" class="plus-icon" src="assets/img/plus-icon.png" onclick="changeSubIcon()">
+                                <div class="subtask-img-container">
+                                <img id="clearSubtaskImg" src="assets/img/icon_cancel_subtask.svg" onclick="clearSubtask()" class="subtask-icons d-none">
+                                <div class="gap-img-subtask"></div>
+                                <img id="addSubtaskImg" src="assets/img/icon_check_subtask.svg" onclick="addSubtask()" class="subtask-icons d-none">
+                                </div>
                             </div>
                             <div>
                                 <ul id="subtask-list">
