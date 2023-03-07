@@ -254,6 +254,10 @@ select::-ms-expand {
     font-weight: 700;
 }
 
+.btn-createTask:hover {
+    background-color: #29ABE2;
+}
+
 .btn-clear {
     border: solid 1px #2A3647;
     color: #2A3647;
@@ -263,6 +267,15 @@ select::-ms-expand {
     width: 136px;
     gap: 10px;
 }
+
+.btn-clear:hover {
+    border: solid 1px #29ABE2;
+    color: #29ABE2;
+}
+
+.btn-clear:hover .clear-img {
+    content: url('http://127.0.0.1:5501/assets/img/iconoir_cancel_hover.svg');
+  }
 
 fieldset {
     border: none;
