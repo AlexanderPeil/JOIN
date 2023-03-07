@@ -238,7 +238,7 @@ select::-ms-expand {
 .submit-and-clear button {
     font-size: 1.5rem;
     border-radius: 10px;
-    padding: 10px;
+    padding: 18px 10px;
     margin-left: 25px;
     transition: background 255ms ease-in-out;
 }
@@ -247,11 +247,21 @@ select::-ms-expand {
     background: #2A3647;
     color: white;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
 }
 
 .btn-clear {
     border: solid 1px #2A3647;
     color: #2A3647;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 136px;
+    gap: 10px;
 }
 
 fieldset {
