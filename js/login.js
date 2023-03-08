@@ -31,10 +31,9 @@ function login() {
 // Send Email if you forget the password
 function emailSent() {
     let email = document.getElementById('email-forgot-password').value;
-    currentUser = users.find(u => u.email == email);
+    currentUser = users.find(u => u.email == email.toLowerCase());
 
     if (currentUser) {
-        setCurrentUserLocal(email);
         showSentEmailMessage();
     } else {
         showFailMessage();
@@ -52,16 +51,11 @@ function emailSent() {
 
 // Show message if email has been sent
 function showSentEmailMessage() {
-    let showMessage = document.getElementById('email-sent');
-    let hideSpan = document.getElementById('forgot-pw-span');
-
+    let showMessage = document.getElementById('email-sent-text');
     showMessage.classList.remove('d-none');
-    hideSpan.classList.add('d-none');
 
-    setTimeout(function() {
-    }, 3000);
-
-    window.location.href = 'reset_password.html';
+    setTimeout(function() {    window.location.href = 'reset_password.html';
+    }, 2000);
 }
 
 

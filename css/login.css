@@ -10,6 +10,7 @@ body {
 
 .content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -127,9 +128,9 @@ body {
 }
 
 .heading-span {
+    margin-top: -50px;
     font-size: 61px;
     font-weight: 700;
-    line-height: 73px;
     letter-spacing: 0em;
     text-align: center;
 }
@@ -302,9 +303,15 @@ body {
 
 .reset-pw-page {
     position: relative;
-    width: 780px;
-    height: 440px;
-    padding: 44px 60px;
+    width: 700px;
+    height: 450px;
+    padding: 25px 60px 44px 60px;
+}
+
+#email-sent-text {
+    position: fixed;
+    bottom: 70px;
+
 }
 
 .continue-btn {
@@ -341,7 +348,7 @@ body {
 @media(max-width: 900px) {
     .forgot-pw-page {
         width: 360px;
-        height: 480px;
+        height: 460px;
     }
 
     #forgot-pw-span{
@@ -384,6 +391,11 @@ body {
 
     .send-email-btn-font {
         font-size: 16px !important;
+    }
+
+    .reset-pw-page {
+        width: 500px;
+        height: 528px;
     }
 }
 
@@ -450,13 +462,30 @@ body {
         display: none;
     }
 
-    .back-img-mob {
-        display: block;
-        left: 30px;
-    }
-
     .sign-up-page {
         width: 320px;
+    }
+
+    .reset-pw-page {
+        height: 492px;
+        width: 360px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .back-img {
+        display: none;
+    }
+
+    .back-img-reset-pw-mob {
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 25px;
+    }
+
+    .continue-btn {
+        width: 180px;
     }
 
     /* .logo-animation {
