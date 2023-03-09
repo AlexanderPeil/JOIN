@@ -100,10 +100,12 @@ function setNewPassword() {
     }
 }
 
+
+
 function animationMobileStop() {
     let animationMob = document.getElementById('animation-mobile');    
 
     setTimeout(function() {
         animationMob.classList.add('animation-stop');
-    }, 2500);
+    }, 2700);
 }

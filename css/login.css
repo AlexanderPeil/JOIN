@@ -514,15 +514,4 @@ body {
     .animation-stop {
         display: none !important;
     }
-
-    /* .animation-stop {
-        animation: stop;
-        animation-delay: 3s;
-    }
-
-    @keyframes stop {
-        from {visibility: 100%}
-        to {visibility: 0%;}
-    } */
 }
-
