@@ -34,6 +34,7 @@ function emailSent() {
     currentUser = users.find(u => u.email == email.toLowerCase());
 
     if (currentUser) {
+        setUserLocal(currentUser);
         showSentEmailMessage();
     } else {
         showFailMessage();
@@ -54,8 +55,14 @@ function showSentEmailMessage() {
     let showMessage = document.getElementById('email-sent-text');
     showMessage.classList.remove('d-none');
 
-    setTimeout(function() {    window.location.href = 'reset_password.html';
+    setTimeout(function() {window.location.href = 'reset_password.html';
     }, 2000);
+}
+
+
+// Save current user to local storage to get the password
+function setUserLocal(currentUser) {
+    localStorage.setItem('user-email', currentUser.email);
 }
 
 
@@ -74,13 +81,14 @@ function showFailMessage() {
 
 // Reset old password and set a new one
 function setNewPassword() {
+    // let resetPassword = users.find(u => u.password == password);
     let newPassword = document.getElementById('new-password').value;
     let confirmPassword = document.getElementById('repeat-new-password').value;
     let hideSpan = document.getElementById('reset-pw-span');
     let showMessage = document.getElementById('reset-pw-message');
-    let userEmail = localStorage.getItem('user-email', email);
+    let userPw = localStorage.getItem('reset-password');
 
-    if (newPassword == confirmPassword && userEmail == users['email']) {
+    if (newPassword == confirmPassword && userPw == users['email']) {
         users['password'].push(newPassword);
     } else {
         hideSpan.classList.add('d-none');
@@ -90,4 +98,12 @@ function setNewPassword() {
         showMessage.classList.add('d-none');
         }, 3000);
     }
+}
+
+function animationMobileStop() {
+    let animationMob = document.getElementById('animation-mobile');    
+
+    setTimeout(function() {
+        animationMob.classList.add('animation-stop');
+    }, 2500);
 }
