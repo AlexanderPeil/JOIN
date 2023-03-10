@@ -447,7 +447,7 @@ fieldset {
     .add-task-mobile {
         z-index: 11;
         display: block !important;
-        position: absolute;
+        position: fixed;
         top: 18px;
         right: 27px;
         cursor: pointer;
