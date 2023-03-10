@@ -226,6 +226,7 @@ function openAddTask() {
     document.getElementById('popUp').innerHTML = `
     <div class="popUp-background">
             <div class="popUp-content_add_task">
+            <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
     <form onsubmit="addTask();return false">
     <div class="content-container">
         <div class="left-container">
@@ -484,6 +485,9 @@ function checkPrioity() {
     return [{'img':prio,'priotity':priotity,"img_white":"assets/img/Prio-"+priotity+"-white.png"}];
 }
 
+function closePopUpAddTask(){
+    document.getElementById('popUp').innerHTML = '';
+}
 function clearAll(){
     document.getElementById('title_textfield').value = '';
     document.getElementById('description_textfield').value = '';
