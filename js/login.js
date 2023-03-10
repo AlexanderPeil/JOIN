@@ -80,16 +80,18 @@ function showFailMessage() {
 } 
 
 // Reset old password and set a new one
-function setNewPassword() {
-    // let resetPassword = users.find(u => u.password == password);
+async function setNewPassword() {
     let newPassword = document.getElementById('new-password').value;
     let confirmPassword = document.getElementById('repeat-new-password').value;
     let hideSpan = document.getElementById('reset-pw-span');
     let showMessage = document.getElementById('reset-pw-message');
-    let userPw = localStorage.getItem('reset-password');
+    let userEmail = localStorage.getItem('user-email');
+    let index = users.findIndex(u => u.email == userEmail);
 
-    if (newPassword == confirmPassword && userPw == users['email']) {
-        users['password'].push(newPassword);
+    if (newPassword == confirmPassword) {
+        users[index]['password'] = newPassword;
+        // users.push({'name': name, 'email': email.toLowerCase(), 'password' : password});
+        await backend.setItem('users', JSON.stringify(users));
     } else {
         hideSpan.classList.add('d-none');
         showMessage.classList.remove('d-none');
