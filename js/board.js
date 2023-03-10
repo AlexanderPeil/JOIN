@@ -346,8 +346,7 @@ function openAddTask() {
                 </div>
             </div>
             <div class="submit-and-clear">
-                <div><Button class="btn-clear">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></Button>
-                </div>
+            <div class="btn-clear" onclick="clearAll()">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></div>
                 <div><Button class="btn-createTask">Create Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
             </div>
         </div>
@@ -483,4 +482,18 @@ function checkPrioity() {
     }
 
     return [{'img':prio,'priotity':priotity,"img_white":"assets/img/Prio-"+priotity+"-white.png"}];
+}
+
+function clearAll(){
+    document.getElementById('title_textfield').value = '';
+    document.getElementById('description_textfield').value = '';
+    document.getElementById('category-header').innerHTML = 'Select your Category';
+    for (let i = 0; i < contacts.length; i++) {
+        if (document.getElementById('assigned-to-' + i).checked) {
+            document.getElementById('assigned-to-' + i).checked = false;
+        }
+
+    }
+    document.getElementById('date').value = '';
+    document.getElementById('subtask-list').innerHTML = '';
 }

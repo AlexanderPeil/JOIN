@@ -448,3 +448,17 @@ function changeSubIcon() {
     document.getElementById('clearSubtaskImg').classList.remove('d-none');
     document.getElementById('addSubtaskImg').classList.remove('d-none');
 }
+
+function clearAll(){
+    document.getElementById('title_textfield').value = '';
+    document.getElementById('description_textfield').value = '';
+    document.getElementById('category-header').innerHTML = 'Select your Category';
+    for (let i = 0; i < contacts.length; i++) {
+        if (document.getElementById('assigned-to-' + i).checked) {
+            document.getElementById('assigned-to-' + i).checked = false;
+        }
+
+    }
+    document.getElementById('date').value = '';
+    document.getElementById('subtask-list').innerHTML = '';
+}
