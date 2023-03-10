@@ -440,6 +440,10 @@ fieldset {
     .submit-and-clear {
         position: unset;
     }
+
+    .select-wrapper {
+        z-index: 3;
+    }
 }
 
 
