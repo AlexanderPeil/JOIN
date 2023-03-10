@@ -107,5 +107,5 @@ function animationMobileStop() {
 
     setTimeout(function() {
         animationMob.classList.add('animation-stop');
-    }, 2700);
+    }, 2500);
 }
