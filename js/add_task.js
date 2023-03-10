@@ -162,7 +162,7 @@ let addTask_Tasks = [
     }
 ];
 
-currentCategory = '';
+let currentCategory = '';
 let contacts = loadContacts();
 let subtasks = [];
 
