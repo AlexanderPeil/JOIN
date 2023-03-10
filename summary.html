@@ -21,13 +21,15 @@
     <title>Summary | Join</title>
 </head>
 
-<body onload="initSummary()" ; onclick="closeLogoutMenu()">
+<body onload="initSummary(), showGreetMobile();" ; onclick="closeLogoutMenu()">
 
     <!--Header + Nav Templates-->
     <div w3-include-html="assets/templates/header.html"></div>
     <div w3-include-html="assets/templates/nav.html"></div>
 
-    <div class="greet-container-mobile d-none">
+
+    <!--Greet-Mobile-->
+    <div id="greetMobile" class="greet-container-mobile d-none">
         <div class="greet-content-mobile">
             <span id="greet"></span>
             <span id="username"></span>

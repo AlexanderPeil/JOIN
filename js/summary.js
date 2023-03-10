@@ -23,6 +23,18 @@ function showAllCounts() {
     showDlDate();
 }
 
+function showGreetMobile() {
+    if (window.innerWidth < 1000) {
+        let greetMobile = document.getElementById("greetMobile");
+        if (document.referrer.includes("index.html")) {
+            greetMobile.classList.remove('d-none');
+            setTimeout(function() {
+                greetMobile.classList.add('d-none');
+            }, 3000);
+        }
+    }
+}
+
 function showCountInBoard() {
     let countInBoard = document.getElementById('countInBoard');
     countInBoard.innerHTML = allTasks.length;
