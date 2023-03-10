@@ -1,6 +1,5 @@
 // Test-JSON for Add-Task
-let addTask_Tasks = [
-    {
+let addTask_Tasks = [{
         "split": "to_do",
         "category": "Design",
         "body_header": "Website redesign",
@@ -10,15 +9,13 @@ let addTask_Tasks = [
             2
         ],
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/low_priotity.png",
-                "priotity": "low",
-                "img_white":"assets/img/prio-low-white.png"
-            }
-        ],
+        "priotity": [{
+            "img": "assets/img/low_priotity.png",
+            "priotity": "low",
+            "img_white": "assets/img/prio-low-white.png"
+        }],
         "date": "2023-02-28",
         "subtasks": ""
     },
@@ -29,17 +26,15 @@ let addTask_Tasks = [
         "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
         "progress": [],
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/medium_priotity.png",
-                "priotity": "medium",
-                "img_white":"assets/img/Prio-medium-white.png"
-            }
-        ],
+        "priotity": [{
+            "img": "assets/img/medium_priotity.png",
+            "priotity": "medium",
+            "img_white": "assets/img/Prio-medium-white.png"
+        }],
         "date": "2023-02-26",
         "subtasks": ""
     },
@@ -50,16 +45,14 @@ let addTask_Tasks = [
         "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
         "progress": [],
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/low_priotity.png",
-                "priotity": "low",
-                "img_white":"assets/img/Prio-low-white.png"
-            }
-        ],
+        "priotity": [{
+            "img": "assets/img/low_priotity.png",
+            "priotity": "low",
+            "img_white": "assets/img/Prio-low-white.png"
+        }],
         "date": "2023-03-28",
         "subtasks": ""
     },
@@ -70,17 +63,15 @@ let addTask_Tasks = [
         "body_content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
         "progress": [],
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/medium_priotity.png",
-                "priotity": "medium",
-                "img_white":"assets/img/Prio-medium-white.png"
-            }
-        ],
+        "priotity": [{
+            "img": "assets/img/medium_priotity.png",
+            "priotity": "medium",
+            "img_white": "assets/img/Prio-medium-white.png"
+        }],
         "date": "2023-02-28",
         "subtasks": ""
     },
@@ -94,17 +85,15 @@ let addTask_Tasks = [
             3
         ],
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/high_priotity.png",
-                "priotity": "urgent",
-                "img_white":"assets/img/Prio-urgent-white.png"
-            }
-        ],
+        "priotity": [{
+            "img": "assets/img/high_priotity.png",
+            "priotity": "urgent",
+            "img_white": "assets/img/Prio-urgent-white.png"
+        }],
         "date": "2023-02-23",
         "subtasks": ""
     },
@@ -115,19 +104,16 @@ let addTask_Tasks = [
         "body_content": "Test mit Subtasks",
         "progress": "",
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/medium_priotity.png",
-                "priotity": "medium",
-                "img_white":"assets/img/Prio-medium-white.png"
-            }
-        ],
+        "priotity": [{
+            "img": "assets/img/medium_priotity.png",
+            "priotity": "medium",
+            "img_white": "assets/img/Prio-medium-white.png"
+        }],
         "date": "2023-04-09",
-        "subtasks": [
-            {
+        "subtasks": [{
                 "subtaskName": "Hoffen das es Klappt",
                 "status": "undone"
             },
@@ -148,17 +134,15 @@ let addTask_Tasks = [
         "body_content": "Test 2",
         "progress": "",
         "users": [
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"},
-            {"userShort":"PD","userFullName":"Pascal Dietz"}
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" },
+            { "userShort": "PD", "userFullName": "Pascal Dietz" }
         ],
-        "priotity": [
-            {
-                "img": "assets/img/low_priotity.png",
-                "priotity": "low",
-                "img_white":"assets/img/Prio-low-white.png"
-            }
-        ]
+        "priotity": [{
+            "img": "assets/img/low_priotity.png",
+            "priotity": "low",
+            "img_white": "assets/img/Prio-low-white.png"
+        }]
     }
 ];
 
@@ -178,7 +162,7 @@ async function init() {
 
 /*********Change button color of prio**********/
 
-/*Change urgent button to red*/
+/*
 function showUrgentRedBtn() {
     let urgentBtnWhite = document.getElementById('urgentBtnWhite');
     let urgentBtnRed = document.getElementById('urgentBtnRed');
@@ -197,7 +181,7 @@ function showUrgentRedBtn() {
     }
 }
 
-/*Change urgent button to white*/
+
 function showUrgentWhiteBtn() {
     let urgentBtnWhite = document.getElementById('urgentBtnWhite');
     let urgentBtnRed = document.getElementById('urgentBtnRed');
@@ -208,7 +192,7 @@ function showUrgentWhiteBtn() {
 }
 
 
-/*Change medium button to orange*/
+
 function showMediumOrangeBtn() {
     let urgentBtnWhite = document.getElementById('urgentBtnWhite');
     let urgentBtnRed = document.getElementById('urgentBtnRed');
@@ -227,7 +211,7 @@ function showMediumOrangeBtn() {
     }
 }
 
-/*Change medium button to white*/
+
 function showMediumWhiteBtn() {
     let mediumBtnWhite = document.getElementById('mediumBtnWhite');
     let mediumBtnOrange = document.getElementById('mediumBtnOrange');
@@ -238,7 +222,7 @@ function showMediumWhiteBtn() {
     }
 }
 
-/*Change low button to green*/
+
 function showLowGreenBtn() {
 
     let urgentBtnWhite = document.getElementById('urgentBtnWhite');
@@ -258,7 +242,7 @@ function showLowGreenBtn() {
     }
 }
 
-/*Change low button to white*/
+
 function showLowWhiteBtn() {
     let lowBtnWhite = document.getElementById('lowBtnWhite');
     let lowBtnGreen = document.getElementById('lowBtnGreen');
@@ -268,6 +252,8 @@ function showLowWhiteBtn() {
         lowBtnGreen.classList.add('d-none');
     }
 }
+
+*/
 
 //Fill the JSON (at Moment Test-JSON Local)
 
@@ -285,7 +271,7 @@ async function addTask() {
             let fullName = document.getElementById('assigned_name' + i).innerHTML;
             console.log(user);
             console.log(fullName);
-            assigned_to.push({'userShort':user,'userFullName':fullName});
+            assigned_to.push({ 'userShort': user, 'userFullName': fullName });
         }
 
     }
@@ -369,18 +355,16 @@ function checkPrioity() {
     if (priotity_low) {
         prio = "assets/img/low_priotity.png";
         priotity = 'low';
-        
-    }
-    else if (priotity_medium) {
+
+    } else if (priotity_medium) {
         prio = "assets/img/medium_priotity.png";
         priotity = 'medium';
-    }
-    else if (priotity_urgent) {
+    } else if (priotity_urgent) {
         prio = "assets/img/high_priotity.png";
         priotity = 'urgent';
     }
 
-    return [{'img':prio,'priotity':priotity,"img_white":"assets/img/Prio-"+priotity+"-white.png"}];
+    return [{ 'img': prio, 'priotity': priotity, "img_white": "assets/img/Prio-" + priotity + "-white.png" }];
 }
 
 async function saveNotes() {
@@ -418,8 +402,7 @@ function addAssignedToList() {
 function openDropdown(id) {
     if (document.getElementById(id).classList.contains('d-none')) {
         document.getElementById(id).classList.remove('d-none');
-    }
-    else if (!document.getElementById(id).classList.contains('d-none')) {
+    } else if (!document.getElementById(id).classList.contains('d-none')) {
         document.getElementById(id).classList.add('d-none');
     }
 }
@@ -453,7 +436,7 @@ function addSubtask() {
 }
 
 function clearSubtask() {
-    document.getElementById('subtask').value ="";
+    document.getElementById('subtask').value = "";
     document.getElementById('plusSubtaskImg').classList.remove('d-none');
     document.getElementById('clearSubtaskImg').classList.add('d-none');
     document.getElementById('addSubtaskImg').classList.add('d-none');
