@@ -1,4 +1,5 @@
 async function initSummary() {
+    showGreetMobile();
     await includeHTML();
     await loadUsers();
     await loadAllTasks();
@@ -25,18 +26,17 @@ function showAllCounts() {
 
 function showGreetMobile() {
     if (window.innerWidth < 1000) {
-        let greetMobile = document.getElementById("greetMobile");
-        let mainContainer = document.getElementById('mainContainer');
+        let greetMobile = document.getElementById("greet-container");
+
         if (document.referrer.includes("index.html")) {
-            greetMobile.classList.remove('d-none');
+            // greetMobile.classList.remove('d-none');
+            // document.getElementById('mainContainer').classList.add('d-none');
+            greetMobile.classList.add('greet-container-mobile')
+            greetMobile.classList.add('show-content');
             setTimeout(function() {
-                greetMobile.classList.add('d-none');
+                greetMobile.classList.remove('greet-container-mobile');
+                greetMobile.classList.remove('show-content');
             }, 3000);
-        }
-        if (document.referrer.includes("index.html")) {
-            setTimeout(function() {
-                mainContainer.classList.add('d-none');
-            }, 3000)
         }
     }
 }
@@ -130,6 +130,6 @@ function showGreet() {
     showCurrentUser();
 }
 
-async function showCurrentUser() {
+function showCurrentUser() {
     document.getElementById('username').innerHTML = currentUser['name'];
 }

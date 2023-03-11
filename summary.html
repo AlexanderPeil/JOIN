@@ -21,7 +21,7 @@
     <title>Summary | Join</title>
 </head>
 
-<body onload="initSummary(), showGreetMobile();" ; onclick="closeLogoutMenu()">
+<body onload="initSummary()"; onclick="closeLogoutMenu()">
 
     <!--Header + Nav Templates-->
     <div w3-include-html="assets/templates/header.html"></div>
@@ -29,15 +29,15 @@
 
 
     <!--Greet-Mobile-->
-    <div id="greetMobile" class="greet-container-mobile d-none">
+    <!-- <div id="greetMobile" class="greet-container-mobile d-none">
         <div class="greet-content-mobile">
-            <span id="greet"></span>
-            <span id="username"></span>
+            <span id="greet-mobile"></span>
+            <span id="username-mobile"></span>
         </div>
-    </div>
+    </div> -->
 
     <!--Main Content-->
-    <div class="main-container">
+    <div class="main-container" id="mainContainer">
         <div class="headline-mobile d-none">Kanban Project Management Tool</div>
         <div class="title-container no-gap">
             <h1>Summary</h1>
@@ -114,7 +114,7 @@
                 </div>
 
             </div>
-            <div class="greet-container">
+            <div class="greet-container" id="greet-container">
                 <span id="greet"></span>
                 <span id="username"></span>
             </div>
