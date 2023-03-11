@@ -1,5 +1,4 @@
 async function initSummary() {
-    showGreetMobile();
     await includeHTML();
     await loadUsers();
     showGreetMobile();
