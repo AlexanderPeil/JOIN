@@ -1,9 +1,11 @@
 async function initSummary() {
     await includeHTML();
     await loadUsers();
+    showGreetMobile();
     await loadAllTasks();
     showGreet();
     loadNotes();
+
 }
 
 async function loadAllTasks() {
@@ -24,22 +26,31 @@ function showAllCounts() {
 }
 
 function showGreetMobile() {
+    let greetElem = document.getElementById("greetMobile");
+    let currentTime = new Date();
+    let currentHour = currentTime.getHours();
+
+    if (currentHour < 12) {
+        greetElem.innerHTML = "Good morning,";
+    } else if (currentHour < 17) {
+        greetElem.innerHTML = "Good afternoon,";
+    } else {
+        greetElem.innerHTML = "Good evening,";
+    }
+    showCurrentUserMobile();
+    console.log('klappt');
+
     if (window.innerWidth < 1000) {
-        let greetMobile = document.getElementById("greetMobile");
-        let mainContainer = document.getElementById('mainContainer');
+        let greetMobileCont = document.getElementById("greetMobileCont");
         if (document.referrer.includes("index.html")) {
-            greetMobile.classList.remove('d-none');
+            greetMobileCont.classList.remove('d-none');
             setTimeout(function() {
-                greetMobile.classList.add('d-none');
-            }, 3000);
-        }
-        if (document.referrer.includes("index.html")) {
-            setTimeout(function() {
-                mainContainer.classList.add('d-none');
-            }, 3000)
+                greetMobileCont.classList.add('d-none');
+            }, 2000);
         }
     }
 }
+
 
 function showCountInBoard() {
     let countInBoard = document.getElementById('countInBoard');
@@ -128,8 +139,13 @@ function showGreet() {
         greetElem.innerHTML = "Good evening,";
     }
     showCurrentUser();
+    console.log('klappt');
 }
 
 async function showCurrentUser() {
     document.getElementById('username').innerHTML = currentUser['name'];
+}
+
+function showCurrentUserMobile() {
+    document.getElementById('usernameMobile').innerHTML = currentUser['name'];
 }

@@ -277,6 +277,16 @@ h1 {
 }
 
 @media(max-width: 1000px) {
+    #greetMobile {
+        font-weight: 500;
+        font-size: 47px;
+        color: #2A3647;
+    }
+    #usernameMobile {
+        font-weight: 700;
+        font-size: 64px;
+        color: #29ABE2;
+    }
     .greet-container {
         display: none;
     }
