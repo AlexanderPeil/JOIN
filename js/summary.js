@@ -25,15 +25,17 @@ function showAllCounts() {
 }
 
 function showGreetMobile() {
-    if (window.innerWidth < 1000) {
-        let greetMobile = document.getElementById("greet-container");
+    let greetMobile = document.getElementById("greet-container");
+    // let mainContainer =  document.getElementById('mainContainer');
 
-        if (document.referrer.includes("index.html")) {
+    if (document.referrer.includes("index.html"))   {
+        // mainContainer.classList.add('d-none');
+        if (window.innerWidth < 1000)   {
             // greetMobile.classList.remove('d-none');
-            // document.getElementById('mainContainer').classList.add('d-none');
             greetMobile.classList.add('greet-container-mobile')
             greetMobile.classList.add('show-content');
             setTimeout(function() {
+                // mainContainer.classList.remove('d-none');
                 greetMobile.classList.remove('greet-container-mobile');
                 greetMobile.classList.remove('show-content');
             }, 3000);
