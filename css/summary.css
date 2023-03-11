@@ -241,12 +241,13 @@ h1 {
     color: #2A3647;
 }
 
-.greet-container-mobile {
+
+/* .greet-container-mobile {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .greet-content-mobile {
     display: flex;
@@ -262,7 +263,7 @@ h1 {
 @media(max-width: 1200px) {
     .main-container {
         margin-left: 315px;
-        margin-top: -55px;
+        margin-top: -65px;
     }
     .sub-container {
         margin-top: -60px;

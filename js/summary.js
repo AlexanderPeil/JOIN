@@ -1,4 +1,5 @@
 async function initSummary() {
+    showGreetMobile();
     await includeHTML();
     await loadUsers();
     showGreetMobile();
@@ -142,7 +143,7 @@ function showGreet() {
     console.log('klappt');
 }
 
-async function showCurrentUser() {
+function showCurrentUser() {
     document.getElementById('username').innerHTML = currentUser['name'];
 }
 
