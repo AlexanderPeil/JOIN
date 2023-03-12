@@ -1,9 +1,9 @@
 async function initSummary() {
     await includeHTML();
     await loadUsers();
-    showGreetMobile();
     await loadAllTasks();
-    showGreet();
+    showGreetMobile();
+    showGreetDesktop();
     loadNotes();
 
 }
@@ -25,11 +25,16 @@ function showAllCounts() {
     showDlDate();
 }
 
+function deletOverDiv() {
+    setTimeout(function() {
+        document.getElementById('overDivMobile').classList.add('d-none');
+    }, 300)
+}
+
 function showGreetMobile() {
     let greetElem = document.getElementById("greetMobile");
     let currentTime = new Date();
     let currentHour = currentTime.getHours();
-
     if (currentHour < 12) {
         greetElem.innerHTML = "Good morning,";
     } else if (currentHour < 17) {
@@ -37,20 +42,24 @@ function showGreetMobile() {
     } else {
         greetElem.innerHTML = "Good evening,";
     }
-    showCurrentUserMobile();
-    console.log('klappt');
+    showCurrentUser();
+    mobileGreet();
+}
 
+function mobileGreet() {
     if (window.innerWidth < 1000) {
         let greetMobileCont = document.getElementById("greetMobileCont");
+        let mainContainer = document.getElementById('mainContainer');
         if (document.referrer.includes("index.html")) {
             greetMobileCont.classList.remove('d-none');
+            mainContainer.classList.add('d-none');
             setTimeout(function() {
                 greetMobileCont.classList.add('d-none');
-            }, 2000);
+                mainContainer.classList.remove('d-none');
+            }, 2500);
         }
     }
 }
-
 
 function showCountInBoard() {
     let countInBoard = document.getElementById('countInBoard');
@@ -126,7 +135,7 @@ function showDlDate() {
     return document.getElementById('dlDate').innerHTML = formattedDate;
 }
 
-function showGreet() {
+function showGreetDesktop() {
     let greetElem = document.getElementById("greet");
     let currentTime = new Date();
     let currentHour = currentTime.getHours();
@@ -139,13 +148,9 @@ function showGreet() {
         greetElem.innerHTML = "Good evening,";
     }
     showCurrentUser();
-    console.log('klappt');
 }
 
 function showCurrentUser() {
     document.getElementById('username').innerHTML = currentUser['name'];
-}
-
-function showCurrentUserMobile() {
     document.getElementById('usernameMobile').innerHTML = currentUser['name'];
 }
