@@ -135,7 +135,7 @@ function showDlDate() {
     return document.getElementById('dlDate').innerHTML = formattedDate;
 }
 
-function showGreetDesktop() {
+async function showGreetDesktop() {
     let greetElem = document.getElementById("greet");
     let currentTime = new Date();
     let currentHour = currentTime.getHours();
@@ -150,7 +150,7 @@ function showGreetDesktop() {
     showCurrentUser();
 }
 
-function showCurrentUser() {
+async function showCurrentUser() {
     document.getElementById('username').innerHTML = currentUser['name'];
     document.getElementById('usernameMobile').innerHTML = currentUser['name'];
 }
