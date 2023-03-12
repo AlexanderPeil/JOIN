@@ -1,8 +1,8 @@
 let contacts = [];
-setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');
 
 
 async function initContact() {
+    await includeHTML();
     await downloadFromServer();
     contacts = JSON.parse(backend.getItem('contacts')) || [];
     loadContacts();
@@ -232,32 +232,80 @@ function openEditContactFormHTML(selectedContact) {
 }
 
 
-function openAddTaskContactFormHTML(selectedContact) {
+function openAddTaskContactFormHTML() {
     return `
-    <form id="contactForm" class="contact-form-overlay" onsubmit="login(); return false;">
+    <form id="formTaskContainer" class="contact-form-overlay" onsubmit="addTask(); return false;">
         <div class="add-form-left">
             <span class="contact-form-heading">Add Task</span>
             <div>
                 <div class="selection-container">
                     <label>Title</label>
-                    <input placeholder="Enter a title">
+                    <input placeholder="Enter a title" id="title_textfield" required>
                 </div>
                 <div class="selection-container">
                     <label>Description</label>
-                    <textarea placeholder="Enter a description"></textarea>
+                    <textarea placeholder="Enter a description" id="description_textfield" required></textarea>
                 </div>
-                <div class="selection-container">
+                <div class="selection-container prevent-select">
                     <label>Category</label>
-                    <select class="select-wrapper">
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                    </select>
+                    <div class="select-wrapper" onclick="openDropdown('category-choices')">
+                        <div class="sector_top">
+                            <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
+                        </div>
+                        <div class="category-choices d-none" id="category-choices">
+                            <div class="category" onclick="changeCategoryHeader('Marketing')">
+                                <div id="marketing">Marketing </div>
+                                <div class="circle" style="background: #0038ff;"></div>
+                            </div>
+                            <div class="category" onclick="changeCategoryHeader('Media')">
+                                <div>Media </div>
+                                <div class="circle" style="background: #ffc702;"></div>
+                            </div>
+                            <div class="category" onclick="changeCategoryHeader('Backoffice')">
+                                <div>Backoffice </div>
+                                <div class="circle" style="background: #1FD7C1;"></div>
+                            </div>
+                            <div class="category" onclick="changeCategoryHeader('Design')">
+                                <div>Design </div>
+                                <div class="circle" style="background:  #ff7a00;"></div>
+                            </div>
+                            <div class="category" onclick="changeCategoryHeader('Sales')">
+                                <div>Sales </div>
+                                <div class="circle" style="background: #fc71ff;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="selection-container">
-                    <label>Assigned to</label>
-                    <select>  
-                    </select>
+                <div class="selection-container prevent-select">
+                    <label>Assigned To</label>
+                    <div class="select-wrapper assigned-to-wrapper">
+                        <div class="sector_top" onclick="openDropdown('assigned-to-choices')">
+                            <p id="assigned-to-header">Select your Members</p><img
+                                src="./assets/img/arrow_down.png">
+                        </div>
+                        <div class="assigned-to-choices d-none" id="assigned-to-choices">
+                            <div class="assigned-to" onclick="changeCategoryHeader('Marketing')">
+                                <div id="marketing">Marketing </div>
+                                <div class="circle" style="background: #0038ff;"></div>
+                            </div>
+                            <div class="assigned-to" onclick="changeCategoryHeader('Media')">
+                                <div>Media </div>
+                                <div class="circle" style="background: #ffc702;"></div>
+                            </div>
+                            <div class="assigned-to" onclick="changeCategoryHeader('Backoffice')">
+                                <div>Backoffice </div>
+                                <div class="circle" style="background: #1FD7C1;"></div>
+                            </div>
+                            <div class="assigned-to" onclick="changeCategoryHeader('Design')">
+                                <div>Design </div>
+                                <div class="circle" style="background:  #ff7a00;"></div>
+                            </div>
+                            <div class="assigned-to" onclick="changeCategoryHeader('Sales')">
+                                <div>Sales </div>
+                                <div class="circle" style="background: #fc71ff;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -272,25 +320,41 @@ function openAddTaskContactFormHTML(selectedContact) {
                 <div>
                     <div class="features-container">
                         <label for="date">Due Date</label>
-                        <input class="date" type="date" id="date" name="date">
+                        <input class="date" type="date" id="date" name="date" required>
                     </div>
                     <div class="features-container">
                         <label>Prio</label>
-                        <div class="prio-btn-container">
-                            <button onclick="showUrgentRedBtn()" id="urgentBtnWhite" class="prio-btn prio-urgent">Urgent<img id="prioUrgentWhite" src="assets/img/Prio-urgent.png"></button>
-                            <button onclick="showUrgentWhiteBtn()" id="urgentBtnRed" class="d-none prio-btn-red prio-urgent">Urgent<img id="prioUrgentRed" src="assets/img/Prio-urgent-white.png"></button>
-                            <button onclick="showMediumOrangeBtn()" id="mediumBtnWhite" class="prio-btn prio-medium">Medium<img src="assets/img/Prio-medium.png"></button>
-                            <button onclick="showMediumWhiteBtn()" id="mediumBtnOrange" class="d-none prio-btn-orange prio-medium">Medium<img src="assets/img/prio-medium-white.png"></button>
-                            <button onclick="showLowGreenBtn()" id="lowBtnWhite" class="prio-btn prio-low">Low<img src="assets/img/Prio-low.png"></button>
-                            <button onclick="showLowWhiteBtn()" id="lowBtnGreen" class="d-none prio-btn-green prio-low">Low<img src="assets/img/Prio-low-white.png"></button>
+                        <div onchange="changeColor(); return false" class="prio-btn-container">
+                            <input type="radio" class="checkbox_urgen" id="urgentBtn" name="radio">
+                            <label for="urgentBtn" class="prio-btn prio-urgent urgentSection" for="checkbox_urgen"
+                                id="urgentSection">
+                                Urgent<img id="prioUrgentWhite" src="assets/img/Prio-urgent.png">
+                            </label>
+                            <input type="radio" class="checkbox_medium" id="mediumBtn" name="radio">
+                            <label for="mediumBtn" class="prio-btn prio-urgent mediumSection" for="checkbox_urgen"
+                                id="mediumSection">
+                                Medium<img id="prioUrgentWhite" src="assets/img/Prio-medium.png">
+                            </label>
+                            <input type="radio" class="checkbox_low" id="lowBtn" name="radio" checked>
+                            <label for="lowBtn" class="prio-btn prio-urgent lowSection" for="checkbox_urgen"
+                                id="lowSection">
+                                Low<img id="prioUrgentWhite" src="assets/img/prio-low-white.png">
+                            </label>
                         </div>
                         <div class="features-container">
                             <label>Subtasks</label>
                             <div class="subtask-container">
-                                <input class="subtask-input" placeholder="Add new subtask">
-                                <img class="plus-icon" src="assets/img/plus-icon.png" onclick>
-                                <img src="#" class="d-none">
-                                <img src="#" class="d-none">
+                                <input class="subtask-input" onclick="inputChangeSubIcons()"placeholder="Add new subtask" id="subtask">
+                                <img id="plusSubtaskImg" class="plus-icon" src="assets/img/plus-icon.png" onclick="changeSubIcon()">
+                                <div class="subtask-img-container">
+                                <img id="clearSubtaskImg" src="assets/img/icon_cancel_subtask.svg" onclick="clearSubtask()" class="subtask-icons d-none">
+                                <div class="gap-img-subtask"></div>
+                                <img id="addSubtaskImg" src="assets/img/icon_check_subtask.svg" onclick="addSubtask()" class="subtask-icons d-none">
+                                </div>
+                            </div>
+                            <div>
+                                <ul id="subtask-list">
+                                </ul>
                             </div>
                         </div>
                 </div>
@@ -308,4 +372,28 @@ function openAddTaskContactFormHTML(selectedContact) {
         </div>
     </form>
     `;
+}
+
+function openDropdown(id) {
+    if (document.getElementById(id).classList.contains('d-none')) {
+        document.getElementById(id).classList.remove('d-none');
+    }
+    else if (!document.getElementById(id).classList.contains('d-none')) {
+        document.getElementById(id).classList.add('d-none');
+    }
+}
+
+function addAssignedToList() {
+    document.getElementById('assigned-to-choices').innerHTML = '';
+    // document.getElementById('assigned-to-choices').innerHTML += `<select id=assigned-test></select>`;
+    for (let i = 0; i < contacts.length; i++) {
+        const contact = contacts[i];
+        let firstName = contact['firstName'];
+        let lastName = contact['lastName'];
+        let acronym = firstName[0] + lastName[0];
+
+        console.log('Vorname: ' + firstName + ' | Nachname: ' + lastName + ' | Abkürzung: ' + acronym);
+
+        document.getElementById('assigned-to-choices').innerHTML += `<div class="assigned-to-line"><label for="assigned-to-${i}" id="assigned_name${i}">${firstName + ' ' + lastName}</label><input type="checkbox" id="assigned-to-${i}" value="${acronym}"></div>`
+    }
 }

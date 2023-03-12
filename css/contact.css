@@ -296,8 +296,9 @@ body {
 
 .contact-form-overlay {
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 100;
     display: flex;
     box-shadow: 0 0 14px 3px rgb(0 0 0 / 4%);
