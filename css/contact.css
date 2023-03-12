@@ -62,7 +62,6 @@ body {
 .contact-list-box {
     margin: 20px;
     padding: 10px 15px 10px 15px;
-    /* top right bottom left */
     gap: 20px;
     display: flex;
     align-items: center;
@@ -118,7 +117,6 @@ body {
 /* Content - right side */
 
 .contact-selection-container {
-    /* height: 100vh; */
     padding-left: 50px;
 }
 
@@ -196,6 +194,10 @@ body {
     margin-left: 20px;
 }
 
+.close-btn-overlay {
+    display: none;
+}
+
 
 /* Title and subtitle */
 
@@ -233,7 +235,6 @@ body {
     color: white;
     background-color: #2A3647;
     padding: 5px 10px 5px 10px;
-    /* top right bottom left */
     gap: 8px;
     border: none;
     border-radius: 8px;
@@ -605,25 +606,42 @@ select::-ms-expand {
         width: 100%;
     }
 
-    .contact-selection-container {
-        z-index: 100;
+    .contact-selection-overlay {
+        background-color: #F5F5F5;
         position: absolute;
-        left: 0;
+        right: 0;
         top: 0;
-        /* background-color: #F5F5F5; */
-        height: 90%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        height: 90vh;
         width: 100%;
+        transform: translateX(100%);
+        transition: all 250ms ease-in-out;
+    }
+
+    .close-btn-overlay {
+        display: unset;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+    }
+
+    #contactSelection {
+        padding-left: 10%;
+    }
+    
+    .show-contact-selection-overlay {
+        transform: translateX(0px);
     }
 
     .contact-header-container {
         display: flex;
         align-items: center;
-        margin-top: 89px;
+        margin-top: 10px;
         gap: 20px;
-    }
-    
-    .contact-header {
-        display: none;
+        padding-left: 10%;
+        padding-right: 10%;
     }
     
     .contact-header-seperator {

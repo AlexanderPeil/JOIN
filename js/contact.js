@@ -73,6 +73,13 @@ function showContactDetails(i) {
     contactSelection.innerHTML = '';
     let selectedContact = contacts[i];
     contactSelection.innerHTML += showContactDetailsHTML(selectedContact, i);
+    document.getElementById('contactOverlay').classList.add('show-contact-selection-overlay');
+}
+
+
+function closeContactOverlay(){
+    /*this.overlayMenu.classList.remove('show-overlay-menu');*/
+    document.getElementById('contactOverlay').classList.remove('show-contact-selection-overlay');
 }
 
 
@@ -82,15 +89,6 @@ async function deleteContacts() {
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
 }
-
-
-/*
-// Delete all contacts from array
-async function deleteAllContacts() {
-    await backend.deleteItem('contacts'); // delete all contacts from array
-    updateContactList();
-}
-*/
 
 
 function updateContactList() {
@@ -168,6 +166,9 @@ function generateContactList(contact, j) {
 
 function showContactDetailsHTML(selectedContact, i) {
     return `
+        <div onclick="closeContactOverlay()" class="close-btn close-btn-overlay">
+            <img class="close-icon" src="./assets/img/arrow_left.svg" alt="#">
+        </div>
         <div class="contact-selection">
             <div id="selectedContactColor" class="contact-letters big-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
             <div>
