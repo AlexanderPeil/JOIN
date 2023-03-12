@@ -36,7 +36,8 @@ body {
 
 .contact-index {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 50px;
     font-size: 22px;
 }
 
