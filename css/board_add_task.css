@@ -1,4 +1,4 @@
-:root{
+:root {
     --design: #ff7a00;
     --sales: #fc71ff;
     --backoffice: #1FD7C1;
@@ -6,7 +6,7 @@
     --media: #ffc702;
 }
 
-.popUp-content_add_task{
+.popUp-content_add_task {
     background: white;
     border-radius: 30px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -73,7 +73,8 @@ select,
     font-size: 18px;
     padding: 5px 20px;
 }
-.sector_top img{
+
+.sector_top img {
     height: 8px;
 }
 
@@ -84,18 +85,18 @@ select,
     padding: 0;
 }
 
-.category-choices{
+.category-choices {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
 
-.assigned-to-choices{
+.assigned-to-choices {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     height: 200px;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 select {
@@ -166,7 +167,6 @@ select::-ms-expand {
     width: 100%;
     position: relative;
     transition: all 100ms ease-in-out;
-
 }
 
 .prio-btn:hover {
@@ -232,7 +232,6 @@ select::-ms-expand {
     display: flex;
     gap: 9px;
     padding-right: 15px;
-    
 }
 
 .subtask-icons {
@@ -247,7 +246,7 @@ select::-ms-expand {
 .submit-and-clear {
     display: flex;
     position: absolute;
-    bottom:  0;
+    bottom: 0;
     right: 0;
 }
 
@@ -301,19 +300,21 @@ select::-ms-expand {
 
 .btn-clear:hover .clear-img {
     content: url('http://127.0.0.1:5501/assets/img/iconoir_cancel_hover.svg');
-  }
+}
 
 fieldset {
     border: none;
     padding: 0;
     margin: 0;
 }
-.checkbox_urgen, .checkbox_medium, .checkbox_low {
+
+.checkbox_urgen,
+.checkbox_medium,
+.checkbox_low {
     display: none;
 }
 
-
-.checkbox_urgen[type="radio"]:checked + label {
+.checkbox_urgen[type="radio"]:checked+label {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -330,7 +331,8 @@ fieldset {
     gap: 10px;
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
 }
-.checkbox_medium[type="radio"]:checked + label {
+
+.checkbox_medium[type="radio"]:checked+label {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -347,7 +349,8 @@ fieldset {
     gap: 10px;
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
 }
-.checkbox_low[type="radio"]:checked + label {
+
+.checkbox_low[type="radio"]:checked+label {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -366,7 +369,7 @@ fieldset {
 }
 
 .circle {
-    height:12px;
+    height: 12px;
     width: 12px;
     border-radius: 100%;
     margin-left: 15px;
@@ -377,32 +380,34 @@ fieldset {
     display: flex;
     align-items: center;
     padding: 7px 20px;
-    
 }
 
-.assigned-to{
+.assigned-to {
     display: flex;
     align-items: center;
     padding: 7px 20px;
 }
+
 .category:hover {
     background-color: lightgray;
 }
 
-
 .prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-  }
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
 
-.assigned-to-line{
+.assigned-to-line {
     display: flex;
     justify-content: space-between;
     padding: 7px 20px;
 }
 
-.assigned-to-wrapper{
+.assigned-to-wrapper {
     margin-bottom: 30px;
 }
 
@@ -418,34 +423,28 @@ fieldset {
         display: flex;
         justify-content: flex-start;
     }
-
     .main-container {
         margin-left: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
     .middle-gap {
         display: none;
     }
-
     .content-container {
         flex-direction: column;
         gap: 0;
     }
-
     .right-container {
         align-items: center;
         height: unset;
         margin-bottom: 75px;
     }
-
     .submit-and-clear {
         position: unset;
     }
 }
-
 
 @media(max-width: 1000px) {
     .add-task-mobile {
@@ -456,63 +455,49 @@ fieldset {
         right: 27px;
         cursor: pointer;
     }
-
     h1 {
-         margin-top: 25px;
+        margin-top: 25px;
     }
-
     .title-container {
         flex-direction: column;
     }
-
     .main-container {
         margin-top: 130px;
         margin-left: 0;
     }
-
     .headline-mobile {
         display: block !important;
         font-size: 16px;
     }
-
     h1 {
         font-size: 47px;
     }
-
     label {
         font-size: 16px;
     }
-
     input {
         font-size: 16px;
     }
-
-    ::placeholder {
+     ::placeholder {
         font-size: 16px;
     }
-
     textarea {
         font-size: 16px;
     }
-
     p {
         font-size: 16px;
     }
-
     .prio-btn {
         font-size: 16px;
     }
-
     .submit-and-clear {
         display: none;
     }
-
     .left-container {
-        margin-bottom: -50px;
+        height: auto;
     }
-
     .right-container {
-        margin-bottom: 150px;
+        margin-top: -20px;
     }
 }
 
@@ -520,15 +505,12 @@ fieldset {
     .main-container {
         margin-right: 0;
     }
-
     .title-container {
         width: unset;
     }
-
     .left-container {
         width: unset;
     }
-
     .right-container {
         width: unset;
     }
