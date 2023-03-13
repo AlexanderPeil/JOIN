@@ -502,6 +502,63 @@ function clearAll() {
     document.getElementById('subtask-list').innerHTML = '';
 }
 
+function changeColor() {
+    priotity_urgent = document.getElementById('urgentBtn').checked;
+    priotity_medium = document.getElementById('mediumBtn').checked;
+    priotity_low = document.getElementById('lowBtn').checked;
+
+    if (priotity_urgent) {
+        document.getElementById('urgentSection').innerHTML = `
+        Urgent<img
+        src="assets/img/Prio-urgent-white.png"></label>
+        `;
+        document.getElementById('mediumSection').innerHTML = `
+        Medium<img
+        src="assets/img/Prio-medium.png"></label>
+        `;
+        document.getElementById('lowSection').innerHTML = `
+        Low<img
+        src="assets/img/Prio-low.png"></label>
+        `;
+    }
+    if (priotity_medium) {
+        document.getElementById('urgentSection').innerHTML = `
+        Urgent<img
+        src="assets/img/Prio-urgent.png"></label>
+        `;
+        document.getElementById('mediumSection').innerHTML = `
+        Medium<img
+        src="assets/img/prio-medium-white.png"></label>
+        `;
+        document.getElementById('lowSection').innerHTML = `
+        Low<img
+        src="assets/img/Prio-low.png"></label>
+        `;
+
+    }
+    if (priotity_low) {
+        document.getElementById('urgentSection').innerHTML = `
+        Urgent<img
+        src="assets/img/Prio-urgent.png"></label>
+        `;
+        document.getElementById('mediumSection').innerHTML = `
+        Medium<img
+        src="assets/img/Prio-medium.png"></label>
+        `;
+        document.getElementById('lowSection').innerHTML = `
+        Low<img
+        src="assets/img/Prio-low-white.png"></label>
+        `;
+
+    }
+
+    console.log('Hoch: ' + priotity_urgent + ' Mittel: ' + priotity_medium + ' Niedrig: ' + priotity_low);
+}
+function changeCategoryHeader(name) {
+    document.getElementById('category-header').innerHTML = name;
+    currentCategory = name;
+}
+
 function searchKanbanBoard(kanbanBoard, searchQuery) {
     const results = [];
 
