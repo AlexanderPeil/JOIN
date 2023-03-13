@@ -7,13 +7,13 @@ let currentDraggedElement;
 async function init() {
     includeHTML();
     await loadNotes();
-    loadBoard();
+    loadBoard(tasks);
 }
 
-function loadBoard() {
+function loadBoard(choiceTasks) {
 
     cleanOldBoard();
-    loadNewBoard();
+    loadNewBoard(choiceTasks);
     addDropArea();
 }
 
@@ -36,10 +36,10 @@ function cleanOldBoard() {
     console.log('Board wurde erfolgreich geleert')
 }
 
-function loadNewBoard() {
+function loadNewBoard(toLoadTasks) {
 
-    for (let i = 0; i < tasks.length; i++) {
-        const task = tasks[i];
+    for (let i = 0; i < toLoadTasks.length; i++) {
+        const task = toLoadTasks[i];
         let catgoryLow = task['category'].toLowerCase();
 
         document.getElementById(task['split']).innerHTML += `
@@ -357,7 +357,7 @@ function openAddTask() {
         </div>
 `
 
-addAssignedToList();
+    addAssignedToList();
 }
 
 function openDropdown(id) {
@@ -413,7 +413,7 @@ function addSubtask() {
 }
 
 function clearSubtask() {
-    document.getElementById('subtask').value ="";
+    document.getElementById('subtask').value = "";
     document.getElementById('plusSubtaskImg').classList.remove('d-none');
     document.getElementById('clearSubtaskImg').classList.add('d-none');
     document.getElementById('addSubtaskImg').classList.add('d-none');
@@ -440,7 +440,7 @@ async function addTask() {
             let fullName = document.getElementById('assigned_name' + i).innerHTML;
             console.log(user);
             console.log(fullName);
-            assigned_to.push({'userShort':user,'userFullName':fullName});
+            assigned_to.push({ 'userShort': user, 'userFullName': fullName });
         }
 
     }
@@ -471,7 +471,7 @@ function checkPrioity() {
     if (priotity_low) {
         prio = "assets/img/low_priotity.png";
         priotity = 'low';
-        
+
     }
     else if (priotity_medium) {
         prio = "assets/img/medium_priotity.png";
@@ -482,13 +482,13 @@ function checkPrioity() {
         priotity = 'urgent';
     }
 
-    return [{'img':prio,'priotity':priotity,"img_white":"assets/img/Prio-"+priotity+"-white.png"}];
+    return [{ 'img': prio, 'priotity': priotity, "img_white": "assets/img/Prio-" + priotity + "-white.png" }];
 }
 
-function closePopUpAddTask(){
+function closePopUpAddTask() {
     document.getElementById('popUp').innerHTML = '';
 }
-function clearAll(){
+function clearAll() {
     document.getElementById('title_textfield').value = '';
     document.getElementById('description_textfield').value = '';
     document.getElementById('category-header').innerHTML = 'Select your Category';
@@ -500,4 +500,28 @@ function clearAll(){
     }
     document.getElementById('date').value = '';
     document.getElementById('subtask-list').innerHTML = '';
+}
+
+function searchKanbanBoard(kanbanBoard, searchQuery) {
+    const results = [];
+
+    // Iteriere über alle Spalten im Kanban-Board
+
+    for (const card of kanbanBoard) {
+        // Überprüfe, ob die Suchanfrage im Titel oder in der Beschreibung der Karte enthalten ist
+        if (card.body_header.toLowerCase().includes(searchQuery) || card.body_content.toLowerCase().includes(searchQuery)) {
+            // Füge die Karte zu den Suchergebnissen hinzu
+            results.push(card);
+        }
+    }
+
+
+    return results;
+}
+
+function findTasks(){
+    let searchQuery = document.getElementById('findTask').value;
+    searchQuery = searchQuery.toLowerCase()
+    let searchedTasks = searchKanbanBoard(tasks, searchQuery);
+    loadBoard(searchedTasks);
 }

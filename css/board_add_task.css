@@ -279,6 +279,11 @@ select::-ms-expand {
 
 .btn-clear {
     border: solid 1px #2A3647;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 18px 10px;
+    margin-left: 25px;
+    transition: background 255ms ease-in-out;
     color: #2A3647;
     display: flex;
     justify-content: center;
