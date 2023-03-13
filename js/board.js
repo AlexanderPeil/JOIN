@@ -123,7 +123,7 @@ function diableDrop(ev) {
 
 async function moveTo(category) {
     tasks[currentDraggedElement]['split'] = category;
-    loadBoard();
+    loadBoard(tasks);
     await saveNotes();
 }
 
@@ -211,7 +211,7 @@ async function closePopUp(currentCard) {
     }
     await saveNotes();
     document.getElementById('popUp').innerHTML = '';
-    loadBoard();
+    loadBoard(tasks);
 }
 
 async function delCard(choicCard) {
@@ -219,7 +219,7 @@ async function delCard(choicCard) {
     tasks.splice(choicCard, 1);
     await saveNotes();
     document.getElementById('popUp').innerHTML = '';
-    loadBoard();
+    loadBoard(tasks);
 }
 
 function openAddTask() {
