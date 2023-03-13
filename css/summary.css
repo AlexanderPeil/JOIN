@@ -298,12 +298,14 @@ h1 {
     }
     #greetMobile {
         font-weight: 500;
-        font-size: 47px;
+        font-size: 36px;
         color: #2A3647;
     }
     #usernameMobile {
+        display: flex;
+        justify-content: center;
         font-weight: 700;
-        font-size: 64px;
+        font-size: 47px;
         color: #29ABE2;
     }
     .greet-container {
