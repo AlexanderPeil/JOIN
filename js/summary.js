@@ -8,6 +8,9 @@ async function initSummary() {
 
 }
 
+/**
+ * Loads all tasks from server and dispays their count.
+ */
 async function loadAllTasks() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
