@@ -191,6 +191,19 @@ body {
     background-color: white;
 }
 
+.edit-pencil-icon {
+    height: 40px;
+    display: none;
+}
+
+.icon-bottom-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
 .margin-letters {
     margin-left: 20px;
 }
@@ -776,5 +789,13 @@ select::-ms-expand {
         border-top-right-radius: unset;
         padding: 30px;
         padding-top: 0;
+    }
+
+    .contact-edit {
+        display: none;
+    }
+
+    .edit-pencil-icon {
+        display: unset;
     }
 }

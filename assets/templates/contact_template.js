@@ -33,6 +33,7 @@ function showContactDetailsHTML(selectedContact, i) {
         <div class="contact-email">${selectedContact.email}</div>
         <h4>Phone</h4>
         <div class="contact-name">${selectedContact.phone}</div>
+        <div class="icon-bottom-right" title="edit contact info" onclick="editContact(${i})"><img class="edit-pencil-icon" src="./assets/img/edit_pencil.svg"></div>
     `;
 }
 
