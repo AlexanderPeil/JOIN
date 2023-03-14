@@ -68,7 +68,7 @@ function openEditContactFormHTML(selectedContact) {
                     <div class="form-group">
                         <input class="p-none"type="color" id="color" name="color" value="${selectedContact.color}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group btn-centered">
                         <button type="submit" class="contact-add-btn">
                             <p>Save</p>
                             <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg" alt="#">
@@ -208,7 +208,7 @@ function openAddTaskContactFormHTML() {
                             </div>
                         </div>
                 </div>
-                <div class="contact-form-buttons">
+                <div class="contact-form-buttons btn-centered">
                     <button type="button" onclick="closeAddTaskForm()" class="contact-cancel-btn" title="close form">
                         <p>Cancel</p>
                         <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
