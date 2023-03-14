@@ -9,6 +9,8 @@ async function initContact() {
 
 
 // Add contacts to array
+// Reload the contact list
+// Reset the input fields
 function addContacts() {
     let id;
     let firstName = document.getElementById('firstName').value;
@@ -27,13 +29,8 @@ function addContacts() {
     newContact.id = contacts.length;
     contacts.push(newContact);
     backend.setItem('contacts', JSON.stringify(contacts));
-     // Reload the contact list
     updateContactList();
-    // Reset the input fields
-    document.getElementById('firstName').value = '';
-    document.getElementById('lastName').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
+    resetInputFields();
 }
 
 
@@ -94,6 +91,15 @@ function updateContactList() {
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = '';
     loadContacts();
+}
+
+
+function resetInputFields() {
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('color').value = '';
 }
 
 
