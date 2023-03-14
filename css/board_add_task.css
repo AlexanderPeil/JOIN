@@ -299,7 +299,7 @@ select::-ms-expand {
 }
 
 .btn-clear:hover .clear-img {
-    content: url('http://127.0.0.1:5501/assets/img/iconoir_cancel_hover.svg');
+    content: url('../assets/img/iconoir_cancel_hover.svg');
 }
 
 fieldset {

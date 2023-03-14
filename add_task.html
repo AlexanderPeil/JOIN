@@ -29,7 +29,11 @@
     <div w3-include-html="assets/templates/nav.html"></div>
 
     <!--Main Content-->
-    <img class="add-task-mobile d-none" src="assets/img/add_task_btn_mob.svg" alt="Create task button">
+
+    <!-- <form onsubmit="addTask();return false" class="add-task-mobile d-none" >
+    <button><img src="assets/img/add_task_btn_mob.svg" alt="Create task button"></button>
+    </form> -->
+
 
     <div class="main-container">
         <div class="title-container">
@@ -159,6 +163,7 @@
                         <div class="btn-clear" onclick="clearAll()">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></div>
                         <div><Button class="btn-createTask">Create Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
                     </div>
+                    <button  class="add-task-mobile d-none"><img src="assets/img/add_task_btn_mob.svg" alt="Create task button"></button>
                 </div>
             </div>
         </form>

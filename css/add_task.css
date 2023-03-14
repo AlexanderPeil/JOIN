@@ -303,7 +303,7 @@ select::-ms-expand {
 }
 
 .btn-clear:hover .clear-img {
-    content: url('/assets/img/iconoir_cancel_hover.svg');
+    content: url('../assets/img/iconoir_cancel_hover.svg');
 }
 
 fieldset {
@@ -461,6 +461,8 @@ fieldset {
         height: auto;
     }
     .add-task-mobile {
+        background-color: white;
+        border: none;
         z-index: 11;
         display: block !important;
         position: fixed;
