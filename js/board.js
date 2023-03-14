@@ -225,7 +225,7 @@ async function delCard(choicCard) {
 function openAddTask() {
     document.getElementById('popUp').innerHTML = `
     <div class="popUp-background">
-            <div class="popUp-content_add_task" id="popup-add-task" onclick="dontClose(event)">
+            <div class="popUp-content_add_task" id="popup-add-task">
             <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
     <form onsubmit="addTask();return false">
     <div class="content-container">

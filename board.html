@@ -18,7 +18,7 @@
     <title>Board | Join</title>
 </head>
 
-<body onload="init()"; onclick="closeLogoutMenu(), closeCreateTask()">
+<body onload="init()"; onclick="closeLogoutMenu()">
     <div w3-include-html="assets/templates/header.html"></div>
     <div w3-include-html="assets/templates/nav.html"></div>
     <div class="board-section">
@@ -26,7 +26,7 @@
             <div class="headline-mobile d-none">Kanban Project Management Tool</div>
             <div class="board-add-task">
                 <h2>Board</h2>
-                <img class="add-task-mob d-none" src="assets/img/add_task_mob.svg" alt="">
+                <img onclick="openAddTask()" class="add-task-btn-mobile hide-content" src="assets/img/add_task_mob.svg" alt="">
             </div>
             <div class="search-container">
                 <div class="search-box"><input type="text" placeholder="Find Task" onkeyup="findTasks()" id="findTask">

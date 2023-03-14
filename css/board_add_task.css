@@ -418,6 +418,18 @@ fieldset {
 }
 
 @media(max-width:1200px) {
+    .popUp-content_add_task {
+        padding-top: unset;
+    }
+
+    .left-container {
+        height: unset;
+    }
+
+    .popUp-background {
+        padding-top: 47px;
+    }
+
     .title-container {
         width: 450px;
         display: flex;
@@ -444,9 +456,17 @@ fieldset {
     .submit-and-clear {
         position: unset;
     }
+
+    label, input, textarea, p, .prio-btn, .submit-and-clear {
+        font-size: 16px;
+    }
 }
 
 @media(max-width: 1000px) {
+    .popUp-background {
+        padding-top: 36px;
+    }
+
     .add-task-mobile {
         z-index: 11;
         display: block !important;
@@ -490,9 +510,9 @@ fieldset {
     .prio-btn {
         font-size: 16px;
     }
-    .submit-and-clear {
+    /* .submit-and-clear {
         display: none;
-    }
+    } */
     .left-container {
         height: auto;
     }
