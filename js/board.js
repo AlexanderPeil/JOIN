@@ -17,9 +17,11 @@ function loadBoard(choiceTasks) {
     addDropArea();
 }
 
+
+
 let currentCategory = '';
 let subtasks = [];
-
+let onMobile = isMobileDevice();
 let priotity_urgent = false;
 let priotity_medium = false;
 let priotity_low = true;
@@ -43,13 +45,56 @@ function loadNewBoard(toLoadTasks) {
         let catgoryLow = task['category'].toLowerCase();
 
         document.getElementById(task['split']).innerHTML += `
-        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})" ondragend="endDragging(${i})" onclick="openTaskFull(${i})">
-                        <div class="card-content">
-                            <div class="card-head" style="background-color: var(--${catgoryLow});">${(task['category'])}</div>
-                            <div class="card-body">
-                                <h4>${task['body_header']}</h4>
-                                <p>${task['body_content']}</p>
-                            </div>`
+        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})" ondragend="endDragging(${i})" onclick="checkWhichMenu(${i})">
+            
+                <div class="card-content">                                      
+                    <div class="card-head" style="background-color: var(--${catgoryLow});">
+                        ${(task['category'])}
+                    </div>
+                    <div class="card-body">
+                        <h4>${task['body_header']}</h4>
+                        <p>${task['body_content']}</p>
+                    </div>
+                    <div id="progress${i}">
+                    </div>
+                    <div class="priotity_users">
+                        <div class="users" id="users${i}">
+                        </div>
+                        <div class="priotity">
+                            <img src="${task['priotity'][0]['img']}" alt="">
+                        </div>
+                    </div>
+                </div>
+        
+                <div>
+                    <div class="popUpWish d-none" id="contextMenu${i}">
+                        <h3>Choice your Wish</h3>
+                        <div onclick="changeSplit('to_do',${i})">
+                            <p>Change to <b>To Do</b></p>
+                        </div>
+                        <div onclick="changeSplit('in_progress',${i})">
+                            <p>Change to <b>In Progress</b></p>
+                        </div>
+                        <div onclick="changeSplit('awaiting_feedback',${i})">
+                            <p>Change to <b>Awaiting Feedback</b></p>
+                        </div>
+                        <div onclick="changeSplit('done',${i})">
+                            <p>Change to <b>Done</b></p>
+                        </div>
+                        <div onclick="openTaskFull(${i})">
+                            <p>Open <b>Full Task</b></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        
+        `;
+        for (let j = 0; j < task['users'].length; j++) {
+            const user = task['users'][j];
+
+            document.getElementById('users' + i).innerHTML += `<p class="circle" style="background-color: blue;">${user['userShort']}</p>`
+        }
 
         if (task['subtasks'].length > 0) {
             let doneTasks = 0;
@@ -62,31 +107,16 @@ function loadNewBoard(toLoadTasks) {
 
             }
 
-            document.getElementById('card' + i).innerHTML += `
+            document.getElementById('progress' + i).innerHTML = `
                             <div class="progress_bar">
                                 <div style="width: 70%; background-color: lightgrey; border-radius: 3px;">
-                                    <div style="background: #0D99FF; height:12px;width:${doneTasks / sumTasks * 100}%; border-radius: 3px;"></div>
+                                    <div style="background: #0D99FF; height:12px;width:${doneTasks / sumTasks * 100}%; border-radius: 3px;">
+                                    </div>
                                 </div>
-                                <div>${doneTasks}/${sumTasks} Done</div>
+                                <div>
+                                    ${doneTasks}/${sumTasks} Done
+                                </div>
                             </div>`
-        }
-        document.getElementById('card' + i).innerHTML += `
-                            <div class="priotity_users">
-                                <div class="users" id="users${i}">
-                                </div>
-                                <div class="priotity"><img src="${task['priotity'][0]['img']}" alt=""></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-        
-        `;
-        for (let j = 0; j < task['users'].length; j++) {
-            const user = task['users'][j];
-
-            document.getElementById('users' + i).innerHTML += `<p class="circle" style="background-color: blue;">${user['userShort']}</p>`
         }
 
     }
@@ -576,9 +606,34 @@ function searchKanbanBoard(kanbanBoard, searchQuery) {
     return results;
 }
 
-function findTasks(){
+function findTasks() {
     let searchQuery = document.getElementById('findTask').value;
     searchQuery = searchQuery.toLowerCase()
     let searchedTasks = searchKanbanBoard(tasks, searchQuery);
     loadBoard(searchedTasks);
+}
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
+function checkWhichMenu(id) {
+    if (onMobile) {
+        openContextMenu(id);
+    }
+    else {
+        openTaskFull(id)
+    }
+}
+
+function openContextMenu(id) {
+    document.getElementById('contextMenu'+id).classList.remove('d-none')
+}
+
+async function changeSplit(split, id){
+    console.log ('Split soll auf: "'+split+'" geändert werden');
+    tasks[id]['split'] = split;
+    await saveNotes();
+    cleanOldBoard();
+    loadNewBoard(tasks);
 }
