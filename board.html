@@ -15,13 +15,15 @@
     <script src="js/add_task_and_board.js"></script>
     <script src="js/board.js"></script>
     <script src="js/login.js"></script>
-    
+
     <script src="assets/templates/board_template.js"></script>
-    <script>setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');</script>
+    <script>
+        setURL('https://gruppenarbei-join-460.developerakademie.net/smallest_backend_ever');
+    </script>
     <title>Board | Join</title>
 </head>
 
-<body onload="init()"; onclick="closeLogoutMenu()">
+<body onload="init()" ; onclick="closeLogoutMenu()">
     <div w3-include-html="assets/templates/header.html"></div>
     <div w3-include-html="assets/templates/nav.html"></div>
     <div class="board-section">
@@ -33,6 +35,7 @@
             </div>
             <div class="search-container">
                 <div class="search-box"><input type="text" placeholder="Find Task" onkeyup="findTasks()" id="findTask">
+                    <div class="dividing-line"></div>
                     <div class="search-icon"><img src="assets/img/magnifier.png" alt=""></div>
                 </div>
                 <button class="add-task" onclick="openAddTask()">Add task +</button>
@@ -73,7 +76,7 @@
         </div>
     </div>
     <div class="board-bottom"></div>
-    <div id="popUp">        
+    <div id="popUp">
     </div>
 </body>
 

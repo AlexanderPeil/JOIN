@@ -54,7 +54,11 @@ a {
     padding-left: 21px;
     border: none;
     background: transparent;
-    border-right: solid 0.2px rgba(0, 0, 0, 0.5);
+}
+
+.dividing-line {
+    border-left: 1px solid #D1D1D1;
+    height: 30px;
 }
 
 .board-header div {
