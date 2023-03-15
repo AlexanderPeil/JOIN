@@ -101,8 +101,8 @@ function changeColor() {
  * @function
 */ 
 async function loadContacts() {
-    let response = await fetch('./js/contact.json');
-    contacts = await response.json();
+    await downloadFromServer();
+    contacts = JSON.parse(backend.getItem('contacts')) || [];
 }
 
 /**
