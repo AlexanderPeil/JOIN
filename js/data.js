@@ -3,12 +3,15 @@ let currentUser;
 
 
 // Body onload function
-function init() {
-    includeHTML();
-}
+// function init() {
+//     includeHTML();
+// }
 
 
-// Function is added to body with onload. It fetches the user data from the backend server
+/**
+ * Loads the users from the backend storage and sets the currentUser.
+ * @returns {Promise} Promise that resolves when the users are loaded.
+ */
 async function loadUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
@@ -16,34 +19,45 @@ async function loadUsers() {
 }
 
 
-// Show the popup menu for logout
+/**
+ * Displays a pop-up menu for the logout option.
+ */
 function showLogout() {
     let logOut = document.getElementById('popup-menu');
     logOut.classList.remove('d-none');
 }
 
 
-// Close the logout popup menu by clicking outside
+/**
+ * Hides the logout menu.
+ */
 function closeLogoutMenu() {
     let logOut = document.getElementById('popup-menu');
     logOut.classList.add('d-none');
 }
 
 
-// Prevent close the logout menu by clicking on it
+/**  
+ * Prevent closing the logout menu by clicking on it
+ */
 function dontClose(event) {
     event.stopPropagation();
 }
 
 
-// Logout and delete the current user 
+/**
+ * Logs out the current user by deleting their information from the local storage and redirecting the user to the index page.
+ */
  async function logOut() {
     await backend.deleteItem('current-user');
     window.location.href = 'index.html';
 }
 
 
-// Check if the remember me checkbox is checked
+/**
+ * Check if the 'remember me' checkbox is checked, and if so, call the setRememberMeLocal function.
+ * @param {object} currentUser - The currently logged-in user object.
+ */
 function checkRememberMe(currentUser) {
     let rememberMe = document.getElementById('remember-me');
     
@@ -53,7 +67,9 @@ function checkRememberMe(currentUser) {
 }
 
 
-// If you uncheck remember me so the current user will be removed from local storage and the login data won't be saved for the next time
+/**
+ * This function deletes the saved user email and password from local storage if the "remember me" checkbox is unchecked.
+ */
 function deleteRememberMe() {
     let rememberMe = document.getElementById('remember-me');
 
@@ -64,26 +80,37 @@ function deleteRememberMe() {
 }
 
 
-//  If the checkbox is checked the login data will be saved for the next time (saave the current user in the local storage)
+/**
+ * Sets the current user's email and password in local storage if the "Remember Me" checkbox is checked.
+ * @param {object} currentUser - The current user object containing email and password.
+ */
 function setRememberMeLocal(currentUser) {
     localStorage.setItem('current-email', currentUser.email);
     localStorage.setItem('current-password', currentUser.password);
 }
 
 
-// Get email from current user by checking remember me checkbox
+/**
+ * Retrieves the email address of the user that was stored in local storage when the "remember me" checkbox was checked during a previous login.
+ * @returns {string} the email address of the user.
+ */
 function getRememberMeEmail() {
     return localStorage.getItem('current-email');
 }
 
 
-// Get password from current user by checking remember me checkbox
+/**
+ *  Retrieves the password of the user that has checked the "Remember me" option.
+ * @returns {string} the password of the remembered user.
+ */
 function getRememberMePassword() {
     return localStorage.getItem('current-password');
 }
 
 
-// Body onload function. Every time if the join main page is loaded this function checks the remember me email and password data
+/**
+ * This function checks if there is any stored email and password in the local storage. 
+ */
 function checkRememberMeData() {
     let emailValue = getRememberMeEmail();
     let passswordValue = getRememberMePassword();
