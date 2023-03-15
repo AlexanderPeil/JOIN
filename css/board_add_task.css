@@ -153,6 +153,10 @@ select::-ms-expand {
 }
 
 .prio-btn {
+    cursor: pointer;
+}
+
+.prio-btn {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -290,6 +294,7 @@ select::-ms-expand {
     width: 136px;
     gap: 10px;
     transition: all 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .btn-clear:hover {
@@ -421,15 +426,12 @@ fieldset {
     /* .popUp-content_add_task {
         padding-top: unset;
     } */
-
     .left-container {
         height: unset;
     }
-
     .popUp-background {
         padding-top: 20px;
     }
-
     .title-container {
         width: 450px;
         display: flex;
@@ -456,8 +458,12 @@ fieldset {
     .submit-and-clear {
         position: unset;
     }
-
-    label, input, textarea, p, .prio-btn, .submit-and-clear {
+    label,
+    input,
+    textarea,
+    p,
+    .prio-btn,
+    .submit-and-clear {
         font-size: 16px;
     }
 }
@@ -466,7 +472,6 @@ fieldset {
     /* .popUp-background {
         padding-top: 36px;
     } */
-
     .add-task-mobile {
         z-index: 11;
         display: block !important;
@@ -519,7 +524,6 @@ fieldset {
     /* .right-container {
         margin-top: -20px;
     } */
-
     /* .assigned-to-wrapper {
         margin: 0;
     } */
