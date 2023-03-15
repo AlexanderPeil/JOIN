@@ -148,7 +148,6 @@ function checkSubtaskDone(currentCard) {
     for (let i = 0; i < tasks[currentCard]['subtasks'].length; i++) {
         let isDone = false;
         isDone = document.getElementById('subtask_' + i).checked;
-        console.log('Task ist: ', isDone);
         if (isDone) {
             tasks[currentCard]['subtasks'][i]['status'] = 'done';
         }
@@ -159,7 +158,6 @@ function checkSubtaskDone(currentCard) {
 }
 
 async function delCard(choicCard) {
-    console.log(choicCard);
     tasks.splice(choicCard, 1);
     await saveNotes();
     document.getElementById('popUp').innerHTML = '';
@@ -192,7 +190,6 @@ function addAssignedToList() {
         let firstName = contact['firstName'];
         let lastName = contact['lastName'];
         let acronym = firstName[0] + lastName[0];
-        console.log('Vorname: ' + firstName + ' | Nachname: ' + lastName + ' | Abkürzung: ' + acronym);
         document.getElementById('assigned-to-choices').innerHTML += `<div class="assigned-to-line"><label for="assigned-to-${i}" id="assigned_name${i}">${firstName + ' ' + lastName}</label><input type="checkbox" id="assigned-to-${i}" value="${acronym}"></div>`
     }
 }
@@ -244,9 +241,6 @@ async function addTask() {
     for (let i = 0; i < contacts.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
             user = document.getElementById('assigned-to-' + i).value;
-            let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            console.log(user);
-            console.log(fullName);
             assigned_to.push({ 'userShort': user, 'userFullName': fullName });
         }
 
@@ -327,8 +321,6 @@ function changeColor() {
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low-white');
 
     }
-
-    console.log('Hoch: ' + priotity_urgent + ' Mittel: ' + priotity_medium + ' Niedrig: ' + priotity_low);
 }
 function changeCategoryHeader(name) {
     document.getElementById('category-header').innerHTML = name;
@@ -372,7 +364,6 @@ function openContextMenu(id) {
 }
 
 async function changeSplit(split, id) {
-    console.log('Split soll auf: "' + split + '" geändert werden');
     tasks[id]['split'] = split;
     await saveNotes();
     cleanOldBoard();
