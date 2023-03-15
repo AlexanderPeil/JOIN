@@ -16,6 +16,7 @@ h1 {
     margin: unset!important;
 }
 
+
 /* Content - left side */
 
 .contact-list-container {
@@ -221,7 +222,7 @@ h1 {
 .contact-header-container {
     display: flex;
     align-items: center;
-    margin-top: 89px;
+    margin-top: 171px;
 }
 
 .contact-header {
@@ -431,7 +432,9 @@ h1 {
     padding-bottom: 25px;
 }
 
+
 /* Add task overlay */
+
 .content-container {
     display: flex;
     gap: 50px;
@@ -606,7 +609,7 @@ select::-ms-expand {
     padding: 10px;
 }
 
-.mobile-contact-back-icon  {
+.mobile-contact-back-icon {
     display: none;
 }
 
@@ -615,15 +618,12 @@ select::-ms-expand {
 }
 
 @media(max-width:1000px) {
-
     .contacts-main-container {
         margin-left: 0px;
     }
-
     .contact-list-container {
         width: 100%;
     }
-
     .contact-selection-overlay {
         background-color: #F5F5F5;
         position: absolute;
@@ -637,23 +637,19 @@ select::-ms-expand {
         transform: translateX(100%);
         transition: all 250ms ease-in-out;
     }
-
     .close-btn-overlay {
         display: unset;
         display: flex;
         justify-content: flex-end;
         padding: 20px;
     }
-
     #contactSelection {
         padding-left: 10%;
     }
-    
     .show-contact-selection-overlay {
         transform: translateX(0px);
         z-index: 999;
     }
-
     .contact-header-container {
         display: flex;
         align-items: center;
@@ -662,25 +658,20 @@ select::-ms-expand {
         padding-left: 10%;
         padding-right: 10%;
     }
-    
     .contact-header-seperator {
         display: none;
     }
-    
     .contact-header-slogan {
         display: none;
     }
-
     .contact-btn-position {
         margin-top: 90px;
         top: 0;
         bottom: unset;
     }
-
     .mobile-contact-back-icon {
         display: unset;
     }
-
     .mobile-contact-back-btn {
         display: flex;
         justify-content: center;
@@ -694,32 +685,26 @@ select::-ms-expand {
         cursor: pointer;
         transition: all 225ms ease-in-out;
     }
-    
     .mobile-contact-back-btn:hover {
         border-color: #29ABE2;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         transition: all 125ms ease-in-out;
     }
-
     .mobile-contact-back-btn-position {
         position: absolute;
         right: 40px;
         bottom: 40px;
         margin-right: 40px;
     }
-
     /* Input Form Overlay */
-    
     .contact-form-overlay {
         display: unset;
         border-radius: 30px;
     }
-
     .contact-form-overlay-position {
         position: absolute;
         left: -50%!important;
     }
-
     .contact-form-left-neutral {
         flex-direction: column;
         align-items: center;
@@ -728,7 +713,6 @@ select::-ms-expand {
         border-bottom-left-radius: unset;
         padding: 40px;
     }
-
     .contact-form-left {
         flex-direction: column;
         align-items: center;
@@ -738,7 +722,6 @@ select::-ms-expand {
         padding: 40px;
         height: 300px;
     }
-
     .contact-form-right {
         border-bottom-right-radius: 30px;
         border-bottom-left-radius: 30px;
@@ -746,7 +729,6 @@ select::-ms-expand {
         text-align: center;
         flex-direction: column;
     }
-
     .contact-form-user-icon {
         height: 130px;
         width: 130px;
@@ -754,24 +736,20 @@ select::-ms-expand {
         position: absolute;
         top: 35%;
     }
-
     .big-letters-positioning {
         height: 115px;
         width: 115px;
         position: absolute;
         top: 31%;
     }
-
     .contact-input-container {
         padding: 15px!important;
         /* margin-top: 50px; */
     }
-
     .contact-form-buttons {
         justify-content: space-around;
         width: unset;
     }
-
     .icon-top-right {
         cursor: pointer;
         position: absolute;
@@ -781,16 +759,13 @@ select::-ms-expand {
         /* background-color: white; */
         border-top-right-radius: 30px;
     }
-
     .margin-letters {
         margin-top: 20px;
         margin-left: 0px!important;
     }
-
     .seperator-line-container {
         display: none;
     }
-
     .add-form-left {
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
@@ -798,7 +773,6 @@ select::-ms-expand {
         padding: 40px;
         padding-bottom: 0;
     }
-
     .add-form-right {
         border-bottom-right-radius: 30px;
         border-bottom-left-radius: 30px;
@@ -806,20 +780,16 @@ select::-ms-expand {
         padding: 30px;
         padding-top: 0;
     }
-
     .contact-edit {
         display: none;
     }
-
     .edit-pencil-icon {
         display: unset;
     }
-
     .btn-centered {
         display: flex;
         justify-content: center;
     }
-
     .color-picker {
         display: none;
     }
