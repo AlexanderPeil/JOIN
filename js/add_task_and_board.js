@@ -22,7 +22,8 @@ async function addTask() {
         if (document.getElementById('assigned-to-' + i).checked) {
             user = document.getElementById('assigned-to-' + i).value;
             let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            assigned_to.push({ 'userShort': user, 'userFullName': fullName });
+            let userColor = contacts[i]['color'];
+            assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
         }
 
     }

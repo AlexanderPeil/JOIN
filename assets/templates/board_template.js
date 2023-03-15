@@ -244,7 +244,7 @@ function loadSubtaskBoardtmp(doneTasks, sumTasks) {
  * @returns {string} - The HTML code for the circle
  */
 function loadUserShortsTmp(user) {
-    return `<p class="circle" style="background-color: blue;">${user['userShort']}</p>`
+    return `<p class="circle" style="background-color: ${user['color'] || 'blue'} ;">${user['userShort']}</p>`
 }
 /**
  * Generates HTML code for a row containing a user's short and full name for a full task
@@ -254,7 +254,7 @@ function loadUserShortsTmp(user) {
  */
 function loadTextUsersForFullTask(users, u) {
     return `<div class="makeRow">
-    <p class="circle" style="background-color: blue; margin-right: 20px;">${users[u]['userShort']}</p><p>${users[u]['userFullName']}</p>
+    <p class="circle" style="background-color: ${users[u]['color'] || 'blue'}; margin-right: 20px;">${users[u]['userShort']}</p><p>${users[u]['userFullName']}</p>
     </div>`
 }
 /**
