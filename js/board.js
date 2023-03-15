@@ -1,8 +1,14 @@
 let tasks = [];
 let users_color = loadContacts();
 let contacts = loadContacts();
-
+let currentCategory = '';
+let subtasks = [];
+let onMobile = isMobileDevice();
+let priotity_urgent = false;
+let priotity_medium = false;
+let priotity_low = true;
 let currentDraggedElement;
+let splits = ['to_do', 'in_progress', 'awaiting_feedback', 'done'];
 
 async function init() {
     includeHTML();
@@ -11,134 +17,57 @@ async function init() {
 }
 
 function loadBoard(choiceTasks) {
-
     cleanOldBoard();
     loadNewBoard(choiceTasks);
     addDropArea();
 }
-
-
-
-let currentCategory = '';
-let subtasks = [];
-let onMobile = isMobileDevice();
-let priotity_urgent = false;
-let priotity_medium = false;
-let priotity_low = true;
-
-
-
 
 function cleanOldBoard() {
     document.getElementById('to_do').innerHTML = '';
     document.getElementById('in_progress').innerHTML = '';
     document.getElementById('awaiting_feedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-
-    console.log('Board wurde erfolgreich geleert')
 }
 
 function loadNewBoard(toLoadTasks) {
-
     for (let i = 0; i < toLoadTasks.length; i++) {
         const task = toLoadTasks[i];
         let catgoryLow = task['category'].toLowerCase();
-
-        document.getElementById(task['split']).innerHTML += `
-        <div class="card" id=card${i} draggable="true" ondragstart="startDragging(${i})" ondragend="endDragging(${i})" onclick="checkWhichMenu(${i})">
-            
-                <div class="card-content">                                      
-                    <div class="card-head" style="background-color: var(--${catgoryLow});">
-                        ${(task['category'])}
-                    </div>
-                    <div class="card-body">
-                        <h4>${task['body_header']}</h4>
-                        <p>${task['body_content']}</p>
-                    </div>
-                    <div id="progress${i}">
-                    </div>
-                    <div class="priotity_users">
-                        <div class="users" id="users${i}">
-                        </div>
-                        <div class="priotity">
-                            <img src="${task['priotity'][0]['img']}" alt="">
-                        </div>
-                    </div>
-                </div>
-        
-                <div>
-                    <div class="popUpWish d-none" id="contextMenu${i}">
-                        <h3>Choice your Wish</h3>
-                        <div onclick="changeSplit('to_do',${i})">
-                            <p>Change to <b>To Do</b></p>
-                        </div>
-                        <div onclick="changeSplit('in_progress',${i})">
-                            <p>Change to <b>In Progress</b></p>
-                        </div>
-                        <div onclick="changeSplit('awaiting_feedback',${i})">
-                            <p>Change to <b>Awaiting Feedback</b></p>
-                        </div>
-                        <div onclick="changeSplit('done',${i})">
-                            <p>Change to <b>Done</b></p>
-                        </div>
-                        <div onclick="openTaskFull(${i})">
-                            <p>Open <b>Full Task</b></p>
-                        </div>
-                    </div>
-                </div>
-        </div>
-
-        
-        `;
-        for (let j = 0; j < task['users'].length; j++) {
-            const user = task['users'][j];
-
-            document.getElementById('users' + i).innerHTML += `<p class="circle" style="background-color: blue;">${user['userShort']}</p>`
-        }
-
-        if (task['subtasks'].length > 0) {
-            let doneTasks = 0;
-            let sumTasks = task['subtasks'].length;
-            for (let t = 0; t < task['subtasks'].length; t++) {
-                const subtask = task['subtasks'][t];
-                if (subtask['status'] == 'done') {
-                    doneTasks++;
-                };
-
-            }
-
-            document.getElementById('progress' + i).innerHTML = `
-                            <div class="progress_bar">
-                                <div style="width: 70%; background-color: lightgrey; border-radius: 3px;">
-                                    <div style="background: #0D99FF; height:12px;width:${doneTasks / sumTasks * 100}%; border-radius: 3px;">
-                                    </div>
-                                </div>
-                                <div>
-                                    ${doneTasks}/${sumTasks} Done
-                                </div>
-                            </div>`
-        }
-
+        document.getElementById(task['split']).innerHTML += loadCardBoardText(task, i, catgoryLow);
+        loadUsers(task, i);
+        loadSubtasks(task, i);
     }
-
-    console.log('Board wurde neu erstellt.')
 }
 
+function loadUsers(task, i) {
+    for (let j = 0; j < task['users'].length; j++) {
+        const user = task['users'][j];
+        document.getElementById('users' + i).innerHTML += loadUserShortsTmp(user)
+    }
+}
+function loadSubtasks(task, i) {
+    if (task['subtasks'].length > 0) {
+        let doneTasks = 0;
+        let sumTasks = task['subtasks'].length;
+        for (let t = 0; t < task['subtasks'].length; t++) {
+            const subtask = task['subtasks'][t];
+            if (subtask['status'] == 'done') {
+                doneTasks++;
+            };
+        }
+        document.getElementById('progress' + i).innerHTML = loadSubtaskBoardtmp(doneTasks, sumTasks);
+    }
+}
 
 function addDropArea() {
-    let addDrop = `<div class="dropArea" id="dropArea" ondrop="moveTo('to_do')" ondragover="allowDrop(event)" ondragleave="diableDrop(event)"></div>`;
-
-    document.getElementById('to_do').innerHTML += `<div class="dropArea" id="dropArea_to_do" ondrop="moveTo('to_do')" ondragover="allowDrop(event, 'to_do')" ondragleave="diableDrop('to_do')"></div>`;
-    document.getElementById('in_progress').innerHTML += `<div class="dropArea" id="dropArea_in_progress" ondrop="moveTo('in_progress')" ondragover="allowDrop(event, 'in_progress')" ondragleave="diableDrop('in_progress')"></div>`;
-    document.getElementById('awaiting_feedback').innerHTML += `<div class="dropArea" id="dropArea_awaiting_feedback" ondrop="moveTo('awaiting_feedback')" ondragover="allowDrop(event, 'awaiting_feedback')" ondragleave="diableDrop('awaiting_feedback')"></div>`;
-    document.getElementById('done').innerHTML += `<div class="dropArea" id="dropArea_done" ondrop="moveTo('done')" ondragover="allowDrop(event, 'done')" ondragleave="diableDrop('done')"></div>`;
+    for (let i = 0; i < splits.length; i++) {
+        const split = splits[i];
+        document.getElementById(split).innerHTML += loadDropArea(split);
+    }
 }
-
 
 function startDragging(id) {
     currentDraggedElement = id;
-    //document.getElementById('card'+id).classList.add('d-none');
-    //document.getElementById('card'+id).style.transform = "rotate(10deg)";
 }
 
 function allowDrop(ev, test) {
@@ -177,29 +106,13 @@ async function loadContacts() {
 }
 
 function openTaskFull(choiceTask) {
-    document.getElementById('popUp').innerHTML = `
-    <div class="popUp-background">
-            <div class="popUp-content">
-                <div class="popUp-close" onclick="closePopUp(${choiceTask})">x</div>
-                <div class="card-head" style="background-color: var(--${tasks[choiceTask]['category'].toLowerCase()});">${tasks[choiceTask]['category']}</div>
-                <h2>${tasks[choiceTask]['body_header']}</h2>
-                <p>${tasks[choiceTask]['body_content']}</p>
-                
-                <div id=subtaskSectionCheck>
-                <label><b>Subtasks</b></label>
-                <section class="subtaskSection" id="subtaskSection">
-                </section></div>
-                <div class="makeRow"><b class="margin10">Due Date: </b><p>${tasks[choiceTask]['date']}</p></div>
-                <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-${tasks[choiceTask]['priotity'][0]['priotity']}-popUp">${tasks[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img_white']}"></p></div>
-                <div class="makeRow"><b class="margin10">Assigned To: </b></div>
-                <div class="users makeColumn" id="userSection"></div>
-                <div class="put_it_right"><img src="./assets/img/empty-trash-32.png" onclick=delCard(${choiceTask})></div>
-            </div>
-        </div>    
-    `
+    document.getElementById('popUp').innerHTML = loadCardFullText(tasks, choiceTask);
+    loadSubtaksToFullTask(choiceTask);
+    loadUsersToFullTask(choiceTask);
+}
+function loadSubtaksToFullTask(choiceTask) {
     if (tasks[choiceTask]['subtasks'].length > 0) {
         let subtasks = tasks[choiceTask]['subtasks']
-
         for (let i = 0; i < subtasks.length; i++) {
             taskDone = 'checked'
             if (tasks[choiceTask]['subtasks'][i]['status'] == 'undone') {
@@ -209,24 +122,30 @@ function openTaskFull(choiceTask) {
             <label for="subtask_${i}">${tasks[choiceTask]['subtasks'][i]['subtaskName']}<input type="checkbox" ${taskDone} id="subtask_${i}"></label>
             `
         }
-
     }
     else {
         document.getElementById('subtaskSectionCheck').innerHTML = '';
     }
+}
+
+function loadUsersToFullTask(choiceTask) {
     if (tasks[choiceTask]['users'].length > 0) {
         let users = tasks[choiceTask]['users']
         for (let u = 0; u < users.length; u++) {
-            document.getElementById('userSection').innerHTML += `<div class="makeRow">
-            <p class="circle" style="background-color: blue; margin-right: 20px;">${users[u]['userShort']}</p><p>${users[u]['userFullName']}</p>
-            </div>`
+            document.getElementById('userSection').innerHTML += loadTextUsersForFullTask(users, u);
         }
     }
 }
 
 async function closePopUp(currentCard) {
+    checkSubtaskDone(currentCard)
+    await saveNotes();
+    document.getElementById('popUp').innerHTML = '';
+    loadBoard(tasks);
+}
+
+function checkSubtaskDone(currentCard) {
     for (let i = 0; i < tasks[currentCard]['subtasks'].length; i++) {
-        let subTask = tasks[currentCard]['subtasks'][i];
         let isDone = false;
         isDone = document.getElementById('subtask_' + i).checked;
         console.log('Task ist: ', isDone);
@@ -235,13 +154,8 @@ async function closePopUp(currentCard) {
         }
         else {
             tasks[currentCard]['subtasks'][i]['status'] = 'undone';
-
         }
-
     }
-    await saveNotes();
-    document.getElementById('popUp').innerHTML = '';
-    loadBoard(tasks);
 }
 
 async function delCard(choicCard) {
@@ -253,140 +167,7 @@ async function delCard(choicCard) {
 }
 
 function openAddTask() {
-    document.getElementById('popUp').innerHTML = `
-    <div class="popUp-background">
-            <div class="popUp-content_add_task" id="popup-add-task">
-            <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
-    <form onsubmit="addTask();return false">
-    <div class="content-container">
-        <div class="left-container">
-            <div class="selection-container">
-                <label>Title</label>
-                <input placeholder="Enter a title" id="title_textfield" required>
-            </div>
-            <div class="selection-container">
-                <label>Description</label>
-                <textarea placeholder="Enter a description" id="description_textfield" required></textarea>
-            </div>
-            <div class="selection-container prevent-select">
-                <label>Category</label>
-                <div class="select-wrapper" onclick="openDropdown('category-choices')">
-                    <div class="sector_top">
-                        <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
-                    </div>
-                    <div class="category-choices d-none" id="category-choices">
-                        <div class="category" onclick="changeCategoryHeader('Marketing')">
-                            <div id="marketing">Marketing </div>
-                            <div class="circle" style="background: #0038ff;"></div>
-                        </div>
-                        <div class="category" onclick="changeCategoryHeader('Media')">
-                            <div>Media </div>
-                            <div class="circle" style="background: #ffc702;"></div>
-                        </div>
-                        <div class="category" onclick="changeCategoryHeader('Backoffice')">
-                            <div>Backoffice </div>
-                            <div class="circle" style="background: #1FD7C1;"></div>
-                        </div>
-                        <div class="category" onclick="changeCategoryHeader('Design')">
-                            <div>Design </div>
-                            <div class="circle" style="background:  #ff7a00;"></div>
-                        </div>
-                        <div class="category" onclick="changeCategoryHeader('Sales')">
-                            <div>Sales </div>
-                            <div class="circle" style="background: #fc71ff;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="selection-container prevent-select">
-                <label>Assigned To</label>
-                <div class="select-wrapper assigned-to-wrapper">
-                    <div class="sector_top" onclick="openDropdown('assigned-to-choices')">
-                        <p id="assigned-to-header">Select your Members</p><img
-                            src="./assets/img/arrow_down.png">
-                    </div>
-                    <div class="assigned-to-choices d-none" id="assigned-to-choices">
-                        <div class="assigned-to" onclick="changeCategoryHeader('Marketing')">
-                            <div id="marketing">Marketing </div>
-                            <div class="circle" style="background: #0038ff;"></div>
-                        </div>
-                        <div class="assigned-to" onclick="changeCategoryHeader('Media')">
-                            <div>Media </div>
-                            <div class="circle" style="background: #ffc702;"></div>
-                        </div>
-                        <div class="assigned-to" onclick="changeCategoryHeader('Backoffice')">
-                            <div>Backoffice </div>
-                            <div class="circle" style="background: #1FD7C1;"></div>
-                        </div>
-                        <div class="assigned-to" onclick="changeCategoryHeader('Design')">
-                            <div>Design </div>
-                            <div class="circle" style="background:  #ff7a00;"></div>
-                        </div>
-                        <div class="assigned-to" onclick="changeCategoryHeader('Sales')">
-                            <div>Sales </div>
-                            <div class="circle" style="background: #fc71ff;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="middle-gap"></div>
-        <div class="right-container">
-            <div class="features-container">
-                <label for="date">Due Date</label>
-                <input class="date" type="date" id="date" name="date" required>
-            </div>
-            <div class="features-container">
-                <label>Prio</label>
-                <div onchange="changeColor(); return false" class="prio-btn-container">
-
-                    <input type="radio" class="checkbox_urgen" id="urgentBtn" name="radio">
-                    <label for="urgentBtn" class="prio-btn prio-urgent urgentSection" for="checkbox_urgen"
-                        id="urgentSection">
-                        Urgent<img id="prioUrgentWhite" src="assets/img/Prio-urgent.png">
-                    </label>
-                    <input type="radio" class="checkbox_medium" id="mediumBtn" name="radio">
-                    <label for="mediumBtn" class="prio-btn prio-urgent mediumSection" for="checkbox_urgen"
-                        id="mediumSection">
-                        Medium<img id="prioUrgentWhite" src="assets/img/Prio-medium.png">
-                    </label>
-                    <input type="radio" class="checkbox_low" id="lowBtn" name="radio" checked>
-                    <label for="lowBtn" class="prio-btn prio-urgent lowSection" for="checkbox_urgen"
-                        id="lowSection">
-                        Low<img id="prioUrgentWhite" src="assets/img/prio-low-white.png">
-                    </label>
-                </div>
-
-
-
-                <div class="features-container">
-                    <label>Subtasks</label>
-                    <div class="subtask-container">
-                        <input class="subtask-input" onclick="inputChangeSubIcons()"placeholder="Add new subtask" id="subtask">
-                        <img id="plusSubtaskImg" class="plus-icon" src="assets/img/plus-icon.png" onclick="changeSubIcon()">
-                        <div class="subtask-img-container">
-                        <img id="clearSubtaskImg" src="assets/img/icon_cancel_subtask.svg" onclick="clearSubtask()" class="subtask-icons d-none">
-                        <div class="gap-img-subtask"></div>
-                        <img id="addSubtaskImg" src="assets/img/icon_check_subtask.svg" onclick="addSubtask()" class="subtask-icons d-none">
-                        </div>
-                    </div>
-                    <div>
-                        <ul id="subtask-list">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="submit-and-clear">
-            <div class="btn-clear" onclick="clearAll()">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></div>
-                <div><Button class="btn-createTask">Create Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
-            </div>
-        </div>
-    </div>
-</form>
-</div>
-        </div>
-`
-
+    document.getElementById('popUp').innerHTML = loadAddTaskTmp();
     addAssignedToList();
 }
 
@@ -406,16 +187,12 @@ async function loadContacts() {
 
 function addAssignedToList() {
     document.getElementById('assigned-to-choices').innerHTML = '';
-    // document.getElementById('assigned-to-choices').innerHTML += `<select id=assigned-test></select>`;
-
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         let firstName = contact['firstName'];
         let lastName = contact['lastName'];
         let acronym = firstName[0] + lastName[0];
-
         console.log('Vorname: ' + firstName + ' | Nachname: ' + lastName + ' | Abkürzung: ' + acronym);
-
         document.getElementById('assigned-to-choices').innerHTML += `<div class="assigned-to-line"><label for="assigned-to-${i}" id="assigned_name${i}">${firstName + ' ' + lastName}</label><input type="checkbox" id="assigned-to-${i}" value="${acronym}"></div>`
     }
 }
@@ -486,18 +263,15 @@ async function addTask() {
         'date': due_date,
         'subtasks': subtasks
     }
-
     tasks.push(new_task);
     await saveNotes();
     subtasks = [];
-
     window.location.href = './board.html'
 }
 
 function checkPrioity() {
     let prio;
     let priotity;
-
     if (priotity_low) {
         prio = "assets/img/low_priotity.png";
         priotity = 'low';
@@ -511,7 +285,6 @@ function checkPrioity() {
         prio = "assets/img/high_priotity.png";
         priotity = 'urgent';
     }
-
     return [{ 'img': prio, 'priotity': priotity, "img_white": "assets/img/Prio-" + priotity + "-white.png" }];
 }
 
@@ -538,47 +311,20 @@ function changeColor() {
     priotity_low = document.getElementById('lowBtn').checked;
 
     if (priotity_urgent) {
-        document.getElementById('urgentSection').innerHTML = `
-        Urgent<img
-        src="assets/img/Prio-urgent-white.png"></label>
-        `;
-        document.getElementById('mediumSection').innerHTML = `
-        Medium<img
-        src="assets/img/Prio-medium.png"></label>
-        `;
-        document.getElementById('lowSection').innerHTML = `
-        Low<img
-        src="assets/img/Prio-low.png"></label>
-        `;
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent-white');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','Prio-medium');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low');
     }
     if (priotity_medium) {
-        document.getElementById('urgentSection').innerHTML = `
-        Urgent<img
-        src="assets/img/Prio-urgent.png"></label>
-        `;
-        document.getElementById('mediumSection').innerHTML = `
-        Medium<img
-        src="assets/img/prio-medium-white.png"></label>
-        `;
-        document.getElementById('lowSection').innerHTML = `
-        Low<img
-        src="assets/img/Prio-low.png"></label>
-        `;
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','prio-medium-white');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low');
 
     }
     if (priotity_low) {
-        document.getElementById('urgentSection').innerHTML = `
-        Urgent<img
-        src="assets/img/Prio-urgent.png"></label>
-        `;
-        document.getElementById('mediumSection').innerHTML = `
-        Medium<img
-        src="assets/img/Prio-medium.png"></label>
-        `;
-        document.getElementById('lowSection').innerHTML = `
-        Low<img
-        src="assets/img/Prio-low-white.png"></label>
-        `;
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','Prio-medium');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low-white');
 
     }
 
@@ -591,9 +337,6 @@ function changeCategoryHeader(name) {
 
 function searchKanbanBoard(kanbanBoard, searchQuery) {
     const results = [];
-
-    // Iteriere über alle Spalten im Kanban-Board
-
     for (const card of kanbanBoard) {
         // Überprüfe, ob die Suchanfrage im Titel oder in der Beschreibung der Karte enthalten ist
         if (card.body_header.toLowerCase().includes(searchQuery) || card.body_content.toLowerCase().includes(searchQuery)) {
@@ -601,8 +344,6 @@ function searchKanbanBoard(kanbanBoard, searchQuery) {
             results.push(card);
         }
     }
-
-
     return results;
 }
 
@@ -627,11 +368,11 @@ function checkWhichMenu(id) {
 }
 
 function openContextMenu(id) {
-    document.getElementById('contextMenu'+id).classList.remove('d-none')
+    document.getElementById('contextMenu' + id).classList.remove('d-none')
 }
 
-async function changeSplit(split, id){
-    console.log ('Split soll auf: "'+split+'" geändert werden');
+async function changeSplit(split, id) {
+    console.log('Split soll auf: "' + split + '" geändert werden');
     tasks[id]['split'] = split;
     await saveNotes();
     cleanOldBoard();
