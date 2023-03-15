@@ -47,7 +47,7 @@ function openEditContactFormHTML(selectedContact) {
                 <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
             </div>
             <div class="contact-form-right">
-            <div id="selectedContactColor" class="contact-letters big-letters margin-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
+            <div id="selectedContactColor" class="contact-letters big-letters margin-letters big-letters-positioning" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
             <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
                     <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
