@@ -1,4 +1,10 @@
-function loadCardFullText(task_name, choiceTask){
+/**
+ * Generates the HTML code for a full view of a task card.
+ * @param {Object} task_name - The object containing the information for the task card.
+ * @param {number} choiceTask - The index of the task card to be displayed.
+ * @returns {string} The HTML code for the full view of the task card.
+ */
+function loadCardFullText(task_name, choiceTask) {
     return `
     <div class="popUp-background">
             <div class="popUp-content">
@@ -20,8 +26,14 @@ function loadCardFullText(task_name, choiceTask){
         </div>    
     `
 }
-
-function loadCardBoardText(tasks_name, id, catgoryLow){
+/**
+ * Generates the HTML code for a task card in a board view.
+ * @param {Object} tasks_name - The object containing the information for the task card.
+ * @param {number} id - The id of the task card.
+ * @param {string} catgoryLow - The lowercase string representation of the category of the task card.
+ * @returns {string} The HTML code for the task card in a board view.
+ */
+function loadCardBoardText(tasks_name, id, catgoryLow) {
     return `
     <div class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id})">
         
@@ -69,8 +81,11 @@ function loadCardBoardText(tasks_name, id, catgoryLow){
     
     `
 }
-
-function loadAddTaskTmp(){
+/**
+ * Generates the HTML code for the popup that appears when adding a new task.
+ * @returns {string} The HTML code for the popup for adding a new task.
+ */
+function loadAddTaskTmp() {
     return `<div class="popUp-background">
     <div class="popUp-content_add_task" id="popup-add-task">
     <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
@@ -204,8 +219,13 @@ function loadAddTaskTmp(){
 </div>
 `
 }
-
-function loadSubtaskBoardtmp(doneTasks, sumTasks){
+/**
+ * Generates HTML code for a progress bar indicating the percentage of completed subtasks
+ * @param {number} doneTasks - The number of subtasks that have been complete
+ * @param {number} sumTasks - The total number of subtasks that need to be completed
+ * @returns {string} - The HTML code for the progress bar
+ */
+function loadSubtaskBoardtmp(doneTasks, sumTasks) {
     return `
     <div class="progress_bar">
         <div style="width: 70%; background-color: lightgrey; border-radius: 3px;">
@@ -218,21 +238,39 @@ function loadSubtaskBoardtmp(doneTasks, sumTasks){
     </div>`
 }
 
-
-function loadUserShortsTmp(user){
+/**
+ * Generates HTML code for a circle containing a user's short name
+ * @param {Object} user - The user object containing the short name
+ * @returns {string} - The HTML code for the circle
+ */
+function loadUserShortsTmp(user) {
     return `<p class="circle" style="background-color: blue;">${user['userShort']}</p>`
 }
-
-function loadTextUsersForFullTask(users, u){
+/**
+ * Generates HTML code for a row containing a user's short and full name for a full task
+ * @param {Object[]} users - An array of user objects
+ * @param {number} u - The index of the user object to display
+ * @returns {string} - The HTML code for the row
+ */
+function loadTextUsersForFullTask(users, u) {
     return `<div class="makeRow">
     <p class="circle" style="background-color: blue; margin-right: 20px;">${users[u]['userShort']}</p><p>${users[u]['userFullName']}</p>
     </div>`
 }
-
-function loadDropArea(split){
+/**
+ * Generates HTML code for a drop area for a particular split
+ * @param {string} split - The name of the split for the drop area
+ * @returns {string} - The HTML code for the drop area
+ */
+function loadDropArea(split) {
     return `<div class="dropArea" id="dropArea_${split}" ondrop="moveTo('${split}')" ondragover="allowDrop(event, '${split}')" ondragleave="diableDrop('${split}')"></div>`
 }
-
-function loadPrioIMGWithText(pri,prioIMG){
+/**
+ * Generates HTML code for a priority icon and text
+ * @param {string} pri - The priority level
+ * @param {string} prioIMG - The name of the priority icon image file
+ * @returns {string} - The HTML code for the priority icon and text
+ */
+function loadPrioIMGWithText(pri, prioIMG) {
     return `${pri}<img src="assets/img/${prioIMG}.png">`;
 }
