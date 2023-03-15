@@ -65,7 +65,7 @@ function openEditContactFormHTML(selectedContact) {
                     <div class="form-group">
                         <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone" id="phone" name="phone" value="${selectedContact.phone}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group color-picker">
                         <input class="p-none"type="color" id="color" name="color" value="${selectedContact.color}" required>
                     </div>
                     <div class="form-group btn-centered">
