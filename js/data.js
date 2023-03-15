@@ -2,10 +2,10 @@ let users = [];
 let currentUser;
 
 
-// Body onload function
-// function init() {
-//     includeHTML();
-// }
+// Body onload function for legal notice and help site
+function init() {
+    includeHTML();
+}
 
 
 /**
