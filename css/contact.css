@@ -710,14 +710,14 @@ select::-ms-expand {
     /* Input Form Overlay */
     
     .contact-form-overlay {
-        /*position: absolute;
-        top: 30%;
-        left: 30%;
-        z-index: 100;*/
         display: unset;
         border-radius: 30px;
     }
-    
+
+    .contact-form-overlay-position {
+        position: absolute;
+        left: -50%!important;
+    }
 
     .contact-form-left-neutral {
         flex-direction: column;
