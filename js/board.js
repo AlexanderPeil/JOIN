@@ -14,6 +14,7 @@ async function init() {
     includeHTML();
     await loadNotes();
     loadBoard(tasks);
+    loadContacts();
 }
 /**
  * Loads the board with the specified set of tasks, cleaning out any

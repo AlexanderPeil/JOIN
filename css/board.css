@@ -1,5 +1,5 @@
 body {
-    background-color: #E6E6E6;
+    background-color: #f5f5f5;
     -ms-overflow-style: none;
     /* for Internet Explorer, Edge */
     scrollbar-width: none;
@@ -143,14 +143,20 @@ a {
     align-items: center;
 }
 
-.card-content{
+.card-content {
     background-color: white;
     border-radius: 20px;
     padding: 18px 19px;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     margin: 25px 0;
     width: 90%;
+    cursor: pointer;
 }
+
+.trash-icon {
+    cursor: pointer;
+}
+
 
 /*.card:hover {
     rotate: 5deg;
@@ -345,7 +351,7 @@ a {
     position: fixed;
 }
 
-.popUpWish{
+.popUpWish {
     position: relative;
     left: -50px;
     width: 230px;

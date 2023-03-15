@@ -1,4 +1,6 @@
 let contacts = [];
+let newContact = [];
+
 
 /**
  * Loading the contacts from the server
@@ -25,7 +27,26 @@ function addContacts() {
     let email = document.getElementById('email').value;
     let phone = document.getElementById('phone').value;
     let color = document.getElementById('color').value;
-    let newContact = {
+    createContactCard(id, firstName, lastName, email, phone, color);
+    newContact.id = contacts.length;
+    contacts.push(newContact);
+    backend.setItem('contacts', JSON.stringify(contacts));
+    updateContactList();
+    resetInputFields();
+}
+
+
+/**
+ * Create contact card
+ * @param {*} id 
+ * @param {*} firstName 
+ * @param {*} lastName 
+ * @param {*} email 
+ * @param {*} phone 
+ * @param {*} color 
+ */
+function createContactCard(id, firstName, lastName, email, phone, color) {
+    newContact = {
         id: id,
         firstName: firstName,
         lastName: lastName,
@@ -33,11 +54,6 @@ function addContacts() {
         phone: phone,
         color: color
     };
-    newContact.id = contacts.length;
-    contacts.push(newContact);
-    backend.setItem('contacts', JSON.stringify(contacts));
-    updateContactList();
-    resetInputFields();
 }
 
 
@@ -62,12 +78,19 @@ function loadContacts() {
     firstLetters.sort();
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = '';
+    showContactList(contactList, firstLetters);
+}
+
+
+/**
+ * Creates the contact list
+ * @param {*} contactList 
+ * @param {*} firstLetters 
+ */
+function showContactList(contactList, firstLetters) {
     for (let i = 0; i < firstLetters.length; i++) {
         const firstLetter = firstLetters[i];
-        contactList.innerHTML += `
-            <h2 class="contact-index">${firstLetter.toUpperCase()}</h2>
-            <div class="contact-underline"></div>
-        `;
+        contactList.innerHTML += showContactFirstLettersHTML(firstLetter);
         for (let j = 0; j < contacts.length; j++) {
             const contact = contacts[j];
             let contactFirstLetter = contact.lastName.charAt(0).toLowerCase();
@@ -214,30 +237,3 @@ function closeAddTaskForm() {
     const contactForm = document.getElementById("formTaskContainer");
     contactForm.remove();
 }
-
-
-/*
-function openDropdown(id) {
-    if (document.getElementById(id).classList.contains('d-none')) {
-        document.getElementById(id).classList.remove('d-none');
-    }
-    else if (!document.getElementById(id).classList.contains('d-none')) {
-        document.getElementById(id).classList.add('d-none');
-    }
-}
-
-function addAssignedToList() {
-    document.getElementById('assigned-to-choices').innerHTML = '';
-    // document.getElementById('assigned-to-choices').innerHTML += `<select id=assigned-test></select>`;
-    for (let i = 0; i < contacts.length; i++) {
-        const contact = contacts[i];
-        let firstName = contact['firstName'];
-        let lastName = contact['lastName'];
-        let acronym = firstName[0] + lastName[0];
-
-        console.log('Vorname: ' + firstName + ' | Nachname: ' + lastName + ' | Abkürzung: ' + acronym);
-
-        document.getElementById('assigned-to-choices').innerHTML += `<div class="assigned-to-line"><label for="assigned-to-${i}" id="assigned_name${i}">${firstName + ' ' + lastName}</label><input type="checkbox" id="assigned-to-${i}" value="${acronym}"></div>`
-    }
-}
-*/

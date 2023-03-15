@@ -13,6 +13,14 @@ function generateContactList(contact, j) {
 }
 
 
+function showContactFirstLettersHTML(firstLetter) {
+    return `
+            <h2 class="contact-index">${firstLetter.toUpperCase()}</h2>
+            <div class="contact-underline"></div>
+        `;
+}
+
+
 function showContactDetailsHTML(selectedContact, i) {
     return `
         <div onclick="closeContactOverlay()" class="close-btn close-btn-overlay">

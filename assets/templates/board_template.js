@@ -21,7 +21,7 @@ function loadCardFullText(task_name, choiceTask) {
                 <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-${task_name[choiceTask]['priotity'][0]['priotity']}-popUp">${task_name[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img_white']}"></p></div>
                 <div class="makeRow"><b class="margin10">Assigned To: </b></div>
                 <div class="users makeColumn" id="userSection"></div>
-                <div class="put_it_right"><img src="./assets/img/empty-trash-32.png" onclick=delCard(${choiceTask})></div>
+                <div class="put_it_right"><img class="trash-icon" src="./assets/img/empty-trash-32.png" onclick=delCard(${choiceTask})></div>
             </div>
         </div>    
     `
