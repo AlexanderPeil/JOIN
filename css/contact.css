@@ -312,7 +312,7 @@ h1 {
 
 .contact-form-overlay {
     position: absolute;
-    top: 65%;
+    top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
@@ -467,7 +467,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 input,
@@ -513,8 +513,8 @@ select::-ms-expand {
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    /* margin-bottom: 20px; */
 }
 
 .date {
@@ -540,14 +540,15 @@ select::-ms-expand {
     font-weight: 400;
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 51px;
+    /* height: 51px; */
     gap: 10px;
     transition: all 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .prio-btn:hover {
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
-    height: 52px;
+    /* height: 52px; */
     width: 110%;
 }
 
@@ -614,6 +615,10 @@ select::-ms-expand {
     padding: 0px!important;
 }
 
+.close-icon {
+    cursor: pointer;
+}
+
 @media(max-width:1000px) {
 
     .contacts-main-container {
@@ -632,7 +637,7 @@ select::-ms-expand {
         z-index: 1;
         display: flex;
         flex-direction: column;
-        height: 90vh;
+        height: 91.5vh;
         width: 100%;
         transform: translateX(100%);
         transition: all 250ms ease-in-out;
@@ -763,11 +768,12 @@ select::-ms-expand {
     }
 
     .contact-input-container {
-        padding: 15px!important;
+        padding: 0 15px 15px 15px !important;
         /* margin-top: 50px; */
     }
 
     .contact-form-buttons {
+        gap: 15px;
         justify-content: space-around;
         width: unset;
     }
@@ -822,5 +828,9 @@ select::-ms-expand {
 
     .color-picker {
         display: none;
+    }
+
+    .assigned-to-wrapper {
+        margin: 0 !important;
     }
 }
