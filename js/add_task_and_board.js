@@ -1,5 +1,5 @@
 let currentCategory = '';
-let contacts = loadContacts();
+let contactsAddTask = loadContacts();
 let subtasks = [];
 let priotity_urgent = false;
 let priotity_medium = false;
@@ -18,11 +18,11 @@ async function addTask() {
     let due_date = document.getElementById('date').value;
     let new_task;
 
-    for (let i = 0; i < contacts.length; i++) {
+    for (let i = 0; i < contactsAddTask.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
             user = document.getElementById('assigned-to-' + i).value;
             let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            let userColor = contacts[i]['color'];
+            let userColor = contactsAddTask[i]['color'];
             assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
         }
 
@@ -103,7 +103,7 @@ function changeColor() {
 */ 
 async function loadContacts() {
     await downloadFromServer();
-    contacts = JSON.parse(backend.getItem('contacts')) || [];
+    contactsAddTask = JSON.parse(backend.getItem('contacts')) || [];
 }
 
 /**
@@ -115,8 +115,8 @@ async function loadContacts() {
  */
 function addAssignedToList() {
     document.getElementById('assigned-to-choices').innerHTML = '';
-    for (let i = 0; i < contacts.length; i++) {
-        const contact = contacts[i];
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        const contact = contactsAddTask[i];
         let firstName = contact['firstName'];
         let lastName = contact['lastName'];
         let acronym = firstName[0] + lastName[0];
@@ -209,7 +209,7 @@ function clearAll() {
     document.getElementById('title_textfield').value = '';
     document.getElementById('description_textfield').value = '';
     document.getElementById('category-header').innerHTML = 'Select your Category';
-    for (let i = 0; i < contacts.length; i++) {
+    for (let i = 0; i < contactsAddTask.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
             document.getElementById('assigned-to-' + i).checked = false;
         }
