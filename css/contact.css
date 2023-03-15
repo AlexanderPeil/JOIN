@@ -751,14 +751,14 @@ select::-ms-expand {
         width: 130px;
         padding-left: 0!important;
         position: absolute;
-        top: 33%;
+        top: 35%;
     }
 
     .big-letters-positioning {
         height: 115px;
         width: 115px;
         position: absolute;
-        top: 30%;
+        top: 31%;
     }
 
     .contact-input-container {
@@ -817,5 +817,9 @@ select::-ms-expand {
     .btn-centered {
         display: flex;
         justify-content: center;
+    }
+
+    .color-picker {
+        display: none;
     }
 }
