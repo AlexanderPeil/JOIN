@@ -348,6 +348,7 @@ h1 {
     .counter {
         font-size: 47px;
         line-height: 120%;
+        margin-top: 5px;
     }
     .counter-title {
         font-size: 14px;
