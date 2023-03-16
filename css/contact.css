@@ -216,6 +216,7 @@ h1 {
     height: 25px;
     border-radius: 50%;
     transition: all 225ms ease-in-out;
+    cursor: pointer;
 }
 
 .contact-trash-icon:hover {
