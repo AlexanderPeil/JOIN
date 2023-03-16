@@ -174,7 +174,7 @@ function openAddTaskContactFormHTML() {
         <div class="add-form-right">
             <div class="contact-input-container">
                 <div onclick="closeAddTaskForm()" class="icon-top-right" title="close form">
-                    <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    <img class="contact-cancel-icon-mobile" src="./assets/img/contact-cancel-icon.svg" alt="#">
                 </div>
                 <div>
                     <div class="features-container">
