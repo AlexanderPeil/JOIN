@@ -125,16 +125,6 @@ function closeContactOverlay(){
 
 
 /**
- * Delete contact from array, save to server and reload contact list
- */
-async function deleteContacts() {
-    contacts.pop();
-    backend.setItem('contacts', JSON.stringify(contacts));
-    updateContactList();
-}
-
-
-/**
  * Update contact list and load contacts
  */
 function updateContactList() {
@@ -212,10 +202,15 @@ function editContact(i) {
 
 /**
  * Removes the selected contact from the array and updates the contact list
+ * i < 7 to disable deleting of test data
  * @param {*} i 
  */
 function deleteSelectedContact(i) {
-    contacts.splice(i, 1); // remove 1 element at index i
+    if (i < 7) {
+        alert("Test data cannot be deleted. Thanks for testing.");
+        return;
+    }
+    contacts.splice(i, 1);
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
 }
