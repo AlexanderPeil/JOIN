@@ -211,6 +211,17 @@ h1 {
     display: none;
 }
 
+.contact-trash-icon {
+    padding: 10px;
+    height: 25px;
+    border-radius: 50%;
+    transition: all 225ms ease-in-out;
+}
+
+.contact-trash-icon:hover {
+    background-color: white;
+}
+
 .icon-bottom-right {
     display: flex;
     justify-content: flex-end;
