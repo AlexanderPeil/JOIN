@@ -211,13 +211,23 @@ function editContact(i) {
 
 
 /**
+ * Removes the selected contact from the array and updates the contact list
+ * @param {*} i 
+ */
+function deleteSelectedContact(i) {
+    contacts.splice(i, 1); // remove 1 element at index i
+    backend.setItem('contacts', JSON.stringify(contacts));
+    updateContactList();
+}
+
+
+/**
  * Open contact form to add new task
  * @param {*} i 
  */
-function addTaskContact(i) {
-    selectedContact = contacts[i]; 
+function addTaskContact() {
     const formTaskContainer = document.getElementById("formContainer");
-    formTaskContainer.innerHTML += openAddTaskContactFormHTML(selectedContact);
+    formTaskContainer.innerHTML += openAddTaskContactFormHTML();
 }
 
 
@@ -236,4 +246,14 @@ function closeForm() {
 function closeAddTaskForm() {
     const contactForm = document.getElementById("formTaskContainer");
     contactForm.remove();
+}
+
+
+function openDropdown(id) {
+    if (document.getElementById(id).classList.contains('d-none')) {
+        document.getElementById(id).classList.remove('d-none');
+    }
+    else if (!document.getElementById(id).classList.contains('d-none')) {
+        document.getElementById(id).classList.add('d-none');
+    }
 }

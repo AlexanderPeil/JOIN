@@ -30,7 +30,7 @@ function showContactDetailsHTML(selectedContact, i) {
             <div id="selectedContactColor" class="contact-letters big-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
             <div>
                 <div class="contact-information-name">${selectedContact.lastName} ${selectedContact.firstName}</div>
-                <div title="add new task" onclick="addTaskContact(${i})" class="contact-add-task">+ Add Task</div>
+                <div title="add new task" onclick="addTaskContact()" class="contact-add-task">+ Add Task</div>
             </div>
         </div>
         <div class="contact-information-title">
@@ -42,6 +42,7 @@ function showContactDetailsHTML(selectedContact, i) {
         <h4>Phone</h4>
         <div class="contact-name">${selectedContact.phone}</div>
         <div class="icon-bottom-right" title="edit contact info" onclick="editContact(${i})"><img class="edit-pencil-icon" src="./assets/img/edit_pencil.svg"></div>
+        <div onclick="deleteSelectedContact(${i})"><img class="contact-trash-icon" src="./assets/img/empty-trash-32.png"></div>
     `;
 }
 
@@ -55,7 +56,7 @@ function openEditContactFormHTML(selectedContact) {
                 <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
             </div>
             <div class="contact-form-right">
-            <div id="selectedContactColor" class="contact-letters big-letters margin-letters big-letters-positioning" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
+            <div id="selectedContactColor" class="contact-letters big-letters margin-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
             <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
                     <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
@@ -73,7 +74,7 @@ function openEditContactFormHTML(selectedContact) {
                     <div class="form-group">
                         <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone" id="phone" name="phone" value="${selectedContact.phone}" required>
                     </div>
-                    <div class="form-group color-picker">
+                    <div class="form-group">
                         <input class="p-none"type="color" id="color" name="color" value="${selectedContact.color}" required>
                     </div>
                     <div class="form-group btn-centered">
