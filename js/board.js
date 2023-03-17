@@ -283,7 +283,12 @@ function checkWhichMenu(id) {
  * @param {string} id - The task ID.
  */
 function openContextMenu(id) {
-    document.getElementById('contextMenu' + id).classList.remove('d-none')
+    if (document.getElementById('contextMenu' + id).classList.contains('d-none')){
+        document.getElementById('contextMenu' + id).classList.remove('d-none');
+    }
+    else{
+        document.getElementById('contextMenu' + id).classList.add('d-none');
+    }
 }
 /**
  * Changes the split value of the given task.
@@ -295,4 +300,8 @@ async function changeSplit(split, id) {
     await saveNotes();
     cleanOldBoard();
     loadNewBoard(tasks);
+}
+
+function closeContextMenu(id){
+    document.getElementById('contextMenu' + id).classList.add('d-none');
 }

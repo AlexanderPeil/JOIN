@@ -58,7 +58,7 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
     
             <div>
                 <div class="popUpWish d-none" id="contextMenu${id}">
-                    <h3>Choice your Wish</h3>
+                    <div class="headContextMenu"><h3>Choice your Wish</h3><p><b>X</b></p></div>
                     <div onclick="changeSplit('to_do',${id})">
                         <p>Change to <b>To Do</b></p>
                     </div>

@@ -368,6 +368,12 @@ a {
     font-size: 1rem;
 }
 
+.headContextMenu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media(max-width: 1500px) {
     .board {
         flex-wrap: wrap;
