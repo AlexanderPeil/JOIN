@@ -219,7 +219,11 @@ function clearAll() {
     document.getElementById('subtask-list').innerHTML = '';
 }
 
-
+/**
+ * Set the Current Date to today
+ * 
+ * @param {string} today - The new Date.
+ */
 function setDateToday() {
     let today = new Date().toISOString().split('T')[0];
     document.getElementById("date").setAttribute('min', String(today));
