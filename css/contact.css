@@ -4,7 +4,6 @@ body {
     background-color: #F5F5F5;
     font-family: 'Inter', sans-serif;
     user-select: none;
-
 }
 
 .overflow {
@@ -138,7 +137,8 @@ h1 {
     cursor: pointer;
 }
 
-.contact-cancel-icon, .contact-cancel-icon-mobile {
+.contact-cancel-icon,
+.contact-cancel-icon-mobile {
     padding: 10px;
     height: 25px;
     border-radius: 50%;
@@ -297,6 +297,7 @@ h1 {
     height: 22px;
 }
 
+
 /* .contact-create-icon {
     width: 12px;
 } */
@@ -335,6 +336,7 @@ h1 {
 .contact-cancel-btn:hover .contact-create-icon {
     content: url('../assets/img/iconoir_cancel_hover.svg');
 }
+
 
 /* Input Form Overlay */
 
@@ -658,11 +660,9 @@ select::-ms-expand {
     .contact-cancel-icon {
         display: none;
     }
-
     .contact-cancel-icon-mobile {
         display: block !important;
     }
-
     .contacts-main-container {
         margin-left: 0px;
     }
@@ -745,6 +745,8 @@ select::-ms-expand {
     .contact-form-overlay {
         display: unset;
         border-radius: 30px;
+        top: 500px;
+        left: 250px;
     }
     .contact-form-overlay-position {
         position: absolute;
@@ -838,7 +840,6 @@ select::-ms-expand {
     .color-picker {
         display: none;
     }
-
     .assigned-to-wrapper {
         margin: 0 !important;
     }
