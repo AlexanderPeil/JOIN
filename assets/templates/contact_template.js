@@ -180,7 +180,7 @@ function openAddTaskContactFormHTML() {
                 <div>
                     <div class="features-container">
                         <label for="date">Due Date</label>
-                        <input class="date" type="date" id="date" name="date" required>
+                        <input class="date" type="date" id="date" name="date" min="" required>
                     </div>
                     <div class="features-container">
                         <label>Prio</label>

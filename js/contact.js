@@ -1,5 +1,6 @@
 let contacts = [];
 let newContact = [];
+let tasks = [];
 
 
 /**
@@ -220,9 +221,13 @@ function deleteSelectedContact(i) {
  * Open contact form to add new task
  * @param {*} i 
  */
-function addTaskContact() {
+async function addTaskContact() {
     const formTaskContainer = document.getElementById("formContainer");
     formTaskContainer.innerHTML += openAddTaskContactFormHTML();
+    addAssignedToList();
+    await loadNotes();
+    setDateToday();
+    
 }
 
 
@@ -460,4 +465,46 @@ function clearAll() {
     }
     document.getElementById('date').value = '';
     document.getElementById('subtask-list').innerHTML = '';
+}
+
+function setDateToday() {
+    let today = new Date().toISOString().split('T')[0];
+    document.getElementById("date").setAttribute('min', String(today));
+}
+
+async function loadNotes() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('allTasks')) || [];
+}
+
+async function saveNotes() {
+    let tasksAsJson = JSON.stringify(tasks);
+    await backend.setItem('allTasks', tasksAsJson);
+}
+
+/**
+ * Changes the color of the priority sections based on the selected priority radio button.
+ */
+function changeColor() {
+    priotity_urgent = document.getElementById('urgentBtn').checked;
+    priotity_medium = document.getElementById('mediumBtn').checked;
+    priotity_low = document.getElementById('lowBtn').checked;
+
+    if (priotity_urgent) {
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent-white');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
+    }
+    if (priotity_medium) {
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'prio-medium-white');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
+
+    }
+    if (priotity_low) {
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low-white');
+
+    }
 }
