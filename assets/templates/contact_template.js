@@ -60,6 +60,7 @@ function openEditContactFormHTML(selectedContact) {
             <div class="contact-input-container">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
                     <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    <img class="contact-cancel-icon-mobile hide-content" src="assets/img/x_ixon.png" alt="">
                 </div>
                 <form onsubmit="updateContact(); return false;">
                     <div class="form-group">
