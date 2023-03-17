@@ -229,10 +229,6 @@ function setDateToday() {
     document.getElementById("date").setAttribute('min', String(today));
 }
 
-function editTask(id) {
-    console.log('You have choice Task ' + id + ' to Edit.')
-}
-
 function fillTheTasks(id) {
     let title = tasks[id]['body_header'];
     let text = tasks[id]['body_content'];
@@ -240,7 +236,6 @@ function fillTheTasks(id) {
     let date = tasks[id]['date'];
     let prio = tasks[id]['priotity'][0]['priotity'];
     let thisSubtasks = tasks[id]['subtasks'];
-    console.log(prio);
     if (prio == 'urgent') {
         priotity_urgent = document.getElementById('urgentBtn').checked = true;
         priotity_medium = document.getElementById('mediumBtn').checked = false;

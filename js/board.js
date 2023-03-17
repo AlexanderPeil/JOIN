@@ -311,7 +311,6 @@ function editTask(id) {
     document.getElementById('popUp').innerHTML = loadEditAddTaskTmp(id);
     addAssignedToList();
     setDateToday();
-    console.log('You have choice Task ' + id + ' to Edit.')
     fillTheTasks(id)
 }
 
