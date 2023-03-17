@@ -390,10 +390,6 @@ a {
     }
 }
 
-@media(max-width: 1200px) {
-
-}
-
 @media(max-width: 1000px) {
     .headline-mobile {
         display: block !important;

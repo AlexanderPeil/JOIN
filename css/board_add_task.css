@@ -472,7 +472,6 @@ fieldset {
         .popUp-background {
             overflow-y: hidden;
         }
-    }
     .add-task-mobile {
         z-index: 11;
         display: block !important;
