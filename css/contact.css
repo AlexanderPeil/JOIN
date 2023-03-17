@@ -657,6 +657,9 @@ select::-ms-expand {
 }
 
 @media(max-width:1000px) {
+    .contact-selection-container {
+        padding-left: 0;
+    }
     .contact-cancel-icon {
         display: none;
     }
@@ -746,7 +749,6 @@ select::-ms-expand {
         display: unset;
         border-radius: 30px;
         top: 500px;
-        left: 250px;
     }
     .contact-form-overlay-position {
         position: absolute;
@@ -846,41 +848,32 @@ select::-ms-expand {
 }
 
 @media(max-width: 400px) {
-
-    .contact-form-overlay
-    {
+    .contact-form-overlay {
         width: 100%;
         border-radius: 0px;
     }
-
     .contact-form-left {
         border-top-left-radius: unset;
         border-top-right-radius: unset;
     }
-
     .contact-form-right {
         border-top-left-radius: unset;
         border-top-right-radius: unset;
     }
-
     .add-form-left {
         border-top-right-radius: unset;
         border-bottom-right-radius: unset;
     }
-
     .add-form-right {
         border-top-right-radius: unset;
         border-bottom-right-radius: unset;
     }
-
     .contact-input-field {
         width: 280px;
     }
-
     .contact-form-user-icon {
         display: none;
     }
-
     .big-letters {
         display: none;
     }
