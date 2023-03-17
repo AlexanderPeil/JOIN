@@ -166,6 +166,10 @@ a {
     rotate: 5deg;
 }*/
 
+.changeIcon {
+    cursor: pointer;
+}
+
 .card-head {
     width: fit-content;
     padding: 5px 30px;
@@ -368,16 +372,18 @@ a {
     font-size: 1rem;
 }
 
-.headContextMenu{
+.headContextMenu {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.space{
+
+.space {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 @media(max-width: 1500px) {
     .board {
         flex-wrap: wrap;
