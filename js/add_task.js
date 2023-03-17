@@ -8,6 +8,7 @@ async function init() {
     loadNotes();
     addAssignedToList();
     loadContacts();
+    setDateToday();
 }
 /**
  * Saves the current tasks object as a JSON string to local storage using the backend object.

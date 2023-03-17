@@ -95,6 +95,7 @@ function addDropArea() {
 function openAddTask() {
     document.getElementById('popUp').innerHTML = loadAddTaskTmp();
     addAssignedToList();
+    setDateToday();
 }
 /**
  * Sets the current dragged element.

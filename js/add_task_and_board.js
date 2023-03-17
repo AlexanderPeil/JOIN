@@ -77,20 +77,20 @@ function changeColor() {
     priotity_low = document.getElementById('lowBtn').checked;
 
     if (priotity_urgent) {
-        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent-white');
-        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','Prio-medium');
-        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low');
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent-white');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
     }
     if (priotity_medium) {
-        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent');
-        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','prio-medium-white');
-        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low');
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'prio-medium-white');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
 
     }
     if (priotity_low) {
-        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent');
-        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','Prio-medium');
-        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low-white');
+        document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
+        document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low-white');
 
     }
 }
@@ -100,7 +100,7 @@ function changeColor() {
  * 	
  * @async
  * @function
-*/ 
+*/
 async function loadContacts() {
     await downloadFromServer();
     contactsAddTask = JSON.parse(backend.getItem('contacts')) || [];
@@ -217,4 +217,10 @@ function clearAll() {
     }
     document.getElementById('date').value = '';
     document.getElementById('subtask-list').innerHTML = '';
+}
+
+
+function setDateToday() {
+    let today = new Date().toISOString().split('T')[0];
+    document.getElementById("date").setAttribute('min',String(today));
 }

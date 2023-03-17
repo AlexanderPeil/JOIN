@@ -166,7 +166,7 @@ function loadAddTaskTmp() {
 <div class="right-container">
     <div class="features-container">
         <label for="date">Due Date</label>
-        <input class="date" type="date" id="date" name="date" required>
+        <input class="date" type="date" id="date" name="date" min="" required>
     </div>
     <div class="features-container">
         <label>Prio</label>
@@ -217,6 +217,7 @@ function loadAddTaskTmp() {
 </form>
 </div>
 </div>
+<script>setDateToday();</script>
 `
 }
 /**
