@@ -42,7 +42,7 @@ function showContactDetailsHTML(selectedContact, i) {
         <h4>Phone</h4>
         <div class="contact-name">${selectedContact.phone}</div>
         <div class="icon-bottom-right" title="edit contact info" onclick="editContact(${i})"><img class="edit-pencil-icon" src="./assets/img/edit_pencil.svg"></div>
-        <div title="delete contact" onclick="deleteSelectedContact(${i})"><img class="contact-trash-icon" src="./assets/img/empty-trash-32.png"></div>
+        <div title="delete contact"><img onclick="deleteSelectedContact(${i})" class="contact-trash-icon" src="./assets/img/empty-trash-32.png"></div>
     `;
 }
 
@@ -57,7 +57,7 @@ function openEditContactFormHTML(selectedContact) {
             </div>
             <div class="contact-form-right">
             <div id="selectedContactColor" class="contact-letters big-letters margin-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
-            <div class="contact-input-container">
+            <div class="contact-input-container margin-top">
                 <div onclick="closeForm()" class="icon-top-right" title="close form">
                     <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
                     <img class="contact-cancel-icon-mobile hide-content" src="assets/img/x_ixon.png" alt="">

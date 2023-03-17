@@ -792,7 +792,9 @@ select::-ms-expand {
     }
     .contact-input-container {
         padding: 0 15px 15px 15px !important;
-        /* margin-top: 60px; */
+    }
+    .margin-top {
+        margin-top: 60px;
     }
     .contact-form-buttons {
         gap: 15px;
@@ -843,6 +845,10 @@ select::-ms-expand {
 }
 
 @media(max-width: 400px) {
+
+    .overflow {
+        z-index: 100;
+    }
     .contact-form-overlay {
         width: 100%;
         border-radius: 0px;
@@ -850,6 +856,7 @@ select::-ms-expand {
     .contact-form-left {
         border-top-left-radius: unset;
         border-top-right-radius: unset;
+        padding-bottom: 50px;
     }
     .contact-form-right {
         border-bottom-left-radius: unset;
@@ -862,6 +869,9 @@ select::-ms-expand {
     .add-form-right {
         border-bottom-left-radius: unset;
         border-bottom-right-radius: unset;
+    }
+    .margin-top {
+        margin-top: 20px!important;
     }
     .contact-input-field {
         width: 280px;
