@@ -852,15 +852,15 @@ select::-ms-expand {
         border-top-right-radius: unset;
     }
     .contact-form-right {
-        border-top-left-radius: unset;
-        border-top-right-radius: unset;
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
     }
     .add-form-left {
         border-top-right-radius: unset;
-        border-bottom-right-radius: unset;
+        border-top-left-radius: unset;
     }
     .add-form-right {
-        border-top-right-radius: unset;
+        border-bottom-left-radius: unset;
         border-bottom-right-radius: unset;
     }
     .contact-input-field {
