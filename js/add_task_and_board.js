@@ -222,5 +222,82 @@ function clearAll() {
 
 function setDateToday() {
     let today = new Date().toISOString().split('T')[0];
-    document.getElementById("date").setAttribute('min',String(today));
+    document.getElementById("date").setAttribute('min', String(today));
+}
+
+function editTask(id) {
+    console.log('You have choice Task ' + id + ' to Edit.')
+}
+
+function fillTheTasks(id) {
+    let title = tasks[id]['body_header'];
+    let text = tasks[id]['body_content'];
+    let category = tasks[id]['category'];
+    let date = tasks[id]['date'];
+    let prio = tasks[id]['priotity'][0]['priotity'];
+    let thisSubtasks = tasks[id]['subtasks'];
+    console.log(prio);
+    if (prio == 'urgent') {
+        priotity_urgent = document.getElementById('urgentBtn').checked = true;
+        priotity_medium = document.getElementById('mediumBtn').checked = false;
+        priotity_low = document.getElementById('lowBtn').checked = false;
+    }
+    else if (prio == 'medium') {
+        priotity_urgent = document.getElementById('urgentBtn').checked = false;
+        priotity_medium = document.getElementById('mediumBtn').checked = true;
+        priotity_low = document.getElementById('lowBtn').checked = false;
+    }
+    changeColor();
+    document.getElementById('title_textfield').value = title;
+    document.getElementById('description_textfield').value = text;
+    document.getElementById('category-header').innerHTML = category;
+    document.getElementById('date').value = date;
+
+    for (let j = 0; j < tasks[id]['users'].length; j++) {
+        const user = tasks[id]['users'][j];
+        for (let i = 0; i < contactsAddTask.length; i++) {
+            if (document.getElementById('assigned-to-' + i).value == user['userShort']) {
+                document.getElementById('assigned-to-' + i).checked = true;
+            }
+
+        }
+    }
+    for (let s = 0; s < thisSubtasks.length; s++) {
+        const subtask = thisSubtasks[s];
+        document.getElementById('subtask-list').innerHTML += `<li>${subtask['subtaskName']}</li>`;        
+    }
+}
+
+async function editAddTask(id){
+    let title = document.getElementById('title_textfield').value;
+    let description = document.getElementById('description_textfield').value;
+    let category = currentCategory || tasks[id]['category'];
+    let assigned_to = [];
+    let due_date = document.getElementById('date').value;
+    let new_task;
+
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        if (document.getElementById('assigned-to-' + i).checked) {
+            user = document.getElementById('assigned-to-' + i).value;
+            let fullName = document.getElementById('assigned_name' + i).innerHTML;
+            let userColor = contactsAddTask[i]['color'];
+            assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
+        }
+
+    }
+    new_task = {
+        'split': tasks[id]['split'],
+        'category': category,
+        'body_header': title,
+        'body_content': description,
+        'progress': '',
+        'users': assigned_to,
+        'priotity': checkPrioity(),
+        'date': due_date,
+        'subtasks': subtasks
+    }
+    tasks[id] = new_task;
+    await saveNotes();
+    subtasks = [];
+    window.location.href = './board.html'
 }

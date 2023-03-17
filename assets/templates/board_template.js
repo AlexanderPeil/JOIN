@@ -21,7 +21,7 @@ function loadCardFullText(task_name, choiceTask) {
                 <div class="makeRow"><b class="margin10">Priority: </b><p class="prio-${task_name[choiceTask]['priotity'][0]['priotity']}-popUp">${task_name[choiceTask]['priotity'][0]['priotity']} <img src="${tasks[choiceTask]['priotity'][0]['img_white']}"></p></div>
                 <div class="makeRow"><b class="margin10">Assigned To: </b></div>
                 <div class="users makeColumn" id="userSection"></div>
-                <div class="put_it_right"><img class="trash-icon" src="./assets/img/empty-trash-32.png" onclick=delCard(${choiceTask})></div>
+                <div class="space"><img class="changeIcon" onclick="editTask(${choiceTask})" src="./assets/img/edit_icon.svg"<div class="put_it_right"><img class="trash-icon" src="./assets/img/empty-trash-32.png" onclick=delCard(${choiceTask})></div></div>
             </div>
         </div>    
     `
@@ -208,7 +208,7 @@ function loadAddTaskTmp() {
             </div>
         </div>
     </div>
-    <div class="submit-and-clear">
+    <div class="submit-and-clear" id="submit-and-clear">
     <div class="btn-clear" onclick="clearAll()">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></div>
         <div><Button class="btn-createTask">Create Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
     </div>
@@ -274,4 +274,140 @@ function loadDropArea(split) {
  */
 function loadPrioIMGWithText(pri, prioIMG) {
     return `${pri}<img src="assets/img/${prioIMG}.png">`;
+}
+
+function loadEditAddTaskTmp(id) {
+    return `<div class="popUp-background">
+    <div class="popUp-content_add_task" id="popup-add-task">
+    <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
+<form onsubmit="editAddTask(${id});return false">
+<div class="content-container">
+<div class="left-container">
+    <div class="selection-container">
+        <label>Title</label>
+        <input placeholder="Enter a title" id="title_textfield" required>
+    </div>
+    <div class="selection-container">
+        <label>Description</label>
+        <textarea placeholder="Enter a description" id="description_textfield" required></textarea>
+    </div>
+    <div class="selection-container prevent-select">
+        <label>Category</label>
+        <div class="select-wrapper" onclick="openDropdown('category-choices')">
+            <div class="sector_top">
+                <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
+            </div>
+            <div class="category-choices d-none" id="category-choices">
+                <div class="category" onclick="changeCategoryHeader('Marketing')">
+                    <div id="marketing">Marketing </div>
+                    <div class="circle" style="background: #0038ff;"></div>
+                </div>
+                <div class="category" onclick="changeCategoryHeader('Media')">
+                    <div>Media </div>
+                    <div class="circle" style="background: #ffc702;"></div>
+                </div>
+                <div class="category" onclick="changeCategoryHeader('Backoffice')">
+                    <div>Backoffice </div>
+                    <div class="circle" style="background: #1FD7C1;"></div>
+                </div>
+                <div class="category" onclick="changeCategoryHeader('Design')">
+                    <div>Design </div>
+                    <div class="circle" style="background:  #ff7a00;"></div>
+                </div>
+                <div class="category" onclick="changeCategoryHeader('Sales')">
+                    <div>Sales </div>
+                    <div class="circle" style="background: #fc71ff;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="selection-container prevent-select">
+        <label>Assigned To</label>
+        <div class="select-wrapper assigned-to-wrapper">
+            <div class="sector_top" onclick="openDropdown('assigned-to-choices')">
+                <p id="assigned-to-header">Select your Members</p><img
+                    src="./assets/img/arrow_down.png">
+            </div>
+            <div class="assigned-to-choices d-none" id="assigned-to-choices">
+                <div class="assigned-to" onclick="changeCategoryHeader('Marketing')">
+                    <div id="marketing">Marketing </div>
+                    <div class="circle" style="background: #0038ff;"></div>
+                </div>
+                <div class="assigned-to" onclick="changeCategoryHeader('Media')">
+                    <div>Media </div>
+                    <div class="circle" style="background: #ffc702;"></div>
+                </div>
+                <div class="assigned-to" onclick="changeCategoryHeader('Backoffice')">
+                    <div>Backoffice </div>
+                    <div class="circle" style="background: #1FD7C1;"></div>
+                </div>
+                <div class="assigned-to" onclick="changeCategoryHeader('Design')">
+                    <div>Design </div>
+                    <div class="circle" style="background:  #ff7a00;"></div>
+                </div>
+                <div class="assigned-to" onclick="changeCategoryHeader('Sales')">
+                    <div>Sales </div>
+                    <div class="circle" style="background: #fc71ff;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="middle-gap"></div>
+<div class="right-container">
+    <div class="features-container">
+        <label for="date">Due Date</label>
+        <input class="date" type="date" id="date" name="date" min="" required>
+    </div>
+    <div class="features-container">
+        <label>Prio</label>
+        <div onchange="changeColor(); return false" class="prio-btn-container">
+
+            <input type="radio" class="checkbox_urgen" id="urgentBtn" name="radio">
+            <label for="urgentBtn" class="prio-btn prio-urgent urgentSection" for="checkbox_urgen"
+                id="urgentSection">
+                Urgent<img id="prioUrgentWhite" src="assets/img/Prio-urgent.png">
+            </label>
+            <input type="radio" class="checkbox_medium" id="mediumBtn" name="radio">
+            <label for="mediumBtn" class="prio-btn prio-urgent mediumSection" for="checkbox_urgen"
+                id="mediumSection">
+                Medium<img id="prioUrgentWhite" src="assets/img/Prio-medium.png">
+            </label>
+            <input type="radio" class="checkbox_low" id="lowBtn" name="radio" checked>
+            <label for="lowBtn" class="prio-btn prio-urgent lowSection" for="checkbox_urgen"
+                id="lowSection">
+                Low<img id="prioUrgentWhite" src="assets/img/Prio-low-white.png">
+            </label>
+        </div>
+
+
+
+        <div class="features-container">
+            <label>Subtasks</label>
+            <div class="subtask-container">
+                <input class="subtask-input" onclick="inputChangeSubIcons()"placeholder="Add new subtask" id="subtask">
+                <img id="plusSubtaskImg" class="plus-icon" src="assets/img/plus-icon.png" onclick="changeSubIcon()">
+                <div class="subtask-img-container">
+                <img id="clearSubtaskImg" src="assets/img/icon_cancel_subtask.svg" onclick="clearSubtask()" class="subtask-icons d-none">
+                <div class="gap-img-subtask"></div>
+                <img id="addSubtaskImg" src="assets/img/icon_check_subtask.svg" onclick="addSubtask()" class="subtask-icons d-none">
+                </div>
+            </div>
+            <div>
+                <ul id="subtask-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="submit-and-clear" id="submit-and-clear">
+    <div class="btn-clear" onclick="clearAll()">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></div>
+        <div><Button class="btn-createTask">Create Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
+    </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+<script>setDateToday();</script>
+`
 }

@@ -373,7 +373,11 @@ a {
     align-items: center;
     justify-content: space-between;
 }
-
+.space{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 @media(max-width: 1500px) {
     .board {
         flex-wrap: wrap;

@@ -284,10 +284,10 @@ function checkWhichMenu(id) {
  * @param {string} id - The task ID.
  */
 function openContextMenu(id) {
-    if (document.getElementById('contextMenu' + id).classList.contains('d-none')){
+    if (document.getElementById('contextMenu' + id).classList.contains('d-none')) {
         document.getElementById('contextMenu' + id).classList.remove('d-none');
     }
-    else{
+    else {
         document.getElementById('contextMenu' + id).classList.add('d-none');
     }
 }
@@ -303,6 +303,15 @@ async function changeSplit(split, id) {
     loadNewBoard(tasks);
 }
 
-function closeContextMenu(id){
+function closeContextMenu(id) {
     document.getElementById('contextMenu' + id).classList.add('d-none');
 }
+
+function editTask(id) {
+    document.getElementById('popUp').innerHTML = loadEditAddTaskTmp(id);
+    addAssignedToList();
+    setDateToday();
+    console.log('You have choice Task ' + id + ' to Edit.')
+    fillTheTasks(id)
+}
+
