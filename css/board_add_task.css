@@ -469,9 +469,10 @@ fieldset {
 }
 
 @media(max-width: 1000px) {
-    /* .popUp-background {
-        padding-top: 36px;
-    } */
+        .popUp-background {
+            overflow-y: hidden;
+        }
+    }
     .add-task-mobile {
         z-index: 11;
         display: block !important;
