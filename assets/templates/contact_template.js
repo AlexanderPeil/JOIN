@@ -221,7 +221,7 @@ function openAddTaskContactFormHTML() {
                 <div class="contact-form-buttons btn-centered">
                     <button type="button" onclick="closeAddTaskForm()" class="contact-cancel-btn" title="close form">
                         <p>Cancel</p>
-                        <img class="contact-create-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                        <img class="contact-create-icon" src="assets/img/iconoir_cancel.svg" alt="#">
                     </button>
                     <button type="submit" class="contact-add-btn" title="add new task">
                         <p>Create Task</p>
