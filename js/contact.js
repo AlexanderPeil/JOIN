@@ -142,7 +142,7 @@ function resetInputFields() {
     document.getElementById('lastName').value = '';
     document.getElementById('email').value = '';
     document.getElementById('phone').value = '';
-    document.getElementById('color').value = '';
+    document.getElementById('color').value = '#29ABE2';
 }
 
 
