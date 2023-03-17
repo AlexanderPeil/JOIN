@@ -198,7 +198,7 @@ function openAddTaskContactFormHTML() {
                             <input type="radio" class="checkbox_low" id="lowBtn" name="radio" checked>
                             <label for="lowBtn" class="prio-btn prio-urgent lowSection" for="checkbox_urgen"
                                 id="lowSection">
-                                Low<img id="prioUrgentWhite" src="assets/img/prio-low-white.png">
+                                Low<img id="prioUrgentWhite" src="assets/img/Prio-low-white.png">
                             </label>
                         </div>
                         <div class="features-container">
