@@ -21,7 +21,7 @@ function showContactFirstLettersHTML(firstLetter) {
 }
 
 
-function showContactDetailsHTML(selectedContact, i) {
+function showContactDetailsHTML(selectedContact, i, userShort) {
     return `
         <div onclick="closeContactOverlay()" class="close-btn close-btn-overlay">
             <img class="close-icon" src="./assets/img/arrow_left.svg" alt="#">
@@ -30,7 +30,7 @@ function showContactDetailsHTML(selectedContact, i) {
             <div id="selectedContactColor" class="contact-letters big-letters" style="background-color: ${selectedContact.color}">${selectedContact.lastName.charAt(0)} ${selectedContact.firstName.charAt(0)}</div>
             <div>
                 <div class="contact-information-name">${selectedContact.lastName} ${selectedContact.firstName}</div>
-                <div title="add new task" onclick="addTaskContact()" class="contact-add-task">+ Add Task</div>
+                <div title="add new task" onclick="addTaskContact('${userShort}')" class="contact-add-task">+ Add Task</div>
             </div>
         </div>
         <div class="contact-information-title">

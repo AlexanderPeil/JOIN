@@ -111,7 +111,9 @@ function showContactDetails(i) {
     let contactSelection = document.getElementById('contactSelection');
     contactSelection.innerHTML = '';
     let selectedContact = contacts[i];
-    contactSelection.innerHTML += showContactDetailsHTML(selectedContact, i);
+    let userShort = selectedContact['firstName'].charAt(0).toLowerCase() + selectedContact['lastName'].charAt(0).toLowerCase()
+    console.log(userShort)
+    contactSelection.innerHTML += showContactDetailsHTML(selectedContact, i, userShort);
     document.getElementById('contactOverlay').classList.add('show-contact-selection-overlay');
 }
 
@@ -221,13 +223,18 @@ function deleteSelectedContact(i) {
  * Open contact form to add new task
  * @param {*} i 
  */
-async function addTaskContact() {
+async function addTaskContact(userShort) {
     const formTaskContainer = document.getElementById("formContainer");
     formTaskContainer.innerHTML += openAddTaskContactFormHTML();
     addAssignedToList();
     await loadNotes();
     setDateToday();
-    
+    for (let i = 0; i < contacts.length; i++) {
+        if(userShort == document.getElementById('assigned-to-' + i).value.toLowerCase()){
+            document.getElementById('assigned-to-' + i).checked = true;
+        }
+        
+    }
 }
 
 
