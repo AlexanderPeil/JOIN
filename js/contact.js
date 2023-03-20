@@ -171,6 +171,8 @@ function updateContact() {
 function showContactForm() {
     var contactForm = document.getElementById("contactForm");
     contactForm.classList.remove("d-none");
+    document.getElementById('contact-add-btn').classList.add('d-none');
+    document.getElementById('hide-contacts').classList.add('visibility');
 }
 
 
@@ -189,6 +191,8 @@ function openAddContactForm() {
 function closeAddContactForm() {
     let contactForm = document.getElementById("contactForm");
     contactForm.classList.add("d-none");
+    document.getElementById('contact-add-btn').classList.remove('d-none');
+    document.getElementById('hide-contacts').classList.remove('visibility');
 }
 
 
