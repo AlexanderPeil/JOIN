@@ -401,7 +401,7 @@ function loadEditAddTaskTmp(id) {
     </div>
     <div class="submit-and-clear" id="submit-and-clear">
     <div class="btn-clear" onclick="clearAll()">Clear<img class="clear-img" src ="assets/img/iconoir_cancel.svg"></div>
-        <div><Button class="btn-createTask">Create Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
+        <div><Button class="btn-createTask">Save Task<img src ="assets/img/akar-icons_check.svg"></Button></div>
     </div>
 </div>
 </div>
