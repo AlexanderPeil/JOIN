@@ -478,9 +478,6 @@ fieldset {
 }
 
 @media(max-width: 1000px) {
-    .popUp-content_add_task {
-        padding-top: 100px;
-    }
     .add-task-mobile {
         z-index: 11;
         display: block !important;
@@ -550,5 +547,8 @@ fieldset {
     }
     .right-container {
         width: unset;
+    }
+    .popUp-content_add_task {
+        padding-top: 100px;
     }
 }
