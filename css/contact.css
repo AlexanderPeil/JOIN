@@ -888,3 +888,9 @@ select::-ms-expand {
         display: none;
     }
 }
+
+@media(max-height: 850px) {
+    .contact-form-overlay {
+        top: 430px;
+    }
+}
