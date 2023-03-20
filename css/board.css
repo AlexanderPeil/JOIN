@@ -254,9 +254,9 @@ a {
 }
 
 .popUp-background {
-    /* height: 100vh; */
+    height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 0;
     background-color: rgba(0, 0, 0, 0.087);
     display: flex;
@@ -391,6 +391,9 @@ a {
 }
 
 @media(max-width: 1000px) {
+    .popUp-background {
+        overflow-x: hidden;
+    }
     .headline-mobile {
         display: block !important;
         font-size: 16px;

@@ -426,6 +426,12 @@ fieldset {
     /* .popUp-content_add_task {
         padding-top: unset;
     } */
+    .btn-clear {
+        margin-left: unset;
+    }
+    .submit-and-clear button {
+        white-space: nowrap;
+    }
     .left-container {
         height: unset;
     }
@@ -457,6 +463,9 @@ fieldset {
     }
     .submit-and-clear {
         position: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     label,
     input,
@@ -469,9 +478,9 @@ fieldset {
 }
 
 @media(max-width: 1000px) {
-        .popUp-background {
-            overflow-y: hidden;
-        }
+    .popUp-content_add_task {
+        padding-top: 100px;
+    }
     .add-task-mobile {
         z-index: 11;
         display: block !important;
