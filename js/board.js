@@ -94,6 +94,7 @@ function addDropArea() {
  */
 function openAddTask() {
     document.getElementById('popUp').innerHTML = loadAddTaskTmp();
+    document.getElementById('board-section').classList.add('d-none');
     addAssignedToList();
     setDateToday();
 }
@@ -235,6 +236,7 @@ async function delCard(choicCard) {
  */
 function closePopUpAddTask() {
     document.getElementById('popUp').innerHTML = '';
+    document.getElementById('board-section').classList.remove('d-none');
 }
 /**
  * Searches the kanban board for tasks that match the given search query.

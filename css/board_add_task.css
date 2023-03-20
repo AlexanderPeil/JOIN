@@ -10,7 +10,7 @@
     background: white;
     border-radius: 30px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    padding: 50px;
+    padding: 15px 50px;
     gap: 25px;
 }
 
@@ -429,9 +429,9 @@ fieldset {
     .left-container {
         height: unset;
     }
-    .popUp-background {
+    /* .popUp-background {
         padding-top: 20px;
-    }
+    } */
     .title-container {
         width: 450px;
         display: flex;
@@ -453,7 +453,7 @@ fieldset {
     .right-container {
         align-items: center;
         height: unset;
-        margin-bottom: 75px;
+        margin-bottom: 30px;
     }
     .submit-and-clear {
         position: unset;
