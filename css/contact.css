@@ -752,11 +752,12 @@ select::-ms-expand {
     .contact-form-overlay {
         display: unset;
         border-radius: 30px;
-        top: 465px;
+        /* top: 465px; */
     }
     .contact-form-overlay-position {
         position: absolute;
-        left: -48%!important;
+        top: 50%;
+        /* left: -48%!important; */
     }
     .contact-form-left-neutral {
         flex-direction: column;

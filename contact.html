@@ -49,49 +49,7 @@
                 <div id="formContainer"></div>
                 <div id="formEditContainer"></div>
                 <div id="formTaskContainer"></div>
-                <div id="contactForm" class="contact-form-overlay contact-form-overlay-position d-none">
-                    <div class="contact-form-left">
-                        <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
-                        <span class="contact-form-heading">Add Contact</span>
-                        <p class="contact-form-slogan">Tasks are better with a team!</p>
-                        <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
-                    <div class="contact-form-right">
-                        <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
-                        <div class="contact-input-container margin-top">
-                            <div onclick="closeAddContactForm()" class="icon-top-right" title="close form">
-                                <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
-                                <img class="contact-cancel-icon-mobile hide-content" src="assets/img/x_ixon.png" alt="">
-                            </div>
-                            <form onsubmit="addContacts(); return false;">
-                                <div class="form-group">
-                                    <input class="contact-input-field input-name-img" type="text"
-                                        placeholder="First Name" id="firstName" name="firstName" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="contact-input-field input-name-img" type="text"
-                                        placeholder="Last Name" id="lastName" name="lastName" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="contact-input-field input-email-img" type="email" placeholder="Email"
-                                        id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone"
-                                        id="phone" name="phone" required>
-                                </div>
-                                <div class="form-group color-picker">
-                                    <input class="p-none" type="color" id="color" name="color" value="#29ABE2" required>
-                                </div>
-                                <div class="form-group btn-centered">
-                                    <button type="submit" class="contact-add-btn">
-                                        <p>Create Contact</p>
-                                        <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg"
-                                            alt="#">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                
             </section>
             <button onclick="showContactForm()" title="add contact" class="contact-add-btn contact-btn-position"
                 id="contact-add-btn">
@@ -100,6 +58,50 @@
             </button>
         </main>
     </div>
+
+    <div id="contactForm" class="contact-form-overlay contact-form-overlay-position d-none">
+        <div class="contact-form-left">
+            <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
+            <span class="contact-form-heading">Add Contact</span>
+            <p class="contact-form-slogan">Tasks are better with a team!</p>
+            <img class="contact-form-underline" src="assets/img/underline.svg" alt="">
+        <div class="contact-form-right">
+            <img class="contact-form-user-icon" src="./assets/img/contact-user-icon.svg">
+            <div class="contact-input-container margin-top">
+                <div onclick="closeAddContactForm()" class="icon-top-right" title="close form">
+                    <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#">
+                    <img class="contact-cancel-icon-mobile hide-content" src="assets/img/x_ixon.png" alt="">
+                </div>
+                <form onsubmit="addContacts(); return false;">
+                    <div class="form-group">
+                        <input class="contact-input-field input-name-img" type="text"
+                            placeholder="First Name" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="contact-input-field input-name-img" type="text"
+                            placeholder="Last Name" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="contact-input-field input-email-img" type="email" placeholder="Email"
+                            id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone"
+                            id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group color-picker">
+                        <input class="p-none" type="color" id="color" name="color" value="#29ABE2" required>
+                    </div>
+                    <div class="form-group btn-centered">
+                        <button type="submit" class="contact-add-btn">
+                            <p>Create Contact</p>
+                            <img class="contact-create-icon" src="./assets/img/contact-create-icon.svg"
+                                alt="#">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 </body>
 
 </html>
