@@ -75,16 +75,13 @@
                 </div>
                 <form onsubmit="addContacts(); return false;">
                     <div class="form-group">
-                        <input class="contact-input-field input-name-img" type="text"
-                            placeholder="First Name" id="firstName" name="firstName" required>
+                        <input pattern="[a-zA-Z\ä\ö\ü\Ä\Ö\Ü]" class="contact-input-field input-name-img" type="text" placeholder="First Name" id="firstName" name="firstName" required>
                     </div>
                     <div class="form-group">
-                        <input class="contact-input-field input-name-img" type="text"
-                            placeholder="Last Name" id="lastName" name="lastName" required>
+                        <input pattern="[a-zA-Z\ä\ö\ü\Ä\Ö\Ü]" class="contact-input-field input-name-img" type="text" placeholder="Last Name" id="lastName" name="lastName" required>
                     </div>
                     <div class="form-group">
-                        <input class="contact-input-field input-email-img" type="email" placeholder="Email"
-                            id="email" name="email" required>
+                        <input class="contact-input-field input-email-img" type="email" placeholder="Email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone"
