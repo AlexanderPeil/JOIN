@@ -659,6 +659,7 @@ select::-ms-expand {
     .contact-list-container {
         height: unset;
         margin-bottom: 80px;
+        height: 100vh;
     }
 
     .contact-selection-container {

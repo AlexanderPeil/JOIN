@@ -94,6 +94,7 @@ function openEditContactFormHTML(selectedContact) {
 
 function openAddTaskContactFormHTML() {
     return `
+    <div>
     <form id="formTaskContainer" class="contact-form-overlay" onsubmit="addTask(); return false;">
         <div class="add-form-left">
             <span class="contact-form-heading">Add Task</span>
@@ -231,5 +232,6 @@ function openAddTaskContactFormHTML() {
             </div>
         </div>
     </form>
+    </div>
     `;
 }
