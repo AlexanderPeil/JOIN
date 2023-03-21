@@ -133,6 +133,8 @@ function closeContactOverlay(){
 function updateContactList() {
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = '';
+    let contactSelection = document.getElementById('contactSelection');
+    contactSelection.innerHTML = '';
     loadContacts();
 }
 
@@ -204,6 +206,7 @@ function editContact(i) {
     selectedContact = contacts[i];
     const formEditContainer = document.getElementById("formContainer");
     formEditContainer.innerHTML += openEditContactFormHTML(selectedContact);
+    updateContactList();
 }
 
 
