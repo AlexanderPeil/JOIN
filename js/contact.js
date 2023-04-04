@@ -34,6 +34,7 @@ function addContacts() {
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
     resetInputFields();
+    closeAddContactForm();
 }
 
 
@@ -112,7 +113,6 @@ function showContactDetails(i) {
     contactSelection.innerHTML = '';
     let selectedContact = contacts[i];
     let userShort = selectedContact['firstName'].charAt(0).toLowerCase() + selectedContact['lastName'].charAt(0).toLowerCase()
-    console.log(userShort)
     contactSelection.innerHTML += showContactDetailsHTML(selectedContact, i, userShort);
     document.getElementById('contactOverlay').classList.add('show-contact-selection-overlay');
 }
@@ -132,8 +132,17 @@ function closeContactOverlay(){
 function updateContactList() {
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = '';
-    //let contactSelection = document.getElementById('contactSelection');
-    //contactSelection.innerHTML = '';
+    loadContacts();
+    closeContactOverlay();
+}
+
+
+/**
+ * Update contact selection and load contacts
+ */
+function updateContactSelection() {
+    let contactSelection = document.getElementById('contactSelection');
+    contactSelection.innerHTML = '';
     loadContacts();
 }
 
@@ -162,6 +171,7 @@ function updateContact() {
     selectedContact.color = document.getElementById('color').value;
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
+    updateContactSelection();
     closeForm();
 }
 
@@ -205,7 +215,6 @@ function editContact(i) {
     selectedContact = contacts[i];
     const formEditContainer = document.getElementById("formContainer");
     formEditContainer.innerHTML += openEditContactFormHTML(selectedContact);
-    updateContactList();
 }
 
 
@@ -222,6 +231,7 @@ function deleteSelectedContact(i) {
     contacts.splice(i, 1);
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
+    updateContactSelection();
 }
 
 
