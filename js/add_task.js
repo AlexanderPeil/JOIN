@@ -5,9 +5,9 @@ let tasks = [];
  */
 async function init() {
     includeHTML();
-    loadNotes();
+    await loadNotes();
+    await loadContacts();
     addAssignedToList();
-    loadContacts();
     setDateToday();
 }
 /**
