@@ -34,6 +34,7 @@ function addContacts() {
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
     resetInputFields();
+    closeAddContactForm();
 }
 
 
@@ -112,7 +113,6 @@ function showContactDetails(i) {
     contactSelection.innerHTML = '';
     let selectedContact = contacts[i];
     let userShort = selectedContact['firstName'].charAt(0).toLowerCase() + selectedContact['lastName'].charAt(0).toLowerCase()
-    console.log(userShort)
     contactSelection.innerHTML += showContactDetailsHTML(selectedContact, i, userShort);
     document.getElementById('contactOverlay').classList.add('show-contact-selection-overlay');
 }
@@ -122,7 +122,6 @@ function showContactDetails(i) {
  * Close contact details
  */
 function closeContactOverlay(){
-    /*this.overlayMenu.classList.remove('show-overlay-menu');*/
     document.getElementById('contactOverlay').classList.remove('show-contact-selection-overlay');
 }
 
@@ -133,6 +132,17 @@ function closeContactOverlay(){
 function updateContactList() {
     let contactList = document.getElementById('contactList');
     contactList.innerHTML = '';
+    loadContacts();
+    closeContactOverlay();
+}
+
+
+/**
+ * Update contact selection and load contacts
+ */
+function updateContactSelection() {
+    let contactSelection = document.getElementById('contactSelection');
+    contactSelection.innerHTML = '';
     loadContacts();
 }
 
@@ -161,6 +171,7 @@ function updateContact() {
     selectedContact.color = document.getElementById('color').value;
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
+    updateContactSelection();
     closeForm();
 }
 
@@ -169,7 +180,7 @@ function updateContact() {
  * Show contact form
  */
 function showContactForm() {
-    var contactForm = document.getElementById("contactForm");
+    let contactForm = document.getElementById("contactForm");
     contactForm.classList.remove("d-none");
     document.getElementById('contact-add-btn').classList.add('d-none');
     document.getElementById('hide-contacts').classList.add('d-none');
@@ -220,6 +231,7 @@ function deleteSelectedContact(i) {
     contacts.splice(i, 1);
     backend.setItem('contacts', JSON.stringify(contacts));
     updateContactList();
+    updateContactSelection();
 }
 
 
@@ -237,7 +249,6 @@ async function addTaskContact(userShort) {
         if(userShort == document.getElementById('assigned-to-' + i).value.toLowerCase()){
             document.getElementById('assigned-to-' + i).checked = true;
         }
-        
     }
 }
 
@@ -288,7 +299,6 @@ async function addTask() {
             let userColor = contacts[i]['color'];
             assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
         }
-
     }
     new_task = {
         'split': 'to_do',
@@ -318,7 +328,6 @@ function checkPrioity() {
     if (priotity_low) {
         prio = "assets/img/low_priotity.png";
         priotity = 'low';
-
     }
     else if (priotity_medium) {
         prio = "assets/img/medium_priotity.png";
@@ -338,7 +347,6 @@ function changeColor() {
     priotity_urgent = document.getElementById('urgentBtn').checked;
     priotity_medium = document.getElementById('mediumBtn').checked;
     priotity_low = document.getElementById('lowBtn').checked;
-
     if (priotity_urgent) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent-white');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','Prio-medium');
@@ -348,13 +356,11 @@ function changeColor() {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','prio-medium-white');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low');
-
     }
     if (priotity_low) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent','Prio-urgent');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium','Prio-medium');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low','Prio-low-white');
-
     }
 }
 
@@ -457,7 +463,6 @@ function clearSubtask() {
     document.getElementById('plusSubtaskImg').classList.remove('d-none');
     document.getElementById('clearSubtaskImg').classList.add('d-none');
     document.getElementById('addSubtaskImg').classList.add('d-none');
-
 }
 
 
@@ -478,20 +483,24 @@ function clearAll() {
     document.getElementById('subtask-list').innerHTML = '';
 }
 
+
 function setDateToday() {
     let today = new Date().toISOString().split('T')[0];
     document.getElementById("date").setAttribute('min', String(today));
 }
+
 
 async function loadNotes() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('allTasks')) || [];
 }
 
+
 async function saveNotes() {
     let tasksAsJson = JSON.stringify(tasks);
     await backend.setItem('allTasks', tasksAsJson);
 }
+
 
 /**
  * Changes the color of the priority sections based on the selected priority radio button.
@@ -500,7 +509,6 @@ function changeColor() {
     priotity_urgent = document.getElementById('urgentBtn').checked;
     priotity_medium = document.getElementById('mediumBtn').checked;
     priotity_low = document.getElementById('lowBtn').checked;
-
     if (priotity_urgent) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent-white');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
@@ -510,12 +518,10 @@ function changeColor() {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'prio-medium-white');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
-
     }
     if (priotity_low) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low-white');
-
     }
 }
