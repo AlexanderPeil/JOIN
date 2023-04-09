@@ -46,11 +46,7 @@
                     </button>
                 </div>
                 <div id="contactSelection"></div>
-                <!-- "Add Contact"-Form -->
                 <div id="formContainer"></div>
-                <div id="formEditContainer"></div>
-                <div id="formTaskContainer"></div>
-                
             </section>
             <button onclick="showContactForm()" title="add contact" class="contact-add-btn contact-btn-position"
                 id="contact-add-btn">
@@ -76,10 +72,10 @@
                 </div>
                 <form onsubmit="addContacts(); return false;">
                     <div class="form-group">
-                        <input pattern="[a-zA-Z\ä\ö\ü\Ä\Ö\Ü]" class="contact-input-field input-name-img" type="text" placeholder="First Name" id="firstName" name="firstName" required>
+                        <input class="contact-input-field input-name-img" type="text" placeholder="First Name" id="firstName" name="firstName" required>
                     </div>
                     <div class="form-group">
-                        <input pattern="[a-zA-Z\ä\ö\ü\Ä\Ö\Ü]" class="contact-input-field input-name-img" type="text" placeholder="Last Name" id="lastName" name="lastName" required>
+                        <input class="contact-input-field input-name-img" type="text" placeholder="Last Name" id="lastName" name="lastName" required>
                     </div>
                     <div class="form-group">
                         <input class="contact-input-field input-email-img" type="email" placeholder="Email" id="email" name="email" required>

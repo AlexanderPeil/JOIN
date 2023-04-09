@@ -254,29 +254,26 @@ async function addTaskContact(userShort) {
 
 
 /**
- * Close contact form
+ * Close contact forms by id (contactForm, formTaskContainer)
  */
-function closeForm() {
-    const contactForm = document.getElementById("contactForm");
-    contactForm.remove();
+function removeElementById(elementId) {
+    const element = document.getElementById(elementId);
+    element.remove();
 }
 
 
 /**
- * Close contact form to add new task
+ * Loads tasks from server (used for add task-popup)
  */
-function closeAddTaskForm() {
-    const contactForm = document.getElementById("formTaskContainer");
-    contactForm.remove();
-}
-
-
 async function loadNotes() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('allTasks')) || [];
 }
 
 
+/**
+ * Saves tasks to server (used for add task-popup)
+ */
 async function saveNotes() {
     let tasksAsJson = JSON.stringify(tasks);
     await backend.setItem('allTasks', tasksAsJson);
