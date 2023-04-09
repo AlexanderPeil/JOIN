@@ -254,11 +254,20 @@ async function addTaskContact(userShort) {
 
 
 /**
- * Close contact forms by id (contactForm, formTaskContainer)
+ * Close contact form
  */
-function removeElementById(elementId) {
-    const element = document.getElementById(elementId);
-    element.remove();
+function closeForm() {
+    const contactForm = document.getElementById("contactForm");
+    contactForm.remove();
+}
+
+
+/**
+ * Close contact form to add new task
+ */
+function closeAddTaskForm() {
+    const contactForm = document.getElementById("formTaskContainer");
+    contactForm.remove();
 }
 
 
