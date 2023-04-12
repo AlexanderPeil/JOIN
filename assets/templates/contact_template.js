@@ -2,7 +2,7 @@ function generateContactList(contact, j) {
     return `
         <div onclick="showContactDetails(${j})" class="contact-list-box" title="show contact details">
             <div id="contactColor" class="contact-letters small-letters" style="background-color: ${contact.color}">
-                ${contact.firstName.charAt(0).toUpperCase()}${contact.lastName.charAt(0).toUpperCase()}
+                ${contact.lastName.charAt(0).toUpperCase()}${contact.firstName.charAt(0).toUpperCase()}
             </div>
             <div class="contact-details">
                 <div class="contact-name">${contact.lastName} ${contact.firstName}</div>
