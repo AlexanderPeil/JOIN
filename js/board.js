@@ -340,6 +340,11 @@ function closePopupAddTask() {
 }
 
 
+function closeAddtask() {
+    document.getElementById('close-add-task').classList.add('d-none');
+}
+
+
 function closePopUpWish() {
     id = currentTaskCard;
     var popUp = document.getElementById('contextMenu' + id);
