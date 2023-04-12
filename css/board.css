@@ -145,6 +145,7 @@ a {
 .card {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .card-content {
@@ -376,6 +377,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: -10px;
+}
+
+.headContextMenu img {
+    height: 25px;
+    padding: 5px;
 }
 
 .space {

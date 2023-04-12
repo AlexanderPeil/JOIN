@@ -3,6 +3,7 @@ let users_color = loadContacts();
 let onMobile = isMobileDevice();
 let currentDraggedElement;
 let splits = ['to_do', 'in_progress', 'awaiting_feedback', 'done'];
+let currentMenu;
 
 /**
  * Initializes the page by including the HTML, loading the notes,
@@ -297,13 +298,16 @@ function checkMobile() {
  * @param {string} id - The task ID.
  */
 function openContextMenu(id) {
-    if (document.getElementById('contextMenu' + id).classList.contains('d-none')) {
-        document.getElementById('contextMenu' + id).classList.remove('d-none');
-    }
-    else {
-        document.getElementById('contextMenu' + id).classList.add('d-none');
-    }
+    document.getElementById(`contextMenu${id}`).classList.remove('d-none');
+    currentMenu = id;
 }
+
+
+function closeHeadContextMenu(id) {
+    document.getElementById(`contextMenu${id}`).classList.add('d-none');
+}
+
+
 /**
  * Changes the split value of the given task.
  * @param {string} split - The new split value.
@@ -316,9 +320,9 @@ async function changeSplit(split, id) {
     loadNewBoard(tasks);
 }
 
-function closeContextMenu(id) {
-    document.getElementById('contextMenu' + id).classList.add('d-none');
-}
+// function closeContextMenu(id) {
+//     document.getElementById('contextMenu' + id).classList.add('d-none');
+// }
 
 function editTask(id) {
     document.getElementById('popUp').innerHTML = loadEditAddTaskTmp(id);
@@ -326,4 +330,3 @@ function editTask(id) {
     setDateToday();
     fillTheTasks(id)
 }
-

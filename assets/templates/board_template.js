@@ -8,7 +8,7 @@ function loadCardFullText(task_name, choiceTask) {
     return `
     <div class="popUp-background">
             <div class="popUp-content">
-                <div class="popUp-close" onclick="closePopUp(${choiceTask})">x</div>
+                <div class="popUp-close" id="close-task" onclick="closePopUp(${choiceTask})">x</div>
                 <div class="card-head" style="background-color: var(--${task_name[choiceTask]['category'].toLowerCase()});">${task_name[choiceTask]['category']}</div>
                 <h2>${task_name[choiceTask]['body_header']}</h2>
                 <p>${task_name[choiceTask]['body_content']}</p>
@@ -58,7 +58,8 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
     
             <div>
                 <div class="popUpWish d-none" id="contextMenu${id}">
-                    <div class="headContextMenu"><h3>Choice your Wish</h3><p><b>X</b></p></div>
+                    <div class="headContextMenu"><h3>Choose your wish</h3><img onclick="closeHeadContextMenu(${id}); event.stopPropagation();" src="./assets/img/xicon.png"></div>
+                    <img src="./assets/img/summary_underline.svg">
                     <div onclick="changeSplit('to_do',${id})">
                         <p>Change to <b>To Do</b></p>
                     </div>
@@ -411,3 +412,6 @@ function loadEditAddTaskTmp(id) {
 <script>setDateToday();</script>
 `
 }
+
+
+

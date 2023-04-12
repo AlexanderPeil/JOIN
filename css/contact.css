@@ -85,6 +85,11 @@ h1 {
     border-radius: 20px;
 }
 
+.active {
+    background-color: hsl(215, 26%, 22%, 0.1);
+    border-radius: 10px;
+}
+
 .contact-details {
     display: flex;
     flex-direction: column;
