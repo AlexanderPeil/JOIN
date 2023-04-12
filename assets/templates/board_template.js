@@ -6,8 +6,8 @@
  */
 function loadCardFullText(task_name, choiceTask) {
     return `
-    <div class="popUp-background">
-            <div class="popUp-content">
+    <div class="popUp-background" id="close-popup${choiceTask}" onclick="closePopup(${choiceTask})">
+            <div class="popUp-content" onclick="event.stopPropagation()">
                 <div class="popUp-close" id="close-task" onclick="closePopUp(${choiceTask})">x</div>
                 <div class="card-head" style="background-color: var(--${task_name[choiceTask]['category'].toLowerCase()});">${task_name[choiceTask]['category']}</div>
                 <h2>${task_name[choiceTask]['body_header']}</h2>
@@ -35,7 +35,7 @@ function loadCardFullText(task_name, choiceTask) {
  */
 function loadCardBoardText(tasks_name, id, catgoryLow) {
     return `
-    <div class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id})">
+    <div class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
         
             <div class="card-content">                                      
                 <div class="card-head" style="background-color: var(--${catgoryLow});">
@@ -58,7 +58,7 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
     
             <div>
                 <div class="popUpWish d-none" id="contextMenu${id}">
-                    <div class="headContextMenu"><h3>Choose your wish</h3><img onclick="closeHeadContextMenu(${id}); event.stopPropagation();" src="./assets/img/xicon.png"></div>
+                    <div class="headContextMenu"><h3>Choose your wish</h3><img onclick="closeHeadContextMenu(${id}); event.stopPropagation(); " src="./assets/img/xicon.png"></div>
                     <img src="./assets/img/summary_underline.svg">
                     <div onclick="changeSplit('to_do',${id})">
                         <p>Change to <b>To Do</b></p>
@@ -87,8 +87,8 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
  * @returns {string} The HTML code for the popup for adding a new task.
  */
 function loadAddTaskTmp() {
-    return `<div class="popUp-background">
-    <div class="popUp-content_add_task" id="popup-add-task">
+    return `<div class="popUp-background"  id="popUp-background" onclick="closePopupAddTask()">
+    <div class="popUp-content_add_task" id="popup-add-task"  onclick="event.stopPropagation()">
     <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
 <form onsubmit="addTask();return false">
 <div class="content-container">

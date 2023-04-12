@@ -3,7 +3,7 @@ let users_color = loadContacts();
 let onMobile = isMobileDevice();
 let currentDraggedElement;
 let splits = ['to_do', 'in_progress', 'awaiting_feedback', 'done'];
-let currentMenu;
+let currentTaskCard;
 
 /**
  * Initializes the page by including the HTML, loading the notes,
@@ -299,7 +299,7 @@ function checkMobile() {
  */
 function openContextMenu(id) {
     document.getElementById(`contextMenu${id}`).classList.remove('d-none');
-    currentMenu = id;
+    currentTaskCard = id;
 }
 
 
@@ -320,9 +320,6 @@ async function changeSplit(split, id) {
     loadNewBoard(tasks);
 }
 
-// function closeContextMenu(id) {
-//     document.getElementById('contextMenu' + id).classList.add('d-none');
-// }
 
 function editTask(id) {
     document.getElementById('popUp').innerHTML = loadEditAddTaskTmp(id);
@@ -330,3 +327,31 @@ function editTask(id) {
     setDateToday();
     fillTheTasks(id)
 }
+
+
+function closePopup(currentCard) {
+    document.getElementById(`close-popup${currentCard}`).classList.add('d-none');
+}
+
+
+function closePopupAddTask() {
+    document.getElementById('popUp-background').classList.add('d-none');
+    document.getElementById('board-section').classList.remove('d-none');
+}
+
+
+function closePopUpWish() {
+    id = currentTaskCard;
+    var popUp = document.getElementById('contextMenu' + id);
+    if (popUp) {
+      popUp.classList.add('d-none');
+    }
+  }
+  
+  document.addEventListener('click', function(event) {
+    var popUp = event.target.closest('.popUpWish');
+    if (!popUp) {
+      closePopUpWish(event.target.dataset.id);
+    }
+  });
+  
