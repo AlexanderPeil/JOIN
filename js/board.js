@@ -3,7 +3,9 @@ let users_color = loadContacts();
 let onMobile = isMobileDevice();
 let currentDraggedElement;
 let splits = ['to_do', 'in_progress', 'awaiting_feedback', 'done'];
+let currentAddTask;
 let currentTaskCard;
+
 
 /**
  * Initializes the page by including the HTML, loading the notes,
@@ -93,7 +95,8 @@ function addDropArea() {
 /**
  * Opens the add task pop-up window.
  */
-function openAddTask() {
+function openAddTask(id) {
+    currentAddTask = id;
     document.getElementById('popUp').innerHTML = loadAddTaskTmp();
     document.getElementById('board-section').classList.add('d-none');
     addAssignedToList();

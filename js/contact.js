@@ -266,6 +266,7 @@ async function addTaskContact(userShort) {
     await loadNotes();
     setDateToday();
     checkAssignedTo(userShort);
+    document.getElementById('formTaskContainer').classList.remove('d-none');
 }
 
 
