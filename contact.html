@@ -56,7 +56,7 @@
         </main>
     </div>
 
-    <div id="closeAddContactPopup" onclick="closeAddContactPopup()">
+    <div id="closeAddContactPopup"  onclick="closeAddContactPopup()">
         <div id="contactForm" class="contact-form-overlay contact-form-overlay-position d-none" onclick="event.stopPropagation()">
             <div class="contact-form-left">
                 <img class="contact-form-logo" src="./assets/img/Logo-Join.png" alt="#">
@@ -69,7 +69,7 @@
                 <div class="contact-input-container margin-top">
                     <div class="icon-top-right" title="close form">
                         <img class="contact-cancel-icon" src="./assets/img/contact-cancel-icon.svg" alt="#"  onclick="closeAddContactForm()" >
-                        <img class="contact-cancel-icon-mobile hide-content" src="assets/img/x_ixon.png" alt="">
+                        <img class="contact-cancel-icon-mobile hide-content" src="assets/img/x_ixon.png" alt="" onclick="closeAddContactForm()">
                     </div>
                     <form onsubmit="addContacts(); return false;">
                         <div class="form-group">

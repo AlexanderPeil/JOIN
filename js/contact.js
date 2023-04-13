@@ -3,7 +3,6 @@ let newContact = [];
 let tasks = [];
 let previouslySelectedContact = null;
 
-
 /**
  * Loading the contacts from the server
  * @param {Array} contacts
@@ -221,6 +220,8 @@ function closeAddContactForm() {
     contactForm.classList.add("d-none");
     document.getElementById('contact-add-btn').classList.remove('d-none');
     document.getElementById('hide-contacts').classList.remove('d-none');
+    document.getElementById('closeAddContactPopup').classList.add('d-none');  
+    
 }
 
 
