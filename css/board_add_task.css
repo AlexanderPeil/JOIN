@@ -591,11 +591,19 @@ fieldset {
     .category-choices  {
         width: 373px;
     }
+
+    .assigned-to-choices {
+        width: 373px;
+    }
 }
 
 @media(max-width: 400px) {
     .popUp-content_add_task {
         padding-top: 252px;
+        width: 350px;
+    }
+
+    .assigned-to-choices {
         width: 350px;
     }
 
