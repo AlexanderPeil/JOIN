@@ -141,7 +141,6 @@ h1 {
 .icon-top-right {
     display: flex;
     justify-content: flex-end;
-    cursor: pointer;
 }
 
 .contact-cancel-icon,
@@ -150,6 +149,7 @@ h1 {
     height: 25px;
     border-radius: 50%;
     transition: all 225ms ease-in-out;
+    cursor: pointer;
 }
 
 .contact-cancel-icon:hover {
@@ -676,6 +676,11 @@ select::-ms-expand {
 .area-for-close-popups {
     width: 100%;
     height: 100%;
+}
+
+#closeAddContactPopup {
+    height: 100vh;
+    width: 100vw;
 }
 
 @media(max-width: 1100px) {

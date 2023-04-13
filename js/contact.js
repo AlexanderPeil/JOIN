@@ -200,6 +200,7 @@ function showContactForm() {
     contactForm.classList.remove("d-none");
     document.getElementById('contact-add-btn').classList.add('d-none');
     document.getElementById('hide-contacts').classList.add('d-none');
+    document.getElementById('closeAddContactPopup').classList.remove('d-none');  
 }
 
 
@@ -308,4 +309,13 @@ async function loadNotes() {
 async function saveNotes() {
     let tasksAsJson = JSON.stringify(tasks);
     await backend.setItem('allTasks', tasksAsJson);
+}
+
+
+function closeAddContactPopup() {
+    document.getElementById('closeAddContactPopup').classList.add('d-none');    
+    // let contactForm = document.getElementById("contactForm");
+    // contactForm.classList.add("d-none");
+    document.getElementById('contact-add-btn').classList.remove('d-none');
+    document.getElementById('hide-contacts').classList.remove('d-none');
 }
