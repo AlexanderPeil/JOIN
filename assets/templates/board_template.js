@@ -89,7 +89,7 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
 function loadAddTaskTmp() {
     return `<div class="popUp-background"  id="popUp-background" onclick="closePopupAddTask()">
     <div class="popUp-content_add_task" id="popup-add-task"  onclick="event.stopPropagation()">
-    <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
+    <div class="headerPopUp"><h2>Add Task</h2><img class="close-header-popup" src="./assets/img/xicon.png" onclick="closePopUpAddTask()"></div>
 <form onsubmit="addTask();return false">
 <div class="content-container">
 <div class="left-container">
@@ -280,7 +280,7 @@ function loadPrioIMGWithText(pri, prioIMG) {
 function loadEditAddTaskTmp(id) {
     return `<div class="popUp-background" id="close-add-task" onclick="closeAddtask()">
     <div class="popUp-content_add_task" id="popup-add-task" onclick="event.stopPropagation()">
-    <div class="headerPopUp"><h2>Add Task</h2><div style="cursor: pointer;" onclick="closePopUpAddTask()">x</div></div>
+    <div class="headerPopUp"><h2>Add Task</h2><img src="./assets/img/xicon.png" onclick="closePopUpAddTask()"></div>
 <form onsubmit="editAddTask(${id});return false">
 <div class="content-container">
 <div class="left-container">
