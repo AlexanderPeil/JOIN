@@ -92,6 +92,8 @@ select,
 }
 
 .select-wrapper {
+    position: relative;
+    height: 50px; 
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -101,15 +103,31 @@ select,
 .category-choices {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    position: absolute;
+    background-color: white;
+    width: 452px;
+    top: 50px;
+    left: 0;
+    z-index: 11;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-left: -1px;
 }
 
 .assigned-to-choices {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    height: 200px;
-    overflow-y: scroll;
+    position: absolute;
+    background-color: white;
+    width: 452px;
+    top: 50px;
+    left: 0;
+    z-index: 11;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-left: -1px;
 }
 
 select {
@@ -569,6 +587,10 @@ fieldset {
     .popUp-content_add_task {
         padding-top: 100px;
     }
+
+    .category-choices  {
+        width: 373px;
+    }
 }
 
 @media(max-width: 400px) {
@@ -579,5 +601,9 @@ fieldset {
 
     .submit-and-clear button{
         margin-left: 10px;
+    }
+
+    .category-choices  {
+        width: 350px;
     }
 }
