@@ -304,3 +304,9 @@ async function editAddTask(id){
     subtasks = [];
     window.location.href = './board.html';
 }
+
+
+function addNewCategory() {
+    document.getElementById('category-choices').classList.add('d-none');
+    document.getElementById('new-category').classList.remove('d-none');
+}

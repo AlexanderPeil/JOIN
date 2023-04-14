@@ -108,6 +108,7 @@ function loadAddTaskTmp() {
                 <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
             </div>
             <div class="category-choices d-none" id="category-choices">
+                 <div class="category" onclick="addNewCategory()">New Category<img class="new-category-img" src="assets/img/add_task_mob.svg"></div>
                 <div class="category" onclick="changeCategoryHeader('Marketing')">
                     <div id="marketing">Marketing </div>
                     <div class="circle" style="background: #0038ff;"></div>
@@ -129,6 +130,7 @@ function loadAddTaskTmp() {
                     <div class="circle" style="background: #fc71ff;"></div>
                 </div>
             </div>
+            <div id="new-category" class="category d-none"><input class="" type="name" placeholder="Category Name ..."></div>
         </div>
     </div>
     <div class="selection-container prevent-select">

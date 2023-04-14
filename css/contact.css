@@ -4,6 +4,7 @@ body {
     background-color: #F5F5F5;
     font-family: 'Inter', sans-serif;
     user-select: none;
+    height: 100vh;
 }
 
 .overflow {
@@ -678,10 +679,10 @@ select::-ms-expand {
     height: 100%;
 }
 
-#closeAddContactPopup {
+/* #closeAddContactPopup {
     height: 73vh;
     width: 100vw;
-}
+} */
 
 @media(max-width: 1100px) {
     
