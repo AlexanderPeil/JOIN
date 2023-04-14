@@ -3,7 +3,6 @@ let users_color = loadContacts();
 let onMobile = isMobileDevice();
 let currentDraggedElement;
 let splits = ['to_do', 'in_progress', 'awaiting_feedback', 'done'];
-let currentAddTask;
 let currentTaskCard;
 
 
@@ -96,7 +95,7 @@ function addDropArea() {
  * Opens the add task pop-up window.
  */
 function openAddTask(id) {
-    currentAddTask = id;
+    currentTaskCard = id;
     document.getElementById('popUp').innerHTML = loadAddTaskTmp();
     document.getElementById('board-section').classList.add('d-none');
     addAssignedToList();
@@ -302,7 +301,6 @@ function checkMobile() {
  */
 function openContextMenu(id) {
     document.getElementById(`contextMenu${id}`).classList.remove('d-none');
-    currentTaskCard = id;
 }
 
 
@@ -348,18 +346,15 @@ function closeAddtask() {
 }
 
 
-function closePopUpWish() {
-    id = currentTaskCard;
-    var popUp = document.getElementById('contextMenu' + id);
-    if (popUp) {
-      popUp.classList.add('d-none');
+function checkWhichCard() {
+    if (currentTaskCard == 'in_progress') {
+        return 'in_progress';
+    } else if (currentTaskCard == 'awaiting_feedback') {
+        return 'awaiting_feedback';
+    } else if (currentTaskCard == 'done') {
+        return 'done';
+    } else {
+        return 'to_do';
     }
-  }
-  
-  document.addEventListener('click', function(event) {
-    var popUp = event.target.closest('.popUpWish');
-    if (!popUp) {
-      closePopUpWish(event.target.dataset.id);
-    }
-  });
+}
   

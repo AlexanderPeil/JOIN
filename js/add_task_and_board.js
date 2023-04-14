@@ -17,8 +17,8 @@ async function addTask() {
     let assigned_to = [];
     let due_date = document.getElementById('date').value;
     let new_task;
+    let currentSplit = checkWhichCard();
 
-    checkCurrentAddTask();
 
     for (let i = 0; i < contactsAddTask.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
@@ -29,8 +29,9 @@ async function addTask() {
         }
 
     }
+
     new_task = {
-        'split': 'to_do',
+        'split': currentSplit,
         'category': category,
         'body_header': title,
         'body_content': description,
@@ -301,18 +302,5 @@ async function editAddTask(id){
     tasks[id] = new_task;
     await saveNotes();
     subtasks = [];
-    window.location.href = './board.html'
-}
-
-
-function checkCurrentAddTask() {
-    if (currentAddTask == 'to-do') {
-        console.log('To-Do');
-    } else if (currentAddTask == 'in-progress') {
-        console.log('in-progress');
-    } else if (currentAddTask == 'awaiting-feedback') {
-        console.log('awaiting-feedback');
-    } else {
-        console.log('Done');
-    }
+    window.location.href = './board.html';
 }
