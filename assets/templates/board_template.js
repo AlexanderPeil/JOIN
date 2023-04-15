@@ -35,6 +35,7 @@ function loadCardFullText(task_name, choiceTask) {
  */
 function loadCardBoardText(tasks_name, id, catgoryLow) {
     return `
+    <div>
     <div class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
         
             <div class="card-content">                                      
@@ -78,7 +79,7 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
                 </div>
             </div>
     </div>
-
+    </div>
     
     `
 }

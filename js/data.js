@@ -123,13 +123,12 @@ function checkRememberMeData() {
 }
 
 
-function closeAddContactPopup() {
-    // document.getElementById('closeAddContactPopup').classList.add('d-none');    
-    let contactForm = document.getElementById("contactForm");
-    contactForm.classList.add("d-none");
-    document.getElementById('contact-add-btn').classList.remove('d-none');
-    document.getElementById('hide-contacts').classList.remove('d-none');
-}
+// function closeAddContactPopup() {   
+//     let contactForm = document.getElementById("contactForm");
+//     contactForm.classList.add("d-none");
+//     document.getElementById('contact-add-btn').classList.remove('d-none');
+//     document.getElementById('hide-contacts').classList.remove('d-none');
+// }
 
 
 function checkStatus() {
@@ -144,4 +143,3 @@ function checkStatus() {
         return 'to_do'
     }
 }
-  
