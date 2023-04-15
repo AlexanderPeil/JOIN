@@ -313,6 +313,21 @@ function loadEditAddTaskTmp(id) {
     </div>
     <div class="selection-container prevent-select">
         <label>Category</label>
+        <div id="new-category" class="new-cat input-new-cat d-none">
+        <div class="select-color d-none" id="selected-color" style="background: #ffffff"></div>
+        <input id="new-category-input" type="name" placeholder="Category Name ...">
+        <div class="new-category-icons">
+            <img src="./assets/img/checkmark.png" alt="#" onclick="addNewCategory()">
+            <img src="./assets/img/cancel.png" alt="#" onclick="closeNewCategory()">
+        </div>
+    </div>
+    <div class="d-none" id="select-color">
+            <div class="select-color" style="background: #0038ff;" onclick="selectColor(1)"></div>
+            <div class="select-color" style="background: #ffc702;" onclick="selectColor(2)"></div>
+            <div class="select-color" style="background: #1FD7C1;" onclick="selectColor(3)"></div>
+            <div class="select-color" style="background:  #ff7a00;" onclick="selectColor(4)"></div>
+            <div class="select-color" style="background: #fc71ff;" onclick="selectColor(5)"></div>
+        </div>
         <div class="select-wrapper" onclick="openDropdown('category-choices')">
             <div class="sector_top">
                 <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">

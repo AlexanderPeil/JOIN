@@ -34,7 +34,6 @@ function showLogout() {
  */
 function closeLogoutMenu() {
     let logOut = document.getElementById('popup-menu');
-
     logOut.classList.add('d-none');
 }
 
@@ -121,6 +120,15 @@ function checkRememberMeData() {
         document.getElementById('email').value = emailValue;
         document.getElementById('password').value = passswordValue;
     }
+}
+
+
+function closeAddContactPopup() {
+    // document.getElementById('closeAddContactPopup').classList.add('d-none');    
+    let contactForm = document.getElementById("contactForm");
+    contactForm.classList.add("d-none");
+    document.getElementById('contact-add-btn').classList.remove('d-none');
+    document.getElementById('hide-contacts').classList.remove('d-none');
 }
 
 
