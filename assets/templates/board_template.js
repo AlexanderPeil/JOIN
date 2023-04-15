@@ -87,9 +87,11 @@ function loadCardBoardText(tasks_name, id, catgoryLow) {
  * @returns {string} The HTML code for the popup for adding a new task.
  */
 function loadAddTaskTmp() {
-    return `<div class="popUp-background"  id="popUp-background" onclick="closePopupAddTask()">
+    return /*html*/ `
+    <div class="popUp-background"  id="popUp-background" onclick="closePopupAddTask()">
     <div class="popUp-content_add_task" id="popup-add-task"  onclick="event.stopPropagation()">
-    <div class="headerPopUp"><h2>Add Task</h2><img class="close-header-popup" src="./assets/img/xicon.png" onclick="closePopUpAddTask()"></div>
+    <div class="headerPopUp"><h2>Add Task</h2>
+    <img class="close-header-popup" src="./assets/img/xicon.png" onclick="closePopUpAddTask()"></div>
 <form onsubmit="addTask();return false">
 <div class="content-container">
 <div class="left-container">
@@ -103,12 +105,27 @@ function loadAddTaskTmp() {
     </div>
     <div class="selection-container prevent-select">
         <label>Category</label>
-        <div class="select-wrapper" onclick="openDropdown('category-choices')">
-            <div class="sector_top">
+        <div id="new-category" class="new-cat input-new-cat d-none">
+            <div class="select-color d-none" id="selected-color" style="background: #ffffff"></div>
+            <input id="new-category-input" type="name" placeholder="Category Name ...">
+            <div class="new-category-icons">
+                <img src="./assets/img/checkmark.png" alt="#" onclick="addNewCategory()">
+                <img src="./assets/img/cancel.png" alt="#" onclick="closeNewCategory()">
+            </div>
+        </div>
+        <div class="d-none" id="select-color">
+                <div class="select-color" style="background: #0038ff;" onclick="selectColor(1)"></div>
+                <div class="select-color" style="background: #ffc702;" onclick="selectColor(2)"></div>
+                <div class="select-color" style="background: #1FD7C1;" onclick="selectColor(3)"></div>
+                <div class="select-color" style="background:  #ff7a00;" onclick="selectColor(4)"></div>
+                <div class="select-color" style="background: #fc71ff;" onclick="selectColor(5)"></div>
+            </div>
+        <div class="select-wrapper" id="select-wrapper" onclick="openDropdown('category-choices')">
+            <div class="sector_top" id="sector-top">
                 <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
             </div>
             <div class="category-choices d-none" id="category-choices">
-                 <div class="category" onclick="addNewCategory()">New Category<img class="new-category-img" src="assets/img/add_task_mob.svg"></div>
+                 <div class="category" onclick="openAddNewCategory('category-choices')">New Category<img class="new-category-img" src="assets/img/add_task_mob.svg"></div>
                 <div class="category" onclick="changeCategoryHeader('Marketing')">
                     <div id="marketing">Marketing </div>
                     <div class="circle" style="background: #0038ff;"></div>
@@ -130,7 +147,7 @@ function loadAddTaskTmp() {
                     <div class="circle" style="background: #fc71ff;"></div>
                 </div>
             </div>
-            <div id="new-category" class="category d-none"><input class="" type="name" placeholder="Category Name ..."></div>
+
         </div>
     </div>
     <div class="selection-container prevent-select">

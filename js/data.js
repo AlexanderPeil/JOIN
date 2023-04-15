@@ -1,5 +1,6 @@
 let users = [];
 let currentUser;
+let currentTaskCard;
 
 
 // Body onload function for legal notice and help site
@@ -122,3 +123,17 @@ function checkRememberMeData() {
     }
 }
 
+
+function checkStatus() {
+    let status;
+    try {
+        status = currentTaskCard;
+    } catch (e) {}
+    
+    if(status) {
+        return status;
+    } else {
+        return 'to_do'
+    }
+}
+  

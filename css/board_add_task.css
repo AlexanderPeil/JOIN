@@ -418,6 +418,45 @@ fieldset {
     padding: 7px 20px;
 }
 
+.new-cat {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding: 7px 20px;
+}
+
+#select-color {
+    display: flex;
+}
+
+.select-color {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    margin-left: 15px;
+    border: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.input-new-cat input {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+}
+
+.new-category-icons {
+    display: flex;
+}
+
+.new-category-icons img {
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
 .assigned-to {
     display: flex;
     align-items: center;

@@ -4,6 +4,7 @@ let subtasks = [];
 let priotity_urgent = false;
 let priotity_medium = false;
 let priotity_low = true;
+let selectedColor;
 
 /**
  * Adds a new task to the tasks array and saves it to storage when the "Add" button is clicked.
@@ -17,7 +18,7 @@ async function addTask() {
     let assigned_to = [];
     let due_date = document.getElementById('date').value;
     let new_task;
-    let currentSplit = checkWhichCard();
+    let currentSplit = checkStatus();
 
 
     for (let i = 0; i < contactsAddTask.length; i++) {
@@ -44,6 +45,7 @@ async function addTask() {
     tasks.push(new_task);
     await saveNotes();
     subtasks = [];
+    window.location.href = './board.html';
     document.getElementById('popUp').innerHTML = '';
     document.getElementById('board-section').classList.remove('d-none');
     await init();
@@ -306,7 +308,33 @@ async function editAddTask(id){
 }
 
 
-function addNewCategory() {
-    document.getElementById('category-choices').classList.add('d-none');
+function openAddNewCategory() {
+    document.getElementById('select-wrapper').classList.add('d-none');
     document.getElementById('new-category').classList.remove('d-none');
+    document.getElementById('select-color').classList.remove('d-none');
+}
+
+
+function closeNewCategory() {
+    document.getElementById('select-wrapper').classList.remove('d-none');
+    document.getElementById('new-category').classList.add('d-none');
+    document.getElementById('select-color').classList.add('d-none');
+}
+
+
+function addNewCategory() {
+    let newCat = document.getElementById('new-category-input').value;
+    currentCategory = newCat;
+
+    document.getElementById('category-header').innerHTML = newCat;
+    document.getElementById('select-wrapper').classList.remove('d-none');
+    document.getElementById('new-category').classList.add('d-none');
+    document.getElementById('select-color').classList.add('d-none');
+}
+
+
+function selectColor(color) {
+    selectedColor = document.querySelectorAll('.select-color')[color].style.background;
+    document.getElementById('selected-color').classList.remove('d-none');
+    document.getElementById('selected-color').style.background = selectedColor;
 }

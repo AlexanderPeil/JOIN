@@ -3,7 +3,6 @@ let users_color = loadContacts();
 let onMobile = isMobileDevice();
 let currentDraggedElement;
 let splits = ['to_do', 'in_progress', 'awaiting_feedback', 'done'];
-let currentTaskCard;
 
 
 /**
@@ -346,15 +345,3 @@ function closeAddtask() {
 }
 
 
-function checkWhichCard() {
-    if (currentTaskCard == 'in_progress') {
-        return 'in_progress';
-    } else if (currentTaskCard == 'awaiting_feedback') {
-        return 'awaiting_feedback';
-    } else if (currentTaskCard == 'done') {
-        return 'done';
-    } else {
-        return 'to_do';
-    }
-}
-  
