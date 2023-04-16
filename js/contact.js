@@ -46,7 +46,7 @@ function popupSuccess(){
     document.body.appendChild(popup);
     setTimeout(() => {
         popup.remove();
-    }, 3000);
+    }, 2000);
 }
 
 
