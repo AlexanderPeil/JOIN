@@ -425,20 +425,6 @@ fieldset {
     padding: 7px 20px;
 }
 
-#select-color {
-    display: flex;
-}
-
-.select-color {
-    height: 25px;
-    width: 25px;
-    border-radius: 100%;
-    margin-left: 15px;
-    border: white;
-    cursor: pointer;
-    margin: 10px;
-}
-
 .input-new-cat input {
     width: 100%;
     border: none;
@@ -447,6 +433,7 @@ fieldset {
 
 .new-category-icons {
     display: flex;
+    align-items: center;
 }
 
 .new-category-icons img {
@@ -459,6 +446,15 @@ fieldset {
 .new-category-img {
     height: 20px;
     padding-left: 15px;
+}
+
+#category-color {
+    padding: 5;
+    border-radius: 999px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
 }
 
 @media(max-width:1400px) {

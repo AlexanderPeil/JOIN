@@ -20,6 +20,7 @@ async function addTask() {
     let due_date = document.getElementById('date').value;
     let new_task;
     let currentSplit = checkStatus();
+    let color = document.getElementById('category-color').value;
 
 
     for (let i = 0; i < contactsAddTask.length; i++) {
@@ -35,6 +36,7 @@ async function addTask() {
     new_task = {
         'split': currentSplit,
         'category': category,
+        'color': color,
         'body_header': title,
         'body_content': description,
         'progress': '',
@@ -321,8 +323,8 @@ async function editAddTask(id){
  */
 function openAddNewCategory() {
     document.getElementById('select-wrapper').classList.add('d-none');
-    document.getElementById('new-category').classList.remove('d-none');S
-    document.getElementById('select-color').classList.remove('d-none');
+    document.getElementById('new-category').classList.remove('d-none');
+    // document.getElementById('select-color').classList.remove('d-none');
 }
 
 
@@ -332,7 +334,7 @@ function openAddNewCategory() {
 function closeNewCategory() {
     document.getElementById('select-wrapper').classList.remove('d-none');
     document.getElementById('new-category').classList.add('d-none');
-    document.getElementById('select-color').classList.add('d-none');
+    // document.getElementById('select-color').classList.add('d-none');
 }
 
 
@@ -346,7 +348,7 @@ function addNewCategory() {
     document.getElementById('category-header').innerHTML = newCat;
     document.getElementById('select-wrapper').classList.remove('d-none');
     document.getElementById('new-category').classList.add('d-none');
-    document.getElementById('select-color').classList.add('d-none');
+    // document.getElementById('select-color').classList.add('d-none');
 }
 
 
@@ -354,8 +356,8 @@ function addNewCategory() {
  * Sets the selected color for a category and displays it.
  * @param {*} color - The color to be selected 
  */
-function selectColor(color) {
-    selectedColor = document.querySelectorAll('.select-color')[color].style.background;
-    document.getElementById('selected-color').classList.remove('d-none');
-    document.getElementById('selected-color').style.background = selectedColor;
-}
+// function selectColor(color) {
+//     selectedColor = document.querySelectorAll('.select-color')[color].style.background;
+//     document.getElementById('selected-color').classList.remove('d-none');
+//     document.getElementById('selected-color').style.background = selectedColor;
+// }

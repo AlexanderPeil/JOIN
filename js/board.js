@@ -30,7 +30,7 @@ function loadBoard(choiceTasks) {
 
 
 /**
- * This function clean the old Kanban Board. * 
+ * This function cleans the old Kanban Board.  
  */
 function cleanOldBoard() {
     document.getElementById('to_do').innerHTML = '';
