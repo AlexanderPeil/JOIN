@@ -11,8 +11,7 @@ function loadCardFullText(task_name, choiceTask) {
                 <div class="popUp-close" id="close-task"><img class="popup-img" src="./assets/img/xicon.png" onclick="closePopUp(${choiceTask})"></div>
                 <div class="card-head" style="background-color: var(--${task_name[choiceTask]['category'].toLowerCase()});">${task_name[choiceTask]['category']}</div>
                 <h2>${task_name[choiceTask]['body_header']}</h2>
-                <p>${task_name[choiceTask]['body_content']}</p>
-                
+                <p>${task_name[choiceTask]['body_content']}</p>                
                 <div id=subtaskSectionCheck>
                 <label><b>Subtasks</b></label>
                 <section class="subtaskSection" id="subtaskSection">
@@ -36,10 +35,10 @@ function loadCardFullText(task_name, choiceTask) {
 function loadCardBoardText(tasks_name, id, catgoryLow) {
     return `
     <div>
-    <div class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
+    <div id="card-head-${id}" class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
         
             <div class="card-content">                                      
-                <div class="card-head" style="background-color: var(--${catgoryLow});">
+            <div id="card-head-color" class="card-head" style="background-color: var(--${catgoryLow})">
                     ${(tasks_name['category'])}
                 </div>
                 <div class="card-body">
@@ -125,19 +124,19 @@ function loadAddTaskTmp() {
                     <div class="circle" style="background: #0038ff;"></div>
                 </div>
                 <div class="category" onclick="changeCategoryHeader('Media')">
-                    <div>Media </div>
+                    <div id="media">Media </div>
                     <div class="circle" style="background: #ffc702;"></div>
                 </div>
                 <div class="category" onclick="changeCategoryHeader('Backoffice')">
-                    <div>Backoffice </div>
+                    <div id="backoffice">Backoffice </div>
                     <div class="circle" style="background: #1FD7C1;"></div>
                 </div>
                 <div class="category" onclick="changeCategoryHeader('Design')">
-                    <div>Design </div>
+                    <div id="design">Design </div>
                     <div class="circle" style="background:  #ff7a00;"></div>
                 </div>
                 <div class="category" onclick="changeCategoryHeader('Sales')">
-                    <div>Sales </div>
+                    <div id="sales">Sales </div>
                     <div class="circle" style="background: #fc71ff;"></div>
                 </div>
             </div>

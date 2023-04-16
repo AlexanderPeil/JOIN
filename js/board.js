@@ -45,10 +45,14 @@ function cleanOldBoard() {
  * @param {Array} toLoadTasks - An array of tasks to load on the board.
  */
 function loadNewBoard(toLoadTasks) {
+    let catgoryLow;
+
     for (let i = 0; i < toLoadTasks.length; i++) {
         const task = toLoadTasks[i];
-        let catgoryLow = task['category'].toLowerCase();
+        catgoryLow = checkColor(catgoryLow, task);
+        // checkColor(catgoryLow, task);
         document.getElementById(task['split']).innerHTML += loadCardBoardText(task, i, catgoryLow);
+        // selectedColor = undefined;
         loadUsersBoard(task, i);
         loadSubtasks(task, i);
     }
