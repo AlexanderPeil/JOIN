@@ -46,12 +46,29 @@ async function addTask() {
         'subtasks': subtasks
     }
     tasks.push(new_task);
+    await popupTaskAdded();
     await saveNotes();
+    // Wait for 2 seconds before executing subsequent functions.
+    await new Promise(resolve => setTimeout(resolve, 2000));
     subtasks = [];
     window.location.href = './board.html';
     document.getElementById('popUp').innerHTML = '';
     document.getElementById('board-section').classList.remove('d-none');
     await init();
+}
+
+
+/**
+ * Shows popup with a message after adding a task successfully.
+ */
+function popupTaskAdded(){
+    const popup = document.createElement('div');
+    popup.classList.add('popup-task-added');
+    popup.innerHTML = `<p>task added to board</p>`;
+    document.body.appendChild(popup);
+    setTimeout(() => {
+        popup.remove();
+    }, 2000);
 }
 
 
