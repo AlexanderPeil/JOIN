@@ -32,9 +32,21 @@ function addContacts() {
     newContact.id = contacts.length;
     contacts.push(newContact);
     backend.setItem('contacts', JSON.stringify(contacts));
+    popupSuccess();
     updateContactList();
     resetInputFields();
     closeAddContactForm();
+}
+
+
+function popupSuccess(){
+    const popup = document.createElement('div');
+    popup.classList.add('popup-contact-added');
+    popup.innerHTML = `<p>contact successfully created</p>`;
+    document.body.appendChild(popup);
+    setTimeout(() => {
+        popup.remove();
+    }, 3000);
 }
 
 
