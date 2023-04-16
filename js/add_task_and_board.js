@@ -6,6 +6,7 @@ let priotity_medium = false;
 let priotity_low = true;
 let selectedColor;
 
+
 /**
  * Adds a new task to the tasks array and saves it to storage when the "Add" button is clicked.
  * @function
@@ -51,9 +52,9 @@ async function addTask() {
     await init();
 }
 
+
 /**
  * Checks the priority level selected and returns the corresponding image and string.
- * @function
  * @returns {object[]} - An array with an object containing the priority image, string, and white image.
  */
 function checkPrioity() {
@@ -73,6 +74,7 @@ function checkPrioity() {
     }
     return [{ 'img': prio, 'priotity': priotity, "img_white": "assets/img/Prio-" + priotity + "-white.png" }];
 }
+
 
 /**
  * Changes the color of the priority sections based on the selected priority radio button.
@@ -101,16 +103,15 @@ function changeColor() {
     }
 }
 
+
 /**
  * 	Loads the user contacts from a JSON file and sets them to the "contacts" variable.
- * 	
- * @async
- * @function
 */
 async function loadContacts() {
     await downloadFromServer();
     contactsAddTask = JSON.parse(backend.getItem('contacts')) || [];
 }
+
 
 /**
  * Adds the existing contacts to the "Assigned to" choices list.
@@ -130,6 +131,7 @@ function addAssignedToList() {
     }
 }
 
+
 /**
  * Toggles the visibility of a dropdown list.
  * @param {string} id - The id of the element to toggle.
@@ -143,6 +145,7 @@ function openDropdown(id) {
     }
 }
 
+
 /**
  * Changes the text in the category header.
  * @param {string} name - The new category name.
@@ -152,10 +155,9 @@ function changeCategoryHeader(name) {
     currentCategory = name;
 }
 
+
 /**
  * Changes the subtask icons to the "clear" and "add" icons when the subtask input field is clicked.
- * @function
- * 
  */
 function changeSubIcon() {
     document.getElementById('plusSubtaskImg').classList.add('d-none');
@@ -163,10 +165,9 @@ function changeSubIcon() {
     document.getElementById('addSubtaskImg').classList.remove('d-none');
 }
 
+
 /**
  * Changes the subtask icons to the "clear" and "add" icons when the input field is changed.
- * @function
- * 
  */
 function inputChangeSubIcons() {
     document.getElementById('plusSubtaskImg').classList.add('d-none');
@@ -174,10 +175,9 @@ function inputChangeSubIcons() {
     document.getElementById('addSubtaskImg').classList.remove('d-none');
 }
 
+
 /**
  * Adds a subtask to the list and the subtasks array when the "Add" button is clicked.
- * @function
- * 
  */
 function addSubtask() {
     let subtask = document.getElementById('subtask').value;
@@ -192,21 +192,19 @@ function addSubtask() {
     document.getElementById('plusSubtaskImg').classList.remove('d-none');
     document.getElementById('clearSubtaskImg').classList.add('d-none');
     document.getElementById('addSubtaskImg').classList.add('d-none');
-
 }
+
 
 /**
  * Clears the subtask input field and changes the subtask icons back to the "plus" icon.
- * @function
- * 
  */
 function clearSubtask() {
     document.getElementById('subtask').value = "";
     document.getElementById('plusSubtaskImg').classList.remove('d-none');
     document.getElementById('clearSubtaskImg').classList.add('d-none');
     document.getElementById('addSubtaskImg').classList.add('d-none');
-
 }
+
 
 /**
  * Clears all fields and checkboxes in the task form.
@@ -225,9 +223,9 @@ function clearAll() {
     document.getElementById('subtask-list').innerHTML = '';
 }
 
+
 /**
  * Set the Current Date to today
- * 
  * @param {string} today - The new Date.
  */
 function setDateToday() {
@@ -235,6 +233,11 @@ function setDateToday() {
     document.getElementById("date").setAttribute('min', String(today));
 }
 
+
+/**
+ * Fills the task popup form with task data, given the task ID
+ * @param {*} id - The ID of the task to be filled in the form 
+ */
 function fillTheTasks(id) {
     let title = tasks[id]['body_header'];
     let text = tasks[id]['body_content'];
@@ -273,6 +276,11 @@ function fillTheTasks(id) {
     }
 }
 
+
+/**
+ * Edits an existing task by updating its properties and saves the changes to local storage.
+ * @param {*} id - The id of the task to be edited. 
+ */
 async function editAddTask(id){
     let title = document.getElementById('title_textfield').value;
     let description = document.getElementById('description_textfield').value;
@@ -308,13 +316,19 @@ async function editAddTask(id){
 }
 
 
+/**
+ * Opens a new category input field.
+ */
 function openAddNewCategory() {
     document.getElementById('select-wrapper').classList.add('d-none');
-    document.getElementById('new-category').classList.remove('d-none');
+    document.getElementById('new-category').classList.remove('d-none');S
     document.getElementById('select-color').classList.remove('d-none');
 }
 
 
+/**
+ * Closes the new category input field.
+ */
 function closeNewCategory() {
     document.getElementById('select-wrapper').classList.remove('d-none');
     document.getElementById('new-category').classList.add('d-none');
@@ -322,6 +336,9 @@ function closeNewCategory() {
 }
 
 
+/**
+ * Ads a new category.
+ */
 function addNewCategory() {
     let newCat = document.getElementById('new-category-input').value;
     currentCategory = newCat;
@@ -333,6 +350,10 @@ function addNewCategory() {
 }
 
 
+/**
+ * Sets the selected color for a category and displays it.
+ * @param {*} color - The color to be selected 
+ */
 function selectColor(color) {
     selectedColor = document.querySelectorAll('.select-color')[color].style.background;
     document.getElementById('selected-color').classList.remove('d-none');

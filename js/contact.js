@@ -40,12 +40,12 @@ function addContacts() {
 
 /**
  * Create contact card
- * @param {*} id 
- * @param {*} firstName 
- * @param {*} lastName 
- * @param {*} email 
- * @param {*} phone 
- * @param {*} color 
+ * @param {*} id - The unique identifier for the contact 
+ * @param {*} firstName - The first name of the contact. 
+ * @param {*} lastName - The last name of the contact. 
+ * @param {*} email - The email address of the contact.
+ * @param {*} phone - The phone number of the contact. 
+ * @param {*} color - The color associated with the contact. 
  */
 function createContactCard(id, firstName, lastName, email, phone, color) {
     newContact = {
@@ -63,10 +63,6 @@ function createContactCard(id, firstName, lastName, email, phone, color) {
  * Load contacts from array and sort them by first letter
  * Array of unique first letters
  * Sorts the array alphabetically
- * @param {Array} contacts
- * @param {String} firstLetter
- * @param {String} contactFirstLetter
- * @param {String} contactList
  */
 function loadContacts() {
     let firstLetters = [];
@@ -86,8 +82,8 @@ function loadContacts() {
 
 /**
  * Creates the contact list
- * @param {*} contactList 
- * @param {*} firstLetters 
+ * @param {*} contactList - The DOM element where the contact list will be  
+ * @param {*} firstLetters - An array of first letters of all last names in the contact list 
  */
 function showContactList(contactList, firstLetters) {
     for (let i = 0; i < firstLetters.length; i++) {
@@ -106,7 +102,7 @@ function showContactList(contactList, firstLetters) {
 
 /**
  * Show contact details
- * @param {*} i 
+ * @param {*} i - The index of the selected contact in the contacts array 
  */
 function showContactDetails(i) {
     let contactSelection = document.getElementById('contactSelection');
@@ -120,7 +116,7 @@ function showContactDetails(i) {
 
 /**
  * Highlights a selected contact by giving it a different color.
- * @param {*} i 
+ * @param {*} i - The index of the contact to highlight. 
  */
 function hightlightContact(i) {
     let currentHighlightContact = document.getElementById('highlight-' + i);
@@ -227,7 +223,7 @@ function closeAddContactForm() {
 
 /**
  * Open contact form to edit contact
- * @param {*} i 
+ * @param {*} i - The index of the contact to be edited in the 'contacts' array. 
  */
 function editContact(i) {
     selectedContact = contacts[i];
@@ -239,7 +235,7 @@ function editContact(i) {
 /**
  * Removes the selected contact from the array and updates the contact list
  * i < 7 to disable deleting of test data
- * @param {*} i 
+ * @param {*} i - The index of the contact to delete 
  */
 function deleteSelectedContact(i) {
     if (i < 3) {
@@ -288,6 +284,7 @@ function checkAssignedTo(userShort) {
 
 /**
  * Close forms by ID (contactForm, formTaskContainer)
+ * @param {string} formId - The id of the form to be closed.
  */
 function closeFormById(formId) {
     const form = document.getElementById(formId);

@@ -16,7 +16,8 @@ function login() {
 
 /**
  * Checks the validity of the current user's login data and redirects to the summary page if valid. 
- * 
+ * @param {HTMLElement} invalidLogin - The HTML element to display an error message if login is invalid.
+ * @param {HTMLElement} hideUnderline - The HTML element to hide if login is invalid.
  */
  async function checkUser(invalidLogin, hideUnderline) {
     if (currentUser) {
@@ -27,6 +28,7 @@ function login() {
         returnInvalidLogin(invalidLogin, hideUnderline);
     }
 }
+
 
 /**
  * If the login data are invalid then show text information.
@@ -131,6 +133,7 @@ async function setNewPassword() {
     }
 }
 
+
 /**
  * Shows the information that the entered data was invalid.
  * @param {*} hideSpan - Hides the main text
@@ -144,6 +147,7 @@ function invalidNewPasswordDatas(hideSpan, showMessage) {
         showMessage.classList.add('d-none');
         }, 3000);
 }
+
 
 /**
  * This ifunction stops the join logo animation in responsive mode after 2.5 seconds.
