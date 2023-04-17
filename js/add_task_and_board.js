@@ -16,7 +16,6 @@ let selectedColor;
 async function addTask() {
     let title = document.getElementById('title_textfield').value;
     let description = document.getElementById('description_textfield').value;
-    // let category = currentCategory;
     let assigned_to = [];
     let due_date = document.getElementById('date').value;
     let new_task;
@@ -159,6 +158,10 @@ function changeCategoryHeader(name) {
 }
 
 
+/**
+ * Sets the selected color and category based on the given categoryId.
+ * @param {*} categoryId - The ID of the category to be selected. 
+ */
 function categorySelected(categoryId) {
     if (categoryId === 'Marketing') {
         selectedColor = '#0038ff';
@@ -179,9 +182,20 @@ function categorySelected(categoryId) {
     }
 
 
+    /**
+     * Adds a new color category based on the values entered in the input fields.
+     */
     function addColorCategory() {
         selectedColor = document.getElementById('category-color').value;
         category = document.getElementById('new-category-input').value;
+
+        document.getElementById('new-category-input').classList.add('d-none');
+        document.getElementById('category-added-cont').classList.remove('d-none');
+        
+        setTimeout(() => {
+            document.getElementById('category-added-cont').classList.add('d-none');
+            document.getElementById('new-category-input').classList.remove('d-none');
+        }, 1500);
     }
 
 
@@ -313,7 +327,7 @@ function fillTheTasks(id) {
 async function editAddTask(id){
     let title = document.getElementById('title_textfield').value;
     let description = document.getElementById('description_textfield').value;
-    let category = currentCategory || tasks[id]['category'];
+    // let category = currentCategory || tasks[id]['category'];
     let assigned_to = [];
     let due_date = document.getElementById('date').value;
     let new_task;

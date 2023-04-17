@@ -106,10 +106,10 @@ function loadAddTaskTmp() {
     <div class="selection-container prevent-select">
         <label>Category</label>
         <div id="new-category" class="new-cat input-new-cat d-none">
-            <div class="select-color d-none" id="selected-color" style="background: #ffffff"></div>
-            <input id="new-category-input" type="name" placeholder="Category Name ...">
+            <input id="new-category-input" type="name" placeholder="Category Name ..." required>
+            <div id="category-added-cont" class="d-none" >New Category added!</div>
             <div class="new-category-icons">
-                <input id="category-color" type="color" value="#2a3647">
+                <input id="category-color" type="color" value="#2a3647" required>
                 <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">
                 <img src="./assets/img/cancel.png" alt="#" onclick="closeNewCategory()">
             </div>
@@ -308,10 +308,11 @@ function loadEditAddTaskTmp(id) {
     <div class="selection-container prevent-select">
         <label>Category</label>
         <div id="new-category" class="new-cat input-new-cat d-none">
-        <div class="select-color d-none" id="selected-color" style="background: #ffffff"></div>
-        <input id="new-category-input" type="name" placeholder="Category Name ...">
+        <input id="new-category-input" type="name" placeholder="Category Name ..." required>
+        <div id="category-added-cont" class="d-none" >New Category added!</div>
         <div class="new-category-icons">
-            <img src="./assets/img/checkmark.png" alt="#" onclick="addNewCategory()">
+        <input id="category-color" type="color" value="#2a3647" required>
+            <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">
             <img src="./assets/img/cancel.png" alt="#" onclick="closeNewCategory()">
         </div>
     </div>
@@ -322,7 +323,7 @@ function loadEditAddTaskTmp(id) {
             <div class="select-color" style="background:  #ff7a00;" onclick="selectColor(4)"></div>
             <div class="select-color" style="background: #fc71ff;" onclick="selectColor(5)"></div>
         </div>
-        <div class="select-wrapper" onclick="openDropdown('category-choices')">
+        <div class="select-wrapper" id="select-wrapper" onclick="openDropdown('category-choices')">
             <div class="sector_top">
                 <p id="category-header">Select your Category</p><img src="./assets/img/arrow_down.png">
             </div>

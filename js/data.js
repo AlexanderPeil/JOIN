@@ -123,14 +123,10 @@ function checkRememberMeData() {
 }
 
 
-// function closeAddContactPopup() {   
-//     let contactForm = document.getElementById("contactForm");
-//     contactForm.classList.add("d-none");
-//     document.getElementById('contact-add-btn').classList.remove('d-none');
-//     document.getElementById('hide-contacts').classList.remove('d-none');
-// }
-
-
+/**
+ * Checks the current status of the task card.
+ * @returns {string} - The current status of the task card, either 'to_do' or the value of 
+ */
 function checkStatus() {
     let status;
     try {
@@ -143,23 +139,3 @@ function checkStatus() {
         return 'to_do'
     }
 }
-
-
-// function checkColor(catgoryLow, task) {
-//     let color;
-//     try {
-//         color = selectedColor;
-//     } catch (e) {}
-
-//     if(color) {
-//         return color;
-//     } else {
-//         return setCatgoryToDefault(catgoryLow, task);
-//     }
-// }
-
-
-// function setCatgoryToDefault(catgoryLow, task) {
-//     catgoryLow = task['category'].toLowerCase();
-//     return catgoryLow;
-// }
