@@ -145,21 +145,21 @@ function checkStatus() {
 }
 
 
-function checkColor(catgoryLow, task) {
-    let color;
-    try {
-        color = selectedColor;
-    } catch (e) {}
+// function checkColor(catgoryLow, task) {
+//     let color;
+//     try {
+//         color = selectedColor;
+//     } catch (e) {}
 
-    if(color) {
-        return color;
-    } else {
-        return setCatgoryToDefault(catgoryLow, task);
-    }
-}
+//     if(color) {
+//         return color;
+//     } else {
+//         return setCatgoryToDefault(catgoryLow, task);
+//     }
+// }
 
 
-function setCatgoryToDefault(catgoryLow, task) {
-    catgoryLow = task['category'].toLowerCase();
-    return catgoryLow;
-}
+// function setCatgoryToDefault(catgoryLow, task) {
+//     catgoryLow = task['category'].toLowerCase();
+//     return catgoryLow;
+// }

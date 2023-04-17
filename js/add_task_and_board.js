@@ -4,6 +4,7 @@ let subtasks = [];
 let priotity_urgent = false;
 let priotity_medium = false;
 let priotity_low = true;
+let category;
 let selectedColor;
 
 
@@ -15,13 +16,11 @@ let selectedColor;
 async function addTask() {
     let title = document.getElementById('title_textfield').value;
     let description = document.getElementById('description_textfield').value;
-    let category = currentCategory;
+    // let category = currentCategory;
     let assigned_to = [];
     let due_date = document.getElementById('date').value;
     let new_task;
     let currentSplit = checkStatus();
-    selectedColor = document.getElementById('category-color').value;
-
 
     for (let i = 0; i < contactsAddTask.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
@@ -46,29 +45,12 @@ async function addTask() {
         'subtasks': subtasks
     }
     tasks.push(new_task);
-    await popupTaskAdded();
     await saveNotes();
-    // Wait for 2 seconds before executing subsequent functions.
-    await new Promise(resolve => setTimeout(resolve, 2000));
     subtasks = [];
     window.location.href = './board.html';
     document.getElementById('popUp').innerHTML = '';
     document.getElementById('board-section').classList.remove('d-none');
     await init();
-}
-
-
-/**
- * Shows popup with a message after adding a task successfully.
- */
-function popupTaskAdded(){
-    const popup = document.createElement('div');
-    popup.classList.add('popup-task-added');
-    popup.innerHTML = `<p>task added to board</p>`;
-    document.body.appendChild(popup);
-    setTimeout(() => {
-        popup.remove();
-    }, 2000);
 }
 
 
@@ -171,8 +153,36 @@ function openDropdown(id) {
  */
 function changeCategoryHeader(name) {
     document.getElementById('category-header').innerHTML = name;
-    currentCategory = name;
+    category = name;
+
+    categorySelected(name);      
 }
+
+
+function categorySelected(categoryId) {
+    if (categoryId === 'Marketing') {
+        selectedColor = '#0038ff';
+        category = 'Marketing';
+      } else if (categoryId === 'Media') {
+        selectedColor = '#ffc702';
+        category = 'Media';
+      } else if (categoryId === 'Backoffice') {
+        selectedColor = '#1FD7C1';
+        category = 'Backoffice';
+      } else if (categoryId === 'Design') {
+        selectedColor = '#ff7a00';
+        category = 'Design';
+      } else {
+        selectedColor = '#fc71ff';
+        category = 'Sales';
+      }
+    }
+
+
+    function addColorCategory() {
+        selectedColor = document.getElementById('category-color').value;
+        category = document.getElementById('new-category-input').value;
+    }
 
 
 /**
@@ -320,6 +330,7 @@ async function editAddTask(id){
     new_task = {
         'split': tasks[id]['split'],
         'category': category,
+        'color': selectedColor,
         'body_header': title,
         'body_content': description,
         'progress': '',

@@ -9,7 +9,7 @@ function loadCardFullText(task_name, choiceTask) {
     <div class="popUp-background" id="close-popup${choiceTask}" onclick="closePopup(${choiceTask})">
             <div class="popUp-content" onclick="event.stopPropagation()">
                 <div class="popUp-close" id="close-task"><img class="popup-img" src="./assets/img/xicon.png" onclick="closePopUp(${choiceTask})"></div>
-                <div class="card-head" style="background-color: var(--${task_name[choiceTask]['category'].toLowerCase()});">${task_name[choiceTask]['category']}</div>
+                <div class="card-head" style="background-color: ${task_name[choiceTask]['color']};">${task_name[choiceTask]['category']}</div>
                 <h2>${task_name[choiceTask]['body_header']}</h2>
                 <p>${task_name[choiceTask]['body_content']}</p>                
                 <div id=subtaskSectionCheck>
@@ -32,13 +32,13 @@ function loadCardFullText(task_name, choiceTask) {
  * @param {string} catgoryLow - The lowercase string representation of the category of the task card.
  * @returns {string} The HTML code for the task card in a board view.
  */
-function loadCardBoardText(tasks_name, id, catgoryLow) {
+function loadCardBoardText(tasks_name, id) {
     return `
     <div>
     <div id="card-head-${id}" class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
         
             <div class="card-content">                                      
-            <div id="card-head-color" class="card-head" style="background-color: var(--${catgoryLow})">
+            <div id="card-head-color" class="card-head" style="background-color: ${tasks_name['color']}">
                     ${(tasks_name['category'])}
                 </div>
                 <div class="card-body">
@@ -109,7 +109,8 @@ function loadAddTaskTmp() {
             <div class="select-color d-none" id="selected-color" style="background: #ffffff"></div>
             <input id="new-category-input" type="name" placeholder="Category Name ...">
             <div class="new-category-icons">
-                <input id="category-color" type="color" value="#2a3647" required>
+                <input id="category-color" type="color" value="#2a3647">
+                <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">
                 <img src="./assets/img/cancel.png" alt="#" onclick="closeNewCategory()">
             </div>
         </div>

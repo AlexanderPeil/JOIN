@@ -143,7 +143,8 @@ function openAddTaskContactFormHTML() {
                     <div class="select-color d-none" id="selected-color" style="background: #ffffff"></div>
                     <input id="new-category-input" type="name" placeholder="Category Name ...">
                     <div class="new-category-icons">
-                    <input id="category-color" type="color" value="#2a3647" required>
+                    <input id="category-color" type="color" value="#2a3647">
+                    <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">
                     <img src="./assets/img/cancel.png" alt="#" onclick="closeNewCategory()">
                 </div>
                 </div>
