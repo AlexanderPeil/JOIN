@@ -508,7 +508,6 @@ label {
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
     padding: 40px;
-    width: 452px;
 }
 
 .add-form-right {
@@ -862,6 +861,7 @@ select::-ms-expand {
     }
     .contact-input-container {
         padding: 0 15px 15px 15px !important;
+        width: unset;
     }
     .margin-top {
         margin-top: 60px;
@@ -925,10 +925,6 @@ select::-ms-expand {
     }
     
     .add-form-left {
-        width: unset;
-    }
-
-    .contact-input-container {
         width: unset;
     }
 
