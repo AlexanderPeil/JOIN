@@ -4,6 +4,7 @@ let subtasks = [];
 let priotity_urgent = false;
 let priotity_medium = false;
 let priotity_low = true;
+let currentColor = "";
 let category;
 let selectedColor;
 
@@ -153,6 +154,7 @@ function openDropdown(id) {
 function changeCategoryHeader(name) {
     document.getElementById('category-header').innerHTML = name;
     category = name;
+    currentCategory = category;
 
     categorySelected(name);      
 }
@@ -179,6 +181,7 @@ function categorySelected(categoryId) {
         selectedColor = '#fc71ff';
         category = 'Sales';
       }
+      currentColor = selectedColor;
     }
 
 
@@ -196,6 +199,9 @@ function categorySelected(categoryId) {
             document.getElementById('category-added-cont').classList.add('d-none');
             document.getElementById('new-category-input').classList.remove('d-none');
         }, 1500);
+
+        currentCategory = category;
+        currentColor = selectedColor;
     }
 
 
@@ -327,7 +333,8 @@ function fillTheTasks(id) {
 async function editAddTask(id){
     let title = document.getElementById('title_textfield').value;
     let description = document.getElementById('description_textfield').value;
-    // let category = currentCategory || tasks[id]['category'];
+    category = currentCategory || tasks[id]['category'];
+    selectedColor = currentColor || tasks[id]['color'];
     let assigned_to = [];
     let due_date = document.getElementById('date').value;
     let new_task;
