@@ -14,32 +14,23 @@ let selectedColor;
  * @function
  * @returns {Promise<void>}
  */
+/**
+ * Adds a new task to the tasks array and saves it to storage when the "Add" button is clicked.
+ * @function
+ * @returns {Promise<void>}
+ */
 async function addTask() {
-    let title = document.getElementById('title_textfield').value;
-    let description = document.getElementById('description_textfield').value;
-    let assigned_to = [];
-    let due_date = document.getElementById('date').value;
-    let new_task;
-    let currentSplit = checkStatus();
+    const title = document.getElementById('title_textfield').value;
+    const description = document.getElementById('description_textfield').value;
+    const assigned_to = getAssignedUsers();
+    const due_date = document.getElementById('date').value;
+    const currentSplit = checkStatus();
 
-    for (let i = 0; i < contactsAddTask.length; i++) {
-        if (document.getElementById('assigned-to-' + i).checked) {
-            user = document.getElementById('assigned-to-' + i).value;
-            let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            let userColor = contactsAddTask[i]['color'];
-            assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
-        }
+    if (!isCategoryValid(category)) {
+        return;
     }
 
-    if (category === undefined) {
-        document.getElementById('category-required').classList.remove('d-none');
-        setTimeout(() => {
-            document.getElementById('category-required').classList.add('d-none');
-        }, 2000);
-        return; 
-    }
-
-    new_task = {
+    const new_task = {
         'split': currentSplit,
         'category': category,
         'color': selectedColor,
@@ -50,9 +41,11 @@ async function addTask() {
         'priotity': checkPrioity(),
         'date': due_date,
         'subtasks': subtasks
-    }
+    };
+
     tasks.push(new_task);
     await saveNotes();
+
     subtasks = [];
     window.location.href = './board.html';
     document.getElementById('popUp').innerHTML = '';
@@ -61,8 +54,38 @@ async function addTask() {
 }
 
 
-function checkCategoryInput() {
+/**
+ * Retrieves the list of assigned users based on the checked checkboxes.
+ * @returns {Array<Object>} An array of objects, each representing an assigned user.
+ */
+function getAssignedUsers() {
+    const assigned_to = [];
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        if (document.getElementById('assigned-to-' + i).checked) {
+        const user = document.getElementById('assigned-to-' + i).value;
+        const fullName = document.getElementById('assigned_name' + i).innerHTML;
+        const userColor = contactsAddTask[i]['color'];
+        assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
+        }
+    }
+    return assigned_to;
+}
 
+
+/**
+ * Checks if the given category is valid, i.e. not undefined.
+ * @param {string} category 
+ * @returns 
+ */
+function isCategoryValid(category) {
+    if (category === undefined) {
+        document.getElementById('category-required').classList.remove('d-none');
+        setTimeout(() => {
+        document.getElementById('category-required').classList.add('d-none');
+        }, 2000);
+        return false;
+    }
+    return true;
 }
 
 
@@ -278,7 +301,6 @@ function clearAll() {
         if (document.getElementById('assigned-to-' + i).checked) {
             document.getElementById('assigned-to-' + i).checked = false;
         }
-
     }
     document.getElementById('date').value = '';
     document.getElementById('subtask-list').innerHTML = '';
@@ -328,7 +350,6 @@ function fillTheTasks(id) {
             if (document.getElementById('assigned-to-' + i).value == user['userShort']) {
                 document.getElementById('assigned-to-' + i).checked = true;
             }
-
         }
     }
     for (let s = 0; s < thisSubtasks.length; s++) {
@@ -347,26 +368,12 @@ async function editAddTask(id){
     let description = document.getElementById('description_textfield').value;
     category = currentCategory || tasks[id]['category'];
     selectedColor = currentColor || tasks[id]['color'];
-    let assigned_to = [];
+    let assigned_to = getAssignedUsers();
     let due_date = document.getElementById('date').value;
     let new_task;
-
-    for (let i = 0; i < contactsAddTask.length; i++) {
-        if (document.getElementById('assigned-to-' + i).checked) {
-            user = document.getElementById('assigned-to-' + i).value;
-            let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            let userColor = contactsAddTask[i]['color'];
-            assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
-        }
-
-    }
     
-    if (category === undefined) {
-        document.getElementById('category-required').classList.remove('d-none');
-        setTimeout(() => {
-            document.getElementById('category-required').classList.add('d-none');
-        }, 2000);
-        return; 
+    if (!isCategoryValid(category)) {
+        return;
     }
 
     new_task = {
