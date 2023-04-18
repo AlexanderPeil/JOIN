@@ -108,6 +108,7 @@ function loadAddTaskTmp() {
         <div id="new-category" class="new-cat input-new-cat d-none">
             <input id="new-category-input" type="name" placeholder="Category Name ...">
             <div id="category-added-cont" class="d-none" >New Category added!</div>
+            <div id="category-required" class="d-none">Bitte eine Kategorie wählen.</div>
             <div class="new-category-icons">
                 <input id="category-color" type="color" value="#2a3647" required>
                 <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">
@@ -310,6 +311,7 @@ function loadEditAddTaskTmp(id) {
         <div id="new-category" class="new-cat input-new-cat d-none">
         <input id="new-category-input" type="name" placeholder="Category Name ...">
         <div id="category-added-cont" class="d-none" >New Category added!</div>
+        <div id="category-required" class="d-none">Bitte eine Kategorie wählen.</div>
         <div class="new-category-icons">
         <input id="category-color" type="color" value="#2a3647" required>
             <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">

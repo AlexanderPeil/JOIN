@@ -29,7 +29,14 @@ async function addTask() {
             let userColor = contactsAddTask[i]['color'];
             assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
         }
+    }
 
+    if (category === undefined) {
+        document.getElementById('category-required').classList.remove('d-none');
+        setTimeout(() => {
+            document.getElementById('category-required').classList.add('d-none');
+        }, 2000);
+        return; 
     }
 
     new_task = {
@@ -51,6 +58,11 @@ async function addTask() {
     document.getElementById('popUp').innerHTML = '';
     document.getElementById('board-section').classList.remove('d-none');
     await init();
+}
+
+
+function checkCategoryInput() {
+
 }
 
 
@@ -348,6 +360,15 @@ async function editAddTask(id){
         }
 
     }
+    
+    if (category === undefined) {
+        document.getElementById('category-required').classList.remove('d-none');
+        setTimeout(() => {
+            document.getElementById('category-required').classList.add('d-none');
+        }, 2000);
+        return; 
+    }
+
     new_task = {
         'split': tasks[id]['split'],
         'category': category,
