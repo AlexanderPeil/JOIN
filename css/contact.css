@@ -931,6 +931,15 @@ select::-ms-expand {
     .add-form-right {
         display:  block;
     }
+
+    .prio-btn-container {
+        gap: 2px!important;
+    }
+
+    .prio-btn {
+        font-size: 13px!important;
+    }
+    
 }
 
 @media(max-width: 400px) {
