@@ -9,45 +9,60 @@ let category;
 let selectedColor;
 
 
+
 /**
  * Adds a new task to the tasks array and saves it to storage when the "Add" button is clicked.
- * @function
  * @returns {Promise<void>}
  */
 async function addTask() {
-    let title = document.getElementById('title_textfield').value;
-    let description = document.getElementById('description_textfield').value;
-    let assigned_to = [];
-    let due_date = document.getElementById('date').value;
-    let new_task;
-    let currentSplit = checkStatus();
+    const title = document.getElementById('title_textfield').value;
+    const description = document.getElementById('description_textfield').value;
+    const assigned_to = getAssignedUsers();
+    const due_date = document.getElementById('date').value;
+    const currentSplit = checkStatus();
 
-    loopThroughContacts(assigned_to);
-
-    if (category === undefined) {
-        checkCategoryInput();
-        return; 
+    if (!isCategoryValid(category)) {
+        return;
     }
 
-    new_task = createNewTaskJson(new_task, title, description, due_date, currentSplit, assigned_to);
+    new_task = createNewTaskJson(title, description, due_date, currentSplit, assigned_to);
     await addNewTask(new_task);
     await navigateToBoard();
 }
 
 
 /**
- * Loops through the contactsAddTask array and adds each selected contact to the assigned_to array.
- * @param {Array} assigned_to - An array to which the selected contacts will be added.
+ * Retrieves the list of assigned users based on the checked checkboxes.
+ * @returns {Array<Object>} An array of objects, each representing an assigned user.
  */
-function loopThroughContacts(assigned_to) {
+function getAssignedUsers() {
+    const assigned_to = [];
     for (let i = 0; i < contactsAddTask.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
-            user = document.getElementById('assigned-to-' + i).value;
-            let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            let userColor = contactsAddTask[i]['color'];
+            const user = document.getElementById('assigned-to-' + i).value;
+            const fullName = document.getElementById('assigned_name' + i).innerHTML;
+            const userColor = contactsAddTask[i]['color'];
             assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
         }
     }
+    return assigned_to;
+}
+
+
+/**
+ * Checks if the given category is valid, i.e. not undefined.
+ * @param {string} category 
+ * @returns 
+ */
+function isCategoryValid(category) {
+    if (category === undefined) {
+        document.getElementById('category-required').classList.remove('d-none');
+        setTimeout(() => {
+            document.getElementById('category-required').classList.add('d-none');
+        }, 2000);
+        return false;
+    }
+    return true;
 }
 
 
@@ -61,7 +76,7 @@ function loopThroughContacts(assigned_to) {
  * @param {Array} assigned_to - An array of objects representing the users assigned to the task.
  * @returns {Object} - The new task object.
  */
-function createNewTaskJson(new_task, title, description, due_date, currentSplit, assigned_to) {
+function createNewTaskJson(title, description, due_date, currentSplit, assigned_to) {
     return {
         'split': currentSplit,
         'category': category,
@@ -78,19 +93,8 @@ function createNewTaskJson(new_task, title, description, due_date, currentSplit,
 
 
 /**
- * Displays an error message if the category input is not selected and removes it after 2 seconds.
- */
-function checkCategoryInput() {
-    document.getElementById('category-required').classList.remove('d-none');
-    setTimeout(() => {
-        document.getElementById('category-required').classList.add('d-none');
-    }, 2000);
-}
-
-
-/**
  * Adds a new task to the task list, clears the subtasks list, and saves the updated task list to the storage.
- * @param {Object} new_task - The new task to be added.
+ * @param {*} new_task - The new task to be added. 
  */
 async function addNewTask(new_task) {
     tasks.push(new_task);
@@ -141,6 +145,17 @@ function changeColor() {
     priotity_medium = document.getElementById('mediumBtn').checked;
     priotity_low = document.getElementById('lowBtn').checked;
 
+    checkChangedColor(priotity_urgent, priotity_medium, priotity_low);
+}
+
+
+/**
+ * Updates the priority sections on the page based on which priority has been selected.
+ * @param {*} priotity_urgentt - A boolean indicating whether the urgent priority has been selected. 
+ * @param {*} priotity_medium - A boolean indicating whether the medium priority has been selected. 
+ * @param {*} priotity_low - A boolean indicating whether the low priority has been selected. 
+ */
+function checkChangedColor(priotity_urgent, priotity_medium, priotity_low) {
     if (priotity_urgent) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent-white');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
@@ -150,13 +165,11 @@ function changeColor() {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'prio-medium-white');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
-
     }
     if (priotity_low) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
         document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low-white');
-
     }
 }
 
@@ -212,7 +225,7 @@ function changeCategoryHeader(name) {
     category = name;
     currentCategory = category;
 
-    categorySelected(name);      
+    categorySelected(name);
 }
 
 
@@ -224,41 +237,60 @@ function categorySelected(categoryId) {
     if (categoryId === 'Marketing') {
         selectedColor = '#0038ff';
         category = 'Marketing';
-      } else if (categoryId === 'Media') {
+    } else if (categoryId === 'Media') {
         selectedColor = '#ffc702';
         category = 'Media';
-      } else if (categoryId === 'Backoffice') {
+    } else if (categoryId === 'Backoffice') {
         selectedColor = '#1FD7C1';
         category = 'Backoffice';
-      } else if (categoryId === 'Design') {
+    } else if (categoryId === 'Design') {
         selectedColor = '#ff7a00';
         category = 'Design';
-      } else {
+    } else {
         selectedColor = '#fc71ff';
         category = 'Sales';
-      }
-      currentColor = selectedColor;
     }
+    currentColor = selectedColor;
+}
 
 
-    /**
-     * Adds a new color category based on the values entered in the input fields.
-     */
-    function addColorCategory() {
-        selectedColor = document.getElementById('category-color').value;
-        category = document.getElementById('new-category-input').value;
+/**
+ * Adds a new color category based on the values entered in the input fields.
+ */
+function addColorCategory() {
+    if (!checkNewCategoryInput()) {
+        return;
+    }
+    selectedColor = document.getElementById('category-color').value;
+    category = document.getElementById('new-category-input').value;
+    document.getElementById('new-category-input').classList.add('d-none');
+    document.getElementById('category-added-cont').classList.remove('d-none');
+    setTimeout(() => {
+        document.getElementById('category-added-cont').classList.add('d-none');
+        document.getElementById('new-category-input').classList.remove('d-none');
+    }, 1500);
+    currentCategory = category;
+    currentColor = selectedColor;
+}
 
-        document.getElementById('new-category-input').classList.add('d-none');
-        document.getElementById('category-added-cont').classList.remove('d-none');
-        
+
+
+/**
+ * Checks if the input for adding a new category is not empty
+ * @returns {boolean} Returns true if the input for adding a new category is not empty, otherwise false. 
+ */
+function checkNewCategoryInput() {
+    let newCategoryInput = document.getElementById('new-category-input');
+
+    if (newCategoryInput.value === '') {
+        document.getElementById('category-required').classList.remove('d-none');
         setTimeout(() => {
-            document.getElementById('category-added-cont').classList.add('d-none');
-            document.getElementById('new-category-input').classList.remove('d-none');
-        }, 1500);
-
-        currentCategory = category;
-        currentColor = selectedColor;
+            document.getElementById('category-required').classList.add('d-none');
+        }, 2000);
+        return false;
     }
+    return true;
+}
 
 
 /**
@@ -322,7 +354,6 @@ function clearAll() {
         if (document.getElementById('assigned-to-' + i).checked) {
             document.getElementById('assigned-to-' + i).checked = false;
         }
-
     }
     document.getElementById('date').value = '';
     document.getElementById('subtask-list').innerHTML = '';
@@ -372,12 +403,11 @@ function fillTheTasks(id) {
             if (document.getElementById('assigned-to-' + i).value == user['userShort']) {
                 document.getElementById('assigned-to-' + i).checked = true;
             }
-
         }
     }
     for (let s = 0; s < thisSubtasks.length; s++) {
         const subtask = thisSubtasks[s];
-        document.getElementById('subtask-list').innerHTML += `<li>${subtask['subtaskName']}</li>`;        
+        document.getElementById('subtask-list').innerHTML += `<li>${subtask['subtaskName']}</li>`;
     }
 }
 
@@ -386,31 +416,17 @@ function fillTheTasks(id) {
  * Edits an existing task by updating its properties and saves the changes to local storage.
  * @param {*} id - The id of the task to be edited. 
  */
-async function editAddTask(id){
+async function editAddTask(id) {
     let title = document.getElementById('title_textfield').value;
     let description = document.getElementById('description_textfield').value;
     category = currentCategory || tasks[id]['category'];
     selectedColor = currentColor || tasks[id]['color'];
-    let assigned_to = [];
+    let assigned_to = getAssignedUsers();
     let due_date = document.getElementById('date').value;
     let new_task;
 
-    for (let i = 0; i < contactsAddTask.length; i++) {
-        if (document.getElementById('assigned-to-' + i).checked) {
-            user = document.getElementById('assigned-to-' + i).value;
-            let fullName = document.getElementById('assigned_name' + i).innerHTML;
-            let userColor = contactsAddTask[i]['color'];
-            assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
-        }
-
-    }
-    
-    if (category === undefined) {
-        document.getElementById('category-required').classList.remove('d-none');
-        setTimeout(() => {
-            document.getElementById('category-required').classList.add('d-none');
-        }, 2000);
-        return; 
+    if (!isCategoryValid(category)) {
+        return;
     }
 
     new_task = {
