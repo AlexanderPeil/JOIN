@@ -37,7 +37,7 @@ function loadCardFullText(task_name, choiceTask) {
 function loadCardBoardText(tasks_name, id) {
     return `
     <div>
-    <div id="card-head-${id}" class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" ondragend="endDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
+    <div id="card-head-${id}" class="card" id=card${id} draggable="true" ondragstart="startDragging(${id})" onclick="checkWhichMenu(${id}); event.stopPropagation();">
         
             <div class="card-content">                                      
             <div id="card-head-color" class="card-head" style="background-color: ${tasks_name['color']}">
@@ -113,7 +113,7 @@ function loadAddTaskTmp() {
                             <div id="new-category" class="new-cat input-new-cat d-none">
                                 <input id="new-category-input" type="name" placeholder="Category Name ...">
                                 <div id="category-added-cont" class="d-none" >New Category added!</div>
-                                <div id="category-required" class="d-none">Bitte eine Kategorie wählen.</div>
+                                <div id="category-required" class="d-none">Please enter a category.</div>
                                 <div class="new-category-icons">
                                     <input id="category-color" type="color" value="#2a3647" required>
                                     <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">
@@ -296,7 +296,7 @@ function loadEditAddTaskTmp(id) {
     <div class="headerPopUp"><h2>Add Task</h2><img src="./assets/img/xicon.png" onclick="closePopUpAddTask()"></div>
     <form onsubmit="editAddTask(${id});return false">
         <div class="content-container">
-            <div class="left-container">a
+            <div class="left-container">
                 <div class="selection-container">
                     <label>Title</label>
                     <input placeholder="Enter a title" id="title_textfield" required>
@@ -310,7 +310,7 @@ function loadEditAddTaskTmp(id) {
                 <div id="new-category" class="new-cat input-new-cat d-none">
                     <input id="new-category-input" type="name" placeholder="Category Name ...">
                 <div id="category-added-cont" class="d-none" >New Category added!</div>
-                <div id="category-required" class="d-none">Bitte eine Kategorie wählen.</div>
+                <div id="category-required" class="d-none">Please enter a category.</div>
                 <div class="new-category-icons">
                     <input id="category-color" type="color" value="#2a3647" required>
                     <img src="./assets/img/checkmark.png" alt="#" onclick="addColorCategory()">

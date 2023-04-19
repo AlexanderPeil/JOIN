@@ -1,10 +1,10 @@
-let currentCategory = '';
 let contactsAddTask = loadContacts();
 let subtasks = [];
 let priotity_urgent = false;
 let priotity_medium = false;
 let priotity_low = true;
-let currentColor = "";
+let currentCategory = '';
+let currentColor = '';
 let category;
 let selectedColor;
 
@@ -22,6 +22,24 @@ async function addTask() {
     let new_task;
     let currentSplit = checkStatus();
 
+    loopThroughContacts(assigned_to);
+
+    if (category === undefined) {
+        checkCategoryInput();
+        return; 
+    }
+
+    new_task = createNewTaskJson(new_task, title, description, due_date, currentSplit, assigned_to);
+    await addNewTask(new_task);
+    await navigateToBoard();
+}
+
+
+/**
+ * Loops through the contactsAddTask array and adds each selected contact to the assigned_to array.
+ * @param {Array} assigned_to - An array to which the selected contacts will be added.
+ */
+function loopThroughContacts(assigned_to) {
     for (let i = 0; i < contactsAddTask.length; i++) {
         if (document.getElementById('assigned-to-' + i).checked) {
             user = document.getElementById('assigned-to-' + i).value;
@@ -30,16 +48,21 @@ async function addTask() {
             assigned_to.push({ 'userShort': user, 'userFullName': fullName, 'color': userColor });
         }
     }
+}
 
-    if (category === undefined) {
-        document.getElementById('category-required').classList.remove('d-none');
-        setTimeout(() => {
-            document.getElementById('category-required').classList.add('d-none');
-        }, 2000);
-        return; 
-    }
 
-    new_task = {
+/**
+ * Creates a new task object.
+ * @param {Object} new_task - The new task object to create.
+ * @param {string} title - The title of the task.
+ * @param {string} description - The description of the task.
+ * @param {string} due_date - The due date of the task.
+ * @param {string} currentSplit - The current split of the task.
+ * @param {Array} assigned_to - An array of objects representing the users assigned to the task.
+ * @returns {Object} - The new task object.
+ */
+function createNewTaskJson(new_task, title, description, due_date, currentSplit, assigned_to) {
+    return {
         'split': currentSplit,
         'category': category,
         'color': selectedColor,
@@ -51,18 +74,39 @@ async function addTask() {
         'date': due_date,
         'subtasks': subtasks
     }
+}
+
+
+/**
+ * Displays an error message if the category input is not selected and removes it after 2 seconds.
+ */
+function checkCategoryInput() {
+    document.getElementById('category-required').classList.remove('d-none');
+    setTimeout(() => {
+        document.getElementById('category-required').classList.add('d-none');
+    }, 2000);
+}
+
+
+/**
+ * Adds a new task to the task list, clears the subtasks list, and saves the updated task list to the storage.
+ * @param {Object} new_task - The new task to be added.
+ */
+async function addNewTask(new_task) {
     tasks.push(new_task);
-    await saveNotes();
     subtasks = [];
+    await saveNotes();
+}
+
+
+/**
+ * Navigates to the board page, removes popup and unhides board section, and initializes the board
+ */
+async function navigateToBoard() {
     window.location.href = './board.html';
     document.getElementById('popUp').innerHTML = '';
     document.getElementById('board-section').classList.remove('d-none');
     await init();
-}
-
-
-function checkCategoryInput() {
-
 }
 
 

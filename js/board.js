@@ -157,9 +157,9 @@ async function moveTo(category) {
  * Ends dragging of an element.
  * @param {string} id - The id of the element being dragged.
  */
-function endDragging(id) {
-    document.getElementById('card' + id).style.transform = "rotate(0deg)";
-}
+// function endDragging(id) {
+//     document.getElementById('card' + id).style.transform = "rotate(0deg)";
+// }
 
 
 /**
