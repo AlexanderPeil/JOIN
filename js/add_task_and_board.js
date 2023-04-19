@@ -163,7 +163,7 @@ function checkChangedColor(priotity_urgent, priotity_medium, priotity_low) {
     }
     if (priotity_medium) {
         document.getElementById('urgentSection').innerHTML = loadPrioIMGWithText('Urgent', 'Prio-urgent');
-        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'prio-medium-white');
+        document.getElementById('mediumSection').innerHTML = loadPrioIMGWithText('Medium', 'Prio-medium-white');
         document.getElementById('lowSection').innerHTML = loadPrioIMGWithText('Low', 'Prio-low');
     }
     if (priotity_low) {
@@ -284,8 +284,10 @@ function checkNewCategoryInput() {
 
     if (newCategoryInput.value === '') {
         document.getElementById('category-required').classList.remove('d-none');
+        document.getElementById('new-category-input').classList.add('d-none');
         setTimeout(() => {
             document.getElementById('category-required').classList.add('d-none');
+            document.getElementById('new-category-input').classList.remove('d-none');
         }, 2000);
         return false;
     }
@@ -381,6 +383,20 @@ function fillTheTasks(id) {
     let date = tasks[id]['date'];
     let prio = tasks[id]['priotity'][0]['priotity'];
     let thisSubtasks = tasks[id]['subtasks'];
+
+    checkPrioButton(prio);
+    changeColor();
+    getValueFromTaskInputs(title, text, category, date);
+    loopThroughUsers(id);
+    loopThroughSubtasks(thisSubtasks);
+}
+
+
+/**
+ * Updates the priority buttons according to the selected priority.
+ * @param {*} prio - The selected priority ('urgent' or 'medium'). 
+ */
+function checkPrioButton(prio) {
     if (prio == 'urgent') {
         priotity_urgent = document.getElementById('urgentBtn').checked = true;
         priotity_medium = document.getElementById('mediumBtn').checked = false;
@@ -391,12 +407,29 @@ function fillTheTasks(id) {
         priotity_medium = document.getElementById('mediumBtn').checked = true;
         priotity_low = document.getElementById('lowBtn').checked = false;
     }
-    changeColor();
+}
+
+
+/**
+ * Sets the values of the task inputs based on the provided parameters.
+ * @param {*} title - The title of the task to set in the title textfield. 
+ * @param {*} text - The description of the task to set in the description textfield. 
+ * @param {*} category - The category of the task to set as the category header. 
+ * @param {*} date - The date of the task to set in the date input field. 
+ */
+function getValueFromTaskInputs(title, text, category, date) {
     document.getElementById('title_textfield').value = title;
     document.getElementById('description_textfield').value = text;
     document.getElementById('category-header').innerHTML = category;
     document.getElementById('date').value = date;
+}
 
+
+/**
+ * Iterates through the users assigned to a task and checks the corresponding checkboxes
+ * @param {*} id - The ID of the task to loop through users for 
+ */
+function loopThroughUsers(id) {
     for (let j = 0; j < tasks[id]['users'].length; j++) {
         const user = tasks[id]['users'][j];
         for (let i = 0; i < contactsAddTask.length; i++) {
@@ -405,6 +438,14 @@ function fillTheTasks(id) {
             }
         }
     }
+}
+
+
+/**
+ * Loops through an array of subtasks and appends each subtask name to an HTML unordered list element with the ID 'subtask-list'.
+ * @param {*} thisSubtasks - An array of subtasks to loop through. 
+ */
+function loopThroughSubtasks(thisSubtasks) {
     for (let s = 0; s < thisSubtasks.length; s++) {
         const subtask = thisSubtasks[s];
         document.getElementById('subtask-list').innerHTML += `<li>${subtask['subtaskName']}</li>`;
@@ -423,13 +464,28 @@ async function editAddTask(id) {
     selectedColor = currentColor || tasks[id]['color'];
     let assigned_to = getAssignedUsers();
     let due_date = document.getElementById('date').value;
-    let new_task;
 
-    if (!isCategoryValid(category)) {
-        return;
-    }
+    if (!isCategoryValid(category)) return;
 
-    new_task = {
+    new_task = createEditedTaskJson(id, title, description, assigned_to, due_date);
+    tasks[id] = new_task;
+    await saveNotes();
+    subtasks = [];
+    window.location.href = './board.html';
+}
+
+
+/**
+ * Creates a JSON object representing the edited task.
+ * @param {*} id - The ID of the task being edited. 
+ * @param {*} title - The title of the task. 
+ * @param {*} description - The description of the task. 
+ * @param {*} assigned_to - An array of users assigned to the task 
+ * @param {*} due_date - The due date of the task. 
+ * @returns {object} - A JSON object representing the edited task. 
+ */
+function createEditedTaskJson(id, title, description, assigned_to, due_date) {
+    return {
         'split': tasks[id]['split'],
         'category': category,
         'color': selectedColor,
@@ -441,10 +497,6 @@ async function editAddTask(id) {
         'date': due_date,
         'subtasks': subtasks
     }
-    tasks[id] = new_task;
-    await saveNotes();
-    subtasks = [];
-    window.location.href = './board.html';
 }
 
 
