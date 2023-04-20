@@ -1,6 +1,7 @@
 let users = [];
 let currentUser;
 let currentTaskCard;
+let currenContextMenu;
 
 
 // Body onload function for legal notice and help site
@@ -138,4 +139,9 @@ function checkStatus() {
     } else {
         return 'to_do'
     }
+}
+
+
+function closeMenu() {
+    document.getElementById(`contextMenu${currenContextMenu}`).classList.add('d-none');    
 }
