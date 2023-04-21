@@ -114,7 +114,7 @@ body {
     font-size: 16px;
 }
 
-.sign-up-btn:hover {
+.sign-up-btn-login:hover {
     background: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: all 125ms ease-in-out;
