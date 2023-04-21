@@ -98,7 +98,7 @@ function openEditContactFormHTML(selectedContact) {
                         <input class="contact-input-field input-email-img" type="email" placeholder="Email" id="email" name="email" value="${selectedContact.email}" required>
                     </div>
                     <div class="form-group">
-                        <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone" id="phone" name="phone" value="${selectedContact.phone}" required>
+                        <input class="contact-input-field input-phone-img" type="tel" placeholder="Phone" id="phone" name="phone" value="${selectedContact.phone}" pattern="[+0-9\s]+" required>
                     </div>
                     <div class="form-group">
                         <input class="p-none"type="color" id="color" name="color" value="${selectedContact.color}" required>

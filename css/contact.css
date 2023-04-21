@@ -760,6 +760,7 @@ select::-ms-expand {
     .show-contact-selection-overlay {
         transform: translateX(0px);
         z-index: 999;
+        position: fixed;
     }
     .contact-header-container {
         display: flex;
